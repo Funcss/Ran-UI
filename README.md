@@ -1,4 +1,4 @@
-## Welcome to Ran-UI Pages
+## Welcome
 
 这是一个简单的静态UI框架，用于快速搭建项目使用，目前仅支持Chrome最新版本。
 
