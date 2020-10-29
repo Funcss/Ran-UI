@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="70px" viewBox="0 0 55 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>file9</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文件类型及后缀" transform="translate(-161.000000, -792.000000)" fill-rule="nonzero">
+            <g id="file9" transform="translate(161.000000, 792.000000)">
+                <polygon id="Shape" fill="#EC5555" points="42.5 0 55 12.5 55 70 0 70 0 0"></polygon>
+                <polygon id="Shape" fill="#000000" opacity="0.2" points="42.25 12.5 54.75 25 54.75 12.5"></polygon>
+                <path d="M28,24 C21.9225,24 17,28.9225 17,35 C17,41.0775 21.9225,46 28,46 C34.0775,46 39,41.0775 39,35 C39,28.9225 34.0775,24 28,24 Z M29.1,42.7 L26.9,42.7 L26.9,40.5 L29.1,40.5 L29.1,42.7 Z M31.3715,34.1805 L30.387,35.1925 C29.595,35.9845 29.1,36.65 29.1,38.3 L26.9,38.3 L26.9,37.75 C26.9,36.5345 27.395,35.4345 28.187,34.637 L29.5565,33.251 C29.9525,32.855 30.2,32.305 30.2,31.7 C30.2,30.4845 29.2155,29.5 28,29.5 C26.7845,29.5 25.8,30.4845 25.8,31.7 L23.6,31.7 C23.6,29.269 25.569,27.3 28,27.3 C30.431,27.3 32.4,29.269 32.4,31.7 C32.4,32.668 32.0095,33.5425 31.3715,34.1805 Z" id="形状" fill="#FFFFFF"></path>
+                <polyline id="Shape" fill="#FFFFFF" opacity="0.4" points="42.25 0 42.25 12.5 54.75 12.5 42.25 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

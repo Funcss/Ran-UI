@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/demo.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/prism.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+
+    <title>ADA-Cloud</title>
+</head>
+
+<body>
+    <section class="section">
+        <h2>栅格</h2>
+        <h3>12栅</h3>
+        <div class="grid">
+            <div class="grid-item grid-span12 paper paper-z2">grid-span12</div>
+            <div class="grid-item grid-span6 paper paper-z2">grid-span6</div>
+            <div class="grid-item grid-span6 paper paper-z2">grid-span6</div>
+            <div class="grid-item grid-span1 paper paper-z2">grid-span1</div>
+            <div class="grid-item grid-span4 paper paper-z2">grid-span4</div>
+            <div class="grid-item grid-span5 paper paper-z2">grid-span5</div>
+            <div class="grid-item grid-span2 paper paper-z2">grid-span2</div>
+        </div>
+
+        <h3>简单的拖动栅格</h3>
+        <pre class="code-demo language-javascript">
+ <code>
+//拖动drop:https://sortablejs.github.io/sortablejs/
+const dragbox = document.getElementById('grid1');
+new Sortable(dragbox, {
+animation: 150,
+ghostClass: 'sortabling'
+});
+
+
+</code>
+
+        </pre>
+        <div class="grid" id="grid1">
+            <div class="grid-span5 dropItem paper paper-z2" draggable="true">grid-span5</div>
+            <div class="grid-span2 dropItem paper paper-z2" draggable="true">grid-span2</div>
+            <div class="grid-item dropItem grid-span6 paper paper-z2" draggable="true">grid-span6</div>
+            <div class="grid-span4 dropItem paper paper-z2" draggable="true">grid-span4</div>
+            <div class="grid-item dropItem grid-span1 paper paper-z2">grid-span1</div>
+            <div class="grid-item dropItem grid-span4 paper paper-z2">grid-span4</div>
+            <div class="grid-item dropItem grid-span5 paper paper-z2">grid-span5</div>
+            <div class="grid-item dropItem grid-span2 paper paper-z2">grid-span2</div>
+        </div>
+
+        <h2>按钮</h2>
+        <h3>实心按钮</h3>
+        <div class="demo demo-btn-inline">
+            <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md btn-secondary"><i class="icon-icon89"></i>btn-secondary</button>
+            <button class="btn btn-md btn-primary"><i class="icon-icon89"></i>btn-primary</button>
+            <button class="btn btn-md btn-danger"><i class="icon-icon89"></i>btn-danger</button>
+            <button class="btn btn-md btn-warning"><i class="icon-icon89"></i>btn-warning</button>
+            <button class="btn btn-md btn-success"><i class="icon-icon89"></i>btn-success</button>
+        </div>
+        <h3>空心按钮</h3>
+        <div class="demo demo-btn-inline">
+            <button class="btn btn-md btn-outlined"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md btn-secondary btn-outlined"><i class="icon-icon89"></i>btn-secondary</button>
+            <button class="btn btn-md btn-primary btn-outlined"><i class="icon-icon89"></i>btn-primary</button>
+            <button class="btn btn-md btn-danger btn-outlined"><i class="icon-icon89"></i>btn-danger</button>
+            <button class="btn btn-md btn-warning btn-outlined"><i class="icon-icon89"></i>btn-warning</button>
+            <button class="btn btn-md btn-success btn-outlined"><i class="icon-icon89"></i>btn-success</button>
+        </div>
+        <h3>文本按钮</h3>
+        <div class="demo demo-btn-inline">
+            <button class="btn btn-md btn-text"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md btn-secondary btn-text"><i class="icon-icon89"></i>btn-secondary</button>
+            <button class="btn btn-md btn-primary btn-text"><i class="icon-icon89"></i>btn-primary</button>
+            <button class="btn btn-md btn-danger btn-text"><i class="icon-icon89"></i>btn-danger</button>
+            <button class="btn btn-md btn-warning btn-text"><i class="icon-icon89"></i>btn-warning</button>
+            <button class="btn btn-md btn-success btn-text"><i class="icon-icon89"></i>btn-success</button>
+        </div>
+        <h3>图标按钮</h3>
+        <div class="demo demo-btn-inline">
+            <button class="btn btn-md btn-icon"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-secondary btn-icon"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-primary btn-icon"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-danger btn-icon"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-warning btn-icon"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-success btn-icon"><i class="icon-icon89"></i></button>
+        </div>
+        <h3>按钮尺寸</h3>
+        <div class="demo demo-btn-inline">
+            <button class="btn btn-sm "><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md "><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-lg "><i class="icon-icon89"></i>Default</button>
+            <br>
+            <br>
+            <button class="btn btn-sm  btn-outlined"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md  btn-outlined"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-lg  btn-outlined"><i class="icon-icon89"></i>Default</button>
+            <br>
+            <br>
+            <button class="btn btn-sm btn-text"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md btn-text"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-lg btn-text"><i class="icon-icon89"></i>Default</button>
+            <br>
+            <br>
+            <button class="btn btn-sm btn-icon btn-primary"><i class="icon-icon89"></i></button>
+            <button class="btn btn-md btn-icon btn-primary"><i class="icon-icon89"></i></button>
+            <button class="btn btn-lg btn-icon btn-primary"><i class="icon-icon89"></i></button>
+        </div>
+        <h3>块按钮</h3>
+        <div class="demo">
+            <button class="btn btn-md block"><i class="icon-icon89"></i>Default</button>
+            <button class="btn btn-md btn-secondary block"><i class="icon-icon89"></i>btn-secondary</button>
+            <button class="btn btn-md btn-primary block"><i class="icon-icon89"></i>btn-primary</button>
+            <button class="btn btn-md btn-danger block"><i class="icon-icon89"></i>btn-danger</button>
+            <button class="btn btn-md btn-warning block"><i class="icon-icon89"></i>btn-warning</button>
+            <button class="btn btn-md btn-success block"><i class="icon-icon89"></i>btn-success</button>
+        </div>
+        <h3>按钮组</h3>
+        <div class="demo">
+            <div class="btn-group">
+                <button class="btn btn-md btn-outlined"><i class="icon-icon89"></i>Default</button>
+                <button class="btn btn-md btn-outlined"><i class="icon-icon89"></i>Default</button>
+                <button class="btn btn-md btn-outlined"><i class="icon-icon89"></i>Default</button>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group">
+                <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+                <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+                <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group">
+                <button class="btn btn-md"><i class="icon-icon89"></i>1</button>
+                <button class="btn btn-md"><i class="icon-icon89"></i>2</button>
+                <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+            </div>
+        </div>
+        <div class="demo">
+            <div class="pagination">
+                <button class="btn btn-md"><i class="icon-icon50"></i></button>
+                <div class="btn-group">
+                    <button class="btn btn-md">1</button>
+                    <button class="btn btn-md">2</button>
+                    <button class="btn btn-md">...</button>
+                    <button class="btn btn-md">8</button>
+                    <button class="btn btn-md">9</button>
+                </div>
+                <button class="btn btn-md"><i class="icon-icon51"></i></button>
+            </div>
+        </div>
+
+        <h2>Checkbox</h2>
+        <h3>inline多选框</h3>
+        <div class="demo">
+            <div class="checkbox-inline">
+                <label for="checkbox1" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox1">
+                    选项1
+                </label>
+                <label for="checkbox3" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox3">
+                    选项3
+                </label>
+                <label for="checkbox2" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox2">
+                    选项2
+                </label>
+            </div>
+        </div>
+        <h3>block多选框</h3>
+        <div class="demo">
+            <div class="checkbox-block">
+                <label for="checkbox4" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox4">
+                    选项1
+                </label>
+                <label for="checkbox5" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox5">
+                    选项2
+                </label>
+                <label for="checkbox6" class="checkbox">
+                    <input type="checkbox" name="" id="checkbox6">
+                    选项3
+                </label>
+            </div>
+        </div>
+        <h3>switch</h3>
+        <div class="demo">
+            <input type="checkbox" class="switch">
+            <input type="checkbox" class="switch mui">
+        </div>
+
+        <h2>Radio</h2>
+        <h3>inline单选框</h3>
+        <div class="demo">
+            <div class="radio-inline">
+                <label for="radio1" class="radio">
+                    <input type="radio" name="radio-demo1" id="radio1">
+                    选项1
+                </label>
+                <label for="radio3" class="radio">
+                    <input type="radio" name="radio-demo1" id="radio3">
+                    选项3
+                </label>
+                <label for="radio2" class="radio">
+                    <input type="radio" name="radio-demo1" id="radio2">
+                    选项2
+                </label>
+            </div>
+        </div>
+        <h3>Block单选框</h3>
+        <div class="demo">
+            <div class="radio-block">
+                <label for="radio4" class="radio">
+                    <input type="radio" name="radio-demo2" id="radio4">
+                    选项1
+                </label>
+                <label for="radio5" class="radio">
+                    <input type="radio" name="radio-demo2" id="radio5">
+                    选项3
+                </label>
+                <label for="radio6" class="radio">
+                    <input type="radio" name="radio-demo2" id="radio6">
+                    选项2
+                </label>
+                <label for="radio6" class="radio">
+                    <input type="radio" name="radio-demo2" id="radio6">
+                    选项2
+                </label>
+            </div>
+        </div>
+        <h3>star</h3>
+        <div class="demo">
+            <div class="rate">
+                <input type="radio" name="rate" class="rate-item">
+                <input type="radio" name="rate" class="rate-item">
+                <input type="radio" name="rate" class="rate-item">
+                <input type="radio" name="rate" class="rate-item">
+                <input type="radio" name="rate" class="rate-item">
+            </div>
+        </div>
+
+        <h2>输入框</h2>
+        <h3>幽灵样式</h3>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" class="input input-sm">
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="&#xe906;" class="input input-md warning">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" class="input input-lg">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <textarea name=""></textarea>
+                    <p class="hint">说明文字</p>
+                </div>
+            </form>
+        </div>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <input type="date" placeholder="Placeholder" class="input input-sm">
+                </div>
+                <div class="form-item">
+                    <input type="time" placeholder="&#xe906;" class="input input-md warning">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <input type="datetime-local" placeholder="Placeholder" class="input input-lg">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <input type="range" placeholder="Placeholder">
+                    <p class="hint">说明文字</p>
+                </div>
+                <!-- <div class="form-item">
+                    <div class="range" style="--range:0">
+                        <span class="range-drap"></span>
+                    </div>
+                    <p class="hint">说明文字</p>
+                </div> -->
+            </form>
+        </div>
+        <h3>实心样式</h3>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" class="input input-sm input-solid">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" class="input input-md input-solid warning">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" class="input input-lg input-solid">
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <textarea name="" class="input-solid"></textarea>
+                    <p class="hint">说明文字</p>
+                </div>
+            </form>
+        </div>
+        <h3>组合</h3>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <div class="input-group">
+                        <div class="input-group-addon input-md">金额</div>
+                        <input type="text" placeholder="Placeholder" class="input input-md">
+                        <div class="input-group-addon input-md">元</div>
+                    </div>
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <div class="input-group solid">
+                        <div class="input-group-addon input-md">搜索</div>
+                        <input type="text" placeholder="Placeholder" class="input input-md">
+                        <button class="btn btn-md btn-primary"><i class="icon-icon15"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <h3>MUI样式</h3>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <div class="input-MUITitle xlg warning">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                    <p class="hint">说明文字</p>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle lg">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle md">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <div class="input-MUITitle xlg solid warning">
+                        <fieldset>
+                            <legend>Warning</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle lg solid">
+                        <fieldset>
+                            <legend>请输入数字</legend>
+
+                        </fieldset>
+                        <input type="number" class="MUIinput">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle md solid">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h3>Disabled状态</h3>
+        <div class="demo">
+            <form action="">
+
+                <div class="form-item">
+                    <input type="text" placeholder="Placeholder" disabled class="input input-md">
+                </div>
+                <div class="form-item">
+                    <div class="input-group solid disabled">
+                        <div class="input-group-addon input-md">搜索</div>
+                        <input type="text" placeholder="Placeholder" class="input input-md">
+                        <button class="btn btn-md btn-primary"><i class="icon-icon15"></i></button>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle md disabled">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="input-MUITitle md solid disabled">
+                        <fieldset>
+                            <legend>Placeholder</legend>
+
+                        </fieldset>
+                        <input type="text" class="MUIinput">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <h2>下拉列表</h2>
+        <pre class="code-demo language-javascript">
+<code>
+menu(el, menu) //el表示被点击的对象，menu表示按钮对象
+
+//例如，给按钮绑定onclick事件
+onclick="menu(this,document.getElementById('menu'))"
+</code>
+        </pre>
+        <div class="demo">
+            <form action="">
+                <div class="form-item">
+                    <div class="form-item_label">原生样式：</div>
+                    <select name="" id="">
+                        <option value="1">选项1</option>
+                        <option value="2">选项2</option>
+                        <option value="3">选项3</option>
+                        <option value="4">选项4</option>
+                        <option value="5">选项5</option>
+                        <option value="6">选项6</option>
+                    </select>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-item_label">定制样式：</div>
+
+                    <div class="select_value menu-select" onclick="menu(this,document.getElementById('menu1'))">请选择
+                    </div>
+                    <div class="menu" id="menu1">
+                        <ul class="menu-list">
+                            <li class="menu-item">男</li>
+                            <li class="menu-item">女</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">3</li>
+                            <li class="menu-item">A</li>
+                            <li class="menu-item">B</li>
+                            <li class="menu-item">C</li>
+                            <li class="menu-item">四川</li>
+                            <li class="menu-item">成都</li>
+                            <li class="menu-item">中华人民共和国</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item selected">选项2</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+        <h3>菜单</h3>
+        <div class="demo">
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="menu(this,document.getElementById('menu2'))">这是一个常规菜单</button>
+            <div class="menu" id="menu2">
+                <ul class="menu-list">
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                </ul>
+            </div>
+
+
+            <button class="btn btn-md btn-primary btn-outlined menu-select"
+                onclick="menu(this,document.getElementById('menu3'))">模拟Select菜单</button>
+            <div class="menu" id="menu3">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <i class="icon-icon89"></i>
+                        选项111111111112222211111222211ww222wseeeeeeeeeedddddddddddddddddddddddddddddddd
+                    </li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item selected">选项2</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                    <li class="menu-item">选项3</li>
+                    <li class="menu-item">选项4</li>
+                    <li class="menu-item">选项5</li>
+                </ul>
+            </div>
+
+            <button class="btn btn-md btn-secondary btn-icon" onclick="menu(this,document.getElementById('menu4'))"><i
+                    class="icon-icon89"></i></button>
+            <div class="menu" id="menu4">
+                <ul class="menu-list">
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            demo
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                    <li class="menu-item"><label for="" class="checkbox">
+                            <input type="checkbox" name="">
+                            选项1
+                        </label></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <h2>数据展示</h2>
+        <h3>图片头像</h3>
+        <div class="demo">
+            <div class="avatar avatar-sm"><img src="dest/images/user.jpg" alt="user-pic"></div>
+            <div class="avatar avatar-md"><img src="dest/images/user.jpg" alt="user-pic"></div>
+            <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+        </div>
+        <h3>文字头像</h3>
+        <div class="demo">
+            <div class="avatar avatar-sm">航</div>
+            <div class="avatar avatar-md">宇航</div>
+            <div class="avatar avatar-lg">Yh</div>
+        </div>
+        <h3>可点击的头像</h3>
+        <div class="demo">
+            <a href="javascript:;" class="avatar avatar-sm"><img src="dest/images/user.jpg" alt="user-pic"></a>
+            <a href="javascript:;" class="avatar avatar-md"><img src="dest/images/user.jpg" alt="user-pic"></a>
+            <a href="javascript:;" class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></a>
+        </div>
+        <h3>头像组</h3>
+        <div class="demo">
+            <div class="avatar-group">
+                <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+            </div>
+        </div>
+        <h3>带有徽章的头像</h3>
+        <div class="demo">
+            <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic">
+                <span class="badge badge-dot"></span>
+            </div>
+        </div>
+        <h3>徽章</h3>
+        <div class="demo">
+            <span class="tag tag-default">Default</span>
+            <span class="tag tag-primary">Primary</span>
+            <span class="tag tag-success">Success</span>
+            <span class="tag tag-warning">Warning</span>
+            <span class="tag tag-danger">Danger</span>
+            <span class="tag tag-dark">Dark</span>
+            <span class="tag tag-gray">Gray</span>
+        </div>
+        <div class="demo">
+            <span class="tag tag-default tag-delate">Default</span>
+            <span class="tag tag-primary tag-delate">Primary</span>
+            <span class="tag tag-success tag-delate">Success</span>
+            <span class="tag tag-warning tag-delate">Warning</span>
+            <span class="tag tag-danger tag-delate">Danger</span>
+            <span class="tag tag-dark tag-delate">Dark</span>
+            <span class="tag tag-gray tag-delate">Gray</span>
+        </div>
+        <div class="demo">
+            <span class="tag-dot tag-default"></span>
+            <span class="tag-dot tag-primary"></span>
+            <span class="tag-dot tag-success"></span>
+            <span class="tag-dot tag-warning"></span>
+            <span class="tag-dot tag-danger"></span>
+            <span class="tag-dot tag-dark"></span>
+            <span class="tag-dot tag-gray"></span>
+        </div>
+        <div class="demo">
+            <span class="badge badge-dot"></span>
+            <span class="badge badge-num">8</span>
+        </div>
+        <div class="demo">
+            <div class="badge-box">
+                <i class="icon-icon7"></i>
+                <span class="badge badge-dot"></span>
+            </div>
+            <div class="badge-box">
+                <i class="icon-icon7"></i>
+                <span class="badge badge-num">99+</span>
+            </div>
+        </div>
+        <h3>数字</h3>
+        <div class="demo">
+            <div class="number" style="font-size: 1.6rem;">
+                1234567890
+            </div>
+            <br>
+            <div class="number" style="font-size: 2.4rem;">
+                1234567890
+            </div>
+            <br>
+            <div class="number" style="font-size: 3.2rem;">
+                1234567890
+            </div>
+            <br>
+            <div class="number" style="font-size: 4rem;">
+                1234567890
+            </div>
+            <br>
+            <div class="number" style="font-size: 6rem;">
+                1234567890.00
+            </div>
+        </div>
+        <h3>数据展示</h3>
+        <div class="demo">
+            <ul class="statistic">
+                <li>
+                    <div class="statistic-number">172.49<small>%</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">3290.37<small>元</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">8376.84
+                         <a href="###" class="link"><i class="icon-icon46"></i></a>
+                    </div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+            </ul>
+        </div>
+        <h3>列表</h3>
+        <div class="demo" style="max-width: 400px;">
+            <ul class="list">
+                <li class="list-link active">
+                    <div class="list-start">
+                        <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <div class="avatar avatar-lg"><img src="dest/images/user.jpg" alt="user-pic"></div>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="demo" style="max-width: 400px;">
+            <ul class="list">
+                <li>
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        <div class="list-info_title">列表标题</div>
+                        <div class="list-info_hint">列表副标题</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="demo" style="max-width: 400px;">
+            <ul class="list">
+                <li class="list-link  active">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="demo" style="max-width: 400px;">
+            <ul class="list align-center">
+                <li class="list-link">
+                    <div class="list-start">
+                        <a href="javascript:;" class="avatar avatar-sm"><img src="dest/images/user.jpg"
+                                alt="user-pic"></a>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <span class="badge badge-num">8</span>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <input type="checkbox" name="">
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <span class="tag-dot tag-primary"></span>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <span class="tag tag-primary">Primary</span>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <input type="checkbox" class="switch mui">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="demo" style="max-width: 400px;padding: 0 2rem; height: 160px; overflow: auto;">
+            <ul class="list">
+                <li class="list-title">标题1</li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+                <li class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </li>
+            </ul>
+            <dl class="list">
+                <dt class="list-title">标题2</dt>
+                <dd class="list-link active">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+                <dd class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+                <dd class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+                <dd class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+                <dd class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+                <dd class="list-link">
+                    <div class="list-start">
+                        <i class="icon-icon18"></i>
+                    </div>
+                    <div class="list-info">
+                        列表标题
+                    </div>
+                    <div class="list-end">
+                        <i class="icon-icon20"></i>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="demo" style="max-width: 400px;">
+            <ul class="list">
+                <li class="list-link list-father">
+                    <div class="list-info">
+                        多级列表
+                    </div>
+                </li>
+                <li class="list-child">
+                    <ul class="list">
+                        <li class="list-link list-father">
+                            <div class="list-info">
+                                列表标题
+                            </div>
+                        </li>
+                        <li class="list-child">
+                            <ul class="list">
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        列表标题
+                                    </div>
+                                </li>
+                                <li class="list-link">
+
+                                    <div class="list-info">
+                                        列表标题
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-link list-father">
+
+                            <div class="list-info">
+                                列表标题
+                            </div>
+                        </li>
+                        <li class="list-child">
+                            <ul class="list">
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        列表标题
+                                    </div>
+                                    <div class="list-end">
+                                        <i class="icon-icon20"></i>
+                                    </div>
+                                </li>
+                                <li class="list-link">
+
+                                    <div class="list-info">
+                                        列表标题
+                                    </div>
+                                    <div class="list-end">
+                                        <i class="icon-icon20"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <script>
+                var list_down = document.getElementsByClassName('list-father');
+                for (let i = 0; i < list_down.length; i++) {
+                    list_down[i].onclick = function () {
+                        this.classList.toggle('list-father-show');
+                        var childList = this.nextElementSibling.querySelectorAll('.list-link');
+
+                        listShow(childList);
+                    }
+                }
+            </script>
+        </div>
+        <h3>表格</h3>
+        <div class="demo">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>table title 1</th>
+                        <th>table title 2</th>
+                        <th>table title 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="demo">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>table title 1</th>
+                        <th>table title 2</th>
+                        <th>table title 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table_subTitle">
+                        <th colspan="4">子标题</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                        <td>table content</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="demo" style="max-height: 320px; display: grid; grid-auto-rows: 1fr;">
+            <div class="table-slicky">
+                <table class="table">
+                    <thead class="table-slicky_row">
+                        <tr>
+                            <th>table title 1</th>
+                            <th>table title 2</th>
+                            <th>table title 3</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <div class="demo">
+            <div class="table-slicky">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>table title 1</th>
+                            <th>table title 2</th>
+                            <th>table title 3</th>
+                            <th class="table-slicky_col right">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td class="table-slicky_col right"><input type="checkbox" checked></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <script>
+
+            </script>
+        </div>
+
+        <h3>横向时间轴</h3>
+        <pre class="code-demo language-javascript">
+<code>
+timeTool(el);//时间轴对象展开函数
+bottomHide(el);//公用向下收起关闭函数
+</code>
+        </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="timeTool(document.getElementById('timetool'))"><i class="icon-icon89"></i>时间选择器展开</button>
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="bottomHide(document.getElementById('timetool'))"><i class="icon-icon89"></i>时间选择器关闭</button>
+            <div class="maptool-timelinebox" id="timetool">
+                <div class="maptool-timeline">
+                    <button class="maptool-timeline-prev waves-effect"><i class="icon-icon50"></i></button>
+                    <button class="maptool-timeline-next waves-effect"><i class="icon-icon51"></i></button>
+
+                    <ol class="maptool-timeline-list dragscroll">
+                        <!-- <li class="tabs-indicator" style="left: 606px;"></li> -->
+                        <li>
+                            <span class="timeline-year">2019</span>
+                            12/07</li>
+                        <li>01/14</li>
+                        <li>02/26</li>
+                        <li>03/09</li>
+                        <li>01/14</li>
+                        <li class="active">01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li><span class="timeline-year">2020</span>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                        <li>01/14</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+        <h3>图片矩阵</h3>
+        <pre class="code-demo language-javascript">
+<code>
+ mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo    
+</code>
+        </pre>
+        <div class="demo">
+            <ul class="media-matrix" id="media-matrix1">
+                <li class="media-item">
+                    <img src="dest/images/webp/img1.webp" data-img="dest/images/webp/img1.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img2.webp" data-img="dest/images/webp/img2.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img3.webp" data-img="dest/images/webp/img3.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img4.webp" data-img="dest/images/webp/img4.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img5.webp" data-img="dest/images/webp/img5.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img6.webp" data-img="dest/images/webp/img6.webp" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="media-view" style="display: none;">
+            <div class="media-view-tools">
+                <button class="btn btn-md btn-icon media-view-prev"><i class="icon-icon50"></i></button>
+                <button class="btn btn-md btn-icon media-view-next"><i class="icon-icon51"></i></button>
+                <button class="btn btn-md btn-icon media-view-toggle"><i class="icon-icon28"></i></button>
+                <button class="btn btn-md btn-icon media-view-close"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img1.webp" alt="">
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img2.webp" alt="">
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img3.webp" alt="">
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img4.webp" alt="">
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img5.webp" alt="">
+            </div>
+            <div class="media-view-item">
+                <img src="dest/images/webp/img6.webp" alt="">
+            </div>
+        </div>
+        <div class="demo">
+            <ul class="media-matrix media-matrix-sm">
+                <li class="media-item">
+                    <img src="dest/images/webp/img1.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img2.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img3.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img4.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img5.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img6.webp" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="demo">
+            <ul class="media-matrix media-matrix-xs">
+                <li class="media-item">
+                    <img src="dest/images/webp/img1.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img2.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img3.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img4.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img5.webp" alt="">
+                </li>
+                <li class="media-item">
+                    <img src="dest/images/webp/img6.webp" alt="">
+                </li>
+            </ul>
+        </div>
+
+
+        <h2>导航类</h2>
+        <h3>面包屑</h3>
+        <div class="demo">
+            <ol class="breadcrumbs">
+                <li><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">二级页面</a></li>
+                <li>当前页面</li>
+            </ol>
+        </div>
+        <h3>步骤条</h3>
+
+        <div class="demo">
+            <ol class="timeline">
+                <li class="steps-active">
+                    <time>2020/09/15 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li>
+                    <time>2020/09/14 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li>
+                    <time>2020/09/13 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li>
+                    <time>2020/09/12 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="demo">
+            <ol class="timeline">
+                <li class="timeline-primary">
+                    <time>2020/09/15 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li class="timeline-danger">
+                    <time>2020/09/14 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li class="timeline-warning">
+                    <time>2020/09/13 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+                <li class="timeline-success">
+                    <time>2020/09/12 15:11</time>
+                    <p class="timeline_info">此时发生的内容</p>
+                </li>
+            </ol>
+        </div>
+        <div class="demo">
+            <ol class="steps">
+                <li class="steps-active">
+                    <span class="steps-num">1</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li class="steps-focus">
+                    <span class="steps-num">2</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li>
+                    <span class="steps-num">3</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li>
+                    <span class="steps-num">4</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <h3>Tabs</h3>
+        <pre class="code-demo language-html">
+<code>
+&lt;!-- 通过class=&quot;tabs&quot;设置tab --&gt; 
+&lt;nav class=&quot;tabs&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;active&quot;&gt;tab1&lt;/a&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;tab2&lt;/a&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;tab3&lt;/a&gt;
+&lt;/nav&gt; 
+</code>
+        </pre>
+        <div class="demo">
+            <nav class="tabs">
+                <a href="javascript:;" class="active">tab1</a>
+                <a href="javascript:;">tab2</a>
+                <a href="javascript:;">tab3</a>
+            </nav>
+        </div>
+        <div class="demo">
+            <nav class="tabs tabs-lg">
+                <a href="javascript:;">tab1</a>
+                <a href="javascript:;" class="active">tab2</a>
+                <a href="javascript:;">tab3</a>
+            </nav>
+        </div>
+        <div class="demo">
+            <nav class="tabs tabs-lg tabs-dark">
+                <a href="javascript:;"><i class="icon-icon15"></i>搜索</a>
+                <a href="javascript:;" class="active"><i class="icon-icon17"></i>标记</a>
+                <a href="javascript:;"><i class="icon-icon25"></i>对比</a>
+            </nav>
+        </div>
+        <div class="demo">
+            <nav class="tabs btn-tabs">
+                <a href="javascript:;"><i class="icon-icon16"></i>tab1</a>
+                <a href="javascript:;" class="active"><i class="icon-icon30"></i>tab2</a>
+                <a href="javascript:;"><i class="icon-icon24"></i>tab3</a>
+            </nav>
+        </div>
+        <div class="demo">
+            <nav class="tabs line-tabs">
+                <a href="javascript:;"><i class="icon-icon16"></i>tab1</a>
+                <a href="javascript:;"><i class="icon-icon30"></i>tab2</a>
+                <a href="javascript:;" class="active"><i class="icon-icon24"></i>long tabs3</a>
+            </nav>
+        </div>
+
+        <h2>用户反馈</h2>
+        <h3>进度条</h3>
+        <div class="demo">
+            <div class="circular-progress xlg">
+                <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44"
+                        r="20.2" fill="none" stroke-width="3.6"></circle>
+                </svg>
+            </div>
+            <div class="circular-progress lg">
+                <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44"
+                        r="20.2" fill="none" stroke-width="3.6"></circle>
+                </svg>
+            </div>
+            <div class="circular-progress md">
+                <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44"
+                        r="20.2" fill="none" stroke-width="3.6"></circle>
+                </svg>
+            </div>
+            <div class="circular-progress sm">
+                <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44"
+                        r="20.2" fill="none" stroke-width="3.6"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="demo">
+            <p>加载中
+                <dot>...</dot>
+            </p>
+        </div>
+        <div class="demo">
+            <div class="progress progress_loading">
+            </div>
+        </div>
+        <div class="demo">
+            <div class="progress" style="--bar-width:48">
+            </div>
+        </div>
+
+        <div class="demo">
+            <div class="progress progress-bar-striped" style="--bar-width:48">
+            </div>
+        </div>
+        <pre class="code-demo language-javascript">
+        <code>
+loading蒙层展开函数：
+backdropLoadingShow('#backdropLoading');//#backdropLoading为蒙层dom的id
+
+loading蒙层隐藏函数：
+backdropLoadingHide('#backdropLoading');
+        </code>
+        </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined" onclick="backdropLoadingShow('#backdropLoading')">
+                <i class="icon-icon89"></i>Show Backdrop Loading</button>
+
+            <div class="backdrop" id="backdropLoading" onclick="backdropLoadingHide('#backdropLoading')">
+                <div class="circular-progress lg" style="color: #fff;">
+                    <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                        <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44"
+                            cy="44" r="20.2" fill="none" stroke-width="3.6"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <h3>Tooltips</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+tooltips(el, content, direction);
+//el表示弹出气泡的对象；
+//content表示气泡内容，可以为html；
+//direction表示弹出方向，默认朝上
+            </code>
+         </pre>
+        <div class="demo demo-tooltips">
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+                tooltips(this, '<a>tooltip-top</a>','top');">
+                <i class="icon-icon89"></i>top</button>
+
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+                tooltips(this, '<em>tooltip-right</em>' , 'right');">
+                <i class="icon-icon89"></i>right</button>
+
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+                tooltips(this, '<div>tooltip-left</div>' , 'left');">
+                <i class="icon-icon89"></i>left</button>
+
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+                tooltips(this, '<div>tooltip-bottom</div>' , 'bottom');">
+                <i class="icon-icon89"></i>bottom</button>
+
+        </div>
+        <h3>Toast</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+toastAuto(el);//出现后1s自动隐藏
+toastShow(el);//toast出现
+toastHide(el);//toast隐藏
+
+注意居中的toast目前暂时需要添加行内样式style="transform: translateX(-50%)"
+
+新方案：
+toast(content, className = 'snackbar', location = 'topCenter', hide = true);
+//content:toast内容，可以为html；
+//className:自定义class，默认为toastBar；
+//location：位置，值：topCenter、leftBottom、leftTop、rightTop、rightBottom、bottomCenter，默认为topCenter；
+//hide：是否1s自动消失，布尔值，默认true即自动消失。
+            </code>
+         </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toast('我是测试toast','toastBar','topCenter',true)"><i class="icon-icon89"></i>New
+                function</button>
+
+
+
+            <button class="btn btn-md btn-primary btn-outlined" onclick="toastAuto(document.getElementById('toast'))"><i
+                    class="icon-icon89"></i>可自动隐藏</button>
+
+            <button class="btn btn-md btn-primary btn-outlined" onclick="toastShow(document.getElementById('toast'))"><i
+                    class="icon-icon89"></i>top center</button>
+            <div class="toast snackbar" style="transform: translateX(-50%)" id="toast">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon" onclick="toastHide(document.getElementById('toast'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toastShow(document.getElementById('toast-bottomCenter'))"><i class="icon-icon89"></i>bottom
+                center</button>
+
+            <div class="toast toast-bottomCenter snackbar snackbar-secondary" style="transform: translateX(-50%)"
+                id="toast-bottomCenter">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon toastHide"
+                        onclick="toastHide(document.getElementById('toast-bottomCenter'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toastShow(document.getElementById('toast-leftBottom'))"><i class="icon-icon89"></i>left
+                bottom</button>
+
+            <div class="toast toast-leftBottom snackbar snackbar-secondary" id="toast-leftBottom">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon toastHide"
+                        onclick="toastHide(document.getElementById('toast-leftBottom'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toastShow(document.getElementById('toast-leftTop'))"><i class="icon-icon89"></i>left
+                top</button>
+
+            <div class="toast toast-leftTop snackbar snackbar-secondary" id="toast-leftTop">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon toastHide"
+                        onclick="toastHide(document.getElementById('toast-leftTop'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toastShow(document.getElementById('toast-rightTop'))"><i class="icon-icon89"></i>right
+                top</button>
+
+            <div class="toast toast-rightTop snackbar snackbar-secondary" id="toast-rightTop">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon toastHide"
+                        onclick="toastHide(document.getElementById('toast-rightTop'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="toastShow(document.getElementById('toast-rightBottom'))"><i class="icon-icon89"></i>right
+                bottom</button>
+
+            <div class="toast toast-rightBottom snackbar snackbar-secondary" id="toast-rightBottom">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-icon toastHide"
+                        onclick="toastHide(document.getElementById('toast-rightBottom'))"><i
+                            class="icon-icon61"></i></button>
+                </div>
+            </div>
+
+
+
+        </div>
+        <h3>Snackbar消息条</h3>
+        <div class="demo">
+            <div class="snackbar">
+                <div class="snackbar_info">
+                    <i class="icon-icon31"></i>
+                    这是一个默认样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-primary btn-text">知道了</button>
+                </div>
+            </div>
+            <div class="snackbar snackbar-secondary">
+                <div class="snackbar_info">
+                    <i class="icon-icon65"></i>
+                    这是一个样式消息提示！
+                </div>
+                <div class="snackbar_action">
+                    <button class="btn btn-md btn-primary btn-text">知道了</button>
+                </div>
+            </div>
+            <div class="snackbar snackbar-primary">
+                <div class="snackbar_info">
+                    <i class="icon-icon37"></i>
+                    这是一个信息消息提示！
+                </div>
+            </div>
+            <div class="snackbar snackbar-success">
+                <div class="snackbar_info">
+                    <i class="icon-icon45"></i>
+                    这是一个成功消息提示！
+                </div>
+            </div>
+            <div class="snackbar snackbar-warning">
+                <div class="snackbar_info">
+                    <i class="icon-icon77"></i>
+                    这是一个危险消息提示！
+                </div>
+            </div>
+            <div class="snackbar snackbar-danger">
+                <div class="snackbar_info">
+                    <i class="icon-icon37"></i>
+                    这是一个错误消息提示！
+                </div>
+            </div>
+        </div>
+        <h3>Dialog对话框</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+dialogShow(el);//显示对话框
+dialogHide(el);//隐藏对话框
+            </code>
+         </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="dialogShow(document.getElementById('dialog'))"><i class="icon-icon89"></i>默认样式</button>
+
+            <div class="backdrop" id="dialog">
+                <div class="dialog">
+                    <div class="dialog_header">
+                        <h3 class="dialog_title">
+                            Do you like ADACloud?
+                        </h3>
+                    </div>
+                    <div class="dialog_body">
+                        <p>1Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                            in,egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+                            vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                    </div>
+                    <div class="dialog_footer">
+                        <div class="dialog_start"></div>
+                        <div class="dialog_end">
+                            <button class="btn btn-lg btn-primary btn-text"
+                                onclick="dialogHide(document.getElementById('dialog'))">取消</button>
+                            <button class="btn btn-lg btn-primary btn-text"
+                                onclick="dialogHide(document.getElementById('dialog'))">完成</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h2>Surfaces面板展示</h2>
+        <h3>Paper纸张</h3>
+        <div class="demo demo-paper">
+            <div class="paper">默认</div>
+            <div class="paper paper-z1">paper-z1</div>
+            <div class="paper paper-z2">paper-z2</div>
+            <div class="paper paper-z3">paper-z3</div>
+            <div class="paper paper-z4">paper-z4</div>
+            <div class="paper paper-z5">paper-z5</div>
+        </div>
+        <h3>Glass毛玻璃</h3>
+        <div class="demo demo-paper demo-glass">
+            <div class="glass">默认</div>
+            <div class="glass glass-z1">glass-z1</div>
+            <div class="glass glass-z2">glass-z2</div>
+            <div class="glass glass-z3">glass-z3</div>
+            <div class="glass glass-z4">glass-z4</div>
+            <div class="glass glass-z5">glass-z5</div>
+        </div>
+        <h3>Drawer抽屉</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+drawerRightStack(el);//显示右侧对话框，el为对话框
+drawerRightClose();//隐藏右侧对话框
+
+drawerLeftStack(el);//显示左侧对话框，el为对话框
+drawerLeftClose();//隐藏左侧对话框
+
+//注意对话框本身的class分左右，如class="drawer drawer-right"
+            </code>
+         </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+            drawerRightStack(document.getElementById('drawer-right1')); ">drawer-right1</button>
+            <div class="drawer drawer-right" id="drawer-right1" style="width: 48rem;">
+                <div class="drawer-content" style="height: calc(100vh - 4.8rem);">
+                    <div class="drawer-header">
+                        <button class="btn btn-md btn-secondary btn-icon" onclick="drawerRightClose()"><i
+                                class="icon-icon19"></i></button>
+                    </div>
+                    <div class="drawer-body">
+                        1
+                    </div>
+                    <div class="drawer-footer">
+                        drawer-footer
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="drawerRightStack(document.getElementById('drawer-right2'))">drawer-right2</button>
+            <div class="drawer drawer-right" id="drawer-right2" style="width: 48rem;">
+                <div class="drawer-content" style="height: calc(100vh - 4.8rem);">
+                    <div class="drawer-header">
+                        <button class="btn btn-md btn-secondary btn-icon" onclick="drawerRightClose()"><i
+                                class="icon-icon19"></i></button>
+                    </div>
+                    <div class="drawer-body">
+                        2
+                    </div>
+                    <div class="drawer-footer">
+                        drawer-footer
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="drawerLeftStack(document.getElementById('drawer-left1'))">drawer-left1</button>
+            <div class="drawer drawer-left" id="drawer-left1" style="width: 48rem;">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <button class="btn btn-md btn-secondary btn-icon" onclick="drawerLeftClose()"><i
+                                class="icon-icon19"></i></button>
+                    </div>
+                    <div class="drawer-body">
+                        1
+                    </div>
+                    <div class="drawer-footer">
+                        drawer-footer
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-md btn-primary btn-outlined"
+                onclick="drawerLeftStack(document.getElementById('drawer-left2'))">drawer-left2</button>
+            <div class="drawer drawer-left" id="drawer-left2" style="width: 48rem;">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <button class="btn btn-md btn-secondary btn-icon" onclick="drawerLeftClose()"><i
+                                class="icon-icon19"></i></button>
+                    </div>
+                    <div class="drawer-body">
+                        2
+                    </div>
+                    <div class="drawer-footer">
+                        drawer-footer
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>面板</h3>
+        <div class="demo demo-paper1">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-start">start</div>
+                    <div class="panel-center">center</div>
+                    <div class="panel-end">end</div>
+                </div>
+                <div class="panel-body">内容……</div>
+                <div class="panel-footer">
+                    <div class="panel-start">start</div>
+                    <div class="panel-center">center</div>
+                    <div class="panel-end">end</div>
+                </div>
+            </div>
+        </div>
+        <div class="demo demo-paper1">
+            <div class="panel paper-z2">
+                <div class="panel-header">
+                    <div class="panel-start">
+                        <h3 class="panel-title">面板标题</h3>
+                    </div>
+                    <div class="panel-center">
+                        <nav class="tabs">
+                            <a href="javascript:;" class="active">tab1</a>
+                            <a href="javascript:;">tab2</a>
+                            <a href="javascript:;">tab3</a>
+                        </nav>
+                    </div>
+                    <div class="panel-end"><input type="text" placeholder="搜索框" class="input input-md"></div>
+                </div>
+                <div class="panel-body">
+                    内容……
+                    <br>
+                    内容……
+                    <br>
+                    内容……
+                </div>
+                <div class="panel-footer">
+                    <div class="panel-start"><button class="btn btn-md btn-danger btn-outlined"><i
+                                class="icon-icon89"></i>btn-danger</button></div>
+                    <div class="panel-center"></div>
+                    <div class="panel-end">
+                        <button class="btn btn-md"><i class="icon-icon89"></i>Default</button>
+                        <button class="btn btn-md btn-primary"><i class="icon-icon89"></i>btn-primary</button></div>
+                </div>
+            </div>
+        </div>
+        <h3>ios风格堆叠卡片</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+通过 class="pile"及 class="pile-item"对应html结构实现
+            </code>
+         </pre>
+        <div class="demo">
+            <div class="pile">
+                <div class="pile-item">
+                    1
+                </div>
+                <div class="pile-item">
+                    2
+                </div>
+                <div class="pile-item">
+                    3
+                </div>
+                <div class="pile-item">
+                    4
+                </div>
+                <div class="pile-item">
+                    5
+                </div>
+                <div class="pile-item">
+                    6
+                </div>
+                <div class="pile-item">
+                    7
+                </div>
+                <div class="pile-item">
+                    8
+                </div>
+                <div class="pile-item">
+                    9
+                </div>
+                <div class="pile-item">
+                    0
+                </div>
+            </div>
+        </div>
+        <h3>折叠面板</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+通过class="accordion-toggle"来控制点击对象，并触发展开效果。
+            </code>
+         </pre>
+        <div class="demo">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-summary accordion-toggle">
+                        <div class="accordion-summary-title">Accordion 1</div>
+                        <input type="checkbox" class="switch mui">
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-info">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </p>
+                            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
+                            vitae egestas augue. Duis vel est augue.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-summary accordion-toggle">
+                        <div class="accordion-summary-title">Accordion 2</div>
+                        <input type="checkbox" class="switch mui">
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-info">扩展面板 是一个轻量级容器，既可以单独使用，也可以和卡片这样更大的平面相结合。</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-summary">
+                        <div class="accordion-summary-title">点击switch触发</div>
+                        <input type="checkbox" class="switch mui accordion-toggle">
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-info">通常在设置项目里面使用此面板。</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <h3>拖动</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+new Sortable(document.querySelector('.drag-demo-left'), {
+    group: 'shared', // 定义组名，让可以互换的对象处于同一个组中
+     animation: 150
+});
+                
+new Sortable(document.querySelector('.drag-demo-right'), {
+    group: 'shared',
+    animation: 150
+});
+            </code>
+         </pre>
+        <div class="demo">
+            <div class="drag-demo">
+                <ul class="drag-demo-left">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <ul class="drag-demo-right">
+                    <li class="rightItem">1</li>
+                    <li class="rightItem">2</li>
+                    <li class="rightItem">3</li>
+                    <li class="rightItem">4</li>
+                    <li class="rightItem">5</li>
+                </ul>
+            </div>
+            
+        </div>
+        <h3>抛物线</h3>
+        <div class="demo-parabolla">
+            <button class="btn btn-md btn-primary"
+                onclick="parabolla(this,document.getElementById('parabolla'),'parabolla-fly')">点击我</button>
+
+            <div class="parabolla" id="parabolla">目的地</div>
+        </div>
+        <h3>夜间模式</h3>
+        <pre class="code-demo language-css">
+            <code>
+通过css原生变量进行控制，对body添加class = 'dark'实现；
+以下是变量css：
+:root {
+
+    /* 字体 */
+    --font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", "黑体", Heiti, sans-serif, SimSun, "宋体", serif;
+    --line-height:1.4285714286;
+    --text:#000;
+    --text-light: color-mod(var(--text) a(64%));
+    --text-lighter: color-mod(var(--text) a(48%));
+
+    --base: #000;
+    --reverse:#fff;
+    --base-heavy: color-mod(var(--base) a(80%));
+    --base-medium: color-mod(var(--base) a(64%));
+    --base-regular: color-mod(var(--base) a(48%));
+    --base-light: color-mod(var(--base) a(32%));
+    --base-lighter: color-mod(var(--base) a(16%));
+    --base-air: color-mod(var(--base) a(12%));
+    --base-thin: color-mod(var(--base) a(8%));
+    --base-thinner: color-mod(var(--base) a(5%));
+
+    --bg:#fff;
+    --paper: #fff;
+    --light:#fff;
+    --dark:#121212;
+    --ui-secondary: #828598;
+    --ui-primary: #257BFF;
+    --ui-danger: #EA0000;
+    --ui-warning: #FF9400;
+    --ui-success: #00B6A1;
+
+    /*size*/
+    --sm: 2.4rem;
+    --md: 3.2rem;
+    --lg: 4rem;
+    --xlg: 4.8rem;
+
+    /*间距*/
+    --padding: 1.6rem;
+
+    /* 圆角 */
+    --radius-regular: 0.4rem;
+    --radius-light: 0.3rem;
+    --radius-thin: 0.2rem;
+    /* 毛玻璃 */
+    --glass-regular: saturate(180%) blur(16px);
+    --glass-medium: saturate(180%) blur(20px);
+    --glass-bold: saturate(180%) blur(24px);
+
+}
+
+
+
+.dark{
+    
+    background-color:var(--dark);
+    --text: #fff;
+    --text-light: color-mod(#fff a(64%));
+    --text-lighter: color-mod(#fff a(48%));
+    --bg: var(--dark);
+    --paper:#424242;
+
+    --base: #fff;
+    --reverse:#000;
+    --base-heavy: color-mod(#fff a(80%));
+    --base-medium: color-mod(#fff a(64%));
+    --base-regular: color-mod(#fff a(48%));
+    --base-light: color-mod(#fff a(32%));
+    --base-lighter: color-mod(#fff a(24%));
+    --base-air: color-mod(#fff a(16%));
+    --base-thin: color-mod(#fff a(10%));
+    --base-thinner: color-mod(#fff a(5%));
+
+}
+            </code>
+         </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary" onclick="document.body.classList.toggle('dark')">夜间模式</button>
+        </div>
+        <h3>骨架屏</h3>
+        <div class="demo">123</div>
+    </section>
+    <div id="demobox"></div>
+</body>
+<script src="dest/js/scripts.min.js"></script>
+<script src="dest/js/ui.min.js"></script>
+<script src="dest/js/demo.js"></script>
+<script src="dest/js/prism.js"></script>
+
+</html>

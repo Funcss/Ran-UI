@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="70px" viewBox="0 0 55 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>file4</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文件类型及后缀" transform="translate(-161.000000, -342.000000)">
+            <g id="file4" transform="translate(161.000000, 342.000000)">
+                <polyline id="Shape" fill="#FF7300" fill-rule="nonzero" points="32.4 0 0 0 0 70 55 70 55 12.5 42.5 0 32.4 0"></polyline>
+                <rect id="Rectangle-path" x="7.5" y="15" width="40" height="40"></rect>
+                <path d="M28.75,25.75 L20.1,25.75 L20.1,28.2 L22.55,28.2 L22.55,44.2 L26.25,44.2 L26.25,38.1 L28.7,38.1 C32.4,38.1 34.85,35.65 34.85,31.95 C34.9,28.25 32.4,25.75 28.75,25.75 L28.75,25.75 Z M28.75,35.6 L26.3,35.6 L26.3,28.25 L28.75,28.25 C30,28.25 31.85,29.5 31.85,31.95 C31.8,34.4 29.95,35.6 28.75,35.6 L28.75,35.6 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <polygon id="Shape" fill="#FC4E1E" fill-rule="nonzero" points="42.5 12.5 55 25 55 12.5"></polygon>
+                <polyline id="Shape" fill="#FD9827" fill-rule="nonzero" points="42.5 0 42.5 12.5 55 12.5 42.5 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

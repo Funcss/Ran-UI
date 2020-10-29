@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="70px" viewBox="0 0 55 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>file1</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文件类型及后缀" transform="translate(-161.000000, -72.000000)" fill-rule="nonzero">
+            <g id="file1" transform="translate(161.000000, 72.000000)">
+                <polygon id="Shape" fill="#00BEBC" points="42.5 0 55 12.5 55 70 0 70 0 0"></polygon>
+                <polygon id="Path" fill="#FCFCFC" points="15 35.48 22.48 42.96 25.32 40.14 20.66 35.48 25.32 30.82 22.48 28"></polygon>
+                <polygon id="Path" fill="#FCFCFC" points="31.84 28 29 30.82 33.66 35.48 29 40.14 31.84 42.96 39.32 35.48"></polygon>
+                <polygon id="Shape" fill="#000000" opacity="0.2" points="42.25 12.5 54.75 25 54.75 12.5"></polygon>
+                <polyline id="Shape" fill="#FFFFFF" opacity="0.4" points="42.25 0 42.25 12.5 54.75 12.5 42.25 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

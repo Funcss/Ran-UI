@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="70px" viewBox="0 0 55 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>file5</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文件类型及后缀" transform="translate(-161.000000, -432.000000)">
+            <g id="file5" transform="translate(161.000000, 432.000000)">
+                <polyline id="Shape" fill="#029D55" fill-rule="nonzero" points="32.4 0 0 0 0 70 55 70 55 12.5 42.5 0 32.4 0"></polyline>
+                <polygon id="Shape" fill="#000000" fill-rule="nonzero" opacity="0.2" points="42.5 12.5 55 25 55 12.5"></polygon>
+                <rect id="Rectangle-path" x="7.5" y="15" width="40" height="40"></rect>
+                <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="32.4 44.25 36.1 44.25 29.35 34.1 34.9 25.75 31.2 25.75 27.5 31.3 23.8 25.75 20.1 25.75 25.65 34.1 18.9 44.25 21.35 44.25 22.55 44.25 27.5 44.25 27.5 41.75 24.2 41.75 27.5 36.85"></polygon>
+                <polyline id="Shape" fill="#FFFFFF" fill-rule="nonzero" opacity="0.4" points="42.5 0 42.5 12.5 55 12.5 42.5 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
