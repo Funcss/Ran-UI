@@ -20,6 +20,14 @@ new Sortable(document.querySelector('.drag-demo-right'), {
 });
 
 
+new Sortable(document.querySelector('.pile'), {
+    animation: 150,
+    ghostClass: 'sortabling',
+    onEnd:function(){
+        pileScroll();
+    }
+});
+
 // 添加resize的回调函数，但是只允许它每400毫秒执行一次
 window.addEventListener('resize', debounce(function (event) {
     mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
