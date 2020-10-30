@@ -1162,8 +1162,8 @@ onclick="menu(this,document.getElementById('menu'))"
                 </tbody>
             </table>
         </div>
-        <div class="demo" style="max-height: 320px; display: grid; grid-auto-rows: 1fr;">
-            <div class="table-slicky">
+        <div class="demo">
+            <div class="table-slicky" style="max-height: 320px;">
                 <table class="table">
                     <thead class="table-slicky_row">
                         <tr>
@@ -1280,9 +1280,10 @@ onclick="menu(this,document.getElementById('menu'))"
 
 
         </div>
-
+        <h4>纵向滚动切换横向滚动，class="horwheel"引用</h4>
         <div class="demo">
-            <div class="table-slicky">
+
+            <div class="table-slicky horwheel">
                 <table class="table">
                     <thead>
                         <tr>
@@ -1341,7 +1342,68 @@ onclick="menu(this,document.getElementById('menu'))"
 
             </script>
         </div>
+        <h4>可横向拖动，class="dragscroll"引用</h4>
+        <div class="demo">
 
+            <div class="table-slicky dragscroll">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>table title 1</th>
+                            <th>table title 2</th>
+                            <th>table title 3</th>
+                            <th class="table-slicky_col right">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td>table contenttable contenttable contenttable contenttable contenttable contenttable
+                                contenttable contenttable contenttable contenttable content</td>
+                            <td class="table-slicky_col right"><input type="checkbox" checked></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td>table content</td>
+                            <td class="table-slicky_col right"><input type="checkbox"></td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <script>
+
+            </script>
+        </div>
         <h3>横向时间轴</h3>
         <pre class="code-demo language-javascript">
 <code>
@@ -2105,7 +2167,7 @@ drawerLeftClose();//隐藏左侧对话框
                 </div>
             </div>
         </div>
-       
+
         <h3>折叠面板</h3>
         <pre class="code-demo language-javascript">
             <code>
