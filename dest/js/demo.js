@@ -30,6 +30,6 @@ new Sortable(document.querySelector('.pile'), {
 
 // 添加resize的回调函数，但是只允许它每400毫秒执行一次
 window.addEventListener('resize', debounce(function (event) {
-    mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
+    //mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
    // gridResize(document.getElementById('grid1'));//grid拖动尺寸变化demo
 }, 400));
