@@ -1705,6 +1705,7 @@ bottomHide(el);//公用向下收起关闭函数
                         r="20.2" fill="none" stroke-width="3.6"></circle>
                 </svg>
             </div>
+            
         </div>
         <div class="demo">
             <p>加载中
@@ -1724,15 +1725,20 @@ bottomHide(el);//公用向下收起关闭函数
             <div class="progress progress-bar-striped" style="--bar-width:48">
             </div>
         </div>
+        <div class="demo">
+            <div class="contrast" style="--bar-left:40;--bar-right:60">
+            </div>
+        </div>
+        <h3>loading蒙层</h3>
         <pre class="code-demo language-javascript">
-        <code>
-loading蒙层展开函数：
-backdropLoadingShow('#backdropLoading');//#backdropLoading为蒙层dom的id
-
-loading蒙层隐藏函数：
-backdropLoadingHide('#backdropLoading');
-        </code>
-        </pre>
+            <code>
+                loading蒙层展开函数：
+                backdropLoadingShow('#backdropLoading');//#backdropLoading为蒙层dom的id
+                
+                loading蒙层隐藏函数：
+                backdropLoadingHide('#backdropLoading');
+                        </code>
+                        </pre>
         <div class="demo">
             <button class="btn btn-md btn-primary btn-outlined" onclick="backdropLoadingShow('#backdropLoading')">
                 <i class="icon-icon89"></i>Show Backdrop Loading</button>
