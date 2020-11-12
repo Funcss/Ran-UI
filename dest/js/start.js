@@ -21,7 +21,12 @@ window.onload = function () {
 
     pileScroll()//ios卡片滚动堆叠效果
 
+    cardStack()//堆叠卡片翻页
+
     accordion()//折叠面板
+
+    numberShow()//数字滚动加载
+
 
     mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
     //gridResize(document.getElementById('grid1'));//grid拖动尺寸变化demo
