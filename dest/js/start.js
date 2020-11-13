@@ -54,13 +54,7 @@ window.onload = function () {
     });
 
 
-    new Sortable(document.querySelector('.pile'), {
-        animation: 150,
-        ghostClass: 'sortabling',
-        onEnd: function () {
-            pileScroll();
-        }
-    });
+ 
 }
 
 
