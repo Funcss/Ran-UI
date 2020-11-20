@@ -728,7 +728,8 @@ onclick="menu(this,document.getElementById('menu'))"
                     <div class="statistic-title">数据标题</div>
                 </li>
                 <li>
-                    <div class="statistic-number">8376.84<a href="javascript:;" class="link"><i class="icon-icon46"></i></a>
+                    <div class="statistic-number">8376.84<a href="javascript:;" class="link"><i
+                                class="icon-icon46"></i></a>
                     </div>
                     <div class="statistic-title">数据标题</div>
                 </li>
@@ -736,19 +737,23 @@ onclick="menu(this,document.getElementById('menu'))"
         </div>
         <h3>数字动态加载</h3>
         <div class="demo">
-            <button class="btn btn-md btn-primary btn-outlined" style="margin-bottom: 32px;" onclick="numberShow()"><i class="icon-icon89"></i>开始</button>
-         
+            <button class="btn btn-md btn-primary btn-outlined" style="margin-bottom: 32px;" onclick="numberShow()"><i
+                    class="icon-icon89"></i>开始</button>
+
             <ul class="statistic">
                 <li>
-                    <div class="statistic-number"><span class="numberShow"  data-number="7.49">0</span><small>%</small></div>
+                    <div class="statistic-number"><span class="numberShow" data-number="7.49">0</span><small>%</small>
+                    </div>
                     <div class="statistic-title">数据标题</div>
                 </li>
                 <li>
-                    <div class="statistic-number"><span class="numberShow"  data-number="3290.37">0</span><small>元</small></div>
+                    <div class="statistic-number"><span class="numberShow"
+                            data-number="3290.37">0</span><small>元</small></div>
                     <div class="statistic-title">数据标题</div>
                 </li>
                 <li>
-                    <div class="statistic-number"><span class="numberShow"  data-number="7638.38">0</span><a href="javascript:;" class="link"><i class="icon-icon46"></i></a>
+                    <div class="statistic-number"><span class="numberShow" data-number="7638.38">0</span><a
+                            href="javascript:;" class="link"><i class="icon-icon46"></i></a>
                     </div>
                     <div class="statistic-title">数据标题</div>
                 </li>
@@ -1725,7 +1730,7 @@ bottomHide(el);//公用向下收起关闭函数
                         r="20.2" fill="none" stroke-width="3.6"></circle>
                 </svg>
             </div>
-            
+
         </div>
         <div class="demo">
             <p>加载中
@@ -2003,10 +2008,97 @@ dialogHide(el);//隐藏对话框
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
 
+
+        </div>
+        <h3>DialogStack堆叠对话框</h3>
+        <pre class="code-demo language-javascript">
+            <code>
+堆叠对话框原则上每个对话框大小尺寸要一样才使用，层级不建议超过三级。
+下一页，即新窗口覆盖老窗口：                
+dialogStackNext(selfEl, showEl, hideEl);
+//selfEl表示当前显示窗口对象，即将被覆盖的窗口，第一层 》 第二层；
+//showEl表示即将展现的新窗口对象，0层未出现 》第一层；
+//hideEl表示已经被当前窗口selfEl覆盖的老窗口，若果新窗口出现则此窗口隐藏，第二层 》 第三层（消失）；
+上一页，即返回上级窗口：                
+dialogStackPrev(selfEl, showEl, hideEl);
+//selfEl表示当前显示窗口对象，即将消失的窗口，第一层 》 0层消失；
+//showEl表示即将展现的新窗口对象，上一级窗口，第二层 》 第一层；
+//hideEl表示已经隐藏的上上级窗口，即将变为第二层窗口，第三层 》第二层；
+            </code>
+         </pre>
+        <div class="demo">
+            <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack'))"><i class="icon-icon89"></i>堆叠样式</button>
+
+            <div class="backdrop" id="dialogStack">
+                <div class="dialog" id="dialogStack-item1">
+                    <div class="dialog_header">
+                        <h3 class="dialog_title">
+                            dialogStack1
+                        </h3>
+                    </div>
+                    <div class="dialog_body">
+                        <p>1Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                            in,egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+                            vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                    </div>
+                    <div class="dialog_footer">
+                        <div class="dialog_start"></div>
+                        <div class="dialog_end">
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogHide(document.getElementById('dialogStack'))">关闭</button>
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogStackNext(document.querySelector('#dialogStack-item1'),document.querySelector('#dialogStack-item2'))">下一步</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog" id="dialogStack-item2">
+                    <div class="dialog_header">
+                        <h3 class="dialog_title">
+                            dialogStack2
+                        </h3>
+                    </div>
+                    <div class="dialog_body">
+                        <p>1Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                            in,egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+                            vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                    </div>
+                    <div class="dialog_footer">
+                        <div class="dialog_start"></div>
+                        <div class="dialog_end">
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogStackPrev(document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item1'))">上一步</button>
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogStackNext(document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item3'),document.querySelector('#dialogStack-item1'))">下一步</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog" id="dialogStack-item3">
+                    <div class="dialog_header">
+                        <h3 class="dialog_title">
+                            dialogStack3
+                        </h3>
+                    </div>
+                    <div class="dialog_body">
+                        <p>1Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                            in,egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+                            vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                    </div>
+                    <div class="dialog_footer">
+                        <div class="dialog_start"></div>
+                        <div class="dialog_end">
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogHide(document.getElementById('dialogStack'))">关闭</button>
+                            <button class="btn btn-lg btn-primary btn-text" onclick="dialogStackPrev(document.querySelector('#dialogStack-item3'),document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item1'))">上一步</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         <h2>Surfaces面板展示</h2>
         <h3>Paper纸张</h3>
         <div class="demo demo-paper">
