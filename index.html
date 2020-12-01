@@ -152,7 +152,7 @@ ghostClass: 'sortabling'
                 <div class="btn-group">
                     <button class="btn btn-md">1</button>
                     <button class="btn btn-md">2</button>
-                    <button class="btn btn-md">...</button>
+                    <button class="btn btn-md">…</button>
                     <button class="btn btn-md">8</button>
                     <button class="btn btn-md">9</button>
                 </div>
@@ -692,6 +692,23 @@ onclick="menu(this,document.getElementById('menu'))"
             <div class="badge-box">
                 <i class="icon-icon7"></i>
                 <span class="badge badge-num">99+</span>
+            </div>
+        </div>
+        <h3>地标</h3>
+        <div class="demo" style="height: 80px;">
+            <div class="mappin" style="left:24px; top:24px;" onclick="this.classList.toggle('active')">
+                <img src="dest/images/mappin.svg" alt="">
+            </div>
+
+            <div class="mappin" style="left:80px; top:24px; --color:#00B6A1" onclick="this.classList.toggle('active')">
+                <img src="dest/images/mappin.svg" alt="">
+            </div>
+
+            <div class="mappin warning" style="left:136px; top:24px;--color:#EA0000" onclick="this.classList.toggle('active')">
+                <img src="dest/images/mappin.svg" alt="">
+            </div>
+            <div class="mappin warning" style="left:192px; top:24px;--color:#FF9400" onclick="this.classList.toggle('active')">
+                <img src="dest/images/mappin.svg" alt="">
             </div>
         </div>
         <h3>数字</h3>
@@ -1990,7 +2007,7 @@ dialogHide(el);//隐藏对话框
                     <div class="dialog_footer">
                         <div class="dialog_start"></div>
                         <div class="dialog_end">
-                            <button class="btn btn-lg btn-primary btn-text"
+                            <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
                                 onclick="dialogHide(document.getElementById('dialog'))">取消</button>
                             <button class="btn btn-lg btn-primary btn-text"
                                 onclick="dialogHide(document.getElementById('dialog'))">完成</button>
@@ -2505,8 +2522,8 @@ new Sortable(document.querySelector('.drag-demo-right'), {
     <div id="demobox"></div>
 </body>
 <script src="dest/js/scripts.min.js"></script>
-<script src="dest/js/ui.min.js"></script>
-
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="src/javascript/ui.js"></script>
 <script src="dest/js/start.js"></script>
 <script src="dest/js/prism.js"></script>
 
