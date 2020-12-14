@@ -760,17 +760,18 @@ onclick="menu(this,document.getElementById('menu'))"
                     class="icon-icon89"></i>开始</button>
             <ul class="statistic">
                 <li>
-                    <div class="statistic-number"><span class="numberShow" data-number="7.49">0</span><small>%</small>
+                    <div class="statistic-number"><span class="numberShow" data-start='0'
+                            data-end="7.49"></span><small>%</small>
                     </div>
                     <div class="statistic-title">数据标题</div>
                 </li>
                 <li>
-                    <div class="statistic-number"><span class="numberShow"
-                            data-number="3290.37">0</span><small>元</small></div>
+                    <div class="statistic-number"><span class="numberShow" data-start='0'
+                            data-end="3290.379"></span><small>元</small></div>
                     <div class="statistic-title">数据标题</div>
                 </li>
                 <li>
-                    <div class="statistic-number"><span class="numberShow" data-number="7638.38">0</span><a
+                    <div class="statistic-number"><span class="numberShow" data-start='0' data-end="7638"></span><a
                             href="javascript:;" class="link"><i class="icon-icon46"></i></a>
                     </div>
                     <div class="statistic-title">数据标题</div>
@@ -1821,7 +1822,7 @@ toastHide(el);//toast隐藏
 注意居中的toast目前暂时需要添加行内样式style="transform: translateX(-50%)"
 
 新方案：
-toast(content, className = 'snackbar', location = 'topCenter', hide = true);
+toast(content, className, location = 'topCenter', hide = true);
 //content:toast内容，可以为html；
 //className:自定义class，默认为toastBar；
 //location：位置，值：topCenter、leftBottom、leftTop、rightTop、rightBottom、bottomCenter，默认为topCenter；
@@ -1829,109 +1830,16 @@ toast(content, className = 'snackbar', location = 'topCenter', hide = true);
             </code>
          </pre>
         <div class="demo">
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toast('我是测试toast','toastBar','topCenter',true)"><i class="icon-icon89"></i>New
+            <button class="btn btn-md btn-primary btn-outlined" onclick="toast('我是测试toast1','','topCenter',true)"><i
+                    class="icon-icon89"></i>New
                 function</button>
 
+                
+            <button class="btn btn-md btn-primary btn-outlined" onclick="toast('我是测试toast2','','rightBottom',true)"><i
+                    class="icon-icon89"></i>New
+                function</button>
 
-
-            <button class="btn btn-md btn-primary btn-outlined" onclick="toastAuto(document.getElementById('toast'))"><i
-                    class="icon-icon89"></i>可自动隐藏</button>
-
-            <button class="btn btn-md btn-primary btn-outlined" onclick="toastShow(document.getElementById('toast'))"><i
-                    class="icon-icon89"></i>top center</button>
-            <div class="toast snackbar" style="transform: translateX(-50%)" id="toast">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon" onclick="toastHide(document.getElementById('toast'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toastShow(document.getElementById('toast-bottomCenter'))"><i class="icon-icon89"></i>bottom
-                center</button>
-
-            <div class="toast toast-bottomCenter snackbar snackbar-secondary" style="transform: translateX(-50%)"
-                id="toast-bottomCenter">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon toastHide"
-                        onclick="toastHide(document.getElementById('toast-bottomCenter'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toastShow(document.getElementById('toast-leftBottom'))"><i class="icon-icon89"></i>left
-                bottom</button>
-
-            <div class="toast toast-leftBottom snackbar snackbar-secondary" id="toast-leftBottom">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon toastHide"
-                        onclick="toastHide(document.getElementById('toast-leftBottom'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toastShow(document.getElementById('toast-leftTop'))"><i class="icon-icon89"></i>left
-                top</button>
-
-            <div class="toast toast-leftTop snackbar snackbar-secondary" id="toast-leftTop">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon toastHide"
-                        onclick="toastHide(document.getElementById('toast-leftTop'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toastShow(document.getElementById('toast-rightTop'))"><i class="icon-icon89"></i>right
-                top</button>
-
-            <div class="toast toast-rightTop snackbar snackbar-secondary" id="toast-rightTop">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon toastHide"
-                        onclick="toastHide(document.getElementById('toast-rightTop'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
-            <button class="btn btn-md btn-primary btn-outlined"
-                onclick="toastShow(document.getElementById('toast-rightBottom'))"><i class="icon-icon89"></i>right
-                bottom</button>
-
-            <div class="toast toast-rightBottom snackbar snackbar-secondary" id="toast-rightBottom">
-                <div class="snackbar_info">
-                    <i class="icon-icon31"></i>
-                    这是一个默认样式消息提示！
-                </div>
-                <div class="snackbar_action">
-                    <button class="btn btn-md btn-icon toastHide"
-                        onclick="toastHide(document.getElementById('toast-rightBottom'))"><i
-                            class="icon-icon61"></i></button>
-                </div>
-            </div>
-
+          
 
 
         </div>
