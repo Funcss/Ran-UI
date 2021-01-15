@@ -214,6 +214,8 @@ function drawerRightClose() {
     const drawerRight = document.querySelector('.drawer-right-show');
     anime({
         targets: drawerRight,
+        easing: "cubicBezier(0, 0, 0.2, 1)",
+        duration: 200,
         scale: 0.92,
         opacity: 0,
         complete: function () {
@@ -226,6 +228,8 @@ function drawerLeftClose() {
     const drawerLeft = document.querySelector('.drawer-left-show');
     anime({
         targets: drawerLeft,
+        easing: "cubicBezier(0, 0, 0.2, 1)",
+        duration: 200,
         scale: 0.92,
         opacity: 0,
         complete: function () {

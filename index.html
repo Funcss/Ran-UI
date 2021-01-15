@@ -441,7 +441,9 @@ ghostClass: 'sortabling'
         <h2>下拉列表</h2>
         <pre class="code-demo language-javascript">
 <code>
-menu(el, menu) //el表示被点击的对象，menu表示按钮对象
+menu(el, menu) //el表示被点击的对象，menu表示弹出的菜单对象
+
+如果给被点击对象添加class="menu-select"，则选中后会替换按钮内容，如select一样
 
 //例如，给按钮绑定onclick事件
 onclick="menu(this,document.getElementById('menu'))"
@@ -1504,6 +1506,7 @@ bottomHide(el);//公用向下收起关闭函数
         <div class="demo">
             <ul class="media-matrix" id="media-matrix1">
                 <li class="media-item">
+                    <a href="javascript:;" class="delete-media-item"></a>
                     <img src="dest/images/webp/img1.webp" data-img="dest/images/webp/img1.webp" alt="">
                 </li>
                 <li class="media-item">
@@ -1836,12 +1839,12 @@ toast(content, className, location = 'topCenter', hide = true);
                     class="icon-icon89"></i>New
                 function</button>
 
-                
+
             <button class="btn btn-md btn-primary btn-outlined" onclick="toast('我是测试toast2','','rightBottom',true)"><i
                     class="icon-icon89"></i>New
                 function</button>
 
-          
+
 
 
         </div>
