@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/demo.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/oauth.css" media="screen" charset="utf-8">
+    <title>单点登录</title>
+</head>
+
+<body>
+    <main class="oauth-content">
+        <a href="login.html" class="login-out btn btn-lg w-btn"><i class="icon-icon23"></i>退出</a>
+        <a href="javascript:;" class="add-apps btn btn-lg w-btn" onclick="
+        drawerRightStack(document.getElementById('drawer-right1'));
+        document.body.classList.add('drawer-show');
+        "><i class="icon-icon80"></i>管理</a>
+        <section class="oauth-app">
+            <div class="oauth-app-set">
+                <h3 class="oauth-app-group-title">应用入口</h3>
+                <div class="oauth-app-set-end">
+                    <input type="search" placeholder="搜索" class="input input-md input-solid oauth-app-search">
+                    <div class="btn-group">
+                        <button class="btn btn-md w-btn" id="sorting1"><i class="icon-icon2"></i></button>
+                        <button class="btn btn-md w-btn" id="sorting2"><i class="icon-icon3"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="oauth-app-list" id="apps">
+                <li class="oauth-app-item" data-list="oauth-app1">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">SunuIDE</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app2">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">PACS</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app3">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">体检管理</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app4">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">LIS</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app5">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">CDR</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app6">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">RIS</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app7">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">心电管理</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app8">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">OA</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app9">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">药事管理</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app10">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">协同办公系统</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app11">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">ERM</span>
+                    </a>
+                </li>
+                <li class="oauth-app-item" data-list="oauth-app12">
+                    <a href="javascript:;">
+                        <span class="oauth-app-icon"></span>
+                        <span class="oauth-app-title">IDE</span>
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+    </main>
+
+    <div class="drawer drawer-right" id="drawer-right1">
+        <div class="drawer-content" style="height: calc(100vh - 4.8rem);">
+            <div class="drawer-header">
+                <h3 class="drawer-header-title">应用管理</h3>
+                <button class="btn btn-lg btn-secondary btn-icon closeDrawer" onclick="
+                drawerRightClose();
+                document.body.classList.remove('drawer-show');
+                "><i class="icon-icon19"></i></button>
+            </div>
+            <div class="drawer-body">
+                <ul class="oauth-app-list" id="apps-choice">
+                    <li class="oauth-app-item" data-list="oauth-app1">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">SunuIDE</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app2">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">PACS</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app3">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">体检管理</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app4">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">LIS</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app5">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">CDR</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app6">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">RIS</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app7">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">心电管理</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app8">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">OA</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app9">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">药事管理</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app10">
+                        <a hhref="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">协同办公系统</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app11">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">ERM</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                    <li class="oauth-app-item" data-list="oauth-app12">
+                        <a href="javascript:;">
+                            <span class="oauth-app-icon"></span>
+                            <span class="oauth-app-title">IDE</span>
+                        </a>
+                        <input type="checkbox" checked class="switch mui app-checkbox">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="drawer drawer-right" id="drawer-right2">
+        <div class="drawer-content" style="height: calc(100vh - 4.8rem);">
+            <div class="drawer-header">
+                <h3 class="drawer-header-title">应用简介</h3>
+                <button class="btn btn-lg btn-secondary btn-icon closeDrawer" onclick="
+                drawerRightClose();
+                document.body.classList.remove('drawer-show');
+                "><i class="icon-icon19"></i></button>
+            </div>
+            <div class="drawer-body">
+                <div class="empty">
+                    还没有添加简介内容
+                </div>
+            </div>
+            <div class="drawer-footer">
+                <a href="https://baidu.com" target="_blank" class="btn btn-lg btn-primary block"><i
+                        class="icon-icon89"></i>进入系统</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="dest/js/scripts.min.js"></script>
+<script src="dest/js/ui.min.js"></script>
+
+<script>
+    var dragbox = document.getElementById('apps');
+    new Sortable(dragbox, {
+        animation: 150,
+        ghostClass: 'sortabling'
+    });
+
+    var checks = document.querySelectorAll('.app-checkbox');
+
+    function appDrawer() {
+            var apps = document.querySelector("#apps");
+            apps.querySelectorAll('.oauth-app-item').forEach(function (item) {
+                item.onclick = function () {
+                    drawerRightStack(document.getElementById('drawer-right2'));
+                    document.body.classList.add('drawer-show');
+                }
+            })
+        }
+
+        appDrawer();
+
+    checks.forEach(function (item) {
+        item.onclick = function () {
+            var listItem = this.closest(".oauth-app-item").cloneNode(true);
+            var dataList = listItem.dataset['list'];;
+            if (this.checked) {
+
+                anime({
+                    targets: listItem,
+                    duration: 400,
+                    easing: "cubicBezier(0, 0, 0.2, 1)",
+                    scale: [0, 1],
+                    opacity: [0, 1],
+                    begin: function () {
+                        dragbox.insertBefore(listItem, dragbox.firstChild);
+                    },
+                    complete: function () {
+                        appDrawer();
+                    }
+                })
+
+            } else {
+                var thisElData = 'li[data-list=' + dataList + ']';
+                var thisEl = dragbox.querySelector(thisElData);
+                anime({
+                    targets: thisEl,
+                    duration: 300,
+                    easing: "cubicBezier(0, 0, 0.2, 1)",
+                    scale: [1, 1.3],
+                    opacity: [1, 0],
+                    complete: function () {
+                        thisEl.remove();
+                    }
+                })
+
+
+
+            }
+        }
+    })
+
+    window.onload = function () {
+        anime({
+            targets: '.oauth-app-list',
+            duration: 500,
+            easing: "cubicBezier(0, 0, 0.2, 1)",
+            scale: [1.1, 1],
+            opacity: [0, 1],
+            delay: 300
+        })
+
+
+        var sorting1 = document.querySelector("#sorting1");
+        var sorting2 = document.querySelector("#sorting2");
+        sorting1.onmouseenter = function () {
+            tooltips(this, "正序");
+        }
+        sorting1.onmouseleave = function () {
+            const tipsArr = document.getElementsByClassName('tooltip');
+            for (var i = 0; i < tipsArr.length; i++) {
+                tipsHide(tipsArr[i]); //添加tips之前先把已经存在的tips删除
+            }
+        }
+        sorting2.onmouseenter = function () {
+            tooltips(this, "倒序");
+        }
+        sorting2.onmouseleave = function () {
+            const tipsArr = document.getElementsByClassName('tooltip');
+            for (var i = 0; i < tipsArr.length; i++) {
+                tipsHide(tipsArr[i]); //添加tips之前先把已经存在的tips删除
+            }
+        }
+
+        
+
+        var ulEL1 =
+            '<li class="oauth-app-item" data-list="oauth-app5"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">CDR</span></a></li><li class="oauth-app-item" data-list="oauth-app11"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">ERM</span></a></li><li class="oauth-app-item" data-list="oauth-app12"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">IDE</span></a></li><li class="oauth-app-item" data-list="oauth-app8"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">OA</span></a></li><li class="oauth-app-item" data-list="oauth-app6"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">RIS</span></a></li><li class="oauth-app-item" data-list="oauth-app1"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">SunuIDE</span></a></li><li class="oauth-app-item" data-list="oauth-app2"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">PACS</span></a></li><li class="oauth-app-item" data-list="oauth-app4"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">LIS</span></a></li><li class="oauth-app-item" data-list="oauth-app3"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">体检管理</span></a></li><li class="oauth-app-item" data-list="oauth-app7"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">心电管理</span></a></li><li class="oauth-app-item" data-list="oauth-app9"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">药事管理</span></a></li><li class="oauth-app-item" data-list="oauth-app10"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">协同办公系统</span></a></li>'
+
+        sorting1.onclick = function () {
+            apps.innerHTML = ulEL1;
+            appDrawer() 
+        }
+        var ulEL2 =
+            '<li class="oauth-app-item" data-list="oauth-app3"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">体检管理</span></a></li><li class="oauth-app-item" data-list="oauth-app7"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">心电管理</span></a></li><li class="oauth-app-item" data-list="oauth-app9"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">药事管理</span></a></li><li class="oauth-app-item" data-list="oauth-app10"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">协同办公系统</span></a></li><li class="oauth-app-item" data-list="oauth-app5"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">CDR</span></a></li><li class="oauth-app-item" data-list="oauth-app11"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">ERM</span></a></li><li class="oauth-app-item" data-list="oauth-app12"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">IDE</span></a></li><li class="oauth-app-item" data-list="oauth-app8"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">OA</span></a></li><li class="oauth-app-item" data-list="oauth-app6"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">RIS</span></a></li><li class="oauth-app-item" data-list="oauth-app1"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">SunuIDE</span></a></li><li class="oauth-app-item" data-list="oauth-app2"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">PACS</span></a></li><li class="oauth-app-item" data-list="oauth-app4"><a href="javascript:;"><span class="oauth-app-icon"></span><span class="oauth-app-title">LIS</span></a></li>    '
+
+        sorting2.onclick = function () {
+            apps.innerHTML = ulEL2;
+            appDrawer() 
+        }
+
+    }
+</script>
+
+</html>

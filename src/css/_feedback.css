@@ -1,0 +1,425 @@
+.circular-progress {
+    display: inline-block;
+    margin: 0.8rem;
+    height: var(--md);
+    width: var(--md);
+    animation: MuiCircularProgress-rotate 1.4s linear infinite;
+    color: var(--ui-primary);
+
+    &.lg {
+        height: var(--lg);
+        width: var(--lg);
+    }
+
+    &.xlg {
+        height: var(--xlg);
+        width: var(--xlg);
+    }
+
+    &.sm {
+        height: var(--sm);
+        width: var(--sm);
+    }
+}
+
+.MuiCircularProgress-svg {
+    display: block;
+}
+
+.MuiCircularProgress-circleIndeterminate {
+    animation: MuiCircularProgress-dash 1.4s ease-in-out infinite;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0px;
+}
+
+.MuiCircularProgress-circle {
+    stroke: currentColor;
+}
+
+
+
+
+.progress {
+    position: relative;
+    height: 0.4rem;
+    background: color-mod(var(--ui-primary) a(24%));
+    border-radius: 0.4rem;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: calc(var(--bar-width, 0) * 1%);
+        max-width: 100%;
+        background: var(--ui-primary);
+        transform-origin: 0 0;
+        border-radius: 0.4rem;
+    }
+
+    &::before {
+        content: counter(barNumber)'%';
+        counter-reset: barNumber var(--bar-width);
+        position: absolute;
+        left: calc(var(--bar-width, 0) * 1%);
+        top: 0;
+        background: color-mod(var(--ui-primary) a(24%));
+        font-size: 1.2rem;
+        color: var(--ui-primary);
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.2rem;
+        transform: translate(-50%, calc(-100% - 0.8rem));
+    }
+}
+
+.progress_loading {
+    overflow: hidden;
+
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        width: 100%;
+        animation: progress_bar 3s linear infinite;
+    }
+}
+
+
+.progress-bar-striped {
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-size: 1rem 1rem;
+        animation: progress-bar-stripes 1s linear infinite;
+    }
+}
+
+.contrast {
+    --left-color: #00B6A1;
+    --right-color: #257BFF;
+    position: relative;
+    height: 3.2rem;
+    background-color: var(--base-thinner);
+    background-image: linear-gradient(108deg, var(--left-color) 0%, var(--left-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) 100%);
+    @extend .number;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &::before {
+        content: counter(leftNum);
+        counter-reset: leftNum var(--bar-left);
+    }
+
+    &::after {
+        content: counter(rightNum);
+        counter-reset: rightNum var(--bar-right);
+    }
+}
+
+dot {
+    display: inline-block;
+    height: 1em;
+    line-height: 1;
+    text-align: left;
+    vertical-align: -.25em;
+    overflow: hidden;
+
+    &::before {
+        display: block;
+        content: '...\A..\A.';
+        white-space: pre-wrap;
+        animation: dot 2s infinite step-start both;
+    }
+}
+
+@keyframes dot {
+    33% {
+        transform: translateY(-2em);
+    }
+
+    66% {
+        transform: translateY(-1em);
+    }
+}
+
+.backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, .64);
+    opacity: 0;
+    visibility: hidden;
+    overflow: auto;
+    z-index: 1;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1;
+    display: inline-flex;
+    @extend .paper,
+    .paper-z2;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        @extend .paper,
+        .paper-z2;
+        border-radius: 0;
+        z-index: 0;
+    }
+}
+
+.toast-text{
+    margin-bottom: 0.8rem;
+}
+.toast-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tooltip-top {
+    transform-origin: center bottom;
+
+    &::before {
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 50%) rotate(45deg);
+    }
+}
+
+.tooltip-bottom {
+    transform-origin: center top;
+
+    &::before {
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+.tooltip-right {
+    transform-origin: left center;
+
+    &::before {
+        left: 0%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+.tooltip-left {
+    transform-origin: right center;
+
+    &::before {
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%) rotate(45deg);
+    }
+}
+
+.tooltip-info {
+    position: relative;
+    background-color: var(--paper);
+    border-radius: var(--radius-regular);
+    padding: 0.8rem 1.2rem;
+    max-width: 40rem;
+    max-height: 35rem;
+    overflow: auto;
+}
+
+
+.snackbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.4rem 1.6rem;
+    border-radius: var(--radius-regular);
+    @extend .paper,
+    .paper-z2;
+}
+
+.snackbar_info {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.8rem;
+    justify-content: start;
+    align-content: center;
+    flex: auto;
+    padding: 0.8rem 0;
+}
+
+.snackbar_action {
+    flex: none;
+    margin-left: auto;
+    padding-left: 1.6rem;
+
+    .btn {
+        margin-right: -1rem;
+    }
+}
+
+.snackbar-secondary {
+    background: var(--base);
+    color: var(--reverse);
+
+    .toastHide {
+        color: var(--reverse);
+    }
+}
+
+.snackbar-primary {
+    background: var(--ui-primary);
+    color: var(--light);
+}
+
+.snackbar-success {
+    background: var(--ui-success);
+    color: var(--light);
+}
+
+.snackbar-warning {
+    background: var(--ui-warning);
+    color: var(--light);
+}
+
+.snackbar-danger {
+    background: var(--ui-danger);
+    color: var(--light);
+}
+
+.toastBox {
+    display: grid;
+    gap: 1.6rem;
+    position: fixed;
+    left: 50%;
+    top: 2.4rem;
+    z-index: 2;
+
+}
+
+.toast {
+    @extend .paper-z4;
+    opacity: 0;
+    transform-origin: center;
+
+    display: none;
+}
+
+.toastBar {
+    @extend .snackbar,
+    .snackbar-secondary;
+    padding: 1.2rem 1.6rem;
+}
+
+#toast-topCenter {
+    left: 50%;
+    top: 2.4rem;
+}
+
+#toast-leftBottom {
+    left: 2.4rem;
+    top: auto;
+    bottom: 2.4rem;
+    transform-origin: left center;
+}
+
+#toast-leftTop {
+    left: 2.4rem;
+    top: 2.4rem;
+    transform-origin: left center;
+}
+
+#toast-rightTop {
+    left: auto;
+    right: 2.4rem;
+    top: 2.4rem;
+    transform-origin: right center;
+}
+
+#toast-rightBottom {
+    left: auto;
+    top: auto;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    transform-origin: right center;
+}
+
+#toast-bottomCenter {
+    left: 50%;
+    top: auto;
+    bottom: 2.4rem;
+    transform-origin: center;
+}
+
+
+.dialog {
+    grid-column: 1;
+    grid-row: 1;
+    @extend .paper,
+    .paper-z4;
+    max-width: 80%;
+    margin: 2.4rem;
+    opacity: 0;
+    transform-origin: center bottom;
+    visibility: hidden;
+
+    &.show {
+        visibility: visible;
+    }
+}
+
+.dialog_header,
+.dialog_footer {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: saturate(100%) blur(20px);
+}
+
+.dialog_header {
+    top: 0;
+    padding: 2rem 2.4rem;
+    border-radius: var(--radius-regular) var(--radius-regular) 0 0;
+}
+
+.dialog_footer {
+    bottom: 0;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0 0 var(--radius-regular) var(--radius-regular);
+}
+
+.dialog_start,
+.dialog_end {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.8rem;
+}
+
+.dialog_body {
+    padding: 0.8rem 2.4rem;
+    overflow: auto;
+}
+
+.dialog_title {
+    padding: 0;
+    margin: 0;
+    font-size: 1.8rem;
+}

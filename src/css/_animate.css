@@ -1,0 +1,88 @@
+@keyframes scaling {
+    0% {
+        transform: scale(1);
+        opacity: .8
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0
+    }
+}
+
+
+@keyframes scaling-mini {
+    0% {
+        transform: scale(1);
+        opacity: .8
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0
+    }
+}
+
+
+
+@keyframes progress-bar {
+    0% {
+        background-position: -78px 0;
+    }
+
+    100% {
+        background-position: calc(100% + 78px) 0;
+    }
+}
+
+
+@keyframes MuiCircularProgress-dash {
+    0% {
+        stroke-dasharray: 1px, 200px;
+        stroke-dashoffset: 0px;
+    }
+
+    50% {
+        stroke-dasharray: 100px, 200px;
+        stroke-dashoffset: -15px;
+    }
+
+    100% {
+        stroke-dasharray: 100px, 200px;
+        stroke-dashoffset: -125px;
+    }
+}
+
+@keyframes MuiCircularProgress-rotate {
+    0% {
+        transform-origin: 50% 50%;
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress_bar {
+    0% {
+        transform: translateX(0) scaleX(0);
+    }
+    50% {
+        transform: translateX(25%) scaleX(.75);
+    }
+    75% {
+        transform: translateX(100%) scaleX(0);
+    }
+    100% {
+        transform: translateX(0) scaleX(0);
+    }
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position: 1rem 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+

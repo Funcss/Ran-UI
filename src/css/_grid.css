@@ -1,0 +1,18 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.6rem;
+  
+}
+
+@for $i from 1 through 12 {
+    .grid-span$i{
+        grid-column: span $i;
+    }
+  }
+
+  .grid-resize{
+    resize: both;
+    overflow: auto;
+    padding: 20px;
+  }

@@ -1,0 +1,75 @@
+
+
+:root {
+
+    /* 字体 */
+    --font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", "黑体", Heiti, sans-serif, SimSun, "宋体", serif;
+    --line-height:1.4285714286;
+    --text:#000;
+    --text-light: color-mod(var(--text) a(64%));
+    --text-lighter: color-mod(var(--text) a(48%));
+
+    --base: #000;
+    --reverse:#fff;
+    --base-heavy: color-mod(var(--base) a(80%));
+    --base-medium: color-mod(var(--base) a(64%));
+    --base-regular: color-mod(var(--base) a(48%));
+    --base-light: color-mod(var(--base) a(32%));
+    --base-lighter: color-mod(var(--base) a(16%));
+    --base-air: color-mod(var(--base) a(12%));
+    --base-thin: color-mod(var(--base) a(8%));
+    --base-thinner: color-mod(var(--base) a(5%));
+
+    --bg:#fff;
+    --paper: #fff;
+    --light:#fff;
+    --dark:#121212;
+    --ui-secondary: #828598;
+    --ui-primary: #257BFF;
+    --ui-danger: #EA0000;
+    --ui-warning: #FF9400;
+    --ui-success: #00B6A1;
+
+    /*size*/
+    --sm: 2.4rem;
+    --md: 3.2rem;
+    --lg: 4rem;
+    --xlg: 4.8rem;
+
+    /*间距*/
+    --padding: 1.6rem;
+
+    /* 圆角 */
+    --radius-regular: 0.4rem;
+    --radius-light: 0.3rem;
+    --radius-thin: 0.2rem;
+    /* 毛玻璃 */
+    --glass-regular: saturate(180%) blur(16px);
+    --glass-medium: saturate(180%) blur(20px);
+    --glass-bold: saturate(180%) blur(24px);
+
+}
+
+
+
+.dark{
+    
+    background-color:var(--dark);
+    --text: #fff;
+    --text-light: color-mod(#fff a(64%));
+    --text-lighter: color-mod(#fff a(48%));
+    --bg: var(--dark);
+    --paper:#424242;
+
+    --base: #fff;
+    --reverse:#000;
+    --base-heavy: color-mod(#fff a(80%));
+    --base-medium: color-mod(#fff a(64%));
+    --base-regular: color-mod(#fff a(48%));
+    --base-light: color-mod(#fff a(32%));
+    --base-lighter: color-mod(#fff a(24%));
+    --base-air: color-mod(#fff a(16%));
+    --base-thin: color-mod(#fff a(10%));
+    --base-thinner: color-mod(#fff a(5%));
+
+}

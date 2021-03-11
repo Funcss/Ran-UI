@@ -856,16 +856,16 @@ function menu(el, menu) {
         menu.style.transformOrigin = 'center bottom';
         menuShow(menu);
     }
-    if (menuWidth - width + 48 < vRight) {
+    if (menuWidth - width + 24 < vRight) {
         menu.style.left = left + 'px';
         menu.style.right = 'auto';
     }
-    if (menuWidth - width + 48 > vRight && (menuWidth - width - vRight + 48) < vLeft) {
+    if (menuWidth - width + 24 > vRight && (menuWidth - width - vRight + 24) < vLeft) {
         menu.style.left = 'auto';
-        menu.style.right = 48 + 'px';
+        menu.style.right = 24 + 'px';
     }
     if (menuWidth > getViewport().width - 96) {
-        menu.style.left = 48 + 'px';
+        menu.style.left = 24 + 'px';
     }
 
 
@@ -887,16 +887,16 @@ function menu(el, menu) {
             menu.style.minWidth = width + 'px';
             menu.style.left = left + width / 2 + 'px';
         }
-        if (menuWidth - width + 48 < vRight) {
+        if (menuWidth - width + 24 < vRight) {
             menu.style.left = left + 'px';
             menu.style.right = 'auto';
         }
-        if (menuWidth - width + 48 > vRight && (menuWidth - width - vRight + 48) < vLeft) {
+        if (menuWidth - width + 24 > vRight && (menuWidth - width - vRight + 24) < vLeft) {
             menu.style.left = 'auto';
-            menu.style.right = 48 + 'px';
+            menu.style.right = 24 + 'px';
         }
         if (menuWidth > getViewport().width - 96) {
-            menu.style.left = 48 + 'px';
+            menu.style.left = 24 + 'px';
         }
 
     }, 100));
@@ -921,7 +921,10 @@ function menu(el, menu) {
             menuItems[i].onclick = function () {
                 el.textContent = this.textContent;
 
-                menu.querySelector('.selected').classList.remove('selected');
+                if(menu.querySelector('.selected')){
+                    menu.querySelector('.selected').classList.remove('selected');
+                }
+                
                 this.classList.add('selected');
                 menuHide(menu, 150);
             };
