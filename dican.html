@@ -18,7 +18,7 @@
 <body class="dark">
     <main class="dc-container">
         <header class="dc-header grid">
-            <h1 class="dc-header_logo"><img src="/dest/images/dican/logo.svg" alt=""></h1>
+            <h1 class="dc-header_logo"><img src="../dest/images/dican/logo.svg" alt=""></h1>
             <div class="dc-header_filter">
                 <input type="search" placeholder="搜索" class="input input-lg input-solid dc-header_filter_search">
                 <div class="dc-header_filter_select">
@@ -57,7 +57,8 @@
             <div class="dc-header_account">
                 <a class="btn btn-lg btn-secondary btn-icon"><i class="icon-icon80"></i></a>
                 <a class="btn btn-lg btn-secondary btn-icon"><i class="icon-icon85"></i></a>
-                <a class="btn btn-lg btn-secondary btn-icon"><i class="icon-icon31"></i></a>
+                <a class="btn btn-lg btn-secondary btn-icon" onclick="
+                drawerRightStack(document.getElementById('dc-aside_info2')); "><i class="icon-icon31"></i></a>
                 <div class="dc-header_account_avatar">
                     <a href="###" class="avatar avatar-lg" onclick="menu(this,document.getElementById('menu3'))">小万</a>
                     <div class="menu" id="menu3">
@@ -92,7 +93,7 @@
                             <div class="dc-aside_intro_title_tags_end">
                                 <a href="###" class="calendar-tag success">
                                     <span class="calendar-tag_title">城南拍卖会</span>
-                                    <time>2020/10/23 10:00</time>
+                                    <time>2020/10/23</time>
                                 </a>
                             </div>
                         </div>
@@ -331,7 +332,7 @@
             </div>
         </div>
 
-        <div class="drawer drawer-right drawer-right-show dc-aside_info">
+        <div class="drawer drawer-right  drawer-right-show dc-aside_info" id="dc-aside_info1">
             <div class="drawer-content">
                 <div class="drawer-header">
                     <nav class="tabs">
@@ -482,8 +483,99 @@
                 </div>
             </div>
         </div>
-        <div class="dc-tools"></div>
-        <div class="dc-mapbox"></div>
+        <div class="drawer drawer-right dc-aside_info" id="dc-aside_info2">
+            <div class="drawer-content">
+                <div class="drawer-header">
+                    <h2 class="drawer-header_title">消息中心</h2>
+                    <a class="btn btn-lg btn-secondary btn-icon drawer-header_close" onclick="drawerRightClose()"><i class="icon-icon19"></i></a>
+                </div>
+                <div class="drawer-body">
+                    <div class="dc-aside_info_set">
+                        <div class="dc-aside_info_set_start">
+                            <label for="checkbox" class="checkbox">
+                                仅看未读
+                                <input type="checkbox" class="switch mui">
+                            </label>
+                        </div>
+                        <div class="dc-aside_info_set_end">
+                            <a href="###" class="btn btn-sm btn-primary btn-text"><i class="icon-icon40"></i>已读</a>
+                        </div>
+                    </div>
+                    <ul class="dc-aside_info_list dc-aside_info_notice">
+                        <li>
+                            <div class="avatar avatar-sm has-dot">ke</div>
+                            <div class="dc-aside_info_notice_info">
+                                <p>你的权限等级已被管理员提升为<strong>超级管理员</strong></p>
+                                <div class="dc-aside_info_list_hint">
+                                    <time>2021-1-28 14:23</time>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="avatar avatar-sm has-dot">ke</div>
+                            <div class="dc-aside_info_notice_info">
+                                <p>你的权限等级已被管理员提升为<strong>超级管理员</strong></p>
+                                <div class="dc-aside_info_list_hint">
+                                    <time>2021-1-28 14:23</time>
+                                    <a href="###" class="btn btn-sm btn-primary btn-text">查看</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="avatar avatar-sm">ke</div>
+                            <div class="dc-aside_info_notice_info">
+                                <p>你的权限等级已被管理员提升为<strong>超级管理员</strong></p>
+                                <div class="dc-aside_info_list_hint">
+                                    <time>2021-1-28 14:23</time>
+                                    <a href="###" class="btn btn-sm btn-primary btn-text">查看</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="avatar avatar-sm">ke</div>
+                            <div class="dc-aside_info_notice_info">
+                                <p><strong>小万</strong>关联了<strong>97.6亩二类住宅地、34.6亩一类住宅地</strong></p>
+                                <div class="dc-aside_info_list_hint">
+                                    <time>2021-1-28 14:23</time>
+                                    <a href="###" class="btn btn-sm btn-primary btn-text">查看</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="dc-tools">
+            <li>
+                <i class="icon-icon64"></i>
+                关联
+            </li>
+            <li>
+                <i class="icon-icon64"></i>
+                便签
+            </li>
+            <li>
+                <i class="icon-icon64"></i>
+                测量
+            </li>
+            <li>
+                <i class="icon-icon64"></i>
+                图层
+            </li>
+            <li>
+                <i class="icon-icon64"></i>
+                定位
+            </li>
+
+        </ul>
+        <div class="dc-mapbox">
+            <div style="margin: auto;" >
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+            drawerRightStack(document.getElementById('dc-aside_info1')); ">右侧工具层</button>
+            <button class="btn btn-md btn-primary btn-outlined" onclick="
+            drawerRightStack(document.getElementById('dc-aside_info2')); ">右侧消息层</button>
+            </div>
+        </div>
     </main>
 </body>
 

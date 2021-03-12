@@ -169,9 +169,11 @@ function drawerRightStack(el) {
         anime({
             targets: drawerRight,
             scale: 0.92,
+            opacity: 0,
             zIndex: [1, 1],
             easing: "cubicBezier(0, 0, 0.2, 1)",
             duration: 400,
+           
             begin: function () {
                 el.classList.add('drawer-right-show');
             },
