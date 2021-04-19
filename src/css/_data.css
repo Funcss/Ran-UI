@@ -202,7 +202,6 @@ a.avatar {
 .tag-default {
     color: var(--text);
     background: var(--base-air);
-    border: 1px solid var(--base-air);
 }
 
 .tag-primary {

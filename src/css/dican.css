@@ -90,7 +90,8 @@ body {
 
 .dc-aside_intro {
     top: 9.6rem;
-    width: 56rem;
+    width: 100%;
+    max-width: 48rem;
     z-index: 1;
     .drawer-body {
         display: grid;
@@ -110,6 +111,12 @@ body {
         display: grid;
         gap: 0.8rem;
         padding: 1.6rem 2rem;
+    }
+}
+
+.drawer-body .statistic-sm{
+    .statistic-number{
+        font-size: 1.6rem;
     }
 }
 
@@ -268,6 +275,7 @@ body {
 .dc-tabs-info{
     display: grid;
     gap: 2.4rem;
+    padding-bottom: 4rem;
     &>:last-child{
         margin-bottom: 2.4rem;
     }
@@ -287,12 +295,14 @@ body {
 .dc-info-list{
     border-collapse: collapse;
     width: 100%;
+    text-align: center;
+    table-layout : fixed;
     th,td{
-        border: 1px solid var(--base-thinner);
+        border: 1px solid #292a33;
         padding: 1.2rem 1.6rem;
     }
     th{
-        width: 30%;
+        width: 25%;
         font-weight: normal;
     }
     td{
@@ -352,9 +362,10 @@ body {
 }
 
 .dc-aside_intro_fixedBottom{
-    position: sticky;
+    position: absolute;
+    width: 100%;
     z-index: 1;
-    bottom: -1.7rem;
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     margin: 0 -2rem;
@@ -389,7 +400,6 @@ body {
         font-size: 1.4rem;
         font-weight: normal;
         margin: 0;
-        margin-bottom: 0.4rem;
     }
     &>li{
         padding:  .8rem 2rem;
@@ -458,6 +468,7 @@ body {
     list-style: none;
     padding: 0.4rem 2.4rem;
     box-shadow: 0 0 1px rgb(0 0 0 / 16%), 0 2px 8px rgb(0 0 0 / 16%);
+    margin: 0;
     li{
         display: grid;
         justify-items: center;

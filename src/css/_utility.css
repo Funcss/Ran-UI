@@ -35,27 +35,37 @@
 }
 
 
-body{
+body {
     margin: 0;
     padding: 0;
-    
+
 }
 
-.dragscroll{
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-resolution: 2dppx) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.dragscroll {
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: -o-grab;
     cursor: grab;
     scroll-behavior: auto;
+
     &:active {
         cursor: -webkit-grabbing;
         cursor: -moz-grabbing;
         cursor: -o-grabbing;
         cursor: grabbing;
     }
+
     &.dragMove {
         scroll-behavior: auto !important;
-        scroll-snap-type: none !important; 
+        scroll-snap-type: none !important;
     }
 }
 
@@ -82,16 +92,17 @@ body{
     transform: translate(-50%, -50%);
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
-.empty{
+.empty {
     @extend .center;
     display: grid;
     justify-items: center;
     gap: 1.6rem;
-    &::before{
+
+    &::before {
         content: "";
         height: 10rem;
         width: 10rem;
