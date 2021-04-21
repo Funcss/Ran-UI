@@ -383,14 +383,16 @@ a.avatar {
     height: var(--size);
     width: var(--size);
     border-radius: var(--size);
-    background: url(/dest/images/compass.svg) center,url(/dest/images/compass2.svg) ;
+    background: url('data:image/svg+xml,<svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#fff" stroke-linecap="square"><path d="M33.696 6.68L32.25 9.265M40.795 14l-2.48 1.477M40.795 34l-2.48-1.476M33.697 41.32l-1.448-2.585M14.303 41.32l1.447-2.585M7.204 34l2.48-1.477M7.204 14l2.48 1.477M14.303 6.68l1.447 2.585"/></g><g stroke-linecap="square"><path d="M24 4v5" stroke="#E30013"/><path d="M43.395 24h-4.849M24 44v-5M4.606 24h4.849" stroke="#fff"/></g><path d="M21.984 21.232v3.324h-3.18v.828h3.18v3.852a16.097 16.097 0 01-3.36 1.152l.204.852a20.847 20.847 0 003.156-1.14v2.016h.888V21.232h-.888zm5.88 10.776c.516 0 .876-.144 1.068-.432.192-.3.312-1.152.384-2.556l-.816-.264c-.036 1.224-.108 1.932-.204 2.148-.12.192-.312.288-.576.288h-1.5c-.3 0-.444-.18-.444-.516v-4.608c1.116-.384 2.292-.948 3.54-1.704l-.504-.708a13.413 13.413 0 01-3.036 1.596v-4.02H24.9v9.576c0 .792.372 1.2 1.128 1.2h1.836z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 12l3 6h-6l3-6z" fill="#E30013"/></svg>');
+
+    transition: background 0.2s;
     background-position: center;
     background-size: cover;
     background-color:color-mod(var(--base) a(64%));
     backdrop-filter:blur(16px);
     @extend .paper-z2;
     &:hover{
-        background-image: url(/dest/images/compass.svg);
+        background-image: url('data:image/svg+xml,<svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4v5" stroke="#E30013" stroke-linecap="square"/><path d="M33.697 6.68L32.25 9.263M40.796 14l-2.48 1.477" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M43.395 24h-4.849" stroke="#fff" stroke-linecap="square"/><path d="M40.796 34l-2.48-1.477M33.697 41.32l-1.447-2.584" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M24 44v-5" stroke="#fff" stroke-linecap="square"/><path d="M14.304 41.32l1.447-2.584M7.205 34l2.48-1.477" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M4.606 24h4.849" stroke="#fff" stroke-linecap="square"/><path d="M7.205 14l2.48 1.477M14.303 6.68l1.448 2.584" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M21.984 21.232v3.324h-3.18v.828h3.18v3.852a16.097 16.097 0 01-3.36 1.152l.204.852a20.847 20.847 0 003.156-1.14v2.016h.888V21.232h-.888zm5.88 10.776c.516 0 .876-.144 1.068-.432.192-.3.312-1.152.384-2.556l-.816-.264c-.036 1.224-.108 1.932-.204 2.148-.12.192-.312.288-.576.288h-1.5c-.3 0-.444-.18-.444-.516v-4.608c1.116-.384 2.292-.948 3.54-1.704l-.504-.708a13.413 13.413 0 01-3.036 1.596v-4.02H24.9v9.576c0 .792.372 1.2 1.128 1.2h1.836z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 12l3 6h-6l3-6z" fill="#E30013"/></svg>');
         background-position: center;
     }
 }
