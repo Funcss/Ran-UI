@@ -173,7 +173,7 @@ function drawerRightStack(el) {
             zIndex: [1, 1],
             easing: "cubicBezier(0, 0, 0.2, 1)",
             duration: 400,
-           
+
             begin: function () {
                 el.classList.add('drawer-right-show');
             },
@@ -923,10 +923,10 @@ function menu(el, menu) {
             menuItems[i].onclick = function () {
                 el.textContent = this.textContent;
 
-                if(menu.querySelector('.selected')){
+                if (menu.querySelector('.selected')) {
                     menu.querySelector('.selected').classList.remove('selected');
                 }
-                
+
                 this.classList.add('selected');
                 menuHide(menu, 150);
             };
@@ -1397,3 +1397,76 @@ function accordion() {
 
 
 
+//指北针
+
+function compass() {
+    const compassItems = document.querySelectorAll('.compass');
+    compassItems.forEach(function (item) {
+        const compassCenter = [getElementInfo(item).centerX, getElementInfo(item).centerY];
+        //onmousedown 鼠标按下触发事件
+        //onmousemove 鼠标按下时持续触发事件
+        //onmouseup   鼠标抬起触发事件
+        var angleLast = 0;
+        var rotate = 0;
+        var angle;
+        var pageDwon = [];
+        var pageUp = [];
+        item.onmousedown = function (e) {
+
+            pageDwon = [e.pageX, e.pageY];
+
+            var angleNew = Math.atan2(e.pageX - compassCenter[0], - (e.pageY - compassCenter[1])) * (180 / Math.PI);//鼠标down时的角度
+           
+            document.onmousemove = function (e) {
+                angle = Math.atan2(e.pageX - compassCenter[0], - (e.pageY - compassCenter[1])) * (180 / Math.PI);//鼠标move时角度变化
+
+                rotate = angle - (angleNew - angleLast);//鼠标上次离开时，圆盘的角度与本次角度变化值
+
+                item.style.transform = 'rotate(' + rotate + 'deg)';
+            }
+
+            document.onmouseup = function (e) {
+                
+                pageUp = [e.pageX, e.pageY];
+
+                if (pageDwon[0] == pageUp[0] && pageDwon[1] == pageUp[1]) {
+                    anime({
+                        targets: item,
+                        duration: 200,
+                        easing: "cubicBezier(0, 0, 0.2, 1)",
+                        rotate: 0,
+                    })
+                    angleLast = 0;
+                    //清除事件
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                
+
+                } else {
+                    angleLast = rotate;
+                    //清除事件
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+              
+                }
+
+
+            }
+
+     
+
+
+
+
+
+        }
+
+
+        // item.onclick = function () {
+        //     item.style.transform = 'rotate(0deg)';
+        // }
+
+    })
+}
+
+compass()

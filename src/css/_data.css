@@ -377,6 +377,24 @@ a.avatar {
     }
 }
 
+/*指北针*/
+.compass{
+    --size:4.8rem;
+    height: var(--size);
+    width: var(--size);
+    border-radius: var(--size);
+    background: url(/dest/images/compass.svg) center,url(/dest/images/compass2.svg) ;
+    background-position: center;
+    background-size: cover;
+    background-color:color-mod(var(--base) a(64%));
+    backdrop-filter:blur(16px);
+    @extend .paper-z2;
+    &:hover{
+        background-image: url(/dest/images/compass.svg);
+        background-position: center;
+    }
+}
+
 /*数字*/
 .number {
     font-family: 'din';
