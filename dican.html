@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/dican.css" media="screen" charset="utf-8">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+
     <title>地产之眼</title>
 </head>
 
@@ -56,7 +61,8 @@
             </div>
             <div class="dc-header_account">
                 <a class="btn btn-lg btn-secondary btn-icon"><i class="icon-icon80"></i></a>
-                <a class="btn btn-lg btn-secondary btn-icon"><i class="icon-icon85"></i></a>
+                <a class="btn btn-lg btn-secondary btn-icon" onclick="
+                drawerRightStack(document.getElementById('dc-aside_info1')); "><i class="icon-icon85"></i></a>
                 <a class="btn btn-lg btn-secondary btn-icon" onclick="
                 drawerRightStack(document.getElementById('dc-aside_info2')); "><i class="icon-icon31"></i></a>
                 <div class="dc-header_account_avatar">
@@ -117,7 +123,7 @@
                             <div class="statistic-title">开发体量</div>
                         </li>
                     </ul>
-                    
+
                     <div class="dc-aside_intro_VR" style="background-image:url(dest/images/dican/VR.png);">
                         <div class="dc-aside_intro_VR_icon"></div>
                     </div>
@@ -236,7 +242,9 @@
                             <table class="dc-info-list">
                                 <tr>
                                     <th>物业类别</th>
-                                    <td colspan="3">超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业</td>
+                                    <td colspan="3">
+                                        超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业超甲级写字楼、住宅、商业
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>写字楼</th>
@@ -489,7 +497,8 @@
             <div class="drawer-content">
                 <div class="drawer-header">
                     <h2 class="drawer-header_title">消息中心</h2>
-                    <a class="btn btn-lg btn-secondary btn-icon drawer-header_close" onclick="drawerRightClose()"><i class="icon-icon19"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-icon drawer-header_close" onclick="drawerRightClose()"><i
+                            class="icon-icon19"></i></a>
                 </div>
                 <div class="drawer-body">
                     <div class="dc-aside_info_set">
@@ -570,13 +579,22 @@
             </li>
 
         </ul>
-        <div class="dc-mapbox">
-            <div style="margin: auto;" >
-            <button class="btn btn-md btn-primary btn-outlined" onclick="
-            drawerRightStack(document.getElementById('dc-aside_info1')); ">右侧工具层</button>
-            <button class="btn btn-md btn-primary btn-outlined" onclick="
-            drawerRightStack(document.getElementById('dc-aside_info2')); ">右侧消息层</button>
-            </div>
+        <div class="dc-mapbox" id="dc-mapbox">
+        </div>
+
+        <div class="radio-block changeMapStyle" id="changeMapStyle">
+            <label for="radio1" class="radio" data-style="mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f">
+                <input type="radio" name="radio-demo1" id="radio1">
+                卫星
+            </label>
+            <label for="radio2" class="radio"  data-style="mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f">
+                <input type="radio" name="radio-demo1" id="radio2" checked>
+                夜间
+            </label>
+            <label for="radio3" class="radio" data-style="mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5">
+                <input type="radio" name="radio-demo1" id="radio3">
+                白天
+            </label>
         </div>
     </main>
 </body>
@@ -586,6 +604,27 @@
 <script src="src/javascript/ui.js"></script>
 <script src="dest/js/start.js"></script>
 
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmVteHUiLCJhIjoiY2tiMDQ3OTAyMDR4czJycXR0ZGR0MGptdiJ9.jfqMkHN2eqmZgR9k9WBJWg';
+    var map = new mapboxgl.Map({
+        container: 'dc-mapbox', // container ID
+        //style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
+        style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
+        //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
+        center: [104.075, 30.661], // starting position [lng, lat]
+        zoom: 11 // starting zoom  
+    });
 
+    var changeStyleBtn = document.getElementById('changeMapStyle');
+
+    
+    changeStyleBtn.querySelectorAll('label').forEach(function(item){
+        item.onclick = function(){
+            console.log(this)
+            map.setStyle(this.getAttribute('data-style'));
+        
+        }
+    })
+</script>
 
 </html>

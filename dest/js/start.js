@@ -28,7 +28,7 @@ window.onload = function () {
     numberShow()//数字滚动加载
 
 
-    mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
+    // mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
     //gridResize(document.getElementById('grid1'));//grid拖动尺寸变化demo
 
     //stop(['.switch','input[type=checkbox]','input[type=radio]']);//阻止点击冒泡

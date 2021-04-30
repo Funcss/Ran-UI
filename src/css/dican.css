@@ -3,8 +3,14 @@ body {
 }
 
 .dc-mapbox{
-    display:grid;
+   
     height: 100%;
+    grid-area: 1/1/3/2;
+
+}
+
+canvas{
+    outline: none;
 }
 
 .dark {
@@ -25,6 +31,8 @@ body {
     bottom: 0;
     background: #2e2e2e;
     z-index: 1;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 .dc-header {
@@ -35,8 +43,9 @@ body {
     padding: 0 2.4rem;
     height: 8rem;
     align-items: center;
-    background-color: color-mod(#00041A a(64%));
+    background-color: color-mod(#1C1E28 a(80%));
     backdrop-filter: blur(10px);
+    grid-area: 1/1/2/2;
 }
 
 .dc-header_logo {
@@ -462,7 +471,7 @@ body {
     left: 50%;
     z-index: 1;
     transform: translateX(-50%);
-    background-color: color-mod(#00041A a(56%));
+    background-color: color-mod(#1C1E28 a(80%));
     backdrop-filter: blur(10px);
     border-radius: 1.2rem;
     list-style: none;
@@ -509,4 +518,12 @@ body {
             }
         }
     }
+}
+
+.changeMapStyle{
+    position: absolute;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    z-index: 10;
+
 }

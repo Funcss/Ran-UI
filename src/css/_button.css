@@ -132,10 +132,10 @@ $colorBtn {
         &.btn-icon {
             color: $colorBtn;
             border-radius: 10rem;
-
+            transition:all ease-out 0.4s;
             &:hover {
                 background: color-mod($colorBtn a(8%));
-
+               
             }
 
             &>.waves-ripple {

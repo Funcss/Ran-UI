@@ -1560,6 +1560,9 @@ bottomHide(el);//公用向下收起关闭函数
         </pre>
         <div class="demo">
             <ul class="media-matrix" id="media-matrix1">
+                <li class="add-media-item">
+                    <input type="file" class="add-media-input">
+                </li>
                 <li class="media-item">
                     <a href="javascript:;" class="delete-media-item"></a>
                     <img src="dest/images/webp/img1.webp" data-img="dest/images/webp/img1.webp" alt="">
@@ -1579,6 +1582,7 @@ bottomHide(el);//公用向下收起关闭函数
                 </li>
             </ul>
         </div>
+        
         <div class="media-view" style="display: none;">
             <div class="media-view-tools">
                 <button class="btn btn-md btn-icon media-view-prev"><i class="icon-icon50"></i></button>
@@ -1605,6 +1609,9 @@ bottomHide(el);//公用向下收起关闭函数
         </div>
         <div class="demo">
             <ul class="media-matrix media-matrix-sm">
+                <li class="add-media-item">
+                    <input type="file" class="add-media-input">
+                </li>
                 <li class="media-item">
                     <img src="dest/images/webp/img1.webp" alt="">
                 </li>
@@ -1625,6 +1632,9 @@ bottomHide(el);//公用向下收起关闭函数
         </div>
         <div class="demo">
             <ul class="media-matrix media-matrix-xs">
+                <li class="add-media-item">
+                    <input type="file" class="add-media-input">
+                </li>
                 <li class="media-item">
                     <img src="dest/images/webp/img1.webp" alt="">
                 </li>
@@ -2517,5 +2527,7 @@ new Sortable(document.querySelector('.drag-demo-right'), {
 <script src="src/javascript/ui.js"></script>
 <script src="dest/js/start.js"></script>
 <script src="dest/js/prism.js"></script>
-
+<script>
+    mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
+</script>
 </html>

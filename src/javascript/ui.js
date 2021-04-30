@@ -1453,19 +1453,7 @@ function compass() {
 
             }
 
-     
-
-
-
-
-
         }
-
-
-        // item.onclick = function () {
-        //     item.style.transform = 'rotate(0deg)';
-        // }
-
     })
 }
 

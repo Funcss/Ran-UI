@@ -237,42 +237,62 @@ a.avatar {
     .tag-default {
         color: var(--text);
         background: var(--base-air);
-        border: 1px solid var(--base-air);
     }
 
     .tag-primary {
         color: var(--ui-primary);
         background: color-mod(var(--ui-primary) a(16%));
+        &.tag-dot{
+            background: color-mod(var(--ui-primary));
+        }
     }
 
     .tag-success {
         color: var(--ui-success);
         background: color-mod(var(--ui-success) a(16%));
+        &.tag-dot{
+            background: color-mod(var(--ui-success));
+        }
     }
 
     .tag-warning {
         color: var(--ui-warning);
         background: color-mod(var(--ui-warning) a(16%));
+        &.tag-dot{
+            background: color-mod(var(--ui-warning));
+        }
     }
 
     .tag-danger {
         color: var(--ui-danger);
         background: color-mod(var(--ui-danger) a(16%));
+        &.tag-dot{
+            background: color-mod(var(--ui-danger));
+        }
     }
 
     .tag-dark {
         background: color-mod(#fff a(16%));
         color: var(--reverse);
+        &.tag-dot{
+            background: color-mod(#fff a(88%));
+        }
     }
 
     .tag-gray {
         color: var(--base-light);
         background: color-mod(#fff a(8%));
+        &.tag-dot{
+            background: color-mod(#fff a(48%));
+        }
     }
 
     .tag-base {
         color: var(--base);
         background: color-mod(var(--base) a(16%));
+        &.tag-dot{
+            background: color-mod(#fff a(24%));
+        }
     }
 }
 
@@ -858,17 +878,52 @@ a.avatar {
 .media-matrix-sm {
     grid-template-columns: repeat(auto-fill, 10rem);
     grid-auto-rows: 10rem;
+    .add-media-item{
+        font-size: 2.4rem;
+    }
 }
 
 .media-matrix-xs {
     grid-template-columns: repeat(auto-fill, 6rem);
     grid-auto-rows: 6rem;
-
+    .add-media-item{
+        font-size: 1.6rem;
+    }
     .media-item {
         padding: 0.5rem;
     }
 }
-
+.add-media-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: var(--radius-regular);
+    border: 1px solid var(--base-thin);
+    overflow: hidden;
+    font-size: 3.2rem;
+    color: var(--text-light);
+    &:hover{
+        color: var(--text);
+        &::after{
+            transform: translateY(-4px);
+        }
+    }
+    &::after{
+        transition: all 0.2s;
+        content: "\e957";
+        font-family: "adacloud";
+    }
+}
+.add-media-input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
 .media-item {
     position: relative;
     display: flex;
@@ -909,7 +964,7 @@ a.avatar {
     color: var(--base-medium);
     opacity: 0;
     transition: all ease 0.2s;
-
+   
     &::before {
         content: "\e912";
         font-family: adacloud;
