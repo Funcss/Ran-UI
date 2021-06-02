@@ -587,7 +587,7 @@
                 <input type="radio" name="radio-demo1" id="radio1">
                 卫星
             </label>
-            <label for="radio2" class="radio"  data-style="mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f">
+            <label for="radio2" class="radio" data-style="mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f">
                 <input type="radio" name="radio-demo1" id="radio2" checked>
                 夜间
             </label>
@@ -615,14 +615,21 @@
         zoom: 11 // starting zoom  
     });
 
+    // map.on('load', function () {  关闭路网图层的方法，不完善
+    //     map.getStyle().layers.map(function (layer) {
+    //         if (layer.id.indexOf('road') >= 0) {
+    //             map.setLayoutProperty(layer.id, 'visibility', 'none');
+    //         }
+    //     });
+    // });
+    //map.setTerrain(); //terrain(TerrainSpecification)Terrain properties to set. Must conform to the Mapbox Style Specification . If null or undefined is provided, function removes terrain.
     var changeStyleBtn = document.getElementById('changeMapStyle');
 
-    
-    changeStyleBtn.querySelectorAll('label').forEach(function(item){
-        item.onclick = function(){
+    changeStyleBtn.querySelectorAll('label').forEach(function (item) {
+        item.onclick = function () {
             console.log(this)
             map.setStyle(this.getAttribute('data-style'));
-        
+
         }
     })
 </script>

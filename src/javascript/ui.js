@@ -1269,31 +1269,30 @@ function pileScroll() {
         var faterPadding = parseInt(faterStyle.paddingTop);//获取元素padding值并取整型
 
         items.forEach(function (item) {
-            const height = item.offsetHeight;
-            const top = item.offsetTop;
+            const height = item.offsetHeight;//初始状体每个模块的高度，为定值
+            const top = item.offsetTop;//初始状体每个模块距离顶部的距离，为定值
             var next = item.nextElementSibling;
-            // var faterPadding = items[0].offsetTop;
+
             if (next) {
-                var nextTop = next.offsetTop;
+                var nextTop = next.offsetTop;//当前监听的item的下一个兄弟item上边缘距离顶部距离
             }
             pileItems.addEventListener("scroll", function () {
-                const scrollY = this.scrollTop + faterPadding;
+                const scrollY = this.scrollTop + faterPadding;//滚动条距离顶部的距离，包括padding
 
-                const animeX = (height + top - scrollY) / height;
-                //console.log('scrollY:' + scrollY, 'top:' + items[0].offsetTop, 'nextTop:' + items[1].offsetTop)
-                if (scrollY > top && scrollY < nextTop) {
+                const animeX = (height + top - scrollY) / height;//滚动条持续滚动，scrollY逐步增加，达到 top = scrollY 时（top为固定值），表示模块上方到达顶部，模块即将进入变化，此时animeX = 1，随着向下滚动，scrollY逐步增大，animeX < 1且逐步减小直到height + top = scrollY时，即滚动条滚动到了模块下边缘位置，此时animeX = 0；
+
+                if (scrollY > top && scrollY < nextTop) {//当滚动条滚动的位置位于item上边缘与第二个item上边缘之间时
                     item.style.willChange = 'transform';
-                    // item.style.opacity = animeX * 6 / 10 + 0.4;
                     item.style.opacity = 1;
-                    item.style.transform = 'scale(' + (animeX * 0.8 / 10 + 0.92) + ')';
+                    item.style.transform = 'scale(' + (animeX * 0.08 + 0.92) + ')';//animeX从 1 逐步减小到 0，当animeX = 1时，animeX * 0.8 / 10 + 0.92 = 1，模块大小不变，随着滚动条向下继续滚动，animeX逐步减小直到 0，animeX * 0.8 / 10 + 0.92 的值也逐步减小为 0.92，整个值 从 1 到 0.92 表示模块等比例缩小的比例值，0.92 可以自定义的模块缩放最小比例，0.08 = 1 - 0.92
                 }
-                if (scrollY >= nextTop) {
+                if (scrollY >= nextTop) {//滚动条超过模块下一个兄弟模块上边缘时
                     item.style.opacity = 0;
                     item.style.transform = 'scale(0.92)';
                     item.style.willChange = '';
 
                 }
-                if (scrollY <= top) {
+                if (scrollY <= top) {//滚动条未超过模块上边缘时
                     item.style.opacity = 1;
                     item.style.transform = 'scale(1)';
                     item.style.willChange = '';

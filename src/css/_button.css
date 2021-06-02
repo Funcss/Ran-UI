@@ -90,6 +90,13 @@ a.btn{
     padding: 0 1.6rem;
 }
 
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 1%;
+    inherits: true;
+  }
+
+
 @define-mixin btn $name,
 $colorBtn {
     .btn-$(name) {
@@ -130,12 +137,16 @@ $colorBtn {
         }
 
         &.btn-icon {
+            transition:--gradX ease .4s,background ease 0.4s;
+            --gradX:1%;
             color: $colorBtn;
             border-radius: 10rem;
-            transition:all ease-out 0.4s;
+            background: transparent;
+            background-image: radial-gradient(color-mod($colorBtn a(8%)) 0%, color-mod($colorBtn a(8%)) var(--gradX), transparent 0%);
+            
             &:hover {
+                --gradX:100%;
                 background: color-mod($colorBtn a(8%));
-               
             }
 
             &>.waves-ripple {
@@ -145,6 +156,7 @@ $colorBtn {
         }
     }
 }
+
 
 
 

@@ -21,8 +21,8 @@ textarea {
     }
 }
 
-.checkbox,
-.radio {
+.checkbox-label,
+.radio-label {
     display: inline-grid;
     grid-auto-flow: column;
     gap: 0.5rem;
@@ -45,18 +45,20 @@ textarea {
     gap: 0.8rem;
 }
 
-
-input[type=checkbox],
-input[type=radio] {
-    appearance: none;
+input[type=checkbox],input[type=radio]{
     position: relative;
-    height: 1.4rem;
-    width: 1.4rem;
-    margin: 0;
-    border: 1px solid var(--base-lighter);
-    background-color: var(--paper);
+    appearance: none;
     background-clip: content-box;
     outline: none;
+    margin: 0;
+}
+.checkbox,
+.radio{
+    height: 1.4rem;
+    width: 1.4rem;
+    border: 1px solid var(--base-lighter);
+    background-color: var(--paper);
+    
 
     &:hover {
         border-color: var(--base-light);
@@ -72,7 +74,7 @@ input[type=radio] {
     }
 }
 
-input[type=checkbox] {
+.checkbox{
     border-radius: 0.2rem;
 
     &:checked {
@@ -89,7 +91,7 @@ input[type=checkbox] {
     }
 }
 
-input[type=radio] {
+.radio{
     border-radius: 50%;
     height: 1.6rem;
     width: 1.6rem;
@@ -111,7 +113,6 @@ input[type=radio] {
 input[type=checkbox] {
     &.switch {
         --size: 4rem;
-        position: relative;
         height: calc(var(--size) * 0.6);
         width: var(--size);
         border-radius: calc(var(--size) / 2);
@@ -190,44 +191,41 @@ input[type=checkbox] {
 }
 
 .rate {
+    appearance: none;
     display: inline-flex;
     flex-direction: row-reverse;
     align-items: center;
 
     .rate-item {
+        position: relative;
         padding-right: 0.4rem;
-        border: none;
-        height: auto;
-        width: auto;
-        background: none;
-        box-shadow: none !important;
         transform-origin: center bottom;
         transition: transform ease 0.2s;
 
-        &::after {
-            display: none;
-        }
-
-        &::before {
+        &::before,&::after  {
             content: '\e928';
             font-family: adacloud;
             font-size: 2rem;
             color: var(--base-light);
             transition: color ease 0.2s;
         }
-
+        &::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: transparent;
+        }
         &:checked {
-            background: none;
-
             &::before {
-
-                color: #f3b500;
-
+                color: var(--ui-star);
+            }
+            &::after {
+                animation:rate 0.8s;
             }
 
             &~.rate-item {
-                &::before {
-                    color: #f3b500;
+                &::before,&::after {
+                    color: var(--ui-star);
                 }
             }
         }
@@ -235,19 +233,30 @@ input[type=checkbox] {
         &:hover {
             transform: scale(1.2);
 
-            &::before {
-                color: #f3b500;
+            &::before,&::after {
+                will-change:transform;
+                color: var(--ui-star);
             }
 
             &~.rate-item {
-                &::before {
-                    color: #f3b500;
+                &::before,&::after {
+                    color: var(--ui-star);
                 }
             }
+        }
+        &:active{
+            transform: scale(1.1);
         }
     }
 }
 
+@keyframes rate{
+    to {
+        color: transparent;
+        transform: scale(1.6) rotate(180deg);
+        top: -2em;
+    }
+}
 
 
 input[type=range] {
@@ -706,7 +715,8 @@ select {
 
 .menu {
     position: absolute;
-    @extend .paper;
+    border-radius: var(--radius-regular);
+    @extend .glass, .glass-z3;
     @extend .paper-z2;
     overflow: auto;
     border: none;
