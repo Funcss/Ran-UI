@@ -220,6 +220,7 @@ input[type=checkbox] {
                 color: var(--ui-star);
             }
             &::after {
+                color: var(--ui-star);
                 animation:rate 0.8s;
             }
 
@@ -233,9 +234,11 @@ input[type=checkbox] {
         &:hover {
             transform: scale(1.2);
 
-            &::before,&::after {
-                will-change:transform;
+            &::before{
                 color: var(--ui-star);
+            }
+            &::after {
+                will-change:transform;
             }
 
             &~.rate-item {
