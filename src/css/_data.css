@@ -339,7 +339,6 @@ a.avatar {
         border: solid transparent;
         border-width: 0.6rem 0.4rem;
         border-top-color: var(--color);
-        opacity: 0;
         transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
     }
 
@@ -378,7 +377,7 @@ a.avatar {
     }
 
     &.active {
-        transform: translateY(-100%) scale(1.8);
+        transform: translateY(-50%) scale(1.8);
 
         &::before {
             opacity: 1;
