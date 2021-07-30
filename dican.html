@@ -608,21 +608,21 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoicmVteHUiLCJhIjoiY2tiMDQ3OTAyMDR4czJycXR0ZGR0MGptdiJ9.jfqMkHN2eqmZgR9k9WBJWg';
     var map = new mapboxgl.Map({
         container: 'dc-mapbox', // container ID
-        //style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
-        style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
+        style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
+        //style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
         //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
         center: [104.075, 30.661], // starting position [lng, lat]
         zoom: 11 // starting zoom  
     });
 
-    // map.on('load', function () {  关闭路网图层的方法，不完善
+    // map.on('load', function () {  //关闭路网图层的方法，不完善
     //     map.getStyle().layers.map(function (layer) {
     //         if (layer.id.indexOf('road') >= 0) {
     //             map.setLayoutProperty(layer.id, 'visibility', 'none');
     //         }
     //     });
     // });
-    //map.setTerrain(); //terrain(TerrainSpecification)Terrain properties to set. Must conform to the Mapbox Style Specification . If null or undefined is provided, function removes terrain.
+    //map.setTerrain(); // 3d开关 terrain(TerrainSpecification)Terrain properties to set. Must conform to the Mapbox Style Specification . If null or undefined is provided, function removes terrain.
     var changeStyleBtn = document.getElementById('changeMapStyle');
 
     changeStyleBtn.querySelectorAll('label').forEach(function (item) {

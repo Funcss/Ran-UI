@@ -59,7 +59,7 @@
     --text-light: color-mod(#fff a(64%));
     --text-lighter: color-mod(#fff a(48%));
     --bg: var(--dark);
-    --paper:#424242;
+    --paper:#33333a;
 
     --base: #fff;
     --reverse:#000;

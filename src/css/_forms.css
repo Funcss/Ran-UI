@@ -33,7 +33,7 @@ textarea {
 .checkbox-inline,
 .radio-inline {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 16em);
+    grid-template-columns: repeat(4,1fr);
     justify-items: start;
     gap: 0.8rem;
 }
@@ -57,8 +57,8 @@ input[type=checkbox],input[type=radio]{
     height: 1.4rem;
     width: 1.4rem;
     border: 1px solid var(--base-lighter);
-    background-color: var(--paper);
-    
+
+   
 
     &:hover {
         border-color: var(--base-light);
@@ -502,6 +502,9 @@ textarea {
             border: none;
         }
     }
+    &>.select_value{
+        flex: none;
+    }
 }
 
 .input-group-addon {
@@ -511,7 +514,6 @@ textarea {
     align-items: center;
     border-radius: var(--radius-light);
     border: 1px solid var(--base-lighter);
-    background-clip: padding-box;
     background: var(--base-thin);
     background-clip: padding-box;
 
@@ -687,15 +689,15 @@ select {
     appearance: none;
     @extend .input;
     padding-right:2.4rem;
-    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#030317" fill-rule="evenodd" opacity=".8"/></svg>');
-    background-position: calc(100% - 1rem) center;
-    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#030317" fill-rule="evenodd" opacity=".8"/></svg>')!important;
+    background-position: calc(100% - 1rem) center !important;
+    background-repeat: no-repeat !important;
     cursor: pointer;
     color: var(--text);
 }
 
 .dark select {
-    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#ffffff" fill-rule="evenodd" opacity=".7"/></svg>');
+    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#ffffff" fill-rule="evenodd" opacity=".7"/></svg>') !important;
 }
 
 .select_value {
@@ -703,6 +705,16 @@ select {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    &.inline{
+        width: auto;
+        display: inline-flex;
+    }
+    &.btn-text{
+        width: auto;
+        display: inline-flex;
+        border: none;
+        box-shadow: none;
+    }
 }
 
 .select-solid {

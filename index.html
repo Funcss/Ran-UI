@@ -150,7 +150,7 @@ ghostClass: 'sortabling'
             <div class="pagination">
                 <button class="btn btn-md"><i class="icon-icon50"></i></button>
                 <div class="btn-group">
-                    <button class="btn btn-md">1</button>
+                    <button class="btn btn-md btn-primary">1</button>
                     <button class="btn btn-md">2</button>
                     <button class="btn btn-md">…</button>
                     <button class="btn btn-md">8</button>
@@ -328,6 +328,7 @@ ghostClass: 'sortabling'
                 </div>
             </form>
         </div>
+        
         <h3>组合</h3>
         <div class="demo">
             <form action="">
@@ -519,9 +520,53 @@ onclick="menu(this,document.getElementById('menu'))"
                 <div class="form-item">
                     <div class="form-item_label">实心样式：</div>
 
-                    <div class="select_value select-solid menu-select" onclick="menu(this,document.getElementById('menu5'))">请选择
+                    <div class="select_value select-solid menu-select" onclick="menu(this,document.getElementById('menu5'))">全部
                     </div>
                     <div class="menu" id="menu5">
+                        <ul class="menu-list">
+                            <li class="menu-item selected">全部</li>
+                            <li class="menu-item">男</li>
+                            <li class="menu-item">女</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">3</li>
+                            <li class="menu-item">A</li>
+                            <li class="menu-item">B</li>
+                            <li class="menu-item">C</li>
+                            <li class="menu-item">四川</li>
+                            <li class="menu-item">成都</li>
+                            <li class="menu-item">中华人民共和国</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项2</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="form-item">
+                    <div class="form-item_label">inline样式：</div>
+
+                    <div class="select_value inline select-solid menu-select" onclick="menu(this,document.getElementById('menu6'))">请选择
+                    </div>
+                    <div class="menu" id="menu6">
                         <ul class="menu-list">
                             <li class="menu-item">男</li>
                             <li class="menu-item">女</li>
@@ -559,8 +604,61 @@ onclick="menu(this,document.getElementById('menu'))"
                     </div>
 
                 </div>
+                <div class="form-item">
+                    <div class="form-item_label">btn-text样式：</div>
 
+                    <div class="select_value btn-text menu-select" id="select7" placeholder="请选择" onclick="menu(this,document.getElementById('menu7'))">全部
+                    </div>
+                    <div class="menu" id="menu7">
+                        <ul class="menu-list">
+                            <li class="menu-item selected">全部</li>
+                            <li class="menu-item">男</li>
+                            <li class="menu-item">女</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">3</li>
+                            <li class="menu-item">A</li>
+                            <li class="menu-item">B</li>
+                            <li class="menu-item">C</li>
+                            <li class="menu-item">四川</li>
+                            <li class="menu-item">成都</li>
+                            <li class="menu-item">中华人民共和国</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项2</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                        </ul>
+                    </div>
 
+                    <a href="###" id="select-reset">重置</a>
+
+                    <script> 
+                    var resetBtn = document.getElementById('select-reset');
+                    var select7 = document.getElementById('select7');
+                    var menu7 = document.getElementById('menu7');
+                    resetBtn.onclick = function(){
+                        select7.innerHTML = select7.getAttribute('placeholder');
+                        menu7.querySelector('.selected').classList.remove('selected');
+                    }
+                    </script>
+                </div>
             </form>
         </div>
         <h3>菜单</h3>
@@ -670,6 +768,7 @@ onclick="menu(this,document.getElementById('menu'))"
                         </label></li>
                 </ul>
             </div>
+
 
         </div>
 
@@ -797,6 +896,24 @@ onclick="menu(this,document.getElementById('menu'))"
         <h3>数据展示</h3>
         <div class="demo">
             <ul class="statistic">
+                <li>
+                    <div class="statistic-number">172.49<small>%</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">3290.37<small>元</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">8376.84<a href="javascript:;" class="link"><i
+                                class="icon-icon46"></i></a>
+                    </div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+            </ul>
+        </div>
+        <div class="demo">
+            <ul class="statistic statistic-sm">
                 <li>
                     <div class="statistic-number">172.49<small>%</small></div>
                     <div class="statistic-title">数据标题</div>
@@ -1752,19 +1869,19 @@ bottomHide(el);//公用向下收起关闭函数
         <div class="demo">
             <nav class="tabs">
                 <a href="javascript:;" class="active">tab1</a>
-                <a href="javascript:;">tab2</a>
+                <a href="javascript:;" onclick="alert('tab2')">tab2</a>
                 <a href="javascript:;">tab3</a>
             </nav>
         </div>
         <div class="demo">
             <nav class="tabs tabs-lg">
                 <a href="javascript:;">tab1</a>
-                <a href="javascript:;" class="active">tab2</a>
+                <a href="javascript:;">tab2</a>
                 <a href="javascript:;">tab3</a>
             </nav>
         </div>
         <div class="demo">
-            <nav class="tabs tabs-lg tabs-dark">
+            <nav class="tabs tabs-lg inline tabs-round">
                 <a href="javascript:;"><i class="icon-icon15"></i>搜索</a>
                 <a href="javascript:;" class="active"><i class="icon-icon17"></i>标记</a>
                 <a href="javascript:;"><i class="icon-icon25"></i>对比</a>
@@ -1834,6 +1951,10 @@ bottomHide(el);//公用向下收起关闭函数
         </div>
         <div class="demo">
             <div class="contrast" style="--bar-left:40;--bar-right:60">
+            </div>
+            <br>
+            <br>
+            <div class="contrast contrast-mini" style="--bar-left:40;--bar-right:60">
             </div>
         </div>
         <h3>loading蒙层</h3>
@@ -2008,23 +2129,20 @@ dialogHide(el);//隐藏对话框
             <code>
 堆叠对话框原则上每个对话框大小尺寸要一样才使用，层级不建议超过三级。
 下一页，即新窗口覆盖老窗口：                
-dialogStackNext(selfEl, showEl, hideEl);
-//selfEl表示当前显示窗口对象，即将被覆盖的窗口，第一层 》 第二层；
-//showEl表示即将展现的新窗口对象，0层未出现 》第一层；
-//hideEl表示已经被当前窗口selfEl覆盖的老窗口，若果新窗口出现则此窗口隐藏，第二层 》 第三层（消失）；
+dialogStackNext(showEl);
+//showEl表示即将展现的新窗口对象；
+
 上一页，即返回上级窗口：                
-dialogStackPrev(selfEl, showEl, hideEl);
-//selfEl表示当前显示窗口对象，即将消失的窗口，第一层 》 0层消失；
-//showEl表示即将展现的新窗口对象，上一级窗口，第二层 》 第一层；
-//hideEl表示已经隐藏的上上级窗口，即将变为第二层窗口，第三层 》第二层；
+dialogStackPrev(hideEl);
+//hideEl表示已经隐藏的上上级窗口，即将变为第二层窗口，如果没有则留空；
             </code>
          </pre>
         <div class="demo">
             <button class="btn btn-md btn-primary btn-outlined"
-                onclick="dialogShow(document.getElementById('dialogStack'))"><i class="icon-icon89"></i>堆叠样式</button>
+                onclick="dialogShow(document.getElementById('dialogStack-new'))"><i class="icon-icon89"></i>堆叠样式</button>
 
-            <div class="backdrop" id="dialogStack">
-                <div class="dialog" id="dialogStack-item1">
+            <div class="backdrop" id="dialogStack-new">
+                <div class="dialog" id="dialogStack-new-item1">
                     <div class="dialog_header">
                         <h3 class="dialog_title">
                             dialogStack1
@@ -2041,13 +2159,13 @@ dialogStackPrev(selfEl, showEl, hideEl);
                         <div class="dialog_start"></div>
                         <div class="dialog_end">
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogHide(document.getElementById('dialogStack'))">关闭</button>
+                                onclick="dialogHide(document.getElementById('dialogStack-new'))">关闭</button>
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogStackNext(document.querySelector('#dialogStack-item1'),document.querySelector('#dialogStack-item2'))">下一步</button>
+                                onclick="dialogStackNext(document.querySelector('#dialogStack-new-item2'))">下一步</button>
                         </div>
                     </div>
                 </div>
-                <div class="dialog" id="dialogStack-item2">
+                <div class="dialog" id="dialogStack-new-item2">
                     <div class="dialog_header">
                         <h3 class="dialog_title">
                             dialogStack2
@@ -2064,13 +2182,13 @@ dialogStackPrev(selfEl, showEl, hideEl);
                         <div class="dialog_start"></div>
                         <div class="dialog_end">
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogStackPrev(document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item1'))">上一步</button>
+                                onclick="dialogStackPrev()">上一步</button>
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item3'),document.querySelector('#dialogStack-item1'))">下一步</button>
+                                onclick="dialogStackNext(document.querySelector('#dialogStack-new-item3'))">下一步</button>
                         </div>
                     </div>
                 </div>
-                <div class="dialog" id="dialogStack-item3">
+                <div class="dialog" id="dialogStack-new-item3">
                     <div class="dialog_header">
                         <h3 class="dialog_title">
                             dialogStack3
@@ -2087,9 +2205,9 @@ dialogStackPrev(selfEl, showEl, hideEl);
                         <div class="dialog_start"></div>
                         <div class="dialog_end">
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogHide(document.getElementById('dialogStack'))">关闭</button>
+                                onclick="dialogHide(document.getElementById('dialogStack-new'))">关闭</button>
                             <button class="btn btn-lg btn-primary btn-text"
-                                onclick="dialogStackPrev(document.querySelector('#dialogStack-item3'),document.querySelector('#dialogStack-item2'),document.querySelector('#dialogStack-item1'))">上一步</button>
+                                onclick="dialogStackPrev(document.querySelector('#dialogStack-new-item1'))">上一步</button>
                         </div>
                     </div>
                 </div>
@@ -2220,7 +2338,7 @@ drawerLeftClose();//隐藏左侧对话框
                     <div class="panel-center">
                         <nav class="tabs">
                             <a href="javascript:;" class="active">tab1</a>
-                            <a href="javascript:;">tab2</a>
+                            <a href="javascript:;" >tab2</a>
                             <a href="javascript:;">tab3</a>
                         </nav>
                     </div>
@@ -2247,6 +2365,10 @@ drawerLeftClose();//隐藏左侧对话框
         <pre class="code-demo language-javascript">
             <code>
 通过 class="pile"及 class="pile-item"对应html结构实现
+pileScroll(className,fade=false);
+className为控制对象，这里默认为className = “.pile”;
+fade为透明度渐变效果是否开启，默认关闭为false
+
             </code>
          </pre>
         <div class="demo">
@@ -2283,6 +2405,7 @@ drawerLeftClose();//隐藏左侧对话框
                 </div>
             </div>
         </div>
+
         <h3>堆叠卡片翻页</h3>
         <div class="demo">
             <div class="card-stack">
@@ -2535,5 +2658,6 @@ new Sortable(document.querySelector('.drag-demo-right'), {
 <script src="dest/js/prism.js"></script>
 <script>
     mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
+    pileScroll()//ios卡片滚动堆叠效果
 </script>
 </html>

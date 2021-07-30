@@ -1,6 +1,6 @@
 .circular-progress {
     display: inline-block;
-    margin: 0.8rem;
+    margin: auto;
     height: var(--md);
     width: var(--md);
     animation: MuiCircularProgress-rotate 1.4s linear infinite;
@@ -122,7 +122,25 @@
         counter-reset: rightNum var(--bar-right);
     }
 }
+.contrast-mini{
+    --size:1.2rem;
+    height: var(--size);
+    border-radius:var(--size);
+    font-size: var(--size);
+    padding: 0;
+    margin-bottom: calc(var(--size) + 0.4rem);
+    &::before {
+        content:"左侧 " counter(leftNum);
+        transform: translateY(calc(var(--size) + 0.4rem));
+        color: var(--left-color);
+    }
 
+    &::after {
+        content:"右侧 " counter(rightNum);
+        transform: translateY(calc(var(--size) + 0.4rem));
+        color: var(--right-color);
+    }
+}
 dot {
     display: inline-block;
     height: 1em;
@@ -157,13 +175,17 @@ dot {
     bottom: 0;
     display: grid;
     justify-items: center;
-    align-items: center;
+    align-items: baseline;
     gap: 0.8rem;
     background: rgba(0, 0, 0, .64);
     opacity: 0;
     visibility: hidden;
     overflow: auto;
     z-index: 1;
+
+    perspective: 16rem;
+    perspective-origin:center bottom;
+    transform-style: preserve-3d;
 }
 
 .tooltip {
@@ -374,15 +396,37 @@ dot {
     @extend .paper,
     .paper-z4;
     max-width: 80%;
-    margin: 2.4rem;
+    margin: auto 2.4rem;
+    transform: translateZ(1.6rem);
     opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center bottom;
     visibility: hidden;
-
-    &.show {
+    &:hover{
+        will-change: transform, opacity;
+    }
+    &.dialogBackHide {
+        will-change: transform, opacity;
+        transform: translateZ(-3.2rem);
+        opacity: 0;
+       
+    }
+    &.dialogShow{
+        will-change: transform, opacity;
         visibility: visible;
+        transform: translateZ(0);
+        opacity: 1;
+        
+    }
+    &.dialogBack{
+        will-change: transform, opacity;
+        visibility: visible;
+        transform: translateZ(-1.6rem);
+        opacity: 1;
+       
     }
 }
+
 
 .dialog_header,
 .dialog_footer {
@@ -390,8 +434,8 @@ dot {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: saturate(100%) blur(20px);
+    background-color: var(--paper);
+
 }
 
 .dialog_header {
@@ -402,7 +446,7 @@ dot {
 
 .dialog_footer {
     bottom: 0;
-    padding: 1.2rem 2.4rem;
+    padding: 2rem 2.4rem;
     border-radius: 0 0 var(--radius-regular) var(--radius-regular);
 }
 
@@ -414,7 +458,7 @@ dot {
 }
 
 .dialog_body {
-    padding: 0.8rem 2.4rem;
+    padding: 0rem 2.4rem;
     overflow: auto;
 }
 
@@ -422,4 +466,49 @@ dot {
     padding: 0;
     margin: 0;
     font-size: 1.8rem;
+}
+
+
+
+.dialogNextShow{
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialogNextHide{
+    transition: all 0.3s;
+    transform: translateY(20px) scale3d(0.84);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialogNextBack{
+    transition: all 0.3s;
+    transform: translateY(10px) scale3d(0.92);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialogPrevShow{
+    transition: all 0.3s;
+    transform: translateY(0) scale3d(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialogPrevHide{
+    transition: all 0.3s;
+    transform: translateY(-30%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialogPrevBack{
+    transition: all 0.3s;
+    transform: translateY(10px) scale3d(0.92);
+    opacity: 1;
+    visibility: visible;
 }

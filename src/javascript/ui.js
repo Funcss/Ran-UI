@@ -1,3 +1,31 @@
+//全屏和关闭全屏
+function fullScreen() {
+    var el = document.documentElement;
+    var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+    if (typeof rfs != "undefined" && rfs) {
+        rfs.call(el);
+    };
+    return;
+}
+//退出全屏
+function exitScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    }
+    else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    }
+    else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+    }
+    else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+    if (typeof cfs != "undefined" && cfs) {
+        cfs.call(el);
+    }
+}
+
 //节拍器在resize事件时候调用用于优化性能
 function debounce(func, wait, immediate) {
     var timeout;
@@ -66,6 +94,7 @@ function tabs() {
                 this.parentElement.style.setProperty('--target-height', this.clientHeight);
                 this.parentElement.style.setProperty('--target-left', this.offsetLeft);
                 this.parentElement.style.setProperty('--target-top', this.offsetTop);
+
             }
         });
 
@@ -172,13 +201,16 @@ function drawerRightStack(el) {
             opacity: 0,
             zIndex: [1, 1],
             easing: "cubicBezier(0, 0, 0.2, 1)",
-            duration: 400,
+            duration: 300,
 
             begin: function () {
+                drawerRight.style.willChange = 'transform, opacity';
+                el.style.willChange = 'transform, opacity';
                 el.classList.add('drawer-right-show');
             },
             complete: function () {
-                drawerRight.removeAttribute('style');
+                el.style.willChange = 'auto';
+                drawerRight.setAttribute('style', 'bar');
                 drawerRight.classList.remove('drawer-right-show');
             }
         })
@@ -194,13 +226,17 @@ function drawerLeftStack(el) {
         anime({
             targets: drawerLeft,
             scale: 0.92,
+            opacity: 0,
             zIndex: [1, 1],
             easing: "cubicBezier(0, 0, 0.2, 1)",
-            duration: 400,
+            duration: 300,
             begin: function () {
+                drawerLeft.style.willChange = 'transform, opacity';
+                el.style.willChange = 'transform, opacity';
                 el.classList.add('drawer-left-show');
             },
             complete: function () {
+                el.style.willChange = 'auto';
                 drawerLeft.removeAttribute('style');
                 drawerLeft.classList.remove('drawer-left-show');
             }
@@ -220,6 +256,9 @@ function drawerRightClose() {
         duration: 200,
         scale: 0.92,
         opacity: 0,
+        begin: function () {
+            drawerRight.style.willChange = 'transform, opacity';
+        },
         complete: function () {
             drawerRight.removeAttribute('style');
             drawerRight.classList.remove('drawer-right-show');
@@ -234,6 +273,9 @@ function drawerLeftClose() {
         duration: 200,
         scale: 0.92,
         opacity: 0,
+        begin: function () {
+            drawerLeft.style.willChange = 'transform, opacity';
+        },
         complete: function () {
             drawerLeft.removeAttribute('style');
             drawerLeft.classList.remove('drawer-left-show');
@@ -433,25 +475,18 @@ function toastHide(el) {
 /*弹出层*/
 function dialogShow(el) {
     const dialog = el.querySelector('.dialog')
-    anime.timeline({})
-        .add({
-            targets: el,
-            duration: 220,
-            easing: 'cubicBezier(0.4, 0, 0.2, 1)',
-            opacity: 1,
-            begin: function () {
-                el.style.visibility = 'visible';
-                dialog.style.visibility = 'visible';
-                document.documentElement.style.overflow = 'hidden';
-            }
-        }, 0)
-        .add({
-            targets: dialog,
-            duration: 220,
-            easing: "cubicBezier(0, 0, 0.2, 1)",
-            scale: [0.95, 1],
-            opacity: 1,
-        }, 120)
+    anime({
+        targets: el,
+        duration: 220,
+        easing: 'cubicBezier(0.4, 0, 0.2, 1)',
+        opacity: 1,
+        begin: function () {
+            el.style.visibility = 'visible';
+            document.documentElement.style.overflow = 'hidden';
+            dialog.classList.add('dialogShow')
+        }
+    })
+
 }
 
 
@@ -466,6 +501,7 @@ function dialogHide(el) {
             el.querySelectorAll('.dialog').forEach(
                 function (item) {
                     item.removeAttribute('style');
+                    item.setAttribute('class','dialog')
                 }
             )
             document.documentElement.removeAttribute('style');
@@ -475,112 +511,164 @@ function dialogHide(el) {
 
 }
 
+//堆叠弹出层new
+function dialogStackNext(showEl) {
+    var backEl = document.querySelector('.dialogBack');
+    var thisEl = document.querySelector('.dialogShow');
 
-
-//堆叠弹出层
-
-function dialogStackNext(selfEl, showEl, hideEl) {
-    if (hideEl) {
+    if (backEl) {
         anime.timeline({
-            easing: 'cubicBezier(0, 0, 0.2, 1)',
-            duration: 220,
+            // easing: 'linear',
+            // duration: 240,
         })
             .add({
-                targets: hideEl,
-                translateY: '20px',
-                scale: '0.84',
-                opacity: 0,
+                targets: backEl,
+                // translateZ: '-3.2rem',
+                // opacity: 0,
                 begin: function () {
-                    showEl.style.visibility = 'visible';
+                    // hideEl.style.willChange = 'transform, opacity';
+                    backEl.classList.add('dialogBackHide');
+                    backEl.classList.remove('dialogBack');
+
                 },
                 complete: function () {
-                    hideEl.removeAttribute('style');
+                    //backEl.classList.remove('dialogHide');
                 }
             }, 0)
             .add({
-                targets: showEl,
-                translateY: ['-30%', 0],
-                opacity: 1,
+                targets: thisEl,
+                // translateZ: '-1.6rem',
+
+                begin: function () {
+                    //selfEl.style.willChange = 'transform, opacity';
+                    thisEl.classList.add('dialogBack');
+                    thisEl.classList.remove('dialogShow');
+                },
+                complete: function () {
+
+                    //selfEl.style.willChange = 'auto';
+                }
             }, 240)
             .add({
-                targets: selfEl,
-                translateY: '10px',
-                scale: 0.92,
+                targets: showEl,
+                // translateZ: ['1.6rem', 0],
+                // opacity: 1,
+                begin: function () {
+                    //showEl.style.willChange = 'transform, opacity';
+                    // showEl.style.visibility = 'visible';
+                    showEl.classList.remove('dialogPrevHide');
+                    showEl.classList.add('dialogShow');
+                },
+                complete: function () {
 
-            }, 120)
+                    //showEl.style.willChange = 'auto';
+                }
+            }, 480)
+
 
     } else {
+
         anime.timeline({
-            easing: 'cubicBezier(0, 0, 0.2, 1)',
-            duration: 220,
+            // easing: 'linear',
+            // duration: 240,
         })
             .add({
-                targets: showEl,
-                translateY: ['-30%', 0],
-                scale: [1.05, 1],
-                opacity: 1,
-                begin: function () {
-                    showEl.style.visibility = 'visible';
-                }
-            }, 120)
-            .add({
-                targets: selfEl,
-                translateY: '10px',
-                scale: 0.92,
+                targets: thisEl,
+                // translateZ: '-1.6rem',
 
+                begin: function () {
+                    //selfEl.style.willChange = 'transform, opacity';
+                    thisEl.classList.add('dialogBack');
+                    thisEl.classList.remove('dialogShow');
+                },
+                complete: function () {
+                    // selfEl.style.willChange = 'auto';
+
+                }
             }, 0)
+            .add({
+                targets: showEl,
+                // translateZ: ['1.6rem', 0],
+                // opacity: 1,
+                begin: function () {
+                    //showEl.style.visibility = 'visible';
+                    //showEl.style.willChange = 'transform, opacity';
+                    showEl.classList.remove('dialogPrevHide');
+                    showEl.classList.add('dialogShow');
+                },
+                complete: function () {
+
+                    // showEl.style.willChange = 'auto';
+                }
+
+            }, 240)
+
     }
 }
 
-function dialogStackPrev(selfEl, showEl, hideEl) {
+
+function dialogStackPrev(hideEl) {
+
+    var backEl = document.querySelector('.dialogBack');
+    var thisEl = document.querySelector('.dialogShow');
+
     if (hideEl) {
         anime.timeline({
-            easing: 'cubicBezier(0, 0, 0.8, 1)',
-            duration: 220,
+            // easing: 'linear',
+            // duration: 240,
         })
             .add({
-                targets: selfEl,
-                translateY: '-30%',
-                opacity: 0,
+                targets: thisEl,
+                // translateZ: '1.6rem',
+                // opacity: 0,
                 begin: function () {
-                    hideEl.style.visibility = 'visible';
+                    //selfEl.style.willChange = 'transform, opacity';
+                    //backEl.style.visibility = 'visible';
+                    thisEl.classList.remove('dialogShow');
+
                 },
-                complete: function () {
-                    selfEl.removeAttribute('style');
-                }
             }, 0)
             .add({
-                targets: showEl,
-                translateY: 0,
-                scale: 1,
-
-            }, 120)
+                targets: backEl,
+                //translateZ: 0,
+                begin: function () {
+                    //  showEl.style.willChange = 'transform, opacity';
+                    backEl.classList.add('dialogShow');
+                    backEl.classList.remove('dialogBack');
+                },
+            }, 240)
             .add({
                 targets: hideEl,
-                translateY: ['20px', '10px'],
-                scale: ['0.84', '0.92'],
-                opacity: 1,
-            }, 240)
+                begin: function () {
+                    hideEl.classList.add('dialogBack');
+                    hideEl.classList.remove('dialogBackHide');
+                }
+            }, 480)
 
     } else {
         anime.timeline({
-            easing: 'cubicBezier(0, 0, 0.8, 1)',
-            duration: 220,
+            // easing: 'linear',
+            // duration: 240,
         })
             .add({
-                targets: selfEl,
-                translateY: '-30%',
-                opacity: 0,
-                complete: function () {
-                    selfEl.removeAttribute('style');
+                targets: thisEl,
+                // translateZ: '1.6rem',
+                // opacity: 0,
+                begin: function () {
+                    // selfEl.style.willChange = 'transform, opacity';
+                    thisEl.classList.remove('dialogShow');
                 }
             }, 0)
             .add({
-                targets: showEl,
-                translateY: 0,
-                scale: 1,
+                targets: backEl,
+                //translateZ: 0,
 
-            }, 120)
+                begin: function () {
+                    // showEl.style.willChange = 'transform, opacity';
+                    backEl.classList.add('dialogShow');
+                    backEl.classList.remove('dialogBack');
+                }
+            }, 240)
     }
 }
 
@@ -988,7 +1076,7 @@ Number.prototype.countDecimals = function () {
 
 
 /*数字动态滚动加载*/
-function numberShow() {
+function numberShow(className = '.numberShow') {
     var number = document.querySelectorAll('.numberShow');
     number.forEach(function (item) {
         if (item.dataset.start) {
@@ -1261,16 +1349,16 @@ function parabolla(el, target, className) {//元素本身、目标位置元素�
 
 //ios卡片滚动堆叠效果
 
-function pileScroll() {
-    const pile = document.querySelectorAll('.pile');
+function pileScroll(className = '.pile', fade = false) {
+    const pile = document.querySelectorAll(className);
     pile.forEach(function (pileItems) {
         const items = pileItems.querySelectorAll('.pile-item');
         var faterStyle = getComputedStyle(pileItems, null);
         var faterPadding = parseInt(faterStyle.paddingTop);//获取元素padding值并取整型
 
         items.forEach(function (item) {
-            const height = item.offsetHeight;//初始状体每个模块的高度，为定值
-            const top = item.offsetTop;//初始状体每个模块距离顶部的距离，为定值
+            const height = item.offsetHeight;//获取每个模块的高度，为固定值
+            const top = item.offsetTop;//获取每个模块距离顶部的距离，为固定值
             var next = item.nextElementSibling;
 
             if (next) {
@@ -1281,9 +1369,15 @@ function pileScroll() {
 
                 const animeX = (height + top - scrollY) / height;//滚动条持续滚动，scrollY逐步增加，达到 top = scrollY 时（top为固定值），表示模块上方到达顶部，模块即将进入变化，此时animeX = 1，随着向下滚动，scrollY逐步增大，animeX < 1且逐步减小直到height + top = scrollY时，即滚动条滚动到了模块下边缘位置，此时animeX = 0；
 
-                if (scrollY > top && scrollY < nextTop) {//当滚动条滚动的位置位于item上边缘与第二个item上边缘之间时
-                    item.style.willChange = 'transform';
-                    item.style.opacity = 1;
+                if (scrollY > top && scrollY < nextTop) {//当滚动的位置位于item上边缘与第二个item上边缘之间时
+                    if (fade == true) {//表示隐藏过程要开启fade效果，模块逐步透明隐藏
+                        item.style.willChange = 'transform, opacity';
+                        item.style.opacity = animeX;
+                    } else {
+                        item.style.willChange = 'transform';
+                        item.style.opacity = 1;
+                    }
+
                     item.style.transform = 'scale(' + (animeX * 0.08 + 0.92) + ')';//animeX从 1 逐步减小到 0，当animeX = 1时，animeX * 0.8 / 10 + 0.92 = 1，模块大小不变，随着滚动条向下继续滚动，animeX逐步减小直到 0，animeX * 0.8 / 10 + 0.92 的值也逐步减小为 0.92，整个值 从 1 到 0.92 表示模块等比例缩小的比例值，0.92 可以自定义的模块缩放最小比例，0.08 = 1 - 0.92
                 }
                 if (scrollY >= nextTop) {//滚动条超过模块下一个兄弟模块上边缘时
@@ -1415,7 +1509,7 @@ function compass() {
             pageDwon = [e.pageX, e.pageY];
 
             var angleNew = Math.atan2(e.pageX - compassCenter[0], - (e.pageY - compassCenter[1])) * (180 / Math.PI);//鼠标down时的角度
-           
+
             document.onmousemove = function (e) {
                 angle = Math.atan2(e.pageX - compassCenter[0], - (e.pageY - compassCenter[1])) * (180 / Math.PI);//鼠标move时角度变化
 
@@ -1425,7 +1519,7 @@ function compass() {
             }
 
             document.onmouseup = function (e) {
-                
+
                 pageUp = [e.pageX, e.pageY];
 
                 if (pageDwon[0] == pageUp[0] && pageDwon[1] == pageUp[1]) {
@@ -1439,14 +1533,14 @@ function compass() {
                     //清除事件
                     document.onmouseup = null;
                     document.onmousemove = null;
-                
+
 
                 } else {
                     angleLast = rotate;
                     //清除事件
                     document.onmouseup = null;
                     document.onmousemove = null;
-              
+
                 }
 
 

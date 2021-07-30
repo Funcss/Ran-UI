@@ -13,6 +13,7 @@
     transition: all ease 0.3s;
     background: var(--base-thin);
     color:var(--text);
+    user-select: none;
     &.block {
         display: grid;
         width: 100%;
@@ -26,6 +27,7 @@
     &:hover {
         box-shadow: 0 0.2rem 0.6rem -0.1rem rgba(0,0,0,.04);
         background: var(--base-air);
+        backdrop-filter: blur(4px);
     }
 
     &:active {

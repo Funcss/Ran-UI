@@ -251,7 +251,8 @@
     border-radius: var(--radius-light);
     height: var(--md);
     padding: 0.2rem;
-
+    backdrop-filter: blur(8px);
+    user-select: none;
     .active {
         color: var(--text);
     }
@@ -273,6 +274,15 @@
         &:hover {
             color: var(--text);
         }
+    }
+    &.inline{
+        display:inline-grid;
+        a{
+            padding: 0 1.2rem;
+        }
+    }
+    &.block{
+        display:grid;
     }
 
     &.tabs-lg {
@@ -305,7 +315,15 @@
         transition: left 300ms cubic-bezier(0, 0, .2, 1), width 300ms cubic-bezier(0, 0, .2, 1);
     }
 }
-
+.tabs-round{
+    border-radius:var(--lg)!important;
+    &>a{
+        padding: 0 1.2rem;
+    }
+    &::before {
+        border-radius:var(--lg);
+    }
+}
 .tabs-base {
     background: var(--base-heavy);
 

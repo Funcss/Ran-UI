@@ -7,9 +7,7 @@ window.onload = function () {
     });
     MUIinput();//谷歌风格input框
 
-    //水波纹
-    Waves.attach('.btn, .list-link, .select_value, .menu-item');
-    Waves.init();
+    
 
     //拖动drop，引用方式父盒子class=dropBox，demojs
 
@@ -19,7 +17,7 @@ window.onload = function () {
 
     tabs();
 
-    pileScroll()//ios卡片滚动堆叠效果
+
 
     cardStack()//堆叠卡片翻页
 
@@ -54,12 +52,16 @@ window.onload = function () {
     });
 
 
+    //水波纹
+    Waves.attach('.btn, .list-link, .select_value, .menu-item');
+    Waves.init();
+
  
 }
 
 
 
-// 添加resize的回调函数，但是只允许它每300毫秒执行一次
+// 添加resize的回调函数，但是只允许它每400毫秒执行一次
 window.addEventListener('resize', debounce(function (event) {
     tabs();
     accordion()//折叠面板
