@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/hmb.css" media="screen" charset="utf-8">
+
+
+    <title>数字大屏展示系统</title>
+</head>
+
+<body class="dark">
+    <div class="hmb-container">
+        <header class="hmb-header">
+            <div class="hmb-header_start">
+                <div class="hmb-timeWeather"><img src="dest/images/hmb/CloudRainThunder.svg" alt="雷阵雨"><span
+                        class="city">苏州市</span><time>2021/07/01 11:30 星期四</time></div>
+            </div>
+            <div class="hmb-header_center">
+                <img class="hmb-logo" src="dest/images/hmb/top-title.svg" alt="">
+            </div>
+            <div class="hmb-header_end">
+                <button class="btn btn-md btn-primary btn-text" id="fullScreen">
+                    <i class="icon-icon74"></i>全屏</button>
+                <button class="btn btn-md btn-primary btn-text" id="exitScreen" style="display:none">
+                    <i class="icon-icon73"></i>收起</button>
+                <button class="btn btn-md btn-primary btn-text"><i class="icon-icon80"></i>后台</button>
+            </div>
+        </header>
+
+        <section class="hmb-main_left">
+            <div class="drawer hmb-main-intro drawer-left drawer-left-show" id="drawer-left1">
+                <div class="hmb-card hmb-card1">
+                    <div class="hmb-card_head">
+                        <h2 class="hmb-card-title" onclick="dialogShow(document.getElementById('dialog1'))">苏州全市
+                            <a href="###" class="btn btn-md btn-icon hmb-card_more"><i class="icon-icon46"></i></a>
+                        </h2>
+                        <button class="btn btn-md btn-text hmb-filter-open" id="hmb-filter-open"><i
+                                class="icon-icon15"></i>搜索</button>
+                        <!-- <div class="select_value btn-text menu-select hmb-card-title"
+                                onclick="menu(this,document.getElementById('menu1'))">苏州全市</div>
+                            <div class="menu" id="menu1">
+                                <ul class="menu-list">
+                                    <li class="menu-item selected">苏州全市</li>
+                                    <li class="menu-item">姑苏区</li>
+                                </ul>
+                            </div> -->
+                    </div>
+                    <div class="hmb-card_main">
+                        <div class="hmb-device-info">
+                            <div class="statistic-item">
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="7638">7638 </span>
+                                </div>
+                                <div class="statistic-title">安装总数</div>
+                            </div>
+                            <div class="contrast contrast-mini hmb-device_contrast"
+                                style="--bar-left:7608;--bar-right:480">
+                            </div>
+                        </div>
+                        <ul class="statistic statistic-sm hmb-device_statistic">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="96.72">96.72 </span><small>%</small>
+                                </div>
+                                <div class="statistic-title">在线率</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="13">13
+                                    </span></div>
+                                <div class="statistic-title">部署街道</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="38">38
+                                    </span>
+                                </div>
+                                <div class="statistic-title">部署小区</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="4372805">4372805 </span>
+                                </div>
+                                <div class="statistic-title">覆盖人口</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hmb-street">
+                    <div class="hmb-street_header">
+                        <div class="select-item">
+                            <div class="select_value btn-text menu-select hmb-card-title"
+                                onclick="menu(this,document.getElementById('menu2'))">街道数据</div>
+                            <div class="menu" id="menu2">
+                                <ul class="menu-list">
+                                    <li class="menu-item selected">街道数据</li>
+                                    <li class="menu-item">场景数据</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <nav class="tabs tabs-round">
+                            <a href="javascript:;" class="active">播放</a>
+                            <a href="javascript:;">设备</a>
+                        </nav>
+
+                    </div>
+                    <ul class="hmb-street_list pile">
+                        <li class="play-sort pile-item" onclick="dialogShow(document.getElementById('dialogStack1'))">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart">
+                                </div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 下面li.device-sort为设备类型列表项-->
+                        <li class="device-sort pile-item" onclick="dialogShow(document.getElementById('dialogStack1'))">
+                            <div class="device-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="device_num">设备 234974</div>
+                            </div>
+                            <div class="device-sort_end">
+                                <div class="progress" style="--bar-width:48">
+                                    <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 下面li.scene-sort为场景列表项-->
+                        <li class="scene-sort pile-item" onclick="dialogShow(document.getElementById('dialogStack2'))">
+                            <div class="scene-sort_start">
+                                <h3 class="hmb-scene_name">场景名称</h3>
+                                <div class="hmb-scene_hint">
+                                    <span>设备 123455</span>
+                                    <span>在线率 98.72%</span>
+                                </div>
+                            </div>
+
+                            <ul class="statistic statistic-sm">
+
+                                <li>
+                                    <div class="statistic-number">17</div>
+                                    <div class="statistic-title">离线</div>
+                                </li>
+                                <li>
+                                    <div class="statistic-number">3290</div>
+                                    <div class="statistic-title">在线</div>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="play-sort pile-item">
+                            <div class="play-sort_start">
+                                <h3 class="hmb-street_name">胡巷社区</h3>
+                                <div class="hmb-street_hint">
+                                    <span>设备数 3257</span>
+                                    <span>人口 7364909</span>
+                                </div>
+                            </div>
+                            <div class="play-sort_end">
+                                <div class="hmb-street_chart"></div>
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="23497">23497</span>
+                                    </div>
+                                    <div class="statistic-title">24h播放</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="drawer hmb-filter drawer-left" id="drawer-left2">
+                <div class="pile-item hmb-card hmb-filter-card">
+                    <div class="hmb-card_head">
+                        <h2 class="hmb-card-title">全局筛选</h2>
+                        <button class="btn btn-md btn-icon hmb-card_close" id="hmb-filter_close"><i
+                                class="icon-icon61"></i></button>
+                    </div>
+                    <div class="hmb-card_main">
+                        <form action="" class="hmb-filter-from">
+                            <fieldset class="form-fieldset">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">行政区</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select"
+                                        onclick="menu(this,document.getElementById('menu6'))">请选择
+                                    </div>
+                                    <div class="menu" id="menu6">
+                                        <ul class="menu-list">
+                                            <li class="menu-item ">男</li>
+                                            <li class="menu-item ">女</li>
+                                            <li class="menu-item ">1</li>
+                                            <li class="menu-item ">2</li>
+                                            <li class="menu-item ">3</li>
+                                            <li class="menu-item ">A</li>
+                                            <li class="menu-item ">B</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">街道</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select"
+                                        onclick="menu(this,document.getElementById('menu3'))">请选择街道
+                                    </div>
+                                    <div class="menu" id="menu3">
+                                        <ul class="menu-list">
+                                            <li class="menu-item ">男</li>
+                                            <li class="menu-item ">女</li>
+                                            <li class="menu-item ">1</li>
+                                            <li class="menu-item ">2</li>
+                                            <li class="menu-item ">3</li>
+                                            <li class="menu-item ">A</li>
+                                            <li class="menu-item ">B</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">小区</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select"
+                                        onclick="menu(this,document.getElementById('menu4'))">请选择小区
+                                    </div>
+                                    <div class="menu" id="menu4">
+                                        <ul class="menu-list">
+                                            <li class="menu-item ">男</li>
+                                            <li class="menu-item ">女</li>
+                                            <li class="menu-item ">1</li>
+                                            <li class="menu-item ">2</li>
+                                            <li class="menu-item ">3</li>
+                                            <li class="menu-item ">A</li>
+                                            <li class="menu-item ">B</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-fieldset">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">设备状态</h3>
+                                    </div>
+                                    <div class="radio-inline">
+                                        <label for="radio1" class="radio-label">
+                                            <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                            全部
+                                        </label>
+                                        <label for="radio2" class="radio-label">
+                                            <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                            在线
+                                        </label>
+                                        <label for="radio3" class="radio-label">
+                                            <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                            离线
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">播放量</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <div class="select_value inline select-solid menu-select "
+                                            onclick="menu(this,document.getElementById('menu5'))">请选择
+                                        </div>
+                                        <div class="menu" id="menu5">
+                                            <ul class="menu-list">
+                                                <li class="menu-item ">大于等于</li>
+                                                <li class="menu-item ">小于</li>
+
+                                            </ul>
+                                        </div>
+                                        <input type="text" placeholder="次数" class="input input-md">
+                                        <div class="input-group-addon input-md">次</div>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">设备编号</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="text" placeholder="请输入编号" class="input input-md">
+                                        <button class="btn btn-md btn-primary "><i class="icon-icon15"></i></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-fieldset">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">宣传分类</h3>
+                                    </div>
+                                    <div class="checkbox-inline">
+                                        <label for="checkbox1" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox1">
+                                            选项1
+                                        </label>
+                                        <label for="checkbox3" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox3">
+                                            选项3
+                                        </label>
+                                        <label for="checkbox2" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox2">
+                                            选项2
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">场景主题</h3>
+                                    </div>
+                                    <div class="checkbox-inline">
+                                        <label for="checkbox4" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox4">
+                                            选项1
+                                        </label>
+                                        <label for="checkbox5" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox5">
+                                            选项3
+                                        </label>
+                                        <label for="checkbox6" class="checkbox-label">
+                                            <input type="checkbox" class="checkbox" name="" id="checkbox6">
+                                            选项2
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">场景名称</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select"
+                                        onclick="menu(this,document.getElementById('menu7'))">请选择场景
+                                    </div>
+                                    <div class="menu" id="menu7">
+                                        <ul class="menu-list">
+                                            <li class="menu-item ">男</li>
+                                            <li class="menu-item ">女</li>
+                                            <li class="menu-item ">1</li>
+                                            <li class="menu-item ">2</li>
+                                            <li class="menu-item ">3</li>
+                                            <li class="menu-item ">A</li>
+                                            <li class="menu-item ">B</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="hmb-card_foot">
+                        <a href="javascript:;" class="btn btn-md " onclick="toast('请重新搜索','','topCenter',true)">清空</a>
+                        <button class="btn btn-md btn-primary" onclick="backdropLoadingShow('#backdropLoading')"><i
+                                class="icon-icon15"></i>开始筛选</button>
+                        <!-- 添加了loading效果，有需要才使用 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hmb-main_right">
+            <div class="drawer hmb-drawer-right drawer-right drawer-right-show" id="drawer-right1">
+                <div class="drawer-pile pile">
+                    <div class="pile-item hmb-card hmb-card2">
+                        <div class="hmb-card_head">
+                            <h2 class="hmb-card-title" onclick="dialogShow(document.getElementById('dialog2'))">播放统计
+                                <a href="###" class="btn btn-md btn-icon hmb-card_more"><i class="icon-icon46"></i></a>
+                            </h2>
+
+                        </div>
+                        <div class="hmb-card_main">
+                            <div class="hmb-card2_info">
+
+                                <div class="statistic-item">
+                                    <div class="statistic-number"><span class="numberShow" data-start="0"
+                                            data-end="27638">27638 </span>
+
+                                    </div>
+                                    <div class="statistic-title">30天播放总数</div>
+                                </div>
+                                <ul class="statistic statistic-sm">
+                                    <li>
+                                        <div class="statistic-number chart-color1">23282</div>
+                                        <div class="statistic-title">红外触发</div>
+                                    </li>
+                                    <li>
+                                        <div class="statistic-number chart-color2">3527</div>
+                                        <div class="statistic-title">定时播放</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="chart1" style="height: 12rem;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pile-item hmb-card hmb-card3">
+                        <div class="hmb-card_head">
+                            <h2 class="hmb-card-title" onclick="dialogShow(document.getElementById('dialog3'))">宣传分类
+                                <a href="###" class="btn btn-md btn-icon hmb-card_more"><i class="icon-icon46"></i></a>
+                            </h2>
+
+                        </div>
+                        <div class="hmb-card_main">
+                            <div class="hmb-card3_chart" id="chart2" style="height:190px ;"></div>
+                        </div>
+                    </div>
+                    <div class="pile-item hmb-card hmb-card4">
+                        <div class="hmb-card_head">
+                            <h2 class="hmb-card-title" onclick="dialogShow(document.getElementById('dialog4'))">场景分类
+                                <a href="###" class="btn btn-md btn-icon hmb-card_more"><i class="icon-icon46"></i></a>
+                            </h2>
+
+                        </div>
+                        <div class="hmb-card_main">
+                            <div class="hmb-card4_chart" id="chart3" style="height:190px ;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="hmb-footer">
+            <nav class="tabs tabs-lg tabs-round">
+                <a href="javascript:;" class="active"><i class="icon-icon17"></i>点位图</a>
+                <a href="javascript:;"><i class="icon-icon25"></i>热力图</a>
+                <a href="javascript:;"><i class="icon-icon9"></i>蜂窝图</a>
+            </nav>
+        </footer>
+        <div class="hmb-mapbox" id="hmb-mapbox"></div>
+    </div>
+    <!-- 苏州全市弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialog1">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    苏州全市
+                </h3>
+
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialog1'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="8383">8383
+                        </div>
+                        <div class="statistic-title">全市安装总数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="12345">12345</span>
+                        </div>
+                        <div class="statistic-title">当前在线</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="99.04">99.04
+                            </span>
+                            <small>%</small>
+                        </div>
+                        <div class="statistic-title">在线率</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">覆盖街道</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">覆盖小区</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="123456">123456</span>
+                        </div>
+                        <div class="statistic-title">覆盖人口</div>
+                    </li>
+
+                </ul>
+                <div class="dialog-chart-box" id="dialog-shuzou-chart1"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon80"></i>后台配置</button>
+                    <!-- 新页面打开后台跳转到设备管理 -->
+                </div>
+                <div class="dialog_end"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 播放统计弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialog2">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    播放统计
+                </h3>
+
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialog2'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+
+                        </div>
+                        <div class="statistic-title">历史累计播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="12345">12345</span>
+                        </div>
+                        <div class="statistic-title">近30天播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="3490">3490
+                            </span>
+                        </div>
+                        <div class="statistic-title">近7天播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">近24小时播放</div>
+                    </li>
+
+                </ul>
+                <div class="dialog-chart-box" id="dialog-play-chart1"></div>
+                <div class="dialog-chart-box" id="dialog-play-chart2"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon80"></i>后台配置</button>
+                    <!-- 新页面打开后台跳转到设备管理 -->
+                </div>
+                <div class="dialog_end"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 宣传分类弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialog3">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    宣传分类
+                </h3>
+
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialog3'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="8383">8383
+                        </div>
+                        <div class="statistic-title">文件总数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="123">123</span>
+                        </div>
+                        <div class="statistic-title">政策学习</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="99">99</span>
+                        </div>
+                        <div class="statistic-title">政府公开</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">社会治理</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">应急通知</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="123">123</span>
+                        </div>
+                        <div class="statistic-title">便民服务</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="123">123</span>
+                        </div>
+                        <div class="statistic-title">其他</div>
+                    </li>
+
+                </ul>
+                <div class="dialog-chart-box" id="dialog-propaganda-chart1"></div>
+                <div class="dialog-chart-box" id="dialog-propaganda-chart2"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon80"></i>后台配置</button>
+                    <!-- 新页面打开后台跳转到设备管理 -->
+                </div>
+                <div class="dialog_end"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 场景分类弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialog4">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    场景分类
+                </h3>
+
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialog4'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="8383">8383
+                        </div>
+                        <div class="statistic-title">主题1设备数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="12345">12345</span>
+                        </div>
+                        <div class="statistic-title">主题2设备数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">主题3设备数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">主题4设备数</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="123456">123456</span>
+                        </div>
+                        <div class="statistic-title">主题5设备数</div>
+                    </li>
+
+                </ul>
+                <div class="dialog-chart-box" id="dialog-theme-chart1"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon80"></i>后台配置</button>
+                    <!-- 新页面打开后台跳转到设备管理 -->
+                </div>
+                <div class="dialog_end"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 街道数据 堆叠弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialogStack1">
+        <div class="dialog" id="dialogStack-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    胡巷街道
+                </h3>
+                <nav class="tabs">
+                    <a href="javascript:;" id="toggleContent2" class="active">数据报表</a>
+                    <a href="javascript:;" id="toggleContent1">小区列表</a>
+                    <!-- <a href="javascript:;">设备列表</a> -->
+
+                </nav>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="tabs-content" id="tabs-content1" style="display: none;">
+                <div class="dialog_body">
+                    <div class="table-slicky">
+                        <table class="table">
+                            <thead class="table-slicky_row">
+                                <tr>
+                                    <th>#</th>
+                                    <th>小区名称</th>
+                                    <th>覆盖人口</th>
+                                    <th>已安装设备</th>
+                                    <th>在线</th>
+                                    <th>离线</th>
+                                    <th>24h播放</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>新华社区</td>
+                                    <td>83834</td>
+                                    <td>34</td>
+                                    <td>33</td>
+                                    <td>1</td>
+                                    <td>5367</td>
+                                    <td><button class="btn btn-md btn-primary btn-text"
+                                            onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                class="icon-icon46"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>新华社区</td>
+                                    <td>83834</td>
+                                    <td>34</td>
+                                    <td>33</td>
+                                    <td>1</td>
+                                    <td>5367</td>
+                                    <td><button class="btn btn-md btn-primary btn-text"
+                                            onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                class="icon-icon46"></i></button></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dialog_footer">
+                    <div class="dialog_start"></div>
+                    <div class="dialog_end">
+                        <div class="pagination">
+                            <button class="btn btn-md"><i class="icon-icon50"></i></button>
+                            <div class="btn-group">
+                                <button class="btn btn-md btn-primary">1</button>
+                                <button class="btn btn-md">2</button>
+                                <button class="btn btn-md">…</button>
+                                <button class="btn btn-md">8</button>
+                                <button class="btn btn-md">9</button>
+                            </div>
+                            <button class="btn btn-md"><i class="icon-icon51"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs-content" id="tabs-content2">
+                <div class="dialog_body">
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="3490">3490
+                                </span>
+                            </div>
+                            <div class="statistic-title">安装设备</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="33">33</span>
+                            </div>
+                            <div class="statistic-title">覆盖小区</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                                </span><small>人</small>
+                            </div>
+                            <div class="statistic-title">覆盖人口</div>
+                        </li>
+
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="12345">12345</span>
+                            </div>
+                            <div class="statistic-title">历史播放</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="1234">1234</span>
+                            </div>
+                            <div class="statistic-title">近30天播放</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="1234">1234</span>
+                            </div>
+                            <div class="statistic-title">近24h播放</div>
+                        </li>
+                    </ul>
+                    <div class="dialog-grid-chart">
+                        <div id="dialog-pie1">
+
+                        </div>
+                        <div id="dialog-pie2">
+
+                        </div>
+                        <div id="dialog-pie3">
+
+                        </div>
+                    </div>
+                    <div class="dialog-chart-box" id="dialog-bar1"></div>
+                </div>
+                <div class="dialog_footer">
+                    <div class="dialog_start"></div>
+                    <div class="dialog_center">
+                        <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon80"></i>后台配置</button>
+                        <!-- 新页面打开后台跳转到设备管理 -->
+                    </div>
+                    <div class="dialog_end"></div>
+                </div>
+            </div>
+            <script>
+                var tabBtn1 = document.getElementById("toggleContent1");
+                var tabBtn2 = document.getElementById("toggleContent2");
+                tabBtn1.addEventListener("click", showTab1);
+
+                function showTab1() {
+                    document.getElementById('tabs-content2').style.display = 'none';
+                    document.getElementById('tabs-content1').style.display = 'flex';
+                }
+                tabBtn2.addEventListener("click", showTab2);
+
+                function showTab2() {
+                    document.getElementById('tabs-content1').style.display = 'none';
+                    document.getElementById('tabs-content2').style.display = 'flex';
+                }
+            </script>
+        </div>
+        <div class="dialog" id="dialogStack-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <button class="btn btn-md btn-primary btn-icon" onclick="dialogStackPrev()"><i
+                            class="icon-icon23"></i></button>
+                    新华社区
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                            </span><small>人</small>
+                        </div>
+                        <div class="statistic-title">覆盖人口</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="34">34
+                            </span>
+                        </div>
+                        <div class="statistic-title">安装设备</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">在线</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="1">1</span>
+                        </div>
+                        <div class="statistic-title">离线</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="5367">5367</span>
+                        </div>
+                        <div class="statistic-title">24h播放</div>
+                    </li>
+                </ul>
+                <div class="table-slicky">
+                    <table class="table">
+                        <thead class="table-slicky_row">
+                            <tr>
+                                <th>#</th>
+                                <th>设备名称</th>
+                                <th>编号</th>
+                                <th>24h播放</th>
+                                <th>上次通信</th>
+                                <th>声音</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>名称</td>
+                                <td>2378489234</td>
+                                <td>340</td>
+                                <td>2021/03/25 13:43</td>
+                                <td>50%</td>
+                                <td>在线</td>
+                                <td><button class="btn btn-md btn-primary btn-text"
+                                        onclick="dialogStackNext(document.querySelector('#dialogStack-item3'))">查看<i
+                                            class="icon-icon46"></i></button></td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <div class="pagination">
+                        <button class="btn btn-md"><i class="icon-icon50"></i></button>
+                        <div class="btn-group">
+                            <button class="btn btn-md">1</button>
+                            <button class="btn btn-md">2</button>
+                            <button class="btn btn-md">…</button>
+                            <button class="btn btn-md">8</button>
+                            <button class="btn btn-md">9</button>
+                        </div>
+                        <button class="btn btn-md"><i class="icon-icon51"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="dialogStack-item3">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <button class="btn btn-md btn-primary btn-icon"
+                        onclick="dialogStackPrev(document.getElementById('dialogStack-item1'))"><i
+                            class="icon-icon23"></i></button>
+                    设备123455
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <dl class="dialog-device-info">
+                    <dt>名称：</dt>
+                    <dd>设备名称123</dd>
+                    <dt>编号：</dt>
+                    <dd>1234567</dd>
+                    <dt>地址：</dt>
+                    <dd>新华社区3B电梯</dd>
+                    <dt>剩余容量：</dt>
+                    <dd>56MB</dd>
+                    <dt>音量：</dt>
+                    <dd>50%</dd>
+                    <dt>上次同步：</dt>
+                    <dd>2021/03/25 13:43</dd>
+                    <dt>状态：</dt>
+                    <dd>在线</dd>
+                    <dt>创建时间：</dt>
+                    <dd>2020/05/10 13:34</dd>
+                </dl>
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                            </span></div>
+                        <div class="statistic-title">历史播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="2630">2630</span></div>
+                        <div class="statistic-title">近30日播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">今日播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="123">123</span><small>天</small>
+                        </div>
+                        <div class="statistic-title">已运行</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="7">7</span>
+                        </div>
+                        <div class="statistic-title">同步文件</div>
+                    </li>
+                </ul>
+                <div class="dialog-chart-box" id="chart4"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon56"></i>定位设备</button>
+                </div>
+                <div class="dialog_end">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 场景列表 堆叠弹出层 -->
+    <div class="backdrop hmb-dialog-max" id="dialogStack2">
+
+        <div class="dialog" id="dialogStack2-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    场景名称
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack2'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="1234">1234
+                            </span>
+                        </div>
+                        <div class="statistic-title">执行设备数量</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="34">34
+                            </span>
+                        </div>
+                        <div class="statistic-title">离线</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="133">133</span>
+                        </div>
+                        <div class="statistic-title">在线</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="99.23">99.23</span>
+                            <small>%</small>
+                        </div>
+                        <div class="statistic-title">在线率</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="5367">5367</span>
+                        </div>
+                        <div class="statistic-title">24h播放</div>
+                    </li>
+                </ul>
+                <div class="table-slicky">
+                    <table class="table">
+                        <thead class="table-slicky_row">
+                            <tr>
+                                <th>#</th>
+                                <th>设备名称</th>
+                                <th>编号</th>
+                                <th>24h播放</th>
+                                <th>上次通信</th>
+                                <th>声音</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>名称</td>
+                                <td>2378489234</td>
+                                <td>340</td>
+                                <td>2021/03/25 13:43</td>
+                                <td>50%</td>
+                                <td>在线</td>
+                                <td><button class="btn btn-md btn-primary btn-text"
+                                        onclick="dialogStackNext(document.querySelector('#dialogStack2-item2'))">查看<i
+                                            class="icon-icon46"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <div class="pagination">
+                        <button class="btn btn-md"><i class="icon-icon50"></i></button>
+                        <div class="btn-group">
+                            <button class="btn btn-md">1</button>
+                            <button class="btn btn-md">2</button>
+                            <button class="btn btn-md">…</button>
+                            <button class="btn btn-md">8</button>
+                            <button class="btn btn-md">9</button>
+                        </div>
+                        <button class="btn btn-md"><i class="icon-icon51"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="dialogStack2-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <button class="btn btn-md btn-primary btn-icon" onclick="dialogStackPrev()"><i
+                            class="icon-icon23"></i></button>
+                    设备123455
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack2'))"><i class="icon-icon61"></i></button>
+            </div>
+            <div class="dialog_body">
+                <dl class="dialog-device-info">
+                    <dt>名称：</dt>
+                    <dd>设备名称123</dd>
+                    <dt>编号：</dt>
+                    <dd>1234567</dd>
+                    <dt>地址：</dt>
+                    <dd>新华社区3B电梯</dd>
+                    <dt>剩余容量：</dt>
+                    <dd>56MB</dd>
+                    <dt>音量：</dt>
+                    <dd>50%</dd>
+                    <dt>上次同步：</dt>
+                    <dd>2021/03/25 13:43</dd>
+                    <dt>状态：</dt>
+                    <dd>在线</dd>
+                    <dt>创建时间：</dt>
+                    <dd>2020/05/10 13:34</dd>
+                </dl>
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                            </span></div>
+                        <div class="statistic-title">历史播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="2630">2630</span></div>
+                        <div class="statistic-title">近30日播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">今日播放</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="123">123</span><small>天</small>
+                        </div>
+                        <div class="statistic-title">已运行</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="7">7</span>
+                        </div>
+                        <div class="statistic-title">同步文件</div>
+                    </li>
+                </ul>
+                <div class="dialog-chart-box" id="chart4"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="icon-icon56"></i>定位设备</button>
+                </div>
+                <div class="dialog_end">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- loading蒙层 -->
+    <!-- 载入方法：backdropLoadingShow('#backdropLoading')；隐藏方法：backdropLoadingHide('#backdropLoading') -->
+    <div class="backdrop" id="backdropLoading">
+        <div class="circular-progress lg" style="color: #fff;margin: auto;">
+            <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+                <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44"
+                    r="20.2" fill="none" stroke-width="3.6"></circle>
+            </svg>
+        </div>
+    </div>
+</body>
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=2efb93646fb3948373b6bbfaea0d9d2b&callback=init"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script src="dest/js/bigdata-eChart.js"></script>
+<script>
+    //监听尺寸变化echart跟随变化
+    window.addEventListener("resize", function () {
+        setTimeout(function () {
+            myChart4.resize();
+            dialogPie1.resize();
+            dialogPie2.resize();
+            dialogPie3.resize();
+        }, 400)
+    });
+
+
+    //右上角全屏开启和关闭
+    var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+
+
+
+    //全局搜索开关
+    var filterOpen = document.getElementById('hmb-filter-open');
+    var filterClose = document.getElementById('hmb-filter_close');
+
+    filterOpen.onclick = function () {
+        document.body.classList.add('filter');
+        drawerLeftStack(document.getElementById('drawer-left2'));
+        drawerRightClose();
+    }
+    filterClose.onclick = function () {
+        document.body.classList.remove('filter');
+        drawerLeftStack(document.getElementById('drawer-left1'));
+        drawerRightStack(document.getElementById('drawer-right1'));
+    }
+
+
+
+
+
+
+
+    //高德地图demo
+    window.init = function () {
+        var map = new AMap.Map('hmb-mapbox', {
+            mapStyle: 'amap://styles/e4de8b956bdbf04fb4adebb972827ccb', //矢量地图夜间样式
+            center: [120.585, 31.298], // starting position [lng, lat]
+            zoom: 11, // starting zoom 
+            // pitch:15, // 地图俯仰角度，有效范围 0 度- 83 度
+            // viewMode:'3D', // 地图模式
+        });
+
+
+
+
+        // 创建一个 Marker 实例：
+
+
+        var icon1 = new AMap.Icon({
+            //position: new AMap.LngLat(120.585197, 31.299473), // 经纬度对象
+            size: new AMap.Size(14, 20),
+            image: 'dest/images/hmb/poi-marker-red.png',
+            imageSize: new AMap.Size(14, 20),
+        });
+        var icon2 = new AMap.Icon({
+            //position: new AMap.LngLat(120.585197, 31.299473), // 经纬度对象
+            size: new AMap.Size(14, 20),
+            image: 'dest/images/hmb/poi-marker-gray.png',
+            imageSize: new AMap.Size(14, 20),
+        });
+
+        // 将 Icon 实例添加到 marker 上:
+        var marker1 = new AMap.Marker({
+            position: new AMap.LngLat(120.585197, 31.299473),
+            offset: new AMap.Pixel(-10, -10),
+            icon: icon1, // 添加 Icon 实例
+        });
+
+        var marker2 = new AMap.Marker({
+            position: new AMap.LngLat(120.613865, 31.290892),
+            offset: new AMap.Pixel(-10, -10),
+            icon: icon2, // 添加 Icon 实例
+        });
+
+        var markerList = [marker1, marker2];
+        // 将创建的点标记添加到已有的地图实例：
+        map.add(markerList);
+    }
+
+
+
+    //模拟marker点击弹出层气泡
+    window.onload = function () {
+
+        var markerList = document.querySelectorAll('.amap-icon');
+        markerList.forEach(function (markIcon) {
+            markIcon.onclick = function () {
+                this.classList.add('focus'); //增加focus状态样式，使marker变大，失去焦点后去掉focus
+                tooltips(this,
+                    "<a href='###' class='tooltip-close btn btn-md btn-icon'><i class='icon-icon61'></i></a><dl class='map-marker-list'><dt>设备号：</dt><dd>13874990 <a href='###' class='btn btn-md btn-primary btn-text'>详情<i class='icon-icon46'></i></a></dd><dt>街道：</dt><dd>郭巷街道</dd><dt>小区：</dt><dd>金塘一村22栋金塘一村22栋金塘一村22栋金塘一村22栋 </dd><dt>状态：</dt><dd>在线（上次同步 13:23）</dd><dt>累计播放：</dt><dd>7368</dd></dl>"
+                );
+            }
+
+        });
+
+        //数字动态加载
+        numberShow();
+        //tab按扭
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+
+        //滚动效果
+        pileScroll(".hmb-street_list", true);
+        pileScroll(".drawer-pile", true);
+    }
+</script>
+
+</html>
