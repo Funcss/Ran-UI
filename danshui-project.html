@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/ds.css" media="screen" charset="utf-8">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <title>数字大屏展示系统</title>
+</head>
+
+<body class="dark">
+    <main class="ds-container">
+        <header class="header">
+            <div class="header-start">
+                <div class="ds-headerWeather"><img src="dest/images/hmb/CloudRainThunder.svg" alt="雷阵雨"><span
+                        class="city">惠阳市</span><time>2021/07/01 11:30 星期四</time></div>
+            </div>
+            <div class="header-center">
+                <img src="dest/images/ds/logo.svg" class="logo" alt="惠州淡水项目管控中心">
+            </div>
+            <div class="header-end">
+                <button class="btn btn-md btn-text" id="fullScreen">
+                    <i class="ran-icon95"></i>全屏</button>
+                <button class="btn btn-md btn-text" id="exitScreen" style="display:none">
+                    <i class="ran-icon94"></i>收起</button>
+                <button class="btn btn-md btn-text" onclick="dialogShow(document.getElementById('dialog-update'))"><i
+                        class="ran-icon12"></i>数据</button>
+                <!-- <button class="btn btn-md btn-text"><i class="ran-icon101"></i>管理</button> -->
+            </div>
+        </header>
+        <div class="sidebar-left" id="sidebar-left">
+            <div class="global-overview drawer drawer-left drawer-left-show" id="drawer-projectList">
+                <div class="sidebar-card">
+                    <div class="details-card-header">
+                        <h2 class="sidebar-card-title">全局概览</h2>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <div class="global-overview-card-item1">
+                            <div class="statistic-item">
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="76384">76384</span>
+                                </div>
+                                <div class="statistic-title">征地总面积 (㎡)</div>
+                            </div>
+                            <div class="chart-progress">
+                                <div class="chart-progress-item" id="chart-progress1"></div>
+                                <div class="chart-progress-item" id="chart-progress2"></div>
+                            </div>
+
+                        </div>
+                        <ul class="statistic statistic-sm global-overview-card-item2">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="18">18</span>
+                                </div>
+                                <div class="statistic-title">项目总数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="21345">21345</span></div>
+                                <div class="statistic-title">交地面积 (㎡)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="3847">3847</span>
+                                </div>
+                                <div class="statistic-title">涉迁房屋</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="75">75</span>
+                                </div>
+                                <div class="statistic-title">已拆迁</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ds-project">
+                    <div class="ds-project-header">
+                        <h2 class="sidebar-card-title">项目列表</h2>
+                        <nav class="tabs tabs-round">
+                            <a href="javascript:;" class="active">项目</a>
+                            <a href="javascript:;">工程</a>
+                        </nav>
+                    </div>
+                    <ul class="ds-project-list pile">
+                        <!-- 按进度条由多到小排序 -->
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:82">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:76">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:67">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:60">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:54">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:48">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:36">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:29">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:20">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:18">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:15">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:12">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                        <li class="ds-project-item pile-item">
+                            <h3 class="ds-project-title">今秋大道</h3>
+                            <div class="progress" style="--bar-width:9">
+                                <!-- 此处48为百分比，取每个街道的设备总数按照从高到低排序，数量最高的街道取他的设备数量向上取整为最大公约数来求百分比 -->
+                            </div>
+                            <div class="hint"><span>涉拆 123</span><span>未拆 35</span></div>
+                            <div class="hint"><span>已交地 56%</span><span> 红线面积 2346 (㎡)</span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="drawer drawer-left" id="drawer-project">
+                <div class="sidebar-card">
+                    <div class="details-header">
+                        <div class="details-header-top">
+                            <h2 class="details-title">今秋大道</h2>
+                            <button class="sidebar-card-close btn btn-md  btn-icon" onclick="
+                            drawerLeftStack(document.getElementById('drawer-projectList'));"><i
+                                    class="ran-icon35"></i></button>
+                        </div>
+                        <div class="details-header-intro">
+                            <div class="details-header-tags">
+                                <span class="tag tag-primary">市政道路</span>
+                                <span class="tag tag-warning">涉拆</span>
+                            </div>
+                            <div class="person-liable">
+                                责任人：周岳阳
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card-main details-main">
+                        <ul class="statistic statistic-sm">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="21345">21345 </span></div>
+                                <div class="statistic-title">红线面积 (㎡)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="12653">12653 </span></div>
+                                <div class="statistic-title">交地面积 (㎡)</div>
+                            </li>
+
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="384">384
+                                    </span>
+                                </div>
+                                <div class="statistic-title">涉迁房屋</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="75">75
+                                    </span>
+                                </div>
+                                <div class="statistic-title">已拆迁</div>
+                            </li>
+                        </ul>
+                        <div class="contrast contrast-mini details-contrast" style="--bar-left:65;--bar-right:35">
+                        </div>
+                        <!-- 只能取整数，不保留小数点 -->
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title"
+                                    onclick="dialogShow(document.getElementById('dialogStack1'))">项目详情
+                                    <a href="###" class="btn btn-md btn-icon ds-card_more"><i
+                                            class="ran-icon64"></i></a>
+                                </h3>
+
+                            </div>
+                            <div class="details-card-main">
+                                <dl class="details-list">
+                                    <dt>项目名称：</dt>
+                                    <dd>今秋大道</dd>
+                                    <dt>项目类型：</dt>
+                                    <dd>市政道路</dd>
+                                    <dt>项目进度：</dt>
+                                    <dd>已交地 28490 ㎡，占比 65%</dd>
+                                    <dt>涉拆房屋：</dt>
+                                    <dd>128栋</dd>
+                                    <dt>负责人：</dt>
+                                    <dd>周岳阳 （15628893676）</dd>
+                                </dl>
+                                <ul class="file-list">
+                                    <li>
+                                        <a href="拆迁房屋协议.pdf" class="file-item">拆迁房屋协议.pdf</a>
+                                        <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon27"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="拆迁房屋协议.xls" class="file-item">拆迁房屋协议.xls</a>
+                                        <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon27"></i></a>
+                                    </li>
+                                </ul>
+                                <ul class="media-matrix media-matrix-xs">
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img5.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <nav class="tabs line-tabs">
+                            <a href="javascript:;" class="active">涉迁房屋</a>
+                            <a href="javascript:;">项目人员</a>
+                            <a href="javascript:;">进度报告</a>
+                            <a href="javascript:;">项目问题<sup>3</sup></a>
+                        </nav>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">涉拆房屋
+                                    <a href="###" class="btn btn-md btn-icon ds-card_more"><i
+                                            class="ran-icon64"></i></a></h3>
+                            </div>
+                            <div class="details-card-main">
+                                <ul class="houseList">
+                                    <li class="houseList-item" onclick="
+                                    drawerLeftStack(document.getElementById('drawer-house'));">
+                                        <h4 class="houseList-name">涉拆房屋A</h4>
+                                        <span class="demolition-over">拆迁完成</span>
+                                        <div class="hint">
+                                            <span>建筑 400㎡</span>
+                                            <span>占地 286㎡</span>
+                                        </div>
+                                    </li>
+                                    <li class="houseList-item" onclick="
+                                    drawerLeftStack(document.getElementById('drawer-house'));">
+                                        <h4 class="houseList-name">涉拆房屋B</h4>
+                                        <span class="demolition-step">签订协议</span>
+                                        <div class="hint">
+                                            <span>建筑 400㎡</span>
+                                            <span>占地 286㎡</span>
+                                        </div>
+                                    </li>
+                                    <li class="houseList-item" onclick="
+                                    drawerLeftStack(document.getElementById('drawer-house'));">
+                                        <h4 class="houseList-name">涉拆房屋C</h4>
+                                        <span class="demolition-step">前期工作</span>
+                                        <div class="hint">
+                                            <span>建筑 400㎡</span>
+                                            <span>占地 286㎡</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">项目人员</h3>
+                            </div>
+                            <div class="details-card-main">
+                                <dl class="managerList">
+                                    <dt>分管领导</dt>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            法聪（1652834090）
+                                        </div>
+                                    </dd>
+                                    <dt>负责人</dt>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            周岳阳（1652834090）
+                                        </div>
+                                    </dd>
+                                    <dt>工作人员</dt>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            周岳阳（1652834090）
+                                        </div>
+                                    </dd>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            周岳阳（1652834090）
+                                        </div>
+                                    </dd>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            周岳阳（1652834090）
+                                        </div>
+                                    </dd>
+                                    <dd onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            周岳阳（1652834090）
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">进度报告</h3>
+                            </div>
+                            <div class="details-card-main">
+                                <ul class="rateList">
+                                    <li class="rateList-item">
+                                        <div class="rateListPic check">
+                                            <img class="managerPic" src="dest/images/user.jpg">
+                                        </div>
+                                        <div class="rateList-title">签订某房屋拆迁协议</div>
+                                        <div class="hint">累计交地：2479㎡</div>
+                                        <div class="hint"><span>阮诚咏</span><time>07-30 16:23</time></div>
+                                    </li>
+                                    <li class="rateList-item">
+                                        <div class="rateListPic check">
+                                            <img class="managerPic" src="dest/images/user.jpg">
+                                        </div>
+                                        <div class="rateList-title">签订某房屋拆迁协议</div>
+                                        <div class="hint">累计交地：1232㎡</div>
+                                        <div class="hint"><span>阮诚咏</span><time>07-30 16:23</time></div>
+                                        <div class="rateList-info">
+                                            <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                            </p>
+                                            <ul class="file-list">
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="media-matrix media-matrix-xs">
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">项目问题</h3>
+                            </div>
+                            <div class="problemList">
+                                <div class="problemCard">
+                                    <div class="problemCard-header">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="problemCard-managerName">阮诚咏</div>
+                                        <div class="problemCard-tools">
+
+                                            <button class="btn btn-sm btn-icon" id="delete-tipsdemo"><i
+                                                    class="ran-icon57"></i></button>
+                                            <script>
+                                                document.getElementById('delete-tipsdemo').onclick = function () {
+
+                                                    tooltips(this,
+                                                        '<div class="toast-text">是否删除此描述？</div><div  class="toast-btn"><button class="btn btn-md  btn-text waves-effect">否</button><button class="btn btn-md btn-primary btn-text waves-effect">是</button></div>',
+                                                        'top');
+                                                }
+                                            </script>
+
+                                        </div>
+                                        <time>2021.7.30 14:00</time>
+                                    </div>
+                                    <div class="problemCard-main">
+                                        <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                        </p>
+                                        <ul class="file-list">
+                                            <li>
+                                                <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                        class="ran-icon27"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                        class="ran-icon27"></i></a>
+                                            </li>
+                                        </ul>
+                                        <ul class="media-matrix media-matrix-xs">
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                            </li>
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                            </li>
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="problemCard">
+                                    <div class="problemCard-header">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="problemCard-managerName">阮诚咏</div>
+                                        <div class="problemCard-tools">
+                                            <button class="btn btn-sm btn-icon"><i class="ran-icon57"></i></button>
+
+                                        </div>
+                                        <time>2021.7.30 14:00</time>
+                                    </div>
+                                    <div class="problemCard-main">
+                                        <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                        </p>
+                                        <ul class="file-list">
+                                            <li>
+                                                <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                        class="ran-icon27"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                        class="ran-icon27"></i></a>
+                                            </li>
+                                        </ul>
+                                        <ul class="media-matrix media-matrix-xs">
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                            </li>
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                            </li>
+                                            <li class="media-item">
+                                                <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-footer">
+
+                        <button class="btn btn-md btn-success btn-text" onclick="
+                        drawerLeftStack(document.getElementById('drawer-projectSet')); "><i
+                                class="ran-icon56"></i>编辑</button>
+                        <button class="btn btn-md btn-success btn-text"
+                            onclick="dialogShow(document.getElementById('dialog-task'))"><i
+                                class="ran-icon131"></i>下派</button>
+                        <button class="btn btn-md btn-success btn-text"
+                            onclick="dialogShow(document.getElementById('dialog-progress'))"><i
+                                class="ran-icon55"></i>进度</button>
+                        <button class="btn btn-md btn-success btn-text"
+                            onclick="dialogShow(document.getElementById('dialog-problem'))"><i
+                                class="ran-icon1"></i>问题</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="drawer drawer-left" id="drawer-projectSet">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <h3 class="details-card-title">编辑项目信息</h3>
+                        <button class="sidebar-card-close btn btn-md  btn-icon" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project')); "><i
+                                class="ran-icon35"></i></button>
+                    </div>
+
+                    <div class="sidebar-card-main details-main">
+                        <form action="" class="sidebar-form">
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label must">项目名称</h3>
+                                    </div>
+                                    <input type="text" placeholder="请输入" class="input input-md input-solid warning">
+                                    <p class="hint">不能为空</p>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label must">项目类型</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select waves-effect"
+                                        onclick="menu(this,document.getElementById('menu6'))">请选择
+                                    </div>
+                                    <div class="menu" id="menu6">
+                                        <ul class="menu-list">
+                                            <li class="menu-item  waves-effect">市政道路</li>
+                                            <li class="menu-item  waves-effect">1</li>
+                                            <li class="menu-item  waves-effect">2</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label must">红线面积</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="number" placeholder="面积" class="input input-md">
+                                        <div class="input-group-addon input-md">㎡</div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">分管领导</h3>
+                                    </div>
+                                    <div class="tagsList">
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>领导名称</span>
+
+                                        <div class="btn btn-sm btn-icon"
+                                            onclick="menu(this,document.getElementById('menu2c'))"><i
+                                                class="ran-icon77"></i></div>
+                                    </div>
+                                    <div class="menu" id="menu2c">
+                                        <ul class="menu-list">
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    人员名称
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">负责人</h3>
+                                    </div>
+                                    <div class="tagsList">
+
+
+                                        <div class="btn btn-sm btn-icon"
+                                            onclick="menu(this,document.getElementById('menu2v'))"><i
+                                                class="ran-icon77"></i></div>
+                                    </div>
+                                    <div class="menu" id="menu2v">
+                                        <ul class="menu-list">
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    人员名称
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">工作人员</h3>
+                                    </div>
+                                    <div class="tagsList">
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人1</span>
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人</span>
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人</span>
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人</span>
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人</span>
+                                        <span class="tag tag-default"><i class="ran-icon61"></i>负责人</span><span
+                                            class="tag tag-default"><i class="ran-icon61"></i>负责人</span><span
+                                            class="tag tag-default"><i class="ran-icon61"></i>负责人</span>
+                                        <div class="btn btn-sm btn-icon"
+                                            onclick="menu(this,document.getElementById('menu2n'))"><i
+                                                class="ran-icon77"></i></div>
+                                    </div>
+                                    <div class="menu" id="menu2n">
+                                        <ul class="menu-list">
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    人员名称
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+                                            <li class="menu-item"><label for="" class="checkbox-label">
+                                                    <input type="checkbox" class="checkbox" name="">
+                                                    选项1
+                                                </label></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">附件</h3>
+                                        <button class="btn btn-sm btn-text btn-primary"><i
+                                                class="ran-icon24"></i>上传</button>
+                                    </div>
+                                    <ul class="file-list">
+                                        <li>
+                                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                    class="ran-icon57"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                    class="ran-icon57"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">图片</h3>
+                                    </div>
+
+                                    <ul class="media-matrix media-matrix-xs">
+                                        <li class="add-media-item">
+                                            <input type="file" class="add-media-input">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img1.webp" loading="lazy"
+                                                data-img="dest/images/webp/img1.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img2.webp" loading="lazy"
+                                                data-img="dest/images/webp/img2.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img3.webp" loading="lazy"
+                                                data-img="dest/images/webp/img3.webp" alt="">
+                                        </li>
+
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img5.webp" loading="lazy"
+                                                data-img="dest/images/webp/img5.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img6.webp" loading="lazy"
+                                                data-img="dest/images/webp/img6.webp" alt="">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">涉拆房屋</h3>
+                                    </div>
+                                    <!-- <button class="btn btn-md block waves-effect"><i
+                                        class="ran-icon24"></i>涉拆房屋Excel</button> -->
+                                    <ul class="file-list">
+                                        <li>
+                                            <a href="###" class="file-item">拆迁房屋.excel</a>
+                                            <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon57"></i></a>
+                                        </li>
+
+                                    </ul>
+                                    <p class="upload-hint">*请按照规定的 <a href="###">Excel文件格式</a>，将数据汇总后进行上传。</p>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="details-footer between">
+                        <a href="javascript:;" class="btn btn-md">清空</a>
+                        <button class="btn btn-md btn-primary waves-effect"><i class="ran-icon4"></i>确认提交</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="drawer drawer-left" id="drawer-house">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <ol class="breadcrumbs">
+                            <li><a href="javascript:;" onclick="
+                                drawerLeftStack(document.getElementById('drawer-project'));"><i
+                                        class="ran-icon40"></i>今秋大道</a></li>
+                            <li>涉拆房屋</li>
+                        </ol>
+                        <button class="sidebar-card-close btn btn-md  btn-icon" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));"><i
+                                class="ran-icon35"></i></button>
+                    </div>
+                    <div class="sidebar-card-main details-main">
+                        <div class="details-title-box">
+                            <h2 class="details-title">今秋大道涉拆房屋JQ01</h2>
+                            <div class="details-header-intro">
+                                <div class="details-header-tags">
+                                    <span class="tag tag-primary">市政道路</span>
+                                    <span class="tag tag-warning">涉拆</span>
+                                </div>
+                                <span class="tag tag-success"><i class="ran-icon4"></i>拆迁完成</span>
+                                <!-- 分为 拆迁完成、前期工作、签订协议 三种，前期工作和签订协议样式如下： -->
+                                <!-- <span class="tag tag-warning"><i class="ran-icon7"></i>前期工作</span> -->
+                            </div>
+                        </div>
+                        <ul class="statistic statistic-sm">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="2134">2134 </span></div>
+                                <div class="statistic-title">占地面积 (㎡)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="1265">1265 </span></div>
+                                <div class="statistic-title">建筑面积 (㎡)</div>
+                            </li>
+
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="3">3
+                                    </span>
+                                </div>
+                                <div class="statistic-title">楼层高度</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4">4
+                                    </span>
+                                </div>
+                                <div class="statistic-title">户数</div>
+                            </li>
+                        </ul>
+
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">房屋详情
+                                    <a href="###" class="btn btn-md btn-icon ds-card_more"><i
+                                            class="ran-icon64"></i></a>
+                                </h3>
+
+                            </div>
+                            <div class="details-card-main">
+                                <dl class="details-list">
+                                    <dt>所属项目：</dt>
+                                    <dd>今秋大道</dd>
+                                    <dt>房屋编号：</dt>
+                                    <dd>JQ01</dd>
+                                    <dt>权利人：</dt>
+                                    <dd>卢粤民、卢晋怀</dd>
+                                    <dt>所在社区：</dt>
+                                    <dd>桥背村</dd>
+                                    <dt>详细地址：</dt>
+                                    <dd>桥背泗水村邓屋</dd>
+                                    <dt>居住情况：</dt>
+                                    <dd>自住，有出租给他人</dd>
+
+                                    <dt>占地面积：</dt>
+                                    <dd>268 ㎡ </dd>
+                                    <dt>建筑面积：</dt>
+                                    <dd>300 ㎡ </dd>
+                                    <dt>楼层高度：</dt>
+                                    <dd>2 楼</dd>
+                                    <dt>进度情况：</dt>
+                                    <dd>已出房屋结构认定，正在出评估</dd>
+                                    <dt>备注：</dt>
+                                    <dd>1栋里面有2户</dd>
+                                </dl>
+                                <ul class="file-list">
+                                    <li>
+                                        <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                        <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon27"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                        <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon27"></i></a>
+                                    </li>
+                                </ul>
+                                <ul class="media-matrix media-matrix-xs">
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">工作进度</h3>
+                            </div>
+                            <div class="details-card-main">
+                                <ul class="rateList">
+                                    <li class="rateList-item">
+                                        <div class="rateListPic check">
+                                            <img class="managerPic" src="dest/images/user.jpg">
+                                        </div>
+                                        <div class="rateList-title">签订某房屋拆迁协议</div>
+                                        <span class="demolition-over">拆迁完成</span>
+                                        <div class="hint"><span>阮诚咏</span><time>07-30 16:23</time></div>
+                                    </li>
+                                    <li class="rateList-item">
+                                        <div class="rateListPic check">
+                                            <img class="managerPic" src="dest/images/user.jpg">
+                                        </div>
+                                        <div class="rateList-title">签订某房屋拆迁协议</div>
+                                        <span class="demolition-step">签订协议</span>
+                                        <div class="hint"><span>阮诚咏</span><time>07-30 16:23</time></div>
+                                        <div class="rateList-info">
+                                            <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                            </p>
+                                            <ul class="file-list">
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="media-matrix media-matrix-xs">
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="details-footer">
+                        <button class="btn btn-md btn-success btn-text"><i class="ran-icon57"></i>删除</button>
+                        <button class="btn btn-md btn-success btn-text" onclick="
+                        drawerLeftStack(document.getElementById('drawer-houseSet')); "><i
+                                class="ran-icon56"></i>编辑</button>
+
+                        <button class="btn btn-md btn-success btn-text"
+                            onclick="dialogShow(document.getElementById('dialog-houseProgress'))"><i
+                                class="ran-icon1"></i>进度</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="drawer drawer-left" id="drawer-houseSet">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <h3 class="details-card-title">编辑房屋信息</h3>
+                        <button class="sidebar-card-close btn btn-md  btn-icon" onclick="
+                        drawerLeftStack(document.getElementById('drawer-house')); "><i class="ran-icon35"></i></button>
+                    </div>
+                    <div class="sidebar-card-main details-main">
+                        <form action="" class="sidebar-form">
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label must">所属项目</h3>
+                                    </div>
+                                    <div class="select_value select-solid menu-select"
+                                        onclick="menu(this,document.getElementById('menu1'))">请选择
+                                    </div>
+                                    <div class="menu" id="menu1">
+                                        <ul class="menu-list">
+                                            <li class="menu-item">1</li>
+                                            <li class="menu-item">3</li>
+                                            <li class="menu-item">3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label must">名称编号</h3>
+                                    </div>
+                                    <input type="text" placeholder="请输入" class="input input-md input-solid warning">
+                                    <p class="hint">不能为空</p>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">所属社区</h3>
+                                    </div>
+                                    <input type="text" placeholder="请输入" class="input input-md input-solid">
+
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">详细地址</h3>
+                                    </div>
+                                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                                </div>
+
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">占地面积</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="number" placeholder="面积" class="input input-md">
+                                        <div class="input-group-addon input-md">㎡</div>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">建筑面积</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="number" placeholder="面积" class="input input-md">
+                                        <div class="input-group-addon input-md">㎡</div>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">楼层高度</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="number" placeholder="楼层" class="input input-md">
+                                        <div class="input-group-addon input-md">层</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">备注</h3>
+                                    </div>
+                                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">户数</h3>
+                                    </div>
+                                    <div class="input-group solid">
+                                        <input type="number" value="2" placeholder="户数" class="input input-md">
+                                        <div class="input-group-addon input-md">户</div>
+                                    </div>
+                                </div>
+                                <fieldset class="form-group-item">
+                                    <legend>户1</legend>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">权利人1</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">是否本村人</h3>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label for="radio1" class="radio-label">
+                                                <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                是
+                                            </label>
+                                            <label for="radio2" class="radio-label">
+                                                <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                否
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">年龄</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <input type="number" value="30" placeholder="年龄" class="input input-md">
+                                            <div class="input-group-addon input-md">户</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">身份证</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">居住情况</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">建筑面积</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <input type="number" placeholder="面积" class="input input-md">
+                                            <div class="input-group-addon input-md">㎡</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">证件类型</h3>
+                                        </div>
+                                        <div class="select_value select-solid menu-select"
+                                            onclick="menu(this,document.getElementById('menu2'))">请选择
+                                        </div>
+                                        <div class="menu" id="menu2">
+                                            <ul class="menu-list">
+                                                <li class="menu-item">一类：两证齐全</li>
+                                                <li class="menu-item">二类：房产证</li>
+                                                <li class="menu-item">三类：土地使用证/规划许可证</li>
+                                                <li class="menu-item">四类：相关许可文件：建设用地批准书、土地使用通知书、建房许可证等</li>
+                                                <li class="menu-item">五类：无证件</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group-item">
+                                    <legend>户2</legend>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">权利人1</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">是否本村人</h3>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label for="radio1" class="radio-label">
+                                                <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                是
+                                            </label>
+                                            <label for="radio2" class="radio-label">
+                                                <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                否
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">年龄</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <input type="number" value="30" placeholder="年龄" class="input input-md">
+                                            <div class="input-group-addon input-md">户</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">身份证</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">居住情况</h3>
+                                        </div>
+                                        <input type="text" placeholder="请输入" class="input input-md input-solid">
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">建筑面积</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <input type="number" placeholder="面积" class="input input-md">
+                                            <div class="input-group-addon input-md">㎡</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">证件类型</h3>
+                                        </div>
+                                        <div class="select_value select-solid menu-select"
+                                            onclick="menu(this,document.getElementById('menu2'))">请选择
+                                        </div>
+                                        <div class="menu" id="menu2">
+                                            <ul class="menu-list">
+                                                <li class="menu-item">一类：两证齐全</li>
+                                                <li class="menu-item">二类：房产证</li>
+                                                <li class="menu-item">三类：土地使用证/规划许可证</li>
+                                                <li class="menu-item">四类：相关许可文件：建设用地批准书、土地使用通知书、建房许可证等</li>
+                                                <li class="menu-item">五类：无证件</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">附件</h3>
+                                        <button class="btn btn-sm btn-text btn-primary"><i
+                                                class="ran-icon24"></i>上传</button>
+                                    </div>
+                                    <ul class="file-list">
+                                        <li>
+                                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                    class="ran-icon57"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                    class="ran-icon57"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item-header">
+                                        <h3 class="form-item_label">图片</h3>
+                                    </div>
+
+                                    <ul class="media-matrix media-matrix-xs">
+                                        <li class="add-media-item">
+                                            <input type="file" class="add-media-input">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img1.webp" loading="lazy"
+                                                data-img="dest/images/webp/img1.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img2.webp" loading="lazy"
+                                                data-img="dest/images/webp/img2.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img3.webp" loading="lazy"
+                                                data-img="dest/images/webp/img3.webp" alt="">
+                                        </li>
+
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img5.webp" loading="lazy"
+                                                data-img="dest/images/webp/img5.webp" alt="">
+                                        </li>
+                                        <li class="media-item">
+                                            <a href="javascript:;" class="delete-media-item"></a>
+                                            <img src="dest/images/webp/img6.webp" loading="lazy"
+                                                data-img="dest/images/webp/img6.webp" alt="">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                    <div class="details-footer between">
+                        <a href="javascript:;" class="btn btn-md">清空</a>
+                        <button class="btn btn-md btn-primary waves-effect"><i class="ran-icon4"></i>确认提交</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="drawer drawer-left" id="drawer-person">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <h3 class="details-card-title">人员详情</h3>
+                        <button class="sidebar-card-close btn btn-md  btn-icon" onclick="
+                        drawerLeftStack(document.getElementById('drawer-project'));"><i
+                                class="ran-icon35"></i></button>
+                        <!-- 此处的关闭按钮应该为返回上一个页面 -->
+                    </div>
+                    <div class="sidebar-card-main details-main">
+                        <div class="personCard">
+                            <img class="managerPic lg" src="dest/images/user.jpg">
+                            <div class="personCard-name">巴元新</div>
+                            <button class="btn btn-sm btn-text"><i class="ran-icon56"></i>编辑</button>
+                            <div class="personCard-hint">
+                                <span><i class="ran-icon62"></i>二组</span>
+                                <span><i class="ran-icon93"></i>15609278473</span>
+                            </div>
+                        </div>
+
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">任务下派 </h3>
+                                <button class="btn btn-md btn-text"
+                                    onclick="dialogShow(document.getElementById('dialog-task'))"><i
+                                        class="ran-icon55"></i>新任务</button>
+                            </div>
+                            <div class="details-card-main">
+                                <ul class="taskList">
+                                    <!-- 按时间倒序，最新排在前 -->
+                                    <li class="taskList-item"
+                                        onclick="dialogShow(document.getElementById('dialog-taskInfo'))">
+                                        <div class="taskList-name">#1 涉拆项目申报</div>
+
+                                        <span class="tag tag-success"><i class="ran-icon4"></i>完成</span>
+                                        <p class="taskList-info">在9月1日之前完淡水街道234号院拆迁申报…</p>
+                                        <time class="taskList-time">昨天 18:02</time>
+                                    </li>
+                                    <li class="taskList-item"
+                                        onclick="dialogShow(document.getElementById('dialog-taskInfo'))">
+                                        <div class="taskList-name">#2 涉拆项目申报</div>
+                                        <span class="tag tag-success"><i class="ran-icon4"></i>完成</span>
+                                        <p class="taskList-info">在9月1日之前完淡水街道234号院拆迁申报…</p>
+                                        <time class="taskList-time">昨天 18:02</time>
+                                    </li>
+                                    <li class="taskList-item"
+                                        onclick="dialogShow(document.getElementById('dialog-taskInfo'))">
+                                        <div class="taskList-name">#3 涉拆项目申报</div>
+                                        <span class="tag tag-warning"><i class="ran-icon7"></i>代办</span>
+                                        <p class="taskList-info">在9月1日之前完淡水街道234号院拆迁申报…</p>
+                                        <time class="taskList-time">昨天 18:02</time>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-md btn-primary btn-text block">查看更多</button>
+                            </div>
+                        </div>
+                        <div class="details-card">
+                            <div class="details-card-header">
+                                <h3 class="details-card-title">工作日志</h3>
+                                <!-- 工作日志数据来自第三方系统 -->
+                            </div>
+                            <div class="details-card-main">
+                                <ul class="recordList">
+                                    <li class="recordList-item">
+                                        <div class="record-name">日志标题</div>
+                                        <div class="record-hint">
+                                            <time class="record-time">07-30 16:23</time>
+                                            <address class="record-address"><i class="ran-icon76"></i>惠州市淡水街道办公室
+                                            </address>
+                                        </div>
+                                        <div class="rateList-info">
+                                            <div class="tags">
+                                                <span class="tag tag-success">矛盾纠纷</span>
+                                                <span class="tag tag-success">党建工作</span>
+                                            </div>
+                                            <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                            </p>
+                                            <ul class="file-list">
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="media-matrix media-matrix-xs">
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="recordList-item">
+                                        <div class="record-name">日志标题</div>
+                                        <div class="record-hint">
+                                            <time class="record-time">07-30 16:23</time>
+                                            <address class="record-address"><i class="ran-icon76"></i>惠州市淡水街道办公室
+                                            </address>
+                                        </div>
+                                        <div class="rateList-info">
+                                            <div class="tags">
+                                                <span class="tag tag-success">矛盾纠纷</span>
+                                                <span class="tag tag-success">党建工作</span>
+                                            </div>
+                                            <p>该项目用地取得了国有建设用地使用证，规划方案也已通过审核。但仍有3户平房、1块土地及1处水塘未拆迁，致使项目无法开工建设。
+                                            </p>
+                                            <ul class="file-list">
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                                                    <a href="###" class="btn btn-sm btn-icon waves-effect"><i
+                                                            class="ran-icon27"></i></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="media-matrix media-matrix-xs">
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                                </li>
+                                                <li class="media-item">
+                                                    <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-right" id="sidebar-right">
+            <div class="tabTools drawer drawer-right drawer-right-show" id="drawer-right1">
+                <div class="sidebar-card tabTools-card">
+                    <div class="sidebar-card-header">
+                        <nav class="tabs block">
+                            <a href="javascript:;" class="active tabTools-tabs"><i class="ran-icon781"></i>图例</a>
+                            <a href="javascript:;" class="tabTools-tabs"><i class="ran-icon10"></i>项目</a>
+                            <a href="javascript:;" class="tabTools-tabs"><i class="ran-icon46"></i>人员</a>
+                            <a href="javascript:;" class="tabTools-tabs"><i class="ran-icon31"></i>筛选</a>
+                        </nav>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <!-- 图例 -->
+                        <div class="tabTools-item mapLayerBox">
+                            <div class="mapLayer">
+                                <div class="mapLayer-title">
+                                    <h3>项目图层</h3>
+                                    <input type="checkbox" checked class="switch mui">
+                                    <!-- 点击关闭则对应下方的mapLayer-list隐藏，图层也不展示 -->
+                                </div>
+                                <ul class="mapLayer-list">
+                                    <li class="mapLayer-item mapLayerHidden">
+                                        <!-- 隐藏图层：mapLayerHidden -->
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon50"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item mapLayerHidden">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mapLayer">
+                                <div class="mapLayer-title">
+                                    <h3>涉迁房屋图层</h3>
+                                    <input type="checkbox" checked class="switch mui">
+                                </div>
+                                <ul class="mapLayer-list">
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mapLayer">
+                                <div class="mapLayer-title">
+                                    <h3>规划图层</h3>
+                                    <input type="checkbox" class="switch mui">
+                                </div>
+                                <ul class="mapLayer-list" style="display: none;">
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mapLayer">
+                                <div class="mapLayer-title">
+                                    <h3>控规图层</h3>
+                                    <input type="checkbox" class="switch mui">
+                                </div>
+                                <ul class="mapLayer-list" style="display: none;">
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋123
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 项目 列表 -->
+                        <ul class="list tabTools-item" style="display: none;">
+                            <li class="list-link list-father">
+                                <div class="list-info">
+                                    项目列表
+                                </div>
+                            </li>
+                            <li class="list-child">
+                                <ul class="list">
+                                    <li class="list-link list-father">
+                                        <div class="list-info">
+                                            市政道路
+                                        </div>
+
+                                    </li>
+                                    <li class="list-child">
+                                        <ul class="list">
+                                            <li class="list-link" onclick="
+                                            drawerLeftStack(document.getElementById('drawer-project'));">
+                                                <div class="list-info">
+                                                    今秋大道
+                                                </div>
+                                            </li>
+                                            <li class="list-link">
+
+                                                <div class="list-info">
+                                                    列表标题
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-link list-father">
+                                        <div class="list-info">
+                                            旧城改造
+                                        </div>
+
+                                    </li>
+                                    <li class="list-child">
+                                        <ul class="list">
+                                            <li class="list-link">
+                                                <div class="list-info">
+                                                    列表标题
+                                                </div>
+
+                                            </li>
+                                            <li class="list-link">
+
+                                                <div class="list-info">
+                                                    列表标题
+                                                </div>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <script>
+
+                        </script>
+                        <!-- 人员 -->
+                        <ul class="list tabTools-item" style="display: none;">
+                            <li class="list-link list-father">
+                                <div class="list-info">
+                                    人员分组1
+                                </div>
+                                <!-- 分组看用户需求和提供的数据，如果没有就按照项目进行划分 -->
+                            </li>
+                            <li class="list-child">
+                                <ul class="personList">
+                                    <li class="personList-item" onclick="
+                                    drawerLeftStack(document.getElementById('drawer-person'));">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            法聪
+                                        </div>
+                                        <span class="tag tag-primary">责任领导</span>
+                                    </li>
+                                    <li class="personList-item">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            巴元新
+                                        </div>
+                                        <span class="tag tag-success">负责人</span>
+                                    </li>
+                                    <li class="personList-item">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            阮诚咏
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-link list-father">
+                                <div class="list-info">
+                                    人员分组2
+                                </div>
+                                <!-- 分组看用户需求和提供的数据，如果没有就按照项目进行划分 -->
+                            </li>
+                            <li class="list-child">
+                                <ul class="personList">
+                                    <li class="personList-item waves-effect">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            法聪
+                                        </div>
+                                        <span class="tag tag-primary">责任领导</span>
+                                    </li>
+                                    <li class="personList-item waves-effect">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            巴元新
+                                        </div>
+                                        <span class="tag tag-success">负责人</span>
+                                    </li>
+                                    <li class="personList-item waves-effect">
+                                        <img class="managerPic" src="dest/images/user.jpg">
+                                        <div class="managerInfo">
+                                            阮诚咏
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- 筛选 -->
+                        <div class="filterContent tabTools-item" style="display: none;">
+                            <form action="">
+                                <fieldset class="form-group">
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">筛选类型</h3>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label for="radio1" class="radio-label">
+                                                <input type="radio" class="radio" checked name="radio-demo4"
+                                                    id="radio1">
+                                                项目
+                                            </label>
+                                            <label for="radio2" class="radio-label">
+                                                <input type="radio" class="radio" name="radio-demo4" id="radio2">
+                                                房屋
+                                            </label>
+                                            <!-- 选择房屋后，后续的筛选项目关联变化为 名称编号、所属项目（下拉）、权利人名称、拆迁进度单选、证件类型下拉 -->
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">项目名称</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <input type="number" placeholder="名称编号" class="input input-md">
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">项目类型</h3>
+                                        </div>
+                                        <div class="select_value select-solid menu-select"
+                                            onclick="menu(this,document.getElementById('menu7'))">请选择
+                                        </div>
+                                        <div class="menu" id="menu7">
+                                            <ul class="menu-list">
+                                                <li class="menu-item">市政道路</li>
+                                                <li class="menu-item">1</li>
+                                                <li class="menu-item">2</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">负责人</h3>
+                                        </div>
+                                        <div class="select_value select-solid menu-select"
+                                            onclick="menu(this,document.getElementById('menu10'))">请选择
+                                        </div>
+                                        <div class="menu" id="menu10">
+                                            <ul class="menu-list">
+                                                <li class="menu-item">1</li>
+                                                <li class="menu-item">1</li>
+                                                <li class="menu-item">2</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">红线面积</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <div class="select_value inline select-solid menu-select"
+                                                onclick="menu(this,document.getElementById('menu8'))">请选择
+                                            </div>
+                                            <div class="menu" id="menu8">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item">大于等于</li>
+                                                    <li class="menu-item">小于</li>
+                                                </ul>
+                                            </div>
+                                            <input type="number" placeholder="面积" class="input input-md">
+                                            <div class="input-group-addon input-md">㎡</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">涉拆房屋数</h3>
+                                        </div>
+                                        <div class="input-group solid">
+                                            <div class="select_value inline select-solid menu-select"
+                                                onclick="menu(this,document.getElementById('menu9'))">请选择
+                                            </div>
+                                            <div class="menu" id="menu9">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item">大于等于</li>
+                                                    <li class="menu-item">小于</li>
+                                                </ul>
+                                            </div>
+                                            <input type="number" placeholder="房屋数" class="input input-md">
+                                            <div class="input-group-addon input-md">栋</div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </form>
+                            <!-- 筛选结果 -->
+                            <div class="filter-result" style="display: none;">
+                                <ol class="breadcrumbs">
+                                    <li><a href="javascript:;"><i class="ran-icon40"></i>返回</a></li>
+                                    <li>筛选结果（5）</li>
+                                </ol>
+                                <!-- 点击结果定位到对应图层，左侧sidebar展开详情页面 -->
+                                <ul class="filterlist">
+                                    <li class="filterlist-item">
+                                        <h3 class="filterlist-name">房屋JQ01</h3>
+                                        <div class="filterlist-pin"></div>
+                                        <p class="hint"><span>建筑 400㎡</span><span>占地 400㎡</span></p>
+                                    </li>
+                                    <li class="filterlist-item">
+                                        <h3 class="filterlist-name">房屋JQ01</h3>
+                                        <div class="filterlist-pin"></div>
+                                        <p class="hint"><span>建筑 400㎡</span><span>占地 400㎡</span></p>
+                                    </li>
+                                    <li class="filterlist-item">
+                                        <h3 class="filterlist-name">今秋大道</h3>
+                                        <div class="filterlist-pin"></div>
+                                        <p class="hint"><span>红线 400㎡</span><span>交地 400㎡</span></p>
+                                    </li>
+                                </ul>
+
+                                <!-- <div class="empty">
+                                没有找到内容
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // tabs点击切换示例
+                        var tabs = document.querySelectorAll('.tabTools-tabs');
+                        var tabsContent = document.querySelectorAll('.tabTools-item');
+                        tabs.forEach(function (tab, index) {
+                            tab.addEventListener("click", function () {
+                                tabsContent.forEach(
+                                    function (item) {
+                                        item.style.display = 'none';
+                                    }
+                                )
+                                tabsContent[index].style.display = 'block';
+                                if (index == 3) {
+                                    document.querySelector('#filter-footer').style.display = 'flex';
+                                } else {
+                                    document.querySelector('#filter-footer').style.display = 'none';
+                                }
+                            });
+                        })
+                    </script>
+                    <!-- 筛选的底部，其他tab不用展示 -->
+                    <div class="sidebar-card-footer" id="filter-footer" style="display: none;">
+                        <a href="javascript:;" class="btn btn-md">清空</a>
+                        <button class="btn btn-md btn-primary"><i class="ran-icon31"></i>确认搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+
+            <ul class="mapTools">
+                <li class="waves-effect">测量</li>
+                <li class="waves-effect">绘制</li>
+                <li class="waves-effect">对比</li>
+                <li class="waves-effect" id="mapTools-map">地图</li>
+
+            </ul>
+        </footer>
+        <div class="sidebar-left-hidden" id="sidebar-left-hidden"></div>
+        <div class="sidebar-right-hidden" id="sidebar-right-hidden"></div>
+        <script>
+            // 隐藏地图两侧信息sidebar demo
+            var sidebarLeftHidden = document.getElementById('sidebar-left-hidden');
+            var sidebarLeft = document.getElementById("sidebar-left");
+            sidebarLeftHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarLeft.classList.toggle('hidden');
+            }
+
+            var sidebarRightHidden = document.getElementById('sidebar-right-hidden');
+            var sidebarRight = document.getElementById("sidebar-right");
+            sidebarRightHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarRight.classList.toggle('hidden');
+            }
+        </script>
+        <div class="ds-mapbox" id="ds-mapbox"></div>
+    </main>
+
+    <!-- 项目详情 堆叠弹出层 -->
+    <div class="backdrop ds-dialog-max" id="dialogStack1">
+        <div class="dialog" id="dialogStack-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    项目详情
+                </h3>
+                <nav class="tabs">
+                    <a href="javascript:;" id="toggleContent1" class="active">项目概览</a>
+                    <a href="javascript:;" id="toggleContent2">涉迁房屋</a>
+                </nav>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="tabs-content" id="tabs-content1">
+                <div class="dialog_body">
+                    <div class="dialog_projectInfo">
+                        <dl class="dialog-list">
+                            <dt>名称：</dt>
+                            <dd>叶挺东路</dd>
+                            <dt>类型：</dt>
+                            <dd>市政道路</dd>
+                            <dt>进度：</dt>
+                            <dd>已交地65%</dd>
+                            <dt>涉拆：</dt>
+                            <dd>128栋</dd>
+                            <dt>已拆：</dt>
+                            <dd>75栋</dd>
+                            <dt>负责：</dt>
+                            <dd>周岳阳 （15628893676）</dd>
+                        </dl>
+                        <div class="chart-progress">
+                            <div class="chart-progress-item" id="chart-progress3"></div>
+                            <div class="chart-progress-item" id="chart-progress4"></div>
+                        </div>
+                    </div>
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="8383">8383</span><small>㎡</small></div>
+                            <div class="statistic-title">红线面积</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="2904">2904</span><small>㎡</small></div>
+                            <div class="statistic-title">交地面积</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="331">331
+                                </span>
+                            </div>
+                            <div class="statistic-title">涉拆房屋</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="74">74</span>
+                            </div>
+                            <div class="statistic-title">已拆房屋</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4">4</span>
+                            </div>
+                            <div class="statistic-title">工作人员</div>
+                        </li>
+                    </ul>
+                    <div class="dialog-chart-box" id="dialog-chart1"></div>
+                </div>
+                <div class="dialog_footer">
+                </div>
+            </div>
+
+            <div class="tabs-content" id="tabs-content2" style="display: none;">
+                <div class="dialog_body">
+                    <div class="table-slicky">
+                        <table class="table">
+                            <thead class="table-slicky_row">
+                                <tr>
+                                    <th>#</th>
+                                    <th>房屋编号</th>
+                                    <th>村社区</th>
+                                    <th>位置</th>
+                                    <th>建筑时间</th>
+                                    <th>层数</th>
+                                    <th>占地面积 (㎡)</th>
+                                    <th>建筑总面积 (㎡)</th>
+
+
+                                    <th>拆除时间</th>
+                                    <th>进度</th>
+                                    <th>备注</th>
+                                    <th class="table-slicky_col right">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>JQ01</td>
+                                    <td>桥背村</td>
+                                    <td>桥背泗水村邓屋</td>
+                                    <td>-</td>
+                                    <td>3层</td>
+                                    <td>127.77</td>
+                                    <td>390.56</td>
+
+
+                                    <td>2021/08/15</td>
+                                    <td>分户中</td>
+                                    <td>-</td>
+                                    <td class="table-slicky_col right"><button class="btn btn-md btn-primary btn-text"
+                                            onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                class="ran-icon64"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>JQ01</td>
+                                    <td>桥背村</td>
+                                    <td>桥背泗水村邓屋</td>
+                                    <td>-</td>
+                                    <td>3层</td>
+                                    <td>127.77</td>
+                                    <td>390.56</td>
+
+
+                                    <td>2021/08/15</td>
+                                    <td>分户中</td>
+                                    <td>1栋里面有2户</td>
+                                    <td class="table-slicky_col right"><button class="btn btn-md btn-primary btn-text"
+                                            onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                class="ran-icon64"></i></button></td>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dialog_footer">
+                    <div class="dialog_start"></div>
+                    <div class="dialog_end">
+                        <div class="pagination">
+                            <button class="btn btn-md"><i class="ran-icon69"></i></button>
+                            <div class="btn-group">
+                                <button class="btn btn-md btn-primary">1</button>
+                                <button class="btn btn-md">2</button>
+                                <button class="btn btn-md">…</button>
+                                <button class="btn btn-md">8</button>
+                                <button class="btn btn-md">9</button>
+                            </div>
+                            <button class="btn btn-md"><i class="ran-icon70"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var tabBtn1 = document.getElementById("toggleContent1");
+                var tabBtn2 = document.getElementById("toggleContent2");
+                tabBtn1.addEventListener("click", showTab1);
+
+                function showTab1() {
+                    document.getElementById('tabs-content2').style.display = 'none';
+                    document.getElementById('tabs-content1').style.display = 'flex';
+                }
+                tabBtn2.addEventListener("click", showTab2);
+
+                function showTab2() {
+                    document.getElementById('tabs-content1').style.display = 'none';
+                    document.getElementById('tabs-content2').style.display = 'flex';
+                }
+            </script>
+        </div>
+
+        <div class="dialog" id="dialogStack-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <button class="btn btn-md btn-primary btn-icon" onclick="dialogStackPrev()"><i
+                            class="ran-icon40"></i></button>
+                    涉迁房屋 / JQ01
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <dl class="dialog-list">
+                    <dt>编号：</dt>
+                    <dd>JQ01</dd>
+                    <dt>社区：</dt>
+                    <dd>桥背村</dd>
+                    <dt>位置：</dt>
+                    <dd>桥背泗水村邓屋</dd>
+                    <dt>建筑时间：</dt>
+                    <dd>-</dd>
+                    <dt>占地：</dt>
+                    <dd>125.6㎡</dd>
+                    <dt>建筑：</dt>
+                    <dd>325.6㎡</dd>
+                    <dt>层数：</dt>
+                    <dd>3层</dd>
+                    <dt>拆除时间：</dt>
+                    <dd>2021/08/10</dd>
+                    <dt>进度：</dt>
+                    <dd>已出房屋结构认定，正在出评估</dd>
+                    <dt>状态：</dt>
+                    <dd><span class="tag tag-success"><i class="ran-icon4"></i>签定协议</span></dd>
+                    <dt>备注：</dt>
+                    <dd>1栋里面有2户</dd>
+
+                </dl>
+                <div class="dialog-item">
+                    <h3 class="dialog-item-title">附件:
+                        <button class="btn btn-sm btn-primary btn-text"><i class="ran-icon24"></i>上传</button>
+                    </h3>
+                    <ul class="file-list">
+                        <li>
+
+                            <a href="拆迁房屋协议.pdf" class="file-item">拆迁房屋协议.pdf</a>
+                            <div>
+                                <a href="###" class="btn btn-sm btn-icon "><i class="ran-icon57"></i></a>
+                                <a href="###" class="btn btn-sm btn-icon "><i class="ran-icon27"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="拆迁房屋协议.xls" class="file-item">拆迁房屋协议.xls</a>
+                            <div>
+                                <a href="###" class="btn btn-sm btn-icon "><i class="ran-icon57"></i></a>
+                                <a href="###" class="btn btn-sm btn-icon "><i class="ran-icon27"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dialog-item">
+                    <h3 class="dialog-item-title">图片:</h3>
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img1.webp" loading="lazy" data-img="dest/images/webp/img1.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img2.webp" loading="lazy" data-img="dest/images/webp/img2.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img3.webp" loading="lazy" data-img="dest/images/webp/img3.webp"
+                                alt="">
+                        </li>
+
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img5.webp" loading="lazy" data-img="dest/images/webp/img5.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img6.webp" loading="lazy" data-img="dest/images/webp/img6.webp"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="dialog-item">
+                    <h3 class="dialog-item-title">权利人:</h3>
+                    <div class="table-slicky">
+                        <table class="table">
+                            <thead class="table-slicky_row">
+                                <tr>
+                                    <th>#</th>
+                                    <th>权利人</th>
+                                    <th>是否本村人</th>
+                                    <th>性别</th>
+                                    <th>年龄</th>
+                                    <th>身份证</th>
+                                    <th>房屋居住情况</th>
+                                    <th>证件类型</th>
+                                    <th>面积㎡</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>卢粤民</td>
+                                    <td>否</td>
+                                    <td>男</td>
+                                    <td>30</td>
+                                    <td>6278839927265567</td>
+                                    <td>无居住</td>
+                                    <td>第五类：无</td>
+                                    <td>122.77</td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>卢晋怀</td>
+                                    <td>否</td>
+                                    <td>男</td>
+                                    <td>30</td>
+                                    <td>6278839927265567</td>
+                                    <td>无居住</td>
+                                    <td>第五类：无</td>
+                                    <td>122.77</td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined"><i class="ran-icon33"></i>定位房屋</button>
+                </div>
+                <div class="dialog_end">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 任务下派 弹出层-->
+    <div class="backdrop ds-dialog-md" id="dialog-task">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    任务下派
+                </h3>
+                <button class="sidebar-card-close btn btn-md  btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-task'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">执行人</h3>
+                    </div>
+                    <div class="select_value select-solid menu-select"
+                        onclick="menu(this,document.getElementById('menu4'))">请选择
+                    </div>
+                    <div class="menu" id="menu4">
+                        <ul class="menu-list">
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">标题</h3>
+                    </div>
+                    <input type="text" placeholder="请输入" class="input input-md input-solid warning">
+                    <p class="hint">不能为空</p>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">任务内容</h3>
+                    </div>
+                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <button class="btn btn-md btn-text btn-primary waves-effect"><i
+                                class="ran-icon24"></i>上传附件</button>
+                    </div>
+                    <ul class="file-list">
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">图片</h3>
+                    </div>
+
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img1.webp" loading="lazy" data-img="dest/images/webp/img1.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img2.webp" loading="lazy" data-img="dest/images/webp/img2.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img3.webp" loading="lazy" data-img="dest/images/webp/img3.webp"
+                                alt="">
+                        </li>
+
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img5.webp" loading="lazy" data-img="dest/images/webp/img5.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img6.webp" loading="lazy" data-img="dest/images/webp/img6.webp"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-progress'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 任务详情 弹出层-->
+    <div class="backdrop ds-dialog-md" id="dialog-taskInfo">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    任务详情
+                </h3>
+                <button class="sidebar-card-close btn btn-md  btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-taskInfo'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div>
+                    <h3>#1 涉拆项目申报</h3>
+                    <p>在9月1日之前完淡水街道234号院拆迁申报，并上传相关附件，提交到相关部门完成手续审批。</p>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">任务汇报</h3>
+                    </div>
+                    <textarea name="" class="input-solid" placeholder="任务完成情况汇报"></textarea>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">任务状态</h3>
+                    </div>
+                    <div class="select_value select-solid menu-select"
+                        onclick="menu(this,document.getElementById('menu4b'))">任务状态
+                    </div>
+                    <div class="menu" id="menu4b">
+                        <ul class="menu-list">
+                            <li class="menu-item">代办</li>
+                            <li class="menu-item">完成/li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <button class="btn btn-md btn-text btn-primary waves-effect"><i
+                                class="ran-icon24"></i>上传附件</button>
+                    </div>
+
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">图片</h3>
+                    </div>
+
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img1.webp" loading="lazy" data-img="dest/images/webp/img1.webp"
+                                alt="">
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start">
+
+                </div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-progress'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 项目进度 弹出层-->
+    <div class="backdrop ds-dialog-md" id="dialog-progress">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    项目进度
+                </h3>
+                <button class="sidebar-card-close btn btn-md  btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-progress'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">上报人</h3>
+                    </div>
+                    <div class="select_value select-solid menu-select"
+                        onclick="menu(this,document.getElementById('menu4'))">请选择
+                    </div>
+                    <div class="menu" id="menu4">
+                        <ul class="menu-list">
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">标题</h3>
+                    </div>
+                    <input type="text" placeholder="请输入" class="input input-md input-solid warning">
+                    <p class="hint">不能为空</p>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">累计交地面积</h3>
+                        <!--  -->
+                    </div>
+                    <div class="input-group solid">
+                        <input type="number" placeholder="面积" class="input input-md">
+                        <div class="input-group-addon input-md">㎡</div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">上报内容</h3>
+                    </div>
+                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+
+                        <button class="btn btn-md btn-text btn-primary waves-effect"><i
+                                class="ran-icon24"></i>上传附件</button>
+                    </div>
+                    <ul class="file-list">
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">图片</h3>
+                    </div>
+
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img1.webp" loading="lazy" data-img="dest/images/webp/img1.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img2.webp" loading="lazy" data-img="dest/images/webp/img2.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img3.webp" loading="lazy" data-img="dest/images/webp/img3.webp"
+                                alt="">
+                        </li>
+
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img5.webp" loading="lazy" data-img="dest/images/webp/img5.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img6.webp" loading="lazy" data-img="dest/images/webp/img6.webp"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-progress'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 上报问题 弹出层 -->
+    <div class="backdrop ds-dialog-md" id="dialog-problem">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    上报问题
+                </h3>
+                <button class="sidebar-card-close btn btn-md  btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-problem'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">上报人</h3>
+                    </div>
+                    <div class="select_value select-solid menu-select"
+                        onclick="menu(this,document.getElementById('menu4'))">请选择
+                    </div>
+                    <div class="menu" id="menu4">
+                        <ul class="menu-list">
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">问题描述</h3>
+                    </div>
+                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+
+                        <button class="btn btn-md btn-text btn-primary waves-effect"><i
+                                class="ran-icon24"></i>上传附件</button>
+                    </div>
+                    <ul class="file-list">
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">图片</h3>
+                    </div>
+
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-problem'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 房屋进度 弹出层-->
+    <div class="backdrop ds-dialog-md" id="dialog-houseProgress">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    房屋进度
+                </h3>
+                <button class="sidebar-card-close btn btn-md  btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-houseProgress'))"><i
+                        class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">上报人</h3>
+                    </div>
+                    <div class="select_value select-solid menu-select"
+                        onclick="menu(this,document.getElementById('menu4'))">请选择
+                    </div>
+                    <div class="menu" id="menu4">
+                        <ul class="menu-list">
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label must">标题</h3>
+                    </div>
+                    <input type="text" placeholder="请输入" class="input input-md input-solid warning">
+                    <p class="hint">不能为空</p>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">进度状态</h3>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="radio1a" class="radio-label">
+                            <input type="radio" class="radio" name="radio-demo1" id="radio1a">
+                            前期工作
+                        </label>
+                        <label for="radio2a" class="radio-label">
+                            <input type="radio" class="radio" name="radio-demo1" id="radio2a">
+                            签订协议
+                        </label>
+                        <label for="radio3a" class="radio-label">
+                            <input type="radio" class="radio" name="radio-demo1" id="radio3a">
+                            拆迁完成
+                        </label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">进度描述</h3>
+                    </div>
+                    <textarea name="" class="input-solid" placeholder="请输入"></textarea>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+
+                        <button class="btn btn-md btn-text btn-primary waves-effect"><i
+                                class="ran-icon24"></i>上传附件</button>
+                    </div>
+                    <ul class="file-list">
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                        <li>
+                            <a href="###" class="file-item">拆迁房屋协议.pdf</a>
+                            <a href="###" class="btn btn-sm btn-icon waves-effect"><i class="ran-icon57"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">图片</h3>
+                    </div>
+
+                    <ul class="media-matrix media-matrix-xs">
+                        <li class="add-media-item">
+                            <input type="file" class="add-media-input">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img1.webp" loading="lazy" data-img="dest/images/webp/img1.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img2.webp" loading="lazy" data-img="dest/images/webp/img2.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img3.webp" loading="lazy" data-img="dest/images/webp/img3.webp"
+                                alt="">
+                        </li>
+
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img5.webp" loading="lazy" data-img="dest/images/webp/img5.webp"
+                                alt="">
+                        </li>
+                        <li class="media-item">
+                            <a href="javascript:;" class="delete-media-item"></a>
+                            <img src="dest/images/webp/img6.webp" loading="lazy" data-img="dest/images/webp/img6.webp"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-progress'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 右上角上传数据 弹出层 -->
+    <div class="backdrop ds-dialog-md" id="dialog-update">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    数据
+                </h3>
+                <!-- <nav class="tabs">
+                    <a href="javascript:;" class="active">上传</a>
+                    <a href="javascript:;" class="">历史</a>
+                </nav> -->
+                <button class="sidebar-card-close btn btn-md btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-update'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <h3 class="form-item_label">数据坐标系</h3>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="radio1a" class="radio-label">
+                            <input type="radio" class="radio" checked="" name="radio-demo4" id="radio1a">
+                            WGS-84
+                        </label>
+                        <label for="radio2a" class="radio-label">
+                            <input type="radio" class="radio" name="radio-demo4" id="radio2a">
+                            CGCS2000
+                        </label>
+
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-item-header">
+                        <button class="btn btn-md btn-text btn-primary"><i class="ran-icon24"></i>上传</button>
+                    </div>
+                    <ul class="file-list">
+                        <li>
+                            <a href="###" class="file-item">项目.shp</a>
+                            <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon57"></i></a>
+                        </li>
+                        <li>
+                            <a href="###" class="file-item">房屋.shp</a>
+                            <a href="###" class="btn btn-sm btn-icon"><i class="ran-icon57"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="hint">*请注意：仅支持上传 .shp 文件，单个文件地块矢量数据请不要超过100个，并确认坐标系已校准，若上传失败或出错，请联系我们帮你上传处理。</p>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-lg btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog-progress'))">取消</button>
+                    <button class="btn btn-lg btn-primary btn-text"
+                        onclick="toast('提交成功','','topCenter',true);">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+<script>
+    //mapbox
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmVteHUiLCJhIjoiY2tiMDQ3OTAyMDR4czJycXR0ZGR0MGptdiJ9.jfqMkHN2eqmZgR9k9WBJWg';
+    var map = new mapboxgl.Map({
+        container: 'ds-mapbox', // container ID
+        style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
+        //style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
+        //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
+        center: [114.464618, 22.79215], // starting position [lng, lat]
+        zoom: 13 // starting zoom  
+    });
+
+    document.getElementById('mapTools-map').onclick = function () {
+
+        tooltips(this,
+            '<div class="radio-block mapTools-maptip"><label for="radio1"class="mapTools-map radio-label"data-style="mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f">卫星地图<input type="radio"class="radio"name="radio-demo1"id="radio1"></label><label for="radio1"class="mapTools-map radio-label"data-style="mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f">矢量地图<input type="radio"class="radio"name="radio-demo1"id="radio1"></label></div>',
+            'top');
+
+        function mapChange() {
+            var changeStyleBtn = document.querySelectorAll('.mapTools-map');
+
+            changeStyleBtn.forEach(function (item) {
+                item.onclick = function () {
+                   
+                    map.setStyle(this.getAttribute('data-style'));
+                }
+            })
+        }
+        mapChange()
+    }
+
+
+
+    //echart示例
+
+    //环形图：
+    var progress1 = echarts.init(document.getElementById("chart-progress1"));
+    var progress2 = echarts.init(document.getElementById("chart-progress2"));
+    var progress3 = echarts.init(document.getElementById("chart-progress3"));
+    var progress4 = echarts.init(document.getElementById("chart-progress4"));
+    var option1 = {
+        series: [{
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            radius: '100%', //圆环大小
+            pointer: {
+                show: false
+            },
+            itemStyle: {
+                color: new echarts.graphic.LinearGradient( //渐变色
+                    0, 0, 0, 1,
+                    [{
+                            offset: 0,
+                            color: '#00B0BA'
+                        },
+                        {
+                            offset: 1,
+                            color: '#C054E7'
+                        }
+                    ]
+                ),
+
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: true,
+                clip: false,
+
+            },
+            axisLine: {
+                lineStyle: {
+                    width: 6,
+                    color: [
+                        [1, '#fff']
+                    ],
+                    opacity: 0.08,
+                }
+            },
+            splitLine: {
+                show: false,
+
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+            },
+            data: [{
+                value: 40,
+                name: '已交地',
+                title: {
+                    offsetCenter: ['0%', '30%'],
+                    color: "#fff",
+                    fontSize: 12,
+                },
+                detail: {
+                    offsetCenter: ['0%', '-10%'],
+                    color: "#fff",
+                    fontSize: 18,
+                    fontFamily: "din",
+                    formatter: '{value}%'
+                }
+            }, ],
+
+
+        }]
+    };
+    var option2 = {
+        series: [{
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            radius: '100%', //圆环大小
+            pointer: {
+                show: false
+            },
+            itemStyle: {
+                color: new echarts.graphic.LinearGradient( //渐变色
+                    0, 0, 0, 1,
+                    [{
+                            offset: 0,
+                            color: '#00B0BA'
+                        },
+                        {
+                            offset: 1,
+                            color: '#C054E7'
+                        }
+                    ]
+                ),
+
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: true,
+                clip: false,
+
+            },
+            axisLine: {
+                lineStyle: {
+                    width: 6,
+                    color: [
+                        [1, '#fff']
+                    ],
+                    opacity: 0.08,
+                }
+            },
+            splitLine: {
+                show: false,
+
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+            },
+            data: [{
+                value: 60,
+                name: '已拆迁',
+                title: {
+                    offsetCenter: ['0%', '30%'],
+                    color: "#fff",
+                    fontSize: 12,
+                },
+                detail: {
+                    offsetCenter: ['0%', '-10%'],
+                    color: "#fff",
+                    fontSize: 18,
+                    fontFamily: "din",
+                    formatter: '{value}%'
+                }
+            }, ],
+
+
+        }]
+    };
+    progress1.setOption(option1, true);
+    progress2.setOption(option2, true);
+    progress3.setOption(option1, true);
+    progress4.setOption(option2, true);
+
+    //项目详情-弹出层-累计交地面积
+    var chart1 = echarts.init(document.getElementById('dialog-chart1'));
+    var option1 = {
+        title: {
+            left: 'center',
+            text: '累计交地面积',
+            textStyle: {
+                color: '#fff',
+                fontSize: '16'
+            }
+        },
+        grid: {
+            top: 40,
+            left: 40,
+            right: 40,
+            bottom: 48,
+            containLabel: true
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                magicType: {
+                    show: true,
+                    type: ['line', 'bar'],
+                },
+            },
+            right: 24,
+            iconStyle: {
+                borderColor: '#fff'
+            }
+        },
+        dataZoom: { //数据范围选择器
+            show: true,
+
+        },
+        tooltip: { //hover提示框
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                data: ['2021/08/01', '2021/08/07', '2021/08/09', '2021/08/14', '2021/08/18', '2021/08/20',
+                    '2021/08/24'
+                ],
+                axisLabel: {
+                    textStyle: {
+                        color: "#ffffff", //坐标文字颜色
+                    }
+                },
+            },
+
+        ],
+        yAxis: {
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: 'rgba(255,255,255,.08)',
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#ffffff", //坐标文字颜色
+                }
+            },
+        },
+        series: [{
+            name: '累计交地面积',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+            markLine: {
+
+                lineStyle: {
+                    color: "rgba(181, 0, 0, 1)",
+
+                },
+                data: [{
+                    type: 'average',
+                    name: '红线面积',
+                    yAxis: 600,
+                }, ]
+            },
+
+            data: [120, 132, 151, 194, 290, 330, 540]
+        }]
+    };
+    chart1.setOption(option1, true);
+
+    //模拟marker点击弹出层气泡
+    window.onload = function () {
+        //数字动态加载
+        numberShow();
+        //tab按扭
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+        listShow()
+        //滚动效果
+
+        pileScroll(".pile", true);
+    }
+
+    //右上角全屏开启和关闭
+    var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+</html>

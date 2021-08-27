@@ -6,6 +6,7 @@
     --font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", "黑体", Heiti, sans-serif, SimSun, "宋体", serif;
     --line-height:1.4285714286;
     --text:#000;
+    --text-regular: color-mod(var(--text) a(80%));
     --text-light: color-mod(var(--text) a(64%));
     --text-lighter: color-mod(var(--text) a(48%));
 
@@ -18,13 +19,13 @@
     --base-lighter: color-mod(var(--base) a(16%));
     --base-air: color-mod(var(--base) a(12%));
     --base-thin: color-mod(var(--base) a(8%));
-    --base-thinner: color-mod(var(--base) a(5%));
+    --base-thinner: color-mod(var(--base) a(4%));
 
     --bg:#fff;
     --paper: #fff;
     --light:#fff;
     --dark:#121212;
-    --ui-secondary: #828598;
+    --ui-secondary: rgb(99 107 136 / 80%);
     --ui-primary: #257BFF;
     --ui-danger: #EA0000;
     --ui-warning: #FF9400;
@@ -56,10 +57,13 @@
     
     background-color:var(--dark);
     --text: #fff;
+    --text-regular: color-mod(#fff a(80%));
     --text-light: color-mod(#fff a(64%));
     --text-lighter: color-mod(#fff a(48%));
     --bg: var(--dark);
     --paper:#33333a;
+
+   
 
     --base: #fff;
     --reverse:#000;

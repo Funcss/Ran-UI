@@ -85,9 +85,9 @@ a.avatar {
     position: relative;
     display: inline-block;
 
-    [class^="icon-"],
-    [class*=" icon-"] {
-        font-size: 2rem;
+    [class^="ran-"],
+    [class*=" ran-"] {
+        font-size: 2.4rem;
     }
 
     .badge-dot {
@@ -164,6 +164,10 @@ a.avatar {
 }
 
 .tag {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 0.4rem;
     position: relative;
     font-size: 1.2rem;
     padding: 0.25rem 0.8rem;
@@ -174,8 +178,8 @@ a.avatar {
 
 .tag-delate {
     &:after {
-        content: "\e93d";
-        font-family: adacloud;
+        content: "\e950";
+        font-family: ranIcon;
         position: absolute;
         left: -2px;
         top: -2px;
@@ -430,6 +434,7 @@ a.avatar {
     dd,
     dt {
         display: flex;
+        align-items: center;
         margin: 0;
         padding: 0.8rem;
         border-radius: var(--radius-regular);
@@ -452,8 +457,8 @@ a.avatar {
             }
         }
 
-        [class^="icon-"],
-        [class*=" icon-"] {
+        [class^="ran-"],
+        [class*=" ran-"] {
             display: inline-block;
             line-height: 2rem;
         }
@@ -532,6 +537,7 @@ a.avatar {
     display: inline-flex;
     flex: none;
     margin-right: 0.8rem;
+    align-self: flex-start;
 }
 
 .list-end {
@@ -911,8 +917,8 @@ a.avatar {
     }
     &::after{
         transition: all 0.2s;
-        content: "\e957";
-        font-family: "adacloud";
+        content: "\e917";
+        font-family: "ranIcon";
     }
 }
 .add-media-input{
@@ -965,8 +971,8 @@ a.avatar {
     transition: all ease 0.2s;
    
     &::before {
-        content: "\e912";
-        font-family: adacloud;
+        content: "\e922";
+        font-family: ranIcon;
         font-size: 2.4rem;
     }
 
@@ -1060,8 +1066,6 @@ a.avatar {
         }
     }
 }
-
-
 .statistic {
     @extend .list-reset;
     display: grid;

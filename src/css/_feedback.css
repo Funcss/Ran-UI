@@ -123,12 +123,12 @@
     }
 }
 .contrast-mini{
-    --size:1.2rem;
+    --size:0.8rem;
     height: var(--size);
     border-radius:var(--size);
     font-size: var(--size);
     padding: 0;
-    margin-bottom: calc(var(--size) + 0.4rem);
+    margin-bottom: calc(var(--size) + 0.4rem + 1em);
     &::before {
         content:"左侧 " counter(leftNum);
         transform: translateY(calc(var(--size) + 0.4rem));
@@ -281,7 +281,7 @@ dot {
     grid-auto-flow: column;
     gap: 0.8rem;
     justify-content: start;
-    align-content: center;
+    align-items: center;
     flex: auto;
     padding: 0.8rem 0;
 }
@@ -397,9 +397,9 @@ dot {
     .paper-z4;
     max-width: 80%;
     margin: auto 2.4rem;
-    transform: translateZ(1.6rem);
+    transform: translateZ(0.8rem);
     opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform-origin: center bottom;
     visibility: hidden;
     &:hover{
@@ -471,7 +471,7 @@ dot {
 
 
 .dialogNextShow{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transition-delay: 0.1s;
     transform: translateY(0);
     opacity: 1;
@@ -479,35 +479,35 @@ dot {
 }
 
 .dialogNextHide{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(20px) scale3d(0.84);
     opacity: 0;
     visibility: hidden;
 }
 
 .dialogNextBack{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(10px) scale3d(0.92);
     opacity: 1;
     visibility: visible;
 }
 
 .dialogPrevShow{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(0) scale3d(1);
     opacity: 1;
     visibility: visible;
 }
 
 .dialogPrevHide{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(-30%);
     opacity: 0;
     visibility: hidden;
 }
 
 .dialogPrevBack{
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(10px) scale3d(0.92);
     opacity: 1;
     visibility: visible;

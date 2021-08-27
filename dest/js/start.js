@@ -17,7 +17,7 @@ window.onload = function () {
 
     tabs();
 
-
+    listShow()//列表展开
 
     cardStack()//堆叠卡片翻页
 

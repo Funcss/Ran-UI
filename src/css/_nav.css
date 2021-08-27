@@ -23,8 +23,10 @@
     }
 
     a {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
         align-items: center;
+        gap: 0.4rem;
     }
 }
 
@@ -57,7 +59,7 @@
     .steps-active{
         time:before{
             content: "\e92c";
-            font-family: adacloud;
+            font-family:'ranIcon' !important;
             height: auto;
             width: auto;
             border: none;
@@ -226,8 +228,8 @@
     margin-bottom: 0.4rem;
 
     &::after {
-        content: "\e927";
-        font-family: adacloud;
+        content: "\e939";
+        font-family: ranIcon;
         color: var(--light);
         position: absolute;
         transform: translateY(50%) scale(0.8);
@@ -283,6 +285,7 @@
     }
     &.block{
         display:grid;
+        width: 100%;
     }
 
     &.tabs-lg {
@@ -390,7 +393,7 @@
         left: calc(var(--target-left, 0) * 1px);
         top: calc(var(--target-top) * 1px);
         border-radius: 4rem;
-        background: var(--ui-primary) !important;
+        background: var(--ui-primary);
 
     }
 }
@@ -398,11 +401,11 @@
 .line-tabs {
     display: inline-grid;
     gap: 3.2rem;
-    justify-content: center;
+    justify-content: start;
     grid-auto-columns: auto;
     background-color: transparent;
     padding: 0;
-
+    backdrop-filter: none;
     a {
         padding: 0;
         border-radius: 4rem;
@@ -413,13 +416,13 @@
     }
 
     &::before {
-        height: calc(var(--target-height) * 1px);
+        height: 0.2rem;
         width: calc(var(--target-width, 0) * 1px);
         left: calc(var(--target-left, 0) * 1px);
-        top: calc(var(--target-top) * 1px);
-        border-bottom: 2px solid var(--ui-primary); 
+        top: auto;
+        bottom: 0;
         box-shadow: none;
-        border-radius: 0;
-        background: transparent!important;
+        border-radius: 0.2rem;
+        background: var(--ui-primary);
     }
 }

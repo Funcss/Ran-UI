@@ -10,7 +10,7 @@
     border-radius: var(--radius-light);
     border: none;
     cursor: pointer;
-    transition: all ease 0.3s;
+    transition: background ease 0.3s;
     background: var(--base-thin);
     color:var(--text);
     user-select: none;
@@ -26,7 +26,7 @@
 
     &:hover {
         box-shadow: 0 0.2rem 0.6rem -0.1rem rgba(0,0,0,.04);
-        background: var(--base-air);
+        background: var(--base-thin);
         backdrop-filter: blur(4px);
     }
 
@@ -139,20 +139,16 @@ $colorBtn {
         }
 
         &.btn-icon {
-            transition:--gradX ease .4s,background ease 0.4s;
-            --gradX:1%;
+            background:transparent;
             color: $colorBtn;
             border-radius: 10rem;
-            background: transparent;
-            background-image: radial-gradient(color-mod($colorBtn a(8%)) 0%, color-mod($colorBtn a(8%)) var(--gradX), transparent 0%);
-            
             &:hover {
-                --gradX:100%;
+  
                 background: color-mod($colorBtn a(8%));
             }
 
             &>.waves-ripple {
-                background: color-mod($colorBtn a(24%));
+       
                 background: radial-gradient(color-mod($colorBtn a(8%)) 0, color-mod($colorBtn a(24%)) 60%, rgba(255, 255, 255, 0) 70%);
             }
         }

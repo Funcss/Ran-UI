@@ -178,15 +178,24 @@ function dragMove(el, width) {//滚动对象和每次滑动距离
 
 
 /*列表展开*/
-function listShow(el) {
-    anime({
-        targets: el,
-        duration: 400,
-        easing: "cubicBezier(0, 0, 0.2, 1)",
-        translateX: [-10, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(56) // increase delay by 100ms for each elements.
-    });
+function listShow() {
+    var list_down = document.getElementsByClassName('list-father');
+    for (let i = 0; i < list_down.length; i++) {
+        list_down[i].onclick = function () {
+            this.classList.toggle('list-father-show');
+            var childList = this.nextElementSibling.querySelectorAll('.list-link');
+
+            //listShow(childList);
+            anime({
+                targets: childList,
+                duration: 400,
+                easing: "cubicBezier(0, 0, 0.2, 1)",
+                translateX: [-10, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(56) // increase delay by 100ms for each elements.
+            });
+        }
+    }
 }
 
 /*抽屉展开*/
@@ -501,7 +510,7 @@ function dialogHide(el) {
             el.querySelectorAll('.dialog').forEach(
                 function (item) {
                     item.removeAttribute('style');
-                    item.setAttribute('class','dialog')
+                    item.setAttribute('class', 'dialog')
                 }
             )
             document.documentElement.removeAttribute('style');
@@ -548,7 +557,7 @@ function dialogStackNext(showEl) {
 
                     //selfEl.style.willChange = 'auto';
                 }
-            }, 240)
+            }, 160)
             .add({
                 targets: showEl,
                 // translateZ: ['1.6rem', 0],
@@ -563,7 +572,7 @@ function dialogStackNext(showEl) {
 
                     //showEl.style.willChange = 'auto';
                 }
-            }, 480)
+            }, 320)
 
 
     } else {
@@ -601,7 +610,7 @@ function dialogStackNext(showEl) {
                     // showEl.style.willChange = 'auto';
                 }
 
-            }, 240)
+            }, 160)
 
     }
 }
@@ -636,14 +645,14 @@ function dialogStackPrev(hideEl) {
                     backEl.classList.add('dialogShow');
                     backEl.classList.remove('dialogBack');
                 },
-            }, 240)
+            }, 160)
             .add({
                 targets: hideEl,
                 begin: function () {
                     hideEl.classList.add('dialogBack');
                     hideEl.classList.remove('dialogBackHide');
                 }
-            }, 480)
+            }, 320)
 
     } else {
         anime.timeline({
@@ -668,7 +677,7 @@ function dialogStackPrev(hideEl) {
                     backEl.classList.add('dialogShow');
                     backEl.classList.remove('dialogBack');
                 }
-            }, 240)
+            }, 160)
     }
 }
 
@@ -726,6 +735,7 @@ function tipsShow(el) {
         easing: 'easeOutBack',
         scale: [0.5, 1],
         opacity: [0, 1],
+       
     })
 }
 
@@ -742,7 +752,7 @@ function tipsHide(el) {
     })
 }
 
-function tooltips(el, content, direction) {//el元素对象；content为tips内容，可以为html；direction为方向，包括top、left、right、bottom，默认为top
+function tooltips(el, content, direction,callback) {//el元素对象；content为tips内容，可以为html；direction为方向，包括top、left、right、bottom，默认为top
     if (!direction) {
         direction = 'top'
     }
@@ -777,11 +787,13 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
     const tipWidth = tooltip.getBoundingClientRect().width + 12;//生成tip的宽度，加上尖角的尺寸
     const tipHeight = tooltip.getBoundingClientRect().height + 12;//生成tip的高度，加上尖角的尺寸
 
+    callback;
     if (direction == 'top' && vTop > tipHeight) {
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
         tooltip.style.transform = 'translateX(-50%)';
         tipsShow(tooltip);
+        
     }
     if (direction == 'top' && vTop <= tipHeight) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -795,7 +807,7 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top + height + 12 + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
     if (direction == 'bottom' && vBottom <= tipHeight) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -803,13 +815,13 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
     if (direction == 'left' && vLeft > tipWidth) {
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
     if (direction == 'left' && vLeft <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -817,13 +829,13 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
     if (direction == 'right' && vRight > tipWidth) {
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
     if (direction == 'right' && vRight <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -831,21 +843,40 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip);
+        tipsShow(tooltip,callback);
     }
 
     // if(force == 'click'){
     //     el.onclick = function(){
-    //         tipsShow(tooltip);
+    //         tipsShow(tooltip,callback);
     //     }
     // }
 
 
 
 
-    document.onclick = function () {
-        for (var i = 0; i < tipsArr.length; i++) {
-            tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
+    // document.onclick = function () {
+    //     for (var i = 0; i < tipsArr.length; i++) {
+    //         tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
+    //     }
+    // }
+
+    document.onclick = fun;
+    document.onwheel = fun;
+
+    function fun(e) {
+        switch (e.type) {
+            case "click":
+                for (var i = 0; i < tipsArr.length; i++) {
+                    tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
+                }
+                break;
+            case "wheel":
+                for (var i = 0; i < tipsArr.length; i++) {
+                    tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
+                }
+                break;
+
         }
     }
 
