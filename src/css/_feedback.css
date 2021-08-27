@@ -97,6 +97,14 @@
     }
 }
 
+.progress-gradient {
+    &::after {
+        background-image: linear-gradient(90deg, var(--ui-success), var(--ui-danger));
+        width: 100%;
+        clip-path: inset(0 calc(100% - var(--bar-width) * 1%) 0 0);
+    }
+}
+
 .contrast {
     --left-color: #00B6A1;
     --right-color: #257BFF;
@@ -122,25 +130,28 @@
         counter-reset: rightNum var(--bar-right);
     }
 }
-.contrast-mini{
-    --size:0.8rem;
+
+.contrast-mini {
+    --size: 0.8rem;
     height: var(--size);
-    border-radius:var(--size);
+    border-radius: var(--size);
     font-size: var(--size);
     padding: 0;
     margin-bottom: calc(var(--size) + 0.4rem + 1em);
+
     &::before {
-        content:"左侧 " counter(leftNum);
+        content: "左侧 "counter(leftNum);
         transform: translateY(calc(var(--size) + 0.4rem));
         color: var(--left-color);
     }
 
     &::after {
-        content:"右侧 " counter(rightNum);
+        content: "右侧 "counter(rightNum);
         transform: translateY(calc(var(--size) + 0.4rem));
         color: var(--right-color);
     }
 }
+
 dot {
     display: inline-block;
     height: 1em;
@@ -184,7 +195,7 @@ dot {
     z-index: 1;
 
     perspective: 16rem;
-    perspective-origin:center bottom;
+    perspective-origin: center bottom;
     transform-style: preserve-3d;
 }
 
@@ -207,10 +218,11 @@ dot {
     }
 }
 
-.toast-text{
+.toast-text {
     margin-bottom: 0.8rem;
 }
-.toast-btn{
+
+.toast-btn {
     display: flex;
     justify-content: flex-end;
 }
@@ -402,28 +414,32 @@ dot {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform-origin: center bottom;
     visibility: hidden;
-    &:hover{
+
+    &:hover {
         will-change: transform, opacity;
     }
+
     &.dialogBackHide {
         will-change: transform, opacity;
         transform: translateZ(-3.2rem);
         opacity: 0;
-       
+
     }
-    &.dialogShow{
+
+    &.dialogShow {
         will-change: transform, opacity;
         visibility: visible;
         transform: translateZ(0);
         opacity: 1;
-        
+
     }
-    &.dialogBack{
+
+    &.dialogBack {
         will-change: transform, opacity;
         visibility: visible;
         transform: translateZ(-1.6rem);
         opacity: 1;
-       
+
     }
 }
 
@@ -470,7 +486,7 @@ dot {
 
 
 
-.dialogNextShow{
+.dialogNextShow {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transition-delay: 0.1s;
     transform: translateY(0);
@@ -478,35 +494,35 @@ dot {
     visibility: visible;
 }
 
-.dialogNextHide{
+.dialogNextHide {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(20px) scale3d(0.84);
     opacity: 0;
     visibility: hidden;
 }
 
-.dialogNextBack{
+.dialogNextBack {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(10px) scale3d(0.92);
     opacity: 1;
     visibility: visible;
 }
 
-.dialogPrevShow{
+.dialogPrevShow {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(0) scale3d(1);
     opacity: 1;
     visibility: visible;
 }
 
-.dialogPrevHide{
+.dialogPrevHide {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(-30%);
     opacity: 0;
     visibility: hidden;
 }
 
-.dialogPrevBack{
+.dialogPrevBack {
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateY(10px) scale3d(0.92);
     opacity: 1;
