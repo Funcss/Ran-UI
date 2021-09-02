@@ -27,13 +27,13 @@ textarea {
     grid-auto-flow: column;
     gap: 0.5rem;
     align-items: center;
-    
+
 }
 
 .checkbox-inline,
 .radio-inline {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-items: start;
     gap: 0.8rem;
 }
@@ -45,19 +45,22 @@ textarea {
     gap: 0.8rem;
 }
 
-input[type=checkbox],input[type=radio]{
+input[type=checkbox],
+input[type=radio] {
     position: relative;
     appearance: none;
     background-clip: content-box;
     outline: none;
     margin: 0;
 }
+
 .checkbox,
-.radio{
+.radio {
     height: 1.4rem;
     width: 1.4rem;
     border: 1px solid var(--base-lighter);
     cursor: pointer;
+
     &:hover {
         border-color: var(--base-light);
         box-shadow: 0 0.2rem 0.6rem -0.1rem rgba(0, 0, 0, .08);
@@ -72,11 +75,12 @@ input[type=checkbox],input[type=radio]{
     }
 }
 
-.checkbox{
+.checkbox {
     border-radius: 0.2rem;
     display: grid;
     justify-items: center;
     align-items: center;
+
     &:checked {
         &::after {
             position: absolute;
@@ -90,7 +94,7 @@ input[type=checkbox],input[type=radio]{
     }
 }
 
-.radio{
+.radio {
     border-radius: 50%;
     height: 1.6rem;
     width: 1.6rem;
@@ -201,30 +205,36 @@ input[type=checkbox] {
         transform-origin: center bottom;
         transition: transform ease 0.2s;
 
-        &::before,&::after  {
+        &::before,
+        &::after {
             content: '\e93a';
             font-family: ranIcon;
             font-size: 2rem;
             color: var(--base-light);
             transition: color ease 0.2s;
         }
+
         &::after {
             position: absolute;
             left: 0;
             top: 0;
             color: transparent;
         }
+
         &:checked {
             &::before {
                 color: var(--ui-star);
             }
+
             &::after {
                 color: var(--ui-star);
-                animation:rate 0.8s;
+                animation: rate 0.8s;
             }
 
             &~.rate-item {
-                &::before,&::after {
+
+                &::before,
+                &::after {
                     color: var(--ui-star);
                 }
             }
@@ -233,26 +243,30 @@ input[type=checkbox] {
         &:hover {
             transform: scale(1.2);
 
-            &::before{
+            &::before {
                 color: var(--ui-star);
             }
+
             &::after {
-                will-change:transform;
+                will-change: transform;
             }
 
             &~.rate-item {
-                &::before,&::after {
+
+                &::before,
+                &::after {
                     color: var(--ui-star);
                 }
             }
         }
-        &:active{
+
+        &:active {
             transform: scale(1.1);
         }
     }
 }
 
-@keyframes rate{
+@keyframes rate {
     to {
         color: transparent;
         transform: scale(1.6) rotate(180deg);
@@ -363,8 +377,9 @@ input[type=range] {
 .form-item_label {
     font-weight: 500;
     margin-bottom: 0.5rem;
-    &.must{
-        &::before{
+
+    &.must {
+        &::before {
             content: "*";
             color: var(--ui-danger);
             margin-right: 0.2rem;
@@ -512,7 +527,8 @@ textarea {
             border: none;
         }
     }
-    &>.select_value{
+
+    &>.select_value {
         flex: none;
     }
 }
@@ -698,8 +714,8 @@ textarea {
 select {
     appearance: none;
     @extend .input;
-    padding-right:2.4rem;
-    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#030317" fill-rule="evenodd" opacity=".8"/></svg>')!important;
+    padding-right: 2.4rem;
+    background-image: url('data:image/svg+xml,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="#030317" fill-rule="evenodd" opacity=".8"/></svg>') !important;
     background-position: calc(100% - 1rem) center !important;
     background-repeat: no-repeat !important;
     cursor: pointer;
@@ -715,11 +731,13 @@ select {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    &.inline{
+
+    &.inline {
         width: auto;
         display: inline-flex;
     }
-    &.btn-text{
+
+    &.btn-text {
         width: auto;
         display: inline-flex;
         border: none;
@@ -741,7 +759,8 @@ select {
 .menu {
     position: absolute;
     border-radius: var(--radius-regular);
-    @extend .glass, .glass-z3;
+    @extend .glass,
+    .glass-z3;
     @extend .paper-z2;
     overflow: auto;
     border: none;
@@ -791,14 +810,190 @@ select {
     }
 }
 
-.select-tags{
+.select-tags {
     padding: 0.8rem;
     padding-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    &>*{
+
+    &>* {
         margin-right: 0.8rem;
         margin-bottom: 0.8rem;
+    }
+}
+
+
+.rollerSelect-old {
+    --size: 3.2rem;
+    list-style: none;
+    display: grid;
+    margin: 0;
+    height: var(--size);
+    overflow: auto;
+    padding:calc(var(--size)*2);
+    -webkit-overflow-scrolling: touch;
+    /*手机端回弹效果*/
+    overscroll-behavior: contain;
+    /*子元素滚动不冒泡，父元素不滚动*/
+    -ms-scroll-chaining: contain;
+    /*同overscroll-behavior的ie兼容方法*/
+    overflow-anchor: auto;
+    /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
+    transform-style: preserve-3d;
+    &:after{
+        content: "";
+        display: block;
+        visibility: hidden;
+        height: var(--size);
+    }
+
+    &:hover {
+        box-shadow: none;
+
+       .rollerSelect-item {
+            will-change: transform, opacity;
+        }
+    }
+
+    .rollerSelect-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.4rem;
+        height: var(--size);
+    }
+
+    &>.selected {
+        background-color: var(--ui-primary);
+        color: #fff;
+    }
+
+}
+
+.rollerSelect {
+    --size: 3.2rem;
+    /*选项高度*/
+    --radius: 6.4rem;
+    /*6.4为半径*/
+    position: relative;
+    overflow: auto;
+    height: calc(var(--radius)*2);
+
+    /*高度为直径*/
+    .rollerSelect-box {
+        position: relative;
+        min-height: 100%;
+    }
+    &:hover{
+        .rollerSelect-list{
+            will-change: transform;
+        }
+        .rollerSelect-item{
+            will-change: opacity;
+        }
+    }
+
+    .rollerSelect-list {
+        position: sticky;
+        top: 0;
+        list-style: none;
+        margin: 0;
+        padding: var(--radius) 0;
+        transform-style: preserve-3d;
+        transform: rotateX(0deg);
+        transition: linear transform 0.1s;
+
+        &>.rollerSelect-item {
+            position: absolute;
+            top: calc(50% - (var(--size)/2));
+            height: var(--size);
+            width: 100%;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: linear opacity 0.1s;
+            &:hover{
+                background-color: var(--base-thinner);
+            }
+            &:nth-child(12n+1) {
+                transform: rotateX(0deg) translateZ(6.4rem);
+                /*6.4为半径*/
+            }
+
+            &:nth-child(12n+2) {
+                transform: rotateX(-30deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+3) {
+                transform: rotateX(-60deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+4) {
+                transform: rotateX(-90deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+5) {
+                transform: rotateX(-120deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+6) {
+                transform: rotateX(-150deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+7) {
+                transform: rotateX(-180deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+8) {
+                transform: rotateX(-210deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+9) {
+                transform: rotateX(-240deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+10) {
+                transform: rotateX(-270deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+11) {
+                transform: rotateX(-300deg) translateZ(6.4rem);
+            }
+
+            &:nth-child(12n+12) {
+                transform: rotateX(-330deg) translateZ(6.4rem);
+            }
+            &.show1{
+                pointer-events: auto;
+                opacity: 0.2;  
+            }
+            &.show2{
+                pointer-events: auto;
+                opacity: 0.6;  
+            }
+            &.show3{
+                pointer-events: auto;
+                opacity: 1;  
+            }
+            &.show4{
+                pointer-events: auto;
+                opacity: 0.6;  
+            }
+            &.show5{
+                pointer-events: auto;
+                opacity: 0.2;  
+            }
+            &.selected{
+                background: var(--ui-primary);
+                color: #fff;
+            }
+
+
+        }
     }
 }

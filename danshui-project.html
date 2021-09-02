@@ -2785,6 +2785,33 @@
             </div>
         </div>
     </div>
+     <!-- 地图上标记点demo 视频弹出层 -->
+     <div class="backdrop ds-dialog-max" id="dialog-video">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    监控视频
+                </h3>
+                <!-- <nav class="tabs">
+                    <a href="javascript:;" class="active">上传</a>
+                    <a href="javascript:;" class="">历史</a>
+                </nav> -->
+                <button class="sidebar-card-close btn btn-md btn-icon"
+                    onclick="dialogHide(document.getElementById('dialog-video'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <video src="dest/images/ds/1630310883007868.mp4" width="100%" height="100%" controls="controls">
+                    您的浏览器版本过低，请使用最新版Chrome浏览器打开。
+                </video>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="dest/js/scripts.min.js"></script>
 <script src="src/javascript/ui.js"></script>
@@ -2803,6 +2830,9 @@
         center: [114.464618, 22.79215], // starting position [lng, lat]
         zoom: 13 // starting zoom  
     });
+    const marker1 = new mapboxgl.Marker( {color: 'red',scale:'0.8'})
+        .setLngLat([114.464618, 22.79215])
+        .addTo(map);
 
     document.getElementById('mapTools-map').onclick = function () {
 
@@ -2815,7 +2845,7 @@
 
             changeStyleBtn.forEach(function (item) {
                 item.onclick = function () {
-                   
+
                     map.setStyle(this.getAttribute('data-style'));
                 }
             })
@@ -2823,7 +2853,9 @@
         mapChange()
     }
 
-
+    document.querySelector('.mapboxgl-marker').onclick = function(){
+        dialogShow(document.getElementById('dialog-video'))
+    }
 
     //echart示例
 

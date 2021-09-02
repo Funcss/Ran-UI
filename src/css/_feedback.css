@@ -133,6 +133,7 @@
 
 .contrast-mini {
     --size: 0.8rem;
+    position: relative;
     height: var(--size);
     border-radius: var(--size);
     font-size: var(--size);
@@ -140,14 +141,18 @@
     margin-bottom: calc(var(--size) + 0.4rem + 1em);
 
     &::before {
+        position: absolute;
+        left: 0;
+        top: calc(var(--size) + 0.4rem);
         content: "左侧 "counter(leftNum);
-        transform: translateY(calc(var(--size) + 0.4rem));
         color: var(--left-color);
     }
 
     &::after {
+        position: absolute;
+        right: 0;
+        top: calc(var(--size) + 0.4rem);
         content: "右侧 "counter(rightNum);
-        transform: translateY(calc(var(--size) + 0.4rem));
         color: var(--right-color);
     }
 }

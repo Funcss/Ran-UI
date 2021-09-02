@@ -627,9 +627,7 @@
 
     changeStyleBtn.querySelectorAll('label').forEach(function (item) {
         item.onclick = function () {
-            console.log(this)
             map.setStyle(this.getAttribute('data-style'));
-
         }
     })
 </script>

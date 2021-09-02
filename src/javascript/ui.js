@@ -735,7 +735,7 @@ function tipsShow(el) {
         easing: 'easeOutBack',
         scale: [0.5, 1],
         opacity: [0, 1],
-       
+
     })
 }
 
@@ -752,7 +752,7 @@ function tipsHide(el) {
     })
 }
 
-function tooltips(el, content, direction,callback) {//el元素对象；content为tips内容，可以为html；direction为方向，包括top、left、right、bottom，默认为top
+function tooltips(el, content, direction) {//el元素对象；content为tips内容，可以为html；direction为方向，包括top、left、right、bottom，默认为top
     if (!direction) {
         direction = 'top'
     }
@@ -787,13 +787,13 @@ function tooltips(el, content, direction,callback) {//el元素对象；content�
     const tipWidth = tooltip.getBoundingClientRect().width + 12;//生成tip的宽度，加上尖角的尺寸
     const tipHeight = tooltip.getBoundingClientRect().height + 12;//生成tip的高度，加上尖角的尺寸
 
-    callback;
+    
     if (direction == 'top' && vTop > tipHeight) {
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
         tooltip.style.transform = 'translateX(-50%)';
         tipsShow(tooltip);
-        
+
     }
     if (direction == 'top' && vTop <= tipHeight) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -807,7 +807,7 @@ function tooltips(el, content, direction,callback) {//el元素对象；content�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top + height + 12 + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
     if (direction == 'bottom' && vBottom <= tipHeight) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -815,13 +815,13 @@ function tooltips(el, content, direction,callback) {//el元素对象；content�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
     if (direction == 'left' && vLeft > tipWidth) {
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
     if (direction == 'left' && vLeft <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -829,13 +829,13 @@ function tooltips(el, content, direction,callback) {//el元素对象；content�
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
     if (direction == 'right' && vRight > tipWidth) {
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
     if (direction == 'right' && vRight <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -843,12 +843,12 @@ function tooltips(el, content, direction,callback) {//el元素对象；content�
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip,callback);
+        tipsShow(tooltip );
     }
 
     // if(force == 'click'){
     //     el.onclick = function(){
-    //         tipsShow(tooltip,callback);
+    //         tipsShow(tooltip,);
     //     }
     // }
 
@@ -1286,7 +1286,7 @@ function timeTool(el) {
             dragMove(dragbox, 200);
 
             const items = dragbox.querySelectorAll('li');
-            items.forEach(function (item, index) {
+            items.forEach(function (item) {
 
                 if (item.matches('.active')) {
                     item.parentElement.style.setProperty('--target-width', item.clientWidth);
@@ -1384,7 +1384,7 @@ function pileScroll(className = '.pile', fade = false) {
     const pile = document.querySelectorAll(className);
     pile.forEach(function (pileItems) {
         const items = pileItems.querySelectorAll('.pile-item');
-        var faterStyle = getComputedStyle(pileItems, null);
+        var faterStyle = getComputedStyle(pileItems, null);//获取css样式，返回字符串
         var faterPadding = parseInt(faterStyle.paddingTop);//获取元素padding值并取整型
 
         items.forEach(function (item) {
@@ -1427,6 +1427,131 @@ function pileScroll(className = '.pile', fade = false) {
         })
     })
 }
+
+
+//ios风格时间选择器
+function rollerSelectOld() {
+    var roller = document.querySelectorAll('.rollerSelect-old');
+    roller.forEach(function (rollerItem) {
+        var optionItems = rollerItem.querySelectorAll('.rollerSelect-item');
+
+        optionItems.forEach(function (item) {
+            var itemHeight = item.offsetHeight;//item高度
+            const itemTop = item.offsetTop;//获取每个模块距离顶部的距离，为固定值
+            rollerItem.addEventListener("scroll", function () {
+                var scrollY = this.scrollTop;//滚动条距离顶部的距离，变化值
+                var animeX = (itemTop - scrollY) / itemHeight;
+                if (animeX == 2) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'rotateX(0) translateZ(0)'
+
+                }
+                if (animeX < 2) {
+                    item.style.opacity = animeX / 2 + 0.1;
+                    item.style.transform = 'rotateX(' + (30 * (2 - animeX)) + 'deg) translateZ(' + (8 * (animeX - 2)) + 'px)';
+
+                }
+                if (animeX > 2) {
+                    item.style.opacity = (4 - animeX) / 2 + 0.1;
+                    item.style.transform = 'rotateX(' + (30 * (2 - animeX)) + 'deg) translateZ(' + (8 * (2 - animeX)) + 'px)';
+
+                }
+                if (animeX < 0 || animeX > 4) {
+                    item.style.opacity = 0;
+                    item.style.transform = 'rotateX(0) translateZ(0)'
+                }
+
+            });
+
+            if (rollerItem.querySelector('.selected')) {
+                rollerItem.scrollTop = rollerItem.querySelector('.selected').offsetTop - itemHeight * 2;
+            } else {
+                rollerItem.scrollTop = itemHeight;
+            };
+            item.onclick = function () {
+                rollerItem.scrollTop = this.offsetTop - itemHeight * 2;
+                if (rollerItem.querySelector('.selected')) {
+                    rollerItem.querySelector('.selected').classList.remove('selected');
+                }
+                this.classList.add('selected');
+            }
+        })
+    })
+}
+rollerSelectOld();
+
+function rollerSelect() {
+    var roller = document.querySelectorAll('.rollerSelect');
+    roller.forEach(function (rollerItem) {
+        var items = rollerItem.querySelectorAll('.rollerSelect-item');
+        var box = rollerItem.querySelector('.rollerSelect-box');
+        var itemHeight = items[0].offsetHeight;//item高度 
+        var itemNumber = items.length;//item数量
+        var boxHeight;
+        if (itemNumber >= 5) {//默认显示5项
+            boxHeight = itemHeight * itemNumber;
+        } else {
+            boxHeight = itemHeight * (5 + itemNumber - 1);
+        }
+        box.style.height = boxHeight + 'px';//设置滚动高度
+        var list = rollerItem.querySelector('.rollerSelect-list');
+        var rollerHeight = rollerItem.offsetHeight;
+
+
+
+        rollerItem.addEventListener("scroll", function () {
+            var scrollY = this.scrollTop;//滚动条距离顶部的距离，变化值
+            var scrollNum = (itemNumber - 1) * (scrollY / (boxHeight - rollerHeight));//当前最中间选项滚动位置参数
+            var rotate = 30 * scrollNum;
+            list.style.transform = 'rotateX(' + rotate + 'deg)';
+            var i = parseInt(scrollNum);//滚动到的位置对应item编号,向上取整数
+
+            items.forEach(function (item, index) {
+                if (i - 2 == index) {
+                    item.classList.add('show1');
+                } else {
+                    item.classList.remove('show1');
+                }
+                if (i - 1 == index) {
+                    item.classList.add('show2');
+                } else {
+                    item.classList.remove('show2');
+                }
+                if (i == index) {
+                    item.classList.add('show3');
+                } else {
+                    item.classList.remove('show3');
+                }
+                if (i + 1 == index) {
+                    item.classList.add('show4');
+                } else {
+                    item.classList.remove('show4');
+                }
+                if (i + 2 == index) {
+                    item.classList.add('show5');
+                } else {
+                    item.classList.remove('show5');
+                }
+
+                item.onclick = function () {
+                 
+                    if (rollerItem.querySelector('.selected')) {
+                        rollerItem.querySelector('.selected').classList.remove('selected');
+                    }
+                    this.classList.add('selected');
+                    console.log(scrollY, index)
+                }
+
+            })
+
+          
+        })
+
+        rollerItem.scrollTop = 1;
+
+    })
+}
+rollerSelect()
 
 
 //堆叠卡片翻页

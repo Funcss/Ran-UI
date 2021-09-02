@@ -997,14 +997,14 @@ a.avatar {
     grid-auto-flow: column;
     grid-template-columns: 100vw;
     grid-template-rows: 100vh;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;/*水平滚动吸附对齐效果*/
+    -webkit-overflow-scrolling: touch;/*手机端回弹效果*/
     overflow-x: auto;
     overflow-y: hidden;
-    overscroll-behavior: contain;
-    -ms-scroll-chaining: contain;
-    overflow-anchor: auto;
-    scroll-behavior: auto;
+    overscroll-behavior: contain;/*子元素滚动不冒泡，父元素不滚动*/
+    -ms-scroll-chaining: contain;/*同overscroll-behavior的ie兼容方法*/
+    overflow-anchor: auto;/*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
+    scroll-behavior: auto;/*容器平滑滚动到锚点，如回到顶部按钮页面平滑滚动*/
 
     &.autosize {
         .media-view-item.active {
@@ -1024,7 +1024,7 @@ a.avatar {
     height: 100vh;
     width: 100vw;
     padding: 5.6rem;
-    scroll-snap-align: center;
+    scroll-snap-align: center;/*滑动吸附定位元素的位置*/
     overflow: auto;
 
     &>img {
