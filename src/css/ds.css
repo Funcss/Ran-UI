@@ -1454,3 +1454,23 @@
 .mapboxgl-marker{
     cursor: pointer;
 }
+
+
+.ds-rollerSelect-left,.ds-rollerSelect-right{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14rem;
+    pointer-events: auto;
+    &:hover::-webkit-scrollbar-thumb{
+        background-color: transparent!important;
+    }
+}
+.ds-rollerSelect-left{
+    left: 0;
+  
+}
+.ds-rollerSelect-right{
+    right: 0;
+ 
+}

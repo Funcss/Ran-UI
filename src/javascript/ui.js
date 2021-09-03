@@ -787,7 +787,7 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
     const tipWidth = tooltip.getBoundingClientRect().width + 12;//生成tip的宽度，加上尖角的尺寸
     const tipHeight = tooltip.getBoundingClientRect().height + 12;//生成tip的高度，加上尖角的尺寸
 
-    
+
     if (direction == 'top' && vTop > tipHeight) {
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
@@ -807,7 +807,7 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top + height + 12 + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
     if (direction == 'bottom' && vBottom <= tipHeight) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -815,13 +815,13 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = centerX + 'px';
         tooltip.style.top = top - tipHeight + 'px';
         tooltip.style.transform = 'translateX(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
     if (direction == 'left' && vLeft > tipWidth) {
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
     if (direction == 'left' && vLeft <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -829,13 +829,13 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
     if (direction == 'right' && vRight > tipWidth) {
         tooltip.style.left = left + width + 12 + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
     if (direction == 'right' && vRight <= tipWidth) {
         tooltip.classList.remove('tooltip-' + direction);
@@ -843,7 +843,7 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
         tooltip.style.left = left - tipWidth + 'px';
         tooltip.style.top = centerY + 'px';
         tooltip.style.transform = 'translateY(-50%)';
-        tipsShow(tooltip );
+        tipsShow(tooltip);
     }
 
     // if(force == 'click'){
@@ -1497,8 +1497,8 @@ function rollerSelect() {
         box.style.height = boxHeight + 'px';//设置滚动高度
         var list = rollerItem.querySelector('.rollerSelect-list');
         var rollerHeight = rollerItem.offsetHeight;
-       // var x = (boxHeight - rollerHeight + itemHeight/2 )/(itemNumber - 1);
-        var x = (boxHeight - rollerItemHeight)/(itemNumber-1);
+        // var x = (boxHeight - rollerHeight + itemHeight/2 )/(itemNumber - 1);
+        var x = (boxHeight - rollerItemHeight) / (itemNumber - 1);
 
         rollerItem.addEventListener("scroll", function () {
             var scrollY = this.scrollTop;//滚动条距离顶部的距离，变化值
@@ -1540,15 +1540,27 @@ function rollerSelect() {
                         rollerItem.querySelector('.selected').classList.remove('selected');
                     }
                     this.classList.add('selected');
-        
+
                 }
 
             })
-          
-            
-        })
 
-        rollerItem.scrollTop = 1;
+
+        })
+        if (rollerItem.querySelector('.selected')) {
+            items.forEach(function (item, i) {
+                if (item.matches('.selected')) {
+                    rollerItem.scrollTop = x * i + 1;
+                }
+            })
+        }
+        else {
+            rollerItem.scrollTop = 1;
+        }
+
+
+
+
 
     })
 }

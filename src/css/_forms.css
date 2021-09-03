@@ -909,6 +909,7 @@ select {
             top: calc(50% - (var(--size)/2));
             height: var(--size);
             width: 100%;
+            padding: 0 1.6rem;
             border-radius: 0.4rem;
             cursor: pointer;
             display: flex;
