@@ -1487,17 +1487,18 @@ function rollerSelect() {
         var box = rollerItem.querySelector('.rollerSelect-box');
         var itemHeight = items[0].offsetHeight;//item高度 
         var itemNumber = items.length;//item数量
+        var rollerItemHeight = rollerItem.offsetHeight//滚动范围高度
         var boxHeight;
         if (itemNumber >= 5) {//默认显示5项
             boxHeight = itemHeight * itemNumber;
         } else {
-            boxHeight = itemHeight * (5 + itemNumber - 1);
+            boxHeight = itemHeight * (4 + itemNumber);//上下预留两个占位，表示至少要5个选项高度
         }
         box.style.height = boxHeight + 'px';//设置滚动高度
         var list = rollerItem.querySelector('.rollerSelect-list');
         var rollerHeight = rollerItem.offsetHeight;
-
-
+       // var x = (boxHeight - rollerHeight + itemHeight/2 )/(itemNumber - 1);
+        var x = (boxHeight - rollerItemHeight)/(itemNumber-1);
 
         rollerItem.addEventListener("scroll", function () {
             var scrollY = this.scrollTop;//滚动条距离顶部的距离，变化值
@@ -1534,17 +1535,17 @@ function rollerSelect() {
                 }
 
                 item.onclick = function () {
-                 
+                    rollerItem.scrollTop = x * index;
                     if (rollerItem.querySelector('.selected')) {
                         rollerItem.querySelector('.selected').classList.remove('selected');
                     }
                     this.classList.add('selected');
-                    console.log(scrollY, index)
+        
                 }
 
             })
-
           
+            
         })
 
         rollerItem.scrollTop = 1;

@@ -879,7 +879,7 @@ select {
     position: relative;
     overflow: auto;
     height: calc(var(--radius)*2);
-
+    font-size: 1.6rem;
     /*高度为直径*/
     .rollerSelect-box {
         position: relative;
