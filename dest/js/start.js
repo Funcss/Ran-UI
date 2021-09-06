@@ -25,7 +25,7 @@ window.onload = function () {
 
     numberShow()//数字滚动加载
 
-
+    accordion()//折叠面板
     // mediaMatrix(document.getElementById('media-matrix1'));//图片查看器demo
     //gridResize(document.getElementById('grid1'));//grid拖动尺寸变化demo
 

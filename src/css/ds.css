@@ -70,6 +70,7 @@
     text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.24);
 }
 
+
 .ds-container {
     position: absolute;
     left: 0;
@@ -109,7 +110,7 @@
     justify-items: space-between;
     align-items: center;
     padding: 0 2.4rem 2.4rem;
-    background-image: linear-gradient(180deg, rgb(0 9 14 / 95%) 0%, rgba(0, 0, 0, 0.00) 100%);
+    background-image: linear-gradient(180deg, rgb(0 16 25 / 95%) 0%, rgb(0 16 25 / 0%) 100%);
     pointer-events: none;
 
     .btn {
@@ -148,7 +149,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+    background-image: linear-gradient(0deg, rgb(0 16 25 / 95%) 0%, rgb(0 16 25 / 0%) 100%);
     pointer-events: none;
 }
 
@@ -217,7 +218,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(var(--card-width) + 5.6rem);
-    background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgb(0 9 14 / 95%) 87%);
+    background-image: linear-gradient(270deg, rgb(0 16 25 / 0%) 0%, rgb(0 16 25 / 95%) 87%);
     transition: all 0.3s;
     pointer-events: none;
 
@@ -235,7 +236,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(36rem + 5.6rem);
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0%, rgb(0 9 14 / 95%) 87%);
+    background-image: linear-gradient(90deg, rgb(0 16 25 / 0%) 0%, rgb(0 16 25 / 95%) 87%);
     transition: all 0.3s;
     pointer-events: none;
 
@@ -420,6 +421,12 @@
     display: grid;
     grid-template-rows: auto 1fr;
 }
+.mapLayer{
+    border-bottom: none;
+    .accordion-content.show{
+        margin-bottom: 1.2rem;
+    }
+}
 
 .mapLayer-title {
     z-index: 2;
@@ -440,7 +447,6 @@
     margin: 0;
     background: var(--base-thinner);
     border-radius: 0.8rem;
-    margin-bottom: 1.6rem;
 }
 
 .mapLayer-item {
@@ -517,6 +523,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.details-header-tags{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.4rem;
+    align-items: center;
+    
 }
 
 .person-liable {
@@ -1463,7 +1476,7 @@
     width: 14rem;
     pointer-events: auto;
     &:hover::-webkit-scrollbar-thumb{
-        background-color: transparent!important;
+        background-color: transparent;
     }
 }
 .ds-rollerSelect-left{

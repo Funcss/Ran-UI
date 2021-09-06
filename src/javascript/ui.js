@@ -1644,7 +1644,10 @@ function accordion() {
         const accordionFater = item.closest('.accordion-item');
         const accordionContent = accordionFater.querySelector('.accordion-content');
         const h = accordionContent.querySelector('.accordion-content-info').getBoundingClientRect().height;
-
+        if (accordionContent.matches('.show')) {
+            accordionContent.style.height = h + 'px';
+            item.checked='checked';
+        } 
         item.onclick = function () {
             if (accordionContent.matches('.show')) {
                 accordionContent.style.height = 0;

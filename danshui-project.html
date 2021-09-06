@@ -1458,13 +1458,14 @@
                     <div class="sidebar-card-main">
                         <!-- 图例 -->
                         <div class="tabTools-item mapLayerBox">
-                            <div class="mapLayer">
+                            <div class="mapLayer accordion-item">
                                 <div class="mapLayer-title">
                                     <h3>项目图层</h3>
-                                    <input type="checkbox" checked class="switch mui">
+                                    <input type="checkbox"  class="switch mui accordion-toggle">
                                     <!-- 点击关闭则对应下方的mapLayer-list隐藏，图层也不展示 -->
                                 </div>
-                                <ul class="mapLayer-list">
+                                <div class="accordion-content show">
+                                <ul class="mapLayer-list accordion-content-info">
                                     <li class="mapLayer-item mapLayerHidden">
                                         <!-- 隐藏图层：mapLayerHidden -->
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
@@ -1492,19 +1493,23 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="mapLayer">
+                            </div>
+                            <div class="mapLayer accordion-item">
                                 <div class="mapLayer-title">
-                                    <h3>涉迁房屋图层</h3>
-                                    <input type="checkbox" checked class="switch mui">
+                                    <h3>涉迁房屋</h3>
+                                    <input type="checkbox" class="switch mui accordion-toggle">
+                                    <!-- 点击关闭则对应下方的mapLayer-list隐藏，图层也不展示 -->
                                 </div>
-                                <ul class="mapLayer-list">
-                                    <li class="mapLayer-item">
+                                <div class="accordion-content show">
+                                <ul class="mapLayer-list accordion-content-info">
+                                    <li class="mapLayer-item mapLayerHidden">
+                                        <!-- 隐藏图层：mapLayerHidden -->
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
                                             市政涉迁房屋
                                         </div>
-                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon50"></i></button>
                                     </li>
-                                    <li class="mapLayer-item">
+                                    <li class="mapLayer-item mapLayerHidden">
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
                                             市政涉迁房屋
                                         </div>
@@ -1524,49 +1529,27 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="mapLayer">
-                                <div class="mapLayer-title">
-                                    <h3>规划图层</h3>
-                                    <input type="checkbox" class="switch mui">
-                                </div>
-                                <ul class="mapLayer-list" style="display: none;">
-                                    <li class="mapLayer-item">
-                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
-                                            市政涉迁房屋
-                                        </div>
-                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
-                                    </li>
-                                    <li class="mapLayer-item">
-                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
-                                            市政涉迁房屋
-                                        </div>
-                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
-                                    </li>
-                                    <li class="mapLayer-item">
-                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
-                                            市政涉迁房屋
-                                        </div>
-                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
-                                    </li>
-                                    <li class="mapLayer-item">
-                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
-                                            市政涉迁房屋
-                                        </div>
-                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
-                                    </li>
-                                </ul>
                             </div>
-                            <div class="mapLayer">
+                            <div class="mapLayer accordion-item">
                                 <div class="mapLayer-title">
                                     <h3>控规图层</h3>
-                                    <input type="checkbox" class="switch mui">
+                                    <input type="checkbox" class="switch mui accordion-toggle">
+                                    <!-- 点击关闭则对应下方的mapLayer-list隐藏，图层也不展示 -->
                                 </div>
-                                <ul class="mapLayer-list" style="display: none;">
-                                    <li class="mapLayer-item">
+                                <div class="accordion-content show">
+                                <ul class="mapLayer-list accordion-content-info">
+                                    <li class="mapLayer-item mapLayerHidden">
+                                        <!-- 隐藏图层：mapLayerHidden -->
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
                                             市政涉迁房屋
                                         </div>
-                                        <button class="btn btn-md  btn-icon"><i class="ran-icon49"></i></button>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon50"></i></button>
+                                    </li>
+                                    <li class="mapLayer-item mapLayerHidden">
+                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
+                                            市政涉迁房屋
+                                        </div>
+                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
                                     </li>
                                     <li class="mapLayer-item">
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
@@ -1577,16 +1560,11 @@
                                     <li class="mapLayer-item">
                                         <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
                                             市政涉迁房屋
-                                        </div>
-                                        <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
-                                    </li>
-                                    <li class="mapLayer-item">
-                                        <div class="mapLayer-info"><span class="tag-dot tag-primary"></span>
-                                            市政涉迁房屋123
                                         </div>
                                         <button class="btn btn-md btn-icon"><i class="ran-icon49"></i></button>
                                     </li>
                                 </ul>
+                            </div>
                             </div>
                         </div>
                         <!-- 项目 列表 -->
@@ -3117,6 +3095,7 @@
         //滚动效果
 
         pileScroll(".pile", true);
+        accordion()//折叠面板
     }
 
     //右上角全屏开启和关闭

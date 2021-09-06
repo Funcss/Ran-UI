@@ -832,6 +832,7 @@ select {
     height: var(--size);
     overflow: auto;
     padding:calc(var(--size)*2);
+    font-size: 1.6rem;
     -webkit-overflow-scrolling: touch;
     /*手机端回弹效果*/
     overscroll-behavior: contain;
@@ -880,6 +881,12 @@ select {
     overflow: auto;
     height: calc(var(--radius)*2);
     font-size: 1.6rem;
+    overscroll-behavior: contain;
+    /*子元素滚动不冒泡，父元素不滚动*/
+    -ms-scroll-chaining: contain;
+    /*同overscroll-behavior的ie兼容方法*/
+    overflow-anchor: auto;
+    /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     /*高度为直径*/
     .rollerSelect-box {
         position: relative;

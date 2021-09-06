@@ -364,6 +364,9 @@
     .tabs:before{
         background: var(--base-air);
     }
+    .line-tabs::before{
+        background: var(--ui-primary);
+    }
 }
 
 .btn-tabs {

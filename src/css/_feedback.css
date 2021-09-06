@@ -191,7 +191,7 @@ dot {
     bottom: 0;
     display: grid;
     justify-items: center;
-    align-items: baseline;
+    align-items: center;
     gap: 0.8rem;
     background: rgba(0, 0, 0, .64);
     opacity: 0;
