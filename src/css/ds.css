@@ -36,14 +36,16 @@
     }
 }
 
-.tagsList{
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 0.8rem;
+.tagsList {
+    margin-bottom: -.8rem;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
-    justify-items: start;
 
+    &>* {
+        margin-right: .8rem;
+        margin-bottom: .8rem;
+    }
 }
 
 .dark .menu {
@@ -307,7 +309,8 @@
 .global-overview {
     grid-template-rows: auto 1fr;
     max-height: calc(100vh - 10rem);
-    .details-card-header{
+
+    .details-card-header {
         padding-bottom: 0;
     }
 }
@@ -317,8 +320,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.6rem;
-    .chart-progress{
-       transform: translateY(-1rem);
+
+    .chart-progress {
+        transform: translateY(-1rem);
     }
 }
 
@@ -329,13 +333,15 @@
         border: none;
     }
 }
-.chart-progress{
+
+.chart-progress {
     display: grid;
     grid-auto-flow: column;
     gap: 3.2rem;
 
 }
-.chart-progress-item{
+
+.chart-progress-item {
     height: 8.8rem;
     width: 8.8rem;
 }
@@ -357,7 +363,9 @@
     padding: 0;
     margin: 0;
     padding-bottom: 3.2rem;
+    
 }
+
 
 .ds-project-item {
     display: grid;
@@ -410,6 +418,10 @@
         font-family: ranIcon;
         color: var(--ui-danger);
     }
+    &.warning::before{
+        content: '\e906';
+        color: var(--ui-warning);
+    }
 }
 
 .tabTools {
@@ -421,9 +433,11 @@
     display: grid;
     grid-template-rows: auto 1fr;
 }
-.mapLayer{
+
+.mapLayer {
     border-bottom: none;
-    .accordion-content.show{
+
+    .accordion-content.show {
         margin-bottom: 1.2rem;
     }
 }
@@ -468,11 +482,13 @@
         }
     }
 }
-.mapLayerHidden{
-    .mapLayer-info{
+
+.mapLayerHidden {
+    .mapLayer-info {
         opacity: 0.4;
     }
-    .btn{
+
+    .btn {
         visibility: visible;
     }
 }
@@ -524,12 +540,13 @@
     align-items: center;
     justify-content: space-between;
 }
-.details-header-tags{
+
+.details-header-tags {
     display: grid;
     grid-auto-flow: column;
     gap: 0.4rem;
     align-items: center;
-    
+
 }
 
 .person-liable {
@@ -916,6 +933,14 @@
     }
 }
 
+.tags {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 0.4rem;
+}
+
 .rateList-info {
     grid-area: 3/2/4/4;
     padding: 1.2rem;
@@ -939,9 +964,11 @@
     transition: all 0.2s;
     padding: 1.6rem 2.4rem;
     border-bottom: 1px solid var(--base-thinner);
-    &:first-child{
+
+    &:first-child {
         padding-top: 0.8rem;
     }
+
     &:last-child {
         border-bottom: none;
     }
@@ -997,6 +1024,8 @@
     }
 }
 
+
+
 .personCard {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -1027,6 +1056,21 @@
         grid-auto-flow: column;
         gap: 0.4rem;
         align-items: center;
+    }
+}
+.person-project{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &>li{
+        padding: 1.2rem 2.4rem 1.2rem 4rem;
+        margin: 0 -2.4rem;
+        backdrop-filter: none!important;
+        border-radius: 0;
+        &:hover{
+            background: var(--base-thinner);
+            box-shadow: none;
+        }
     }
 }
 
@@ -1118,13 +1162,14 @@
     align-items: center;
     gap: 0.2rem;
     cursor: pointer;
-    &:hover{
-        color: var(--text);    
+
+    &:hover {
+        color: var(--text);
     }
 }
 
 .sidebar-form {
-
+.form-item-header,
     .input-group,
     .select_value,
     .input-solid {
@@ -1393,25 +1438,29 @@
     padding: 1.2rem 0;
 }
 
-.filterlist-item{
+.filterlist-item {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    padding:1.2rem 1.6rem 1.2rem 2.4rem;
+    padding: 1.2rem 1.6rem 1.2rem 2.4rem;
     border-radius: 0.8rem;
     transition: all 0.2s;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background: var(--base-thinner);
-        .filterlist-pin{
+
+        .filterlist-pin {
             opacity: 1;
         }
     }
 }
+
 .filterlist-name {
     position: relative;
     margin: 0;
     font-size: 1.4rem;
+
     &::before {
         position: absolute;
         left: -1.2em;
@@ -1421,7 +1470,8 @@
         color: var(--ui-danger);
     }
 }
-.filterlist-pin{
+
+.filterlist-pin {
     height: 4rem;
     width: 4rem;
     border: 0.1rem solid var(--base-thinner);
@@ -1432,22 +1482,24 @@
     grid-row: span 2;
     transition: all 0.2s;
     opacity: 0;
-    &::after{
+
+    &::after {
         content: "\e920";
         font-family: ranIcon;
     }
 }
 
 
-.dialog_projectInfo{
+.dialog_projectInfo {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 4rem;
     margin-bottom: 4rem;
     padding-right: 2.4rem;
-    .dialog-list{
-        grid-template-columns: repeat(3,auto 1fr);
+
+    .dialog-list {
+        grid-template-columns: repeat(3, auto 1fr);
         margin: 0;
     }
 }
@@ -1460,30 +1512,34 @@
     flex: auto;
 }
 
-.mapTools-maptip{
+.mapTools-maptip {
     padding: 0.8rem;
 }
 
-.mapboxgl-marker{
+.mapboxgl-marker {
     cursor: pointer;
 }
 
 
-.ds-rollerSelect-left,.ds-rollerSelect-right{
+.ds-rollerSelect-left,
+.ds-rollerSelect-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 14rem;
     pointer-events: auto;
-    &:hover::-webkit-scrollbar-thumb{
+
+    &:hover::-webkit-scrollbar-thumb {
         background-color: transparent;
     }
 }
-.ds-rollerSelect-left{
+
+.ds-rollerSelect-left {
     left: 0;
-  
+
 }
-.ds-rollerSelect-right{
+
+.ds-rollerSelect-right {
     right: 0;
- 
+
 }
