@@ -811,8 +811,7 @@ select {
 }
 
 .select-tags {
-    padding: 0.8rem;
-    padding-bottom: 0;
+    margin-bottom: -0.8rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

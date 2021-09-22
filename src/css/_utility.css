@@ -110,3 +110,19 @@ screen and (min-resolution: 2dppx) {
         background-size: contain;
     }
 }
+
+.text-primary{
+    color: var(--ui-primary);
+}
+.text-danger{
+    color: var(--ui-danger);
+}
+.text-warning{
+    color: var(--ui-warning);
+}
+.text-success{
+    color: var(--ui-success);
+}
+.text-star{
+    color: var(--ui-star);
+}

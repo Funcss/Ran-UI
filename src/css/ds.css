@@ -665,7 +665,13 @@
     }
 }
 
-
+.up-file-list{
+    background:var(--base-thinner);
+    font-size: 1.2rem;
+    &+.file-list{
+        margin-top: 0.1rem;
+    }
+}
 .file-list {
     position: relative;
     display: grid;
