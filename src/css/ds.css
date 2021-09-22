@@ -35,6 +35,16 @@
         }
     }
 }
+.login-logo{
+    position: absolute;
+    left: 4rem;
+    top: 0rem;
+    color: #fff;
+    font-size: 3.2rem;
+    font-family: ysbt;
+    font-weight: 400; 
+    text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.2);
+}
 
 .tagsList {
     margin-bottom: -.8rem;
