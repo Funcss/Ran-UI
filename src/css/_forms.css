@@ -762,23 +762,36 @@ select {
     @extend .glass,
     .glass-z3;
     @extend .paper-z2;
-    overflow: auto;
+    overflow: hidden;
     border: none;
     max-width: calc(100% - 96px);
     min-width: 16px;
     max-height: 24rem;
     min-height: 16px;
     display: none;
-    scroll-behavior: auto;
+    flex-direction: column;
     opacity: 0;
     visibility: hidden;
     transform-origin: center top;
-    overscroll-behavior: contain;
-    -ms-scroll-chaining: contain;
     z-index: 1;
 }
 
+.menu-top{
+    flex: none;
+    position: sticky;
+    top: 0;
+    padding: 0.8rem;
+    z-index: 1;
+    background-color: transparent;
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 12%), 0 0.2rem 0.4rem rgb(0 0 0 / 12%);
+}
+
 .menu-list {
+    flex: auto;
+    overflow: auto;
+    scroll-behavior: auto;
+    overscroll-behavior: contain;
+    -ms-scroll-chaining: contain;
     @extend .list-reset;
     padding: 0.5rem;
 }

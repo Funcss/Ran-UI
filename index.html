@@ -267,7 +267,7 @@ ghostClass: 'sortabling'
                     <input type="text" placeholder="Placeholder" class="input input-sm">
                 </div>
                 <div class="form-item">
-                    <input type="text" placeholder="&#xe91e;" class="input input-md warning">
+                    <input type="search" placeholder="&#xe91e;" class="input input-md warning">
                     <p class="hint">说明文字</p>
                 </div>
                 <div class="form-item">
@@ -524,6 +524,54 @@ onclick="menu(this,document.getElementById('menu'))"
                         onclick="menu(this,document.getElementById('menu5'))">全部
                     </div>
                     <div class="menu" id="menu5">
+                        <div class="menu-top">
+                            <input type="search" placeholder="&#xe91e;" class="input input-solid input-sm">
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item selected">全部</li>
+                            <li class="menu-item">男</li>
+                            <li class="menu-item">女</li>
+                            <li class="menu-item">1</li>
+                            <li class="menu-item">2</li>
+                            <li class="menu-item">3</li>
+                            <li class="menu-item">A</li>
+                            <li class="menu-item">B</li>
+                            <li class="menu-item">C</li>
+                            <li class="menu-item">四川</li>
+                            <li class="menu-item">成都</li>
+                            <li class="menu-item">中华人民共和国</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项2</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                            <li class="menu-item">选项3</li>
+                            <li class="menu-item">选项4</li>
+                            <li class="menu-item">选项5</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="form-item">
+
+                    <div class="form-item_label">input样式：</div>
+                    <input type="text" placeholder="输入内容模糊搜索下拉" class="menu-select input input-md input-solid"
+                        onclick="menu(this,document.getElementById('menu-search'))">
+
+                    <div class="menu" id="menu-search">
                         <ul class="menu-list">
                             <li class="menu-item selected">全部</li>
                             <li class="menu-item">男</li>
@@ -769,6 +817,9 @@ onclick="menu(this,document.getElementById('menu'))"
                 <button class="btn btn-sm btn-icon" onclick="menu(this,document.getElementById('menu4q'))"><i
                         class="ran-icon77"></i></button>
                 <div class="menu" id="menu4q">
+                    <div class="menu-top">
+                        <input type="search" placeholder="&#xe91e;" class="input input-solid input-sm">
+                    </div>
                     <ul class="menu-list">
                         <li class="menu-item"><label for="" class="checkbox-label">
                                 <input type="checkbox" class="checkbox" name="">
@@ -791,6 +842,8 @@ onclick="menu(this,document.getElementById('menu'))"
                 </div>
             </div>
         </div>
+        <h2>穿梭框</h2>
+        <div class="demo">123</div>
         <h2>数据展示</h2>
         <h3>图片头像</h3>
         <div class="demo">
@@ -1644,7 +1697,8 @@ bottomHide(el);//公用向下收起关闭函数
             <button class="btn btn-md btn-primary btn-outlined"
                 onclick="timeTool(document.getElementById('timetool'))"><i class="ran-icon110"></i>select选择器展开</button>
             <button class="btn btn-md btn-primary btn-outlined"
-                onclick="bottomHide(document.getElementById('timetool'))"><i class="ran-icon110"></i>select选择器关闭</button>
+                onclick="bottomHide(document.getElementById('timetool'))"><i
+                    class="ran-icon110"></i>select选择器关闭</button>
             <div class="maptool-timelinebox" id="timetool">
                 <div class="maptool-timeline">
                     <button class="maptool-timeline-prev waves-effect"><i class="ran-icon69"></i></button>
@@ -2457,7 +2511,7 @@ fade为透明度渐变效果是否开启，默认关闭为false
                         <li class="rollerSelect-item">11Mercedes</li>
                         <li class="rollerSelect-item">12Mercedes</li>
                         <li class="rollerSelect-item">13last</li>
-                        
+
                     </ul>
                 </div>
             </div>

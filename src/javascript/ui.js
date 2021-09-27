@@ -901,7 +901,7 @@ function menuShow(el) {
         scale: [0.8, 1],
         opacity: [0, 1],
         begin: function () {
-            el.style.display = 'block';
+            el.style.display = 'flex';
             el.style.visibility = 'visible';
         }
     })
@@ -937,6 +937,7 @@ function menu(el, menu) {
     const vBottom = getElementInfo(el).viewBottom;//元素下边相对于浏览器可视边距离
     const vRight = getElementInfo(el).viewRight;//元素右边相对于浏览器可视边距离
 
+    const menuList = menu.querySelector('.menu-list');
 
 
     const menuArr = document.getElementsByClassName('menuShow');
@@ -948,14 +949,14 @@ function menu(el, menu) {
 
 
     document.body.appendChild(menu);
-    menu.style.display = 'block';
+    menu.style.display = 'flex';
     menu.style.minWidth = width + 'px';
 
 
 
     //menu.style.transform = "translateX(-50%)";
     menu.classList.add('menuShow');
-    const selected = menu.querySelector('.selected');//被选中的元素
+    const selected = menuList.querySelector('.selected');//被选中的元素
 
     const menuWidth = menu.getBoundingClientRect().width;
     const menuHeight = menu.getBoundingClientRect().height;
@@ -963,7 +964,7 @@ function menu(el, menu) {
     if (selected) {
         const selected_Height = selected.clientHeight;
         const selected_Y = selected.offsetTop;//被选中的那一项距离父元素顶部的距离
-        menu.scrollTop = selected_Y - menuHeight / 2 + selected_Height / 2;
+        menuList.scrollTop = selected_Y - menuHeight / 2 + selected_Height / 2;
     }
 
 
@@ -1041,7 +1042,7 @@ function menu(el, menu) {
         for (var i = 0; i < menuItems.length; i++) {
             menuItems[i].onclick = function () {
                 el.textContent = this.textContent;
-
+                el.value = this.textContent;//如果是input则填入value
                 if (menu.querySelector('.selected')) {
                     menu.querySelector('.selected').classList.remove('selected');
                 }

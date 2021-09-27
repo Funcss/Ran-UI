@@ -58,7 +58,7 @@
     }
     .steps-active{
         time:before{
-            content: "\e92c";
+            content: "\e903";
             font-family:'ranIcon' !important;
             height: auto;
             width: auto;
