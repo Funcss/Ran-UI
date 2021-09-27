@@ -862,7 +862,7 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
     // }
 
     document.onclick = fun;
-    document.onwheel = fun;
+    // document.onwheel = fun;
 
     function fun(e) {
         switch (e.type) {
@@ -871,11 +871,11 @@ function tooltips(el, content, direction) {//el元素对象；content为tips内�
                     tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
                 }
                 break;
-            case "wheel":
-                for (var i = 0; i < tipsArr.length; i++) {
-                    tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
-                }
-                break;
+            // case "wheel":
+            //     for (var i = 0; i < tipsArr.length; i++) {
+            //         tipsHide(tipsArr[i]);//添加tips之前先把已经存在的tips删除
+            //     }
+            //     break;
 
         }
     }
