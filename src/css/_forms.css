@@ -1,10 +1,9 @@
 /*disable*/
 .disabled,
 [disabled] {
-    cursor: not-allowed;
     pointer-events: none;
-    opacity: 0.72;
-    background-color: transparent;
+    cursor: not-allowed;
+    opacity: 0.48;
 }
 
 .input,
@@ -14,11 +13,6 @@ textarea {
     line-height: var(--line-height);
     color: var(--text);
     background-color: transparent;
-
-    &[disabled],
-    &.disabled {
-        border-style: dotted;
-    }
 }
 
 .checkbox-label,
@@ -597,6 +591,7 @@ textarea {
         transform: translateY(calc(var(--size) / 2));
         line-height: var(--size);
         transition: all ease 0.2s;
+        color: var(--text-lighter);
     }
 
     &.focus {

@@ -42,7 +42,7 @@
     &.disabled,
     &[disabled] {
         pointer-events: none;
-        opacity: .8;
+        opacity: .48;
         cursor: not-allowed;
     }
 }

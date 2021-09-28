@@ -136,7 +136,7 @@
     position: relative;
     height: var(--size);
     border-radius: var(--size);
-    font-size: var(--size);
+    font-size: 1.2rem;
     padding: 0;
     margin-bottom: calc(var(--size) + 0.4rem + 1em);
 
