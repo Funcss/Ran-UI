@@ -1171,7 +1171,10 @@
     font-size: 1.2rem;
     color: var(--text-light);
 }
-
+.record-time{
+    flex: none;
+    margin-right: 2.4rem;
+}
 .record-address {
     display: grid;
     grid-auto-flow: column;
