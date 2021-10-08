@@ -40,6 +40,7 @@
 
 
 .progress {
+    --bar-width:0;
     position: relative;
     height: 0.4rem;
     background: color-mod(var(--ui-primary) a(24%));
