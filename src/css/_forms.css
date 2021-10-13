@@ -750,6 +750,9 @@ select {
         background-color: var(--base-air);
     }
 }
+.selectText{
+    @extend .ellipsis;
+}
 
 .menu {
     position: absolute;

@@ -1204,7 +1204,7 @@
     padding-bottom: 2.4rem;
     margin: 0;
     border: none;
-
+    min-width: 0;
     &::after {
         content: "";
         position: absolute;

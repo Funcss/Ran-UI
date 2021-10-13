@@ -1041,7 +1041,8 @@ function menu(el, menu) {
 
         for (var i = 0; i < menuItems.length; i++) {
             menuItems[i].onclick = function () {
-                el.textContent = this.textContent;
+                //el.textContent = this.textContent;
+                el.innerHTML = '<div class="selectText">' + this.textContent + '</div>';
                 el.value = this.textContent;//如果是input则填入value
                 if (menu.querySelector('.selected')) {
                     menu.querySelector('.selected').classList.remove('selected');
