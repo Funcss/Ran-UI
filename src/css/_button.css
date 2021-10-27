@@ -226,11 +226,9 @@ var(--ui-success);
     }
 }
 
-.gird-btn{
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    
+
+.grid-btn{
+    @extend .grid-block;
     &>a{
         display: grid;
         grid-auto-flow: column;
@@ -246,6 +244,32 @@ var(--ui-success);
             display: none;
         }
     }
+}
+
+.accordion-btn{
+    --size:3.2rem;
+    @extend .btn;
+    justify-content: flex-start;
+    white-space: nowrap;
+    height: var(--size);
+    width: var(--size);
+    padding: 0 calc((var(--size) - 1em)/2);
+    border-radius: var(--size);
+    overflow: hidden;
+    transition: all 0.3s;
+    &::after{
+        display: none;
+    }
+    &:hover{
+        width: calc(var(--size) + var(--textWidth) + 0.4rem);
+        .accordion-btn-text{
+            opacity: 1;
+        } 
+    }
+}
+.accordion-btn-text{
+    opacity: 0;
+    transition: all 0.3s;
 }
 
 .pagination {

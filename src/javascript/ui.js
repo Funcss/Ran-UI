@@ -1480,7 +1480,7 @@ function rollerSelectOld() {
         })
     })
 }
-rollerSelectOld();
+
 
 function rollerSelect() {
     var roller = document.querySelectorAll('.rollerSelect');
@@ -1566,7 +1566,7 @@ function rollerSelect() {
 
     })
 }
-rollerSelect()
+
 
 
 //堆叠卡片翻页
@@ -1724,4 +1724,14 @@ function compass() {
     })
 }
 
-compass()
+
+
+
+//按钮手风琴
+function accordionBtn(){
+    var accordionBtns = document.querySelectorAll('.accordion-btn');
+    accordionBtns.forEach(function(item){
+       var textWidth = item.querySelector('.accordion-btn-text').clientWidth / 10 + 'rem';
+       item.style.setProperty('--textWidth', textWidth);
+    })
+}

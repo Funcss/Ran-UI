@@ -31,7 +31,10 @@ window.onload = function () {
 
     //stop(['.switch','input[type=checkbox]','input[type=radio]']);//阻止点击冒泡
 
+    compass()//地图指北针
 
+    rollerSelectOld();//ios风格时间选择器老版本
+    rollerSelect()//ios风格时间选择器
 
     //拖动drop demo
     const dragbox = document.getElementById('grid1');
@@ -53,10 +56,10 @@ window.onload = function () {
 
 
     //水波纹
-    Waves.attach('.btn, .list-link, .select_value, .menu-item');
+    Waves.attach('.btn, .accordion-btn, .list-link, .select_value, .menu-item');
     Waves.init();
 
- 
+    accordionBtn()//手风琴按钮
 }
 
 

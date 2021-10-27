@@ -70,7 +70,18 @@ screen and (min-resolution: 2dppx) {
 }
 
 
-
+.grid-block{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+.grid-inline{
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-auto-columns: auto;
+    gap: 0.8rem;
+}
 
 .list-reset {
     padding: 0;
@@ -122,7 +133,4 @@ screen and (min-resolution: 2dppx) {
 }
 .text-success{
     color: var(--ui-success);
-}
-.text-star{
-    color: var(--ui-star);
 }
