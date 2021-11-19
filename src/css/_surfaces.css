@@ -27,56 +27,34 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.24), 0px 8px 16px 0px rgba(0, 0, 0, 0.12), 0px 16px 18px 4px rgba(0, 0, 0, 0.1), 0px 12px 24px 8px rgba(0, 0, 0, 0.05);
 }
 
+
+
+
 .glass {
-    background-color: color-mod(var(--paper) a(24%));
+    background-color: color-mod(#fff a(0%));
     backdrop-filter: saturate(180%) blur(20px);
 }
 
 .glass-z1 {
-    background-color: color-mod(var(--paper) a(48%));
+    background-color: color-mod(#fff a(4%));
 }
 
 .glass-z2 {
-    background-color: color-mod(var(--paper) a(64%));
+    background-color: color-mod(#fff a(8%));
 }
 
 .glass-z3 {
-    background-color: color-mod(var(--paper) a(72%));
+    background-color: color-mod(#fff a(16%));
 }
 
 .glass-z4 {
-    background-color: color-mod(var(--paper) a(80%));
+    background-color: color-mod(#fff a(24%));
 }
 
 .glass-z5 {
-    background-color: color-mod(var(--paper) a(88%));
+    background-color: color-mod(#fff a(32%));
 }
 
-.dark {
-    .glass {
-        background-color: color-mod(#424242 a(0%));
-    }
-
-    .glass-z1 {
-        background-color: color-mod(#424242 a(48%));
-    }
-
-    .glass-z2 {
-        background-color: color-mod(#424242 a(64%));
-    }
-
-    .glass-z3 {
-        background-color: color-mod(#424242 a(72%));
-    }
-
-    .glass-z4 {
-        background-color: color-mod(#424242 a(80%));
-    }
-
-    .glass-z5 {
-        background-color: color-mod(#424242 a(88%));
-    }
-}
 
 .panel {
     @extend .paper,
@@ -172,8 +150,9 @@
 
     transform: translateX(calc(100% + 2.4rem));
     transform-origin: left center;
-    &.drawer-right-show{
-        transform:translate3d(0,0,0);
+
+    &.drawer-right-show {
+        transform: translate3d(0, 0, 0);
         opacity: 1;
         z-index: 2;
         visibility: visible;
@@ -184,8 +163,9 @@
     left: 2.4rem;
     transform: translateX(calc(-100% - 2.4rem));
     transform-origin: right center;
-    &.drawer-left-show{
-        transform:translate3d(0,0,0);
+
+    &.drawer-left-show {
+        transform: translate3d(0, 0, 0);
         opacity: 1;
         z-index: 2;
         visibility: visible;
@@ -224,8 +204,9 @@
     &:last-child {
         border-bottom: none;
     }
-    &:hover{
-        .accordion-content{
+
+    &:hover {
+        .accordion-content {
             will-change: height;
         }
     }
@@ -259,21 +240,26 @@
 
 .card-stack {
     display: grid;
+    perspective: 16rem;
+    perspective-origin: center calc(100% + 16rem);
+    transform-style: preserve-3d;
 
     &.hover-show {
         transition: all 220ms cubic-bezier(0, 0, .2, 1);
-        transform: translateY(5px);
+        transform: translateY(4px);
 
         .card-stack-item {
             &:nth-last-child(2) {
-                transform: translateY(0px) scale3d(.95, .95, 1);
+                /*transform: translateY(0px) scale3d(.95, .95, 1);*/
+                transform: translateZ(0);
                 opacity: 0;
                 visibility: hidden;
 
             }
 
             &:nth-last-child(3) {
-                transform: translateY(0px) scale3d(.9, .9, 1);
+                /*transform: translateY(0px) scale3d(.9, .9, 1);*/
+                transform: translateZ(0);
                 opacity: 0;
                 visibility: hidden;
 
@@ -285,13 +271,15 @@
 
             .card-stack-item {
                 &:nth-last-child(2) {
-                    transform: translateY(5px) scale3d(.95, .95, 1);
+                    /*transform: translateY(0px) scale3d(.95, .95, 1);*/
+                    transform: translateZ(-0.8rem);
                     opacity: 1;
                     visibility: visible;
                 }
 
                 &:nth-last-child(3) {
-                    transform: translateY(10px) scale3d(.9, .9, 1);
+                    /*transform: translateY(0px) scale3d(.9, .9, 1);*/
+                    transform: translateZ(-1.6rem);
                     opacity: 1;
                     visibility: visible;
 
@@ -310,29 +298,40 @@
     transition: all 220ms cubic-bezier(0, 0, .2, 1);
     opacity: 0;
     visibility: hidden;
+    transform-origin: center bottom;
 
     &:nth-last-child(1) {
-        transform: translateY(0px) scale3d(1, 1, 1);
+        /*transform: translateY(0px) scale3d(1, 1, 1);*/
         opacity: 1;
         visibility: visible;
     }
 
     &:nth-last-child(2) {
-        transform: translateY(5px) scale3d(.95, .95, 1);
+        /*transform: translateY(6px) scale3d(.95, .95, 1);*/
+        transform: translateZ(-0.8rem);
         opacity: 1;
         visibility: visible;
 
     }
 
     &:nth-last-child(3) {
-        transform: translateY(10px) scale3d(.9, .9, 1);
+        /*transform: translateY(12px) scale3d(.9, .9, 1);*/
+        transform: translateZ(-1.6rem);
         opacity: 1;
         visibility: visible;
 
     }
 
+    &:only-of-type {
+
+        .card-prev,
+        .card-next {
+            display: none;
+        }
+    }
+
     &.next {
-        will-change: transform,opacity;
+        will-change: transform, opacity;
         transition: all 220ms cubic-bezier(.4, 0, 1, 1);
         transform: translateX(120%) rotate(8deg);
         opacity: 0;
@@ -340,12 +339,13 @@
     }
 
     &.prev {
-        will-change: transform,opacity;
+        will-change: transform, opacity;
         transition: none;
         transform: translateX(120%) rotate(8deg);
         opacity: 0;
     }
-    &:hover{
-        will-change: transform,opacity;
+
+    &:hover {
+        will-change: transform, opacity;
     }
 }

@@ -25,7 +25,7 @@
     --paper: #fff;
     --light:#fff;
     --dark:#121212;
-    --ui-secondary: rgb(99 107 136 / 80%);
+    --ui-secondary: #7276a9;
     --ui-primary: #257BFF;
     --ui-danger: #EA0000;
     --ui-warning: #FF9400;
@@ -61,7 +61,7 @@
     --text-light: color-mod(#fff a(64%));
     --text-lighter: color-mod(#fff a(48%));
     --bg: var(--dark);
-    --paper:#33333a;
+    --paper:#404040;
 
    
 

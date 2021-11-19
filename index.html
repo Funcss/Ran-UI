@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="dest/css/demo.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/prism.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="dest/js/echart-dark.js"></script>
     <title>ADA-Cloud</title>
 </head>
 
-<body>
+<body class="dark">
     <section class="section">
         <h2>栅格</h2>
         <h3>12栅</h3>
@@ -169,10 +170,14 @@ ghostClass: 'sortabling'
         </div>
         <div class="demo">
             <div class="grid-inline">
-                <a href="###" class="accordion-btn"><i class="ran-icon56"></i><span class="accordion-btn-text">编辑</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon68"></i><span class="accordion-btn-text">分享</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon74"></i><span class="accordion-btn-text">关注</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon57"></i><span class="accordion-btn-text">全部删除</span></a>
+                <a href="###" class="accordion-btn"><i class="ran-icon56"></i><span
+                        class="accordion-btn-text">编辑</span></a>
+                <a href="###" class="accordion-btn"><i class="ran-icon68"></i><span
+                        class="accordion-btn-text">分享</span></a>
+                <a href="###" class="accordion-btn"><i class="ran-icon74"></i><span
+                        class="accordion-btn-text">关注</span></a>
+                <a href="###" class="accordion-btn"><i class="ran-icon57"></i><span
+                        class="accordion-btn-text">全部删除</span></a>
             </div>
         </div>
         <h2>Checkbox</h2>
@@ -887,31 +892,37 @@ onclick="menu(this,document.getElementById('menu'))"
         </div>
         <h3>徽章</h3>
         <div class="demo">
-            <span class="tag tag-default">Default</span>
-            <span class="tag tag-primary">Primary</span>
-            <span class="tag tag-success">Success</span>
-            <span class="tag tag-warning">Warning</span>
-            <span class="tag tag-danger">Danger</span>
-            <span class="tag tag-dark">Dark</span>
-            <span class="tag tag-gray">Gray</span>
+            <div class="tag-box">
+                <span class="tag tag-default">Default</span>
+                <span class="tag tag-primary">Primary</span>
+                <span class="tag tag-success">Success</span>
+                <span class="tag tag-warning">Warning</span>
+                <span class="tag tag-danger">Danger</span>
+                <span class="tag tag-dark">Dark</span>
+                <span class="tag tag-gray">Gray</span>
+            </div>
         </div>
         <div class="demo">
-            <span class="tag tag-default tag-delate">Default</span>
-            <span class="tag tag-primary tag-delate">Primary</span>
-            <span class="tag tag-success tag-delate">Success</span>
-            <span class="tag tag-warning tag-delate">Warning</span>
-            <span class="tag tag-danger tag-delate">Danger</span>
-            <span class="tag tag-dark tag-delate">Dark</span>
-            <span class="tag tag-gray tag-delate">Gray</span>
+            <div class="tag-box">
+                <span class="tag tag-default tag-delate">Default</span>
+                <span class="tag tag-primary tag-delate">Primary</span>
+                <span class="tag tag-success tag-delate">Success</span>
+                <span class="tag tag-warning tag-delate">Warning</span>
+                <span class="tag tag-danger tag-delate">Danger</span>
+                <span class="tag tag-dark tag-delate">Dark</span>
+                <span class="tag tag-gray tag-delate">Gray</span>
+            </div>
         </div>
         <div class="demo">
-            <span class="tag-dot tag-default"></span>
-            <span class="tag-dot tag-primary"></span>
-            <span class="tag-dot tag-success"></span>
-            <span class="tag-dot tag-warning"></span>
-            <span class="tag-dot tag-danger"></span>
-            <span class="tag-dot tag-dark"></span>
-            <span class="tag-dot tag-gray"></span>
+            <div class="tag-box">
+                <span class="tag-dot tag-default"></span>
+                <span class="tag-dot tag-primary"></span>
+                <span class="tag-dot tag-success"></span>
+                <span class="tag-dot tag-warning"></span>
+                <span class="tag-dot tag-danger"></span>
+                <span class="tag-dot tag-dark"></span>
+                <span class="tag-dot tag-gray"></span>
+            </div>
         </div>
         <div class="demo">
             <span class="badge badge-dot"></span>
@@ -2764,8 +2775,621 @@ new Sortable(document.querySelector('.drag-demo-right'), {
             <button class="btn btn-md btn-primary" style="position: fixed; right: 20px;top: 40px;"
                 onclick="document.body.classList.toggle('dark')">夜间模式</button>
         </div>
-        <h3>骨架屏</h3>
-        <div class="demo">123</div>
+        <h3>EChart</h3>
+        <h4>环形图</h4>
+        <div class="demo">
+            <div id="chart1" style="height:200px; width: 480px;"></div>
+            <script>
+                var Echart1 = echarts.init(document.getElementById('chart1'), 'dark');
+
+                var chart1 = {
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: {c} {d}%' //hover显示百分比,{b}我标题，{c}为数据，{d}为百分比
+                    },
+                    legend: [{ //设置左右两侧图例
+                        orient: 'left',
+                        top: "center",
+                        left: 'left',
+                        itemWidth: 14,
+                        itemGap: 16,
+                        data: ['服装类', '餐饮类', '饰品类', '咖啡厅、酒吧'],
+                        itemStyle: {
+                            borderWidth: 0,
+                        },
+                        textStyle: {
+                            color: "#fff",
+                            fontSize: 14,
+                        }
+                    }, {
+                        orient: 'right',
+                        top: "center",
+                        left: 'right',
+                        itemWidth: 14,
+                        itemGap: 16,
+                        data: ['综合商超', '电子科技', '文化类', '其他'],
+                        itemStyle: {
+                            borderWidth: 0,
+                        },
+                        textStyle: {
+                            color: "#fff",
+                            fontSize: 14,
+                        }
+                    }],
+                    graphic: [
+
+                        { //环形图中间添加文字
+                            type: 'text', //通过不同top值可以设置上下显示
+                            left: 'center',
+                            top: '38%',
+                            style: {
+                                text: '1234',
+                                textAlign: 'center',
+                                fill: '#fff', //文字的颜色
+                                // width: 108,
+                                // height: 30,
+                                fontSize: 32,
+                                fontFamily: "din"
+                            }
+                        }, {
+                            type: "text",
+                            left: 'center',
+                            top: "56%",
+                            style: {
+                                text: "商家总数",
+                                textAlign: "center",
+                                fill: "rgba(255,255,255,0.72)",
+                                fontSize: 14,
+                            }
+                        }
+                    ],
+                    series: [{
+                        type: 'pie',
+                        radius: ['70%', '90%'], //设置环形中心
+                        left: 'center',
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderColor: 'rgba(0,0,0,0.1)',
+                            borderWidth: 1
+                        },
+                        label: {
+                            show: false,
+
+                        },
+
+                        data: [{
+                                value: 1048,
+                                name: '服装类'
+                            },
+                            {
+                                value: 735,
+                                name: '餐饮类'
+                            },
+                            {
+                                value: 580,
+                                name: '饰品类'
+                            },
+                            {
+                                value: 484,
+                                name: '咖啡厅、酒吧'
+                            },
+                            {
+                                value: 300,
+                                name: '综合商超'
+                            },
+                            {
+                                value: 484,
+                                name: '电子科技'
+                            },
+                            {
+                                value: 300,
+                                name: '文化类'
+                            },
+                            {
+                                value: 68,
+                                name: '其他'
+                            },
+                        ]
+                    }]
+                }
+                Echart1.setOption(chart1);
+            </script>
+        </div>
+        <div class="demo">
+            <div id="chart2" style="height:200px; width: 480px;"></div>
+            <script>
+                //环形图：
+                var Echart2 = echarts.init(document.getElementById("chart2"), 'dark');
+                var chart2 = {
+                    series: [{
+                        type: 'gauge',
+                        startAngle: 90,
+                        endAngle: -270,
+                        radius: '100%', //圆环大小
+                        pointer: {
+                            show: false //不显示指针
+                        },
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient( //渐变色
+                                0, 0, 0, 1,
+                                [{
+                                        offset: 0,
+                                        color: '#00B0BA'
+                                    },
+                                    {
+                                        offset: 1,
+                                        color: '#C054E7'
+                                    }
+                                ]
+                            ),
+
+                        },
+                        progress: {
+                            show: true,
+                            overlap: false,
+                            roundCap: true,
+                            clip: false,
+
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                width: 6,
+                                color: [
+                                    [1, '#fff']
+                                ],
+                                opacity: 0.08, //底环白色
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        data: [{
+                            value: 40,
+                            name: '已交地',
+                            title: {
+                                offsetCenter: ['0%', '12px'],
+                                color: "#fff",
+                                fontSize: 14,
+                            },
+                            detail: {
+                                offsetCenter: ['0%', '-16px'],
+                                color: "#fff",
+                                fontSize: 32,
+                                fontFamily: "din",
+                                formatter: '{value}%'
+                            }
+                        }, ],
+
+
+                    }]
+                };
+
+                Echart2.setOption(chart2, true);
+            </script>
+        </div>
+
+        <div class="demo">
+            <div id="chart3" style="height:200px; width: 480px;"></div>
+            <script>
+                // 初始化图表标签
+                var Echart3 = echarts.init(document.getElementById('chart3'), 'dark');
+                var chart3 = {
+                    //backgroundColor: '#000',
+                    //color: ['#53f1f2', '#4ebefd', '#30ed9d'],
+                    legend: {
+                        show: true,
+                        orient: 'vertical',
+                        left: 'left',
+                        top: 'middle',
+                        data: ['正常', '次要', '警告'],
+                        itemWidth: 14,
+                        itemGap: 16,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 14
+                        }
+                    },
+
+                    series: [{
+                        name: '正常',
+                        type: 'gauge',
+                        startAngle: 90,
+                        endAngle: -270,
+                        radius: '100%', //圆环大小
+                        center: ['70%', '50%'],
+                        pointer: {
+                            show: false
+                        },
+                        progress: {
+                            show: true,
+                            overlap: false,
+                            roundCap: true,
+                            clip: false,
+
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                width: 12,
+                                color: [
+                                    [1, '#fff']
+                                ],
+                                opacity: 0.08, //底环白色
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        title: {
+                            show: false, //圆环中间不显示标题
+                        },
+                        detail: {
+                            show: false, //圆环中间不显示值
+                        },
+                        data: [{
+                            value: 60,
+                            name: '正常',
+
+                        }]
+                    }, {
+                        name: '次要',
+                        type: 'gauge',
+                        startAngle: 90,
+                        endAngle: -270,
+                        radius: '85%', //圆环大小
+                        center: ['70%', '50%'],
+                        pointer: {
+                            show: false
+                        },
+                        progress: {
+                            show: true,
+                            overlap: false,
+                            roundCap: true,
+                            clip: false,
+
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                width: 12,
+                                color: [
+                                    [1, '#fff']
+                                ],
+                                opacity: 0.08, //底环白色
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        title: {
+                            show: false, //圆环中间不显示标题
+                        },
+                        detail: {
+                            show: false, //圆环中间不显示值
+                        },
+                        data: [{
+                            value: '50',
+                            name: '次要',
+                        }]
+                    }, {
+                        name: '警告',
+                        type: 'gauge',
+                        startAngle: 90,
+                        endAngle: -270,
+                        radius: '70%', //圆环大小
+                        center: ['70%', '50%'],
+                        pointer: {
+                            show: false
+                        },
+                        progress: {
+                            show: true,
+                            overlap: false,
+                            roundCap: true,
+                            clip: false,
+
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                width: 12,
+                                color: [
+                                    [1, '#fff']
+                                ],
+                                opacity: 0.08, //底环白色
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        title: {
+                            show: false, //圆环中间不显示标题
+                        },
+                        detail: {
+                            show: false,
+                        },
+                        data: [{
+                            value: '40',
+                            name: '警告',
+                        }]
+                    }],
+
+
+                    graphic: [{ //环形图中间添加文字
+                        type: 'text', //通过不同top值可以设置上下显示
+                        left: '65%',
+                        top: '40%',
+                        style: {
+                            text: 1500,
+                            textAlign: 'center',
+                            fill: '#fff', //文字的颜色
+                            fontSize: 32,
+                            fontFamily: "din"
+                        }
+                    }, {
+                        type: "text",
+                        left: '65%',
+                        top: "56%",
+                        style: {
+                            text: "总数",
+                            textAlign: "center",
+                            fill: "rgba(255,255,255,0.72)",
+                            fontSize: 14,
+                        }
+                    }],
+                };
+                Echart3.setOption(chart3);
+            </script>
+        </div>
+        <div class="demo">
+            <div id="chart4" style="height:240px; width: 480px;"></div>
+            <script>
+                // 初始化图表标签
+                var Echart4 = echarts.init(document.getElementById('chart4'), 'dark');
+                var chart4 = {
+                    title: {
+                        text: 'Basic Radar Chart',
+                        show: false
+                    },
+                    legend: {
+                        show: true,
+                        orient: 'vertical',
+                        left: 'left',
+                        top: 'middle',
+                        data: ['统计1', '统计2'],
+                        itemWidth: 14,
+                        itemGap: 16,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 14
+                        }
+                    },
+                    tooltip: { //hover显示提示
+                        trigger: 'item',
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    },
+                    radar: {
+                        shape: 'circle', //圆形蛛网
+                        axisName: {
+                            formatter: '{value}',
+                            color: '#fff' //文字颜色
+                        },
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(255, 255, 255, 0.04)', 'rgba(255, 255, 255, 0.08)',
+                                    'rgba(255, 255, 255, 0.04)', 'rgba(255, 255, 255, 0.08)'
+                                ], //圆圈填充颜色
+                                //shadowColor: 'rgba(0, 0, 0, 0.2)',
+                                //shadowBlur: 10
+                            }
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.08)' //中间网线颜色
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.08)' //环行线颜色
+                            }
+                        },
+                        indicator: [{
+                                name: '维度1',
+                                max: 6500
+                            },
+                            {
+                                name: '维度2',
+                                max: 16000
+                            },
+                            {
+                                name: '维度3',
+                                max: 30000
+                            },
+                            {
+                                name: '维度4',
+                                max: 38000
+                            },
+                            {
+                                name: '维度5',
+                                max: 52000
+                            },
+                            {
+                                name: '维度6',
+                                max: 25000
+                            }
+                        ]
+                    },
+                    series: [{
+                        name: '统计1 vs 统计2',
+                        type: 'radar',
+
+                        // label: {
+                        //     show: true,
+                        //     formatter: function (params) {
+                        //         return params.value;//数字显示
+                        //     }
+                        // },
+                        // areaStyle: {
+                        //     color: '#fff'//填充色
+                        // },
+                        data: [{
+                                value: [4200, 3000, 20000, 35000, 50000, 18000],
+                                name: '统计1',
+                                lineStyle: {
+                                    //type: 'dashed',
+                                    width: 1
+                                },
+                                areaStyle: {
+                                    opacity: 0.1 //填充色透明度
+                                }
+                            },
+                            {
+                                value: [5000, 14000, 28000, 26000, 42000, 21000],
+                                name: '统计2',
+                                lineStyle: {
+                                    //type: 'dashed',
+                                    width: 1
+                                },
+                                areaStyle: {
+                                    opacity: 0.1
+                                }
+                            }
+                        ]
+                    }]
+                };
+                Echart4.setOption(chart4);
+            </script>
+        </div>
+        <div class="demo">
+            <div id="chart5" style="height:240px; width: 480px;"></div>
+            <script>
+                // 初始化图表标签
+                var Echart5 = echarts.init(document.getElementById('chart5'), 'dark');
+                var chart5 = {
+                    title: {
+                        text: 'Stacked Area Chart',
+                        show: false //标题不显示
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross', //鼠标hover后指示线类型
+                            label: {
+                                backgroundColor: '#6a7985' //指示线显示数字颜色
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['数据1', '数据2', '数据3']
+                    },
+                    toolbox: {
+                        feature: {
+                            magicType: {
+                                show: true,
+                                type: ['line', 'bar', 'stack']
+                            }
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        axisLine: {
+                            lineStyle: {
+                                color: "rgba(255, 255, 255, 0)", //x轴颜色和尺寸
+                                width: 0
+                            }
+                        }
+                    }],
+                    yAxis: [{
+                        show: false, //不显示
+                        type: 'value'
+                    }],
+                    series: [{
+                            name: '数据1',
+                            type: 'line',
+                            stack: 'Total',
+                            areaStyle: {
+                                opacity: 0.2
+                            },
+                            lineStyle: {
+                                //type: 'dashed',
+                                width: 2
+                            },
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [120, 132, 101, 134, 90, 230, 210]
+                        },
+                        {
+                            name: '数据2',
+                            type: 'line',
+                            stack: 'Total',
+                            areaStyle: {
+                                opacity: 0.2
+                            },
+                            lineStyle: {
+                                //type: 'dashed',
+                                width: 2
+                            },
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [220, 182, 191, 234, 290, 330, 310]
+                        },
+                        {
+                            name: '数据3',
+                            type: 'line',
+                            stack: 'Total',
+                            areaStyle: {
+                                opacity: 0.2
+                            },
+                            lineStyle: {
+                                //type: 'dashed',
+                                width: 2
+                            },
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: [150, 232, 201, 154, 190, 330, 410]
+                        }
+
+                    ]
+                };
+                Echart5.setOption(chart5);
+            </script>
+        </div>
     </section>
     <div id="demobox"></div>
 </body>
@@ -2774,6 +3398,7 @@ new Sortable(document.querySelector('.drag-demo-right'), {
 <script src="src/javascript/ui.js"></script>
 <script src="dest/js/start.js"></script>
 <script src="dest/js/prism.js"></script>
+
 <script>
     mediaMatrix(document.getElementById('media-matrix1')); //图片查看器demo
     pileScroll() //ios卡片滚动堆叠效果

@@ -57,12 +57,14 @@ a.btn{
 
     &:hover {
         background-color: var(--base-thinner);
+        backdrop-filter: blur(4px);
     }
 }
 
 .btn-text {
     &:hover {
         background-color: var(--base-thinner);
+        backdrop-filter: blur(4px);
     }
 }
 

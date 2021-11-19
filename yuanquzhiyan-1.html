@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/yqzy.css" media="screen" charset="utf-8">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="dest/js/echart-dark.js"></script>
+    <title>数字大屏展示系统</title>
+</head>
+
+<body class="dark">
+    <main class="container">
+        <header class="header">
+            <div class="header-start">
+                <div class="headerWeather"><img src="dest/images/hmb/CloudRainThunder.svg" alt="雷阵雨"><span
+                        class="city">惠阳市</span><time>2021/07/01 11:30 星期四</time></div>
+            </div>
+            <div class="header-center">
+                <img src="dest/images/ds/logo.svg" class="logo" alt="惠州淡水项目管控中心">
+            </div>
+
+            <div class="header-end">
+                <button class="btn btn-md btn-text" id="fullScreen">
+                    <i class="ran-icon95"></i>全屏</button>
+                <button class="btn btn-md btn-text" id="exitScreen" style="display:none">
+                    <i class="ran-icon94"></i>收起</button>
+                <button class="btn btn-md btn-text" onclick="dialogShow(document.getElementById('dialog-update'))"><i
+                        class="ran-icon8"></i>工具</button>
+                <button class="select_value btn btn-text" id="selectx1"
+                    onclick="menu(this,document.getElementById('menux1'))"><i class="ran-icon101"></i>管理</button>
+                <div class="menu" id="menux1">
+                    <ul class="menu-list">
+                        <li class="menu-item">修改密码</li>
+                        <li class="menu-item">退出账号</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="sidebar-left" id="sidebar-left">
+            <div class="drawer drawer-left drawer-left-show">
+                <div class="card">
+                    <div class="sidebar-main-header">
+                        <h2 class="sidebar-card—title">
+                            德阳市产业工业园区
+                        </h2>
+                        <div class="subgroup">
+                            <div class="start">
+                                <div class="tag-box">
+                                    <span class="tag tag-success">Success</span>
+                                    <span class="tag tag-warning">Warning</span>
+                                </div>
+                            </div>
+                            <div class="end">
+                                <div class="person-liable">
+                                    德阳市人民政府
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <ul class="statistic statistic-sm">
+                            <li>
+                                <div class="statistic-number">172.49</div>
+                                <div class="statistic-title">辖区面积(亩)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">3290.37</div>
+                                <div class="statistic-title">规划用地(亩)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">479</div>
+                                <div class="statistic-title">项目总数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">5271</div>
+                                <div class="statistic-title">入驻企业</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="sidebar-card-header">
+                        <h2 class="art-title">
+                            园区简介
+                        </h2>
+                    </div>
+                    <div class="sidebar-card-main overflow-visible">
+                        <article class="art-article">
+                            <p>金牛科技产业园区成立于2020年5月，由金牛科技产业园区、金牛科技产业园一体化融合而成，是四川省政府与新加坡政府合作开发的跨国园区。</p>
+                        </article>
+                        <div class="card-stack hover-show card-stack-image">
+                            <div class="card-stack-item" style="background-image: url(dest/images/yqzy/test3.webp);">
+
+                                <a href="javascript:;" class="card-prev"><i class="ran-icon69"></i></a>
+                                <a href="javascript:;" class="card-next"><i class="ran-icon70"></i></a>
+                            </div>
+                            <div class="card-stack-item" style="background-image: url(dest/images/yqzy/test2.webp);">
+
+                                <a href="javascript:;" class="card-prev"><i class="ran-icon69"></i></a>
+                                <a href="javascript:;" class="card-next"><i class="ran-icon70"></i></a>
+                            </div>
+                            <div class="card-stack-item" style="background-image: url(dest/images/yqzy/test1.png);">
+
+                                <a href="javascript:;" class="card-prev"><i class="ran-icon69"></i></a>
+                                <a href="javascript:;" class="card-next"><i class="ran-icon70"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <h2 class="art-title has-link-title">
+                            重点企业
+                            <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                        </h2>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <ul class="list">
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-success">Success</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-success">Success</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-success">Success</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-success">Success</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-warning">Warning</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-warning">Warning</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-warning">Warning</span>
+                            </li>
+                            <li>
+                                <div class="title">四川康弘医药贸易有限公司</div>
+                                <span class="tag tag-warning">Warning</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="sidebar-right" id="sidebar-right">
+            <div class=" drawer drawer-right drawer-right-show" id="drawer-right1">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="flex-middle-box">
+                            <h2 class="art-title has-link-title">
+                                建设进度
+                                <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                            </h2>
+                            <div class="select_value btn-text menu-select" placeholder="11月"
+                                onclick="menu(this,document.getElementById('menu1'))">全部
+                            </div>
+                            <div class="menu" id="menu1">
+                                <ul class="menu-list">
+                                    <li class="menu-item">6月</li>
+                                    <li class="menu-item">7月</li>
+                                    <li class="menu-item">8月</li>
+                                    <li class="menu-item">9月</li>
+                                    <li class="menu-item">10月</li>
+                                    <li class="menu-item selected">11月</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <div id="chart1" style="height:200px;"></div>
+                        <script>
+                            var Echart1 = echarts.init(document.getElementById('chart1'), 'dark');
+
+                            var chart1 = {
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: '{b}: {c} {d}%' //hover显示百分比,{b}我标题，{c}为数据，{d}为百分比
+                                },
+                                legend: [{ //设置左右两侧图例
+                                    orient: 'left',
+                                    top: "center",
+                                    left: 'left',
+                                    itemWidth: 14,
+                                    itemGap: 16,
+                                    data: ['施工中', '未动工', '已建成'],
+                                    itemStyle: {
+                                        borderWidth: 0,
+                                    },
+                                    textStyle: {
+                                        color: "#fff",
+                                        fontSize: 14,
+                                    }
+                                }],
+                                graphic: [
+
+                                    { //环形图中间添加文字
+                                        type: 'text', //通过不同top值可以设置上下显示
+                                        left: 'center',
+                                        top: '38%',
+                                        style: {
+                                            text: '234',
+                                            textAlign: 'center',
+                                            fill: '#fff', //文字的颜色
+                                            // width: 108,
+                                            // height: 30,
+                                            fontSize: 32,
+                                            fontFamily: "din"
+                                        }
+                                    }, {
+                                        type: "text",
+                                        left: 'center',
+                                        top: "56%",
+                                        style: {
+                                            text: "商家总数",
+                                            textAlign: "center",
+                                            fill: "rgba(255,255,255,0.72)",
+                                            fontSize: 14,
+                                        }
+                                    }
+                                ],
+                                series: [{
+                                    type: 'pie',
+                                    radius: ['70%', '90%'], //设置环形中心
+                                    left: 'center',
+                                    avoidLabelOverlap: false,
+                                    itemStyle: {
+                                        borderColor: 'rgba(0,0,0,0.1)',
+                                        borderWidth: 1
+                                    },
+                                    label: {
+                                        show: false,
+
+                                    },
+
+                                    data: [{
+                                            value: 1048,
+                                            name: '施工中'
+                                        },
+                                        {
+                                            value: 735,
+                                            name: '未动工'
+                                        },
+                                        {
+                                            value: 580,
+                                            name: '已建成'
+                                        }
+                                    ]
+                                }]
+                            }
+                            Echart1.setOption(chart1);
+                        </script>
+                    </div>
+
+
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="flex-middle-box">
+                            <h2 class="art-title has-link-title">
+                                用地统计
+                                <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                            </h2>
+                            <div class="select_value btn-text menu-select" placeholder="11月"
+                                onclick="menu(this,document.getElementById('menu2'))">全部
+                            </div>
+                            <div class="menu" id="menu2">
+                                <ul class="menu-list">
+                                    <li class="menu-item">6月</li>
+                                    <li class="menu-item">7月</li>
+                                    <li class="menu-item">8月</li>
+                                    <li class="menu-item">9月</li>
+                                    <li class="menu-item">10月</li>
+                                    <li class="menu-item selected">11月</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <div id="chart2" style="height:200px;"></div>
+                        <script>
+                            // 初始化图表标签
+                            var Echart2 = echarts.init(document.getElementById('chart2'), 'dark');
+                            var chart2 = {
+                                //backgroundColor: '#000',
+                                //color: ['#53f1f2', '#4ebefd', '#30ed9d'],
+                                legend: {
+                                    show: true,
+                                    orient: 'vertical',
+                                    left: 'left',
+                                    top: 'middle',
+                                    itemWidth: 14,
+                                    itemGap: 16,
+                                    data: ['工业用地', '商业用地', '其他'],
+                                    textStyle: {
+                                        color: '#fff',
+                                        fontSize: 14
+                                    }
+                                },
+
+                                series: [{
+                                    name: '工业用地',
+                                    type: 'gauge',
+                                    startAngle: 90,
+                                    endAngle: -270,
+                                    radius: '100%', //圆环大小
+
+                                    pointer: {
+                                        show: false
+                                    },
+                                    progress: {
+                                        show: true,
+                                        overlap: false,
+                                        roundCap: true,
+                                        clip: false,
+
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            width: 12,
+                                            color: [
+                                                [1, '#fff']
+                                            ],
+                                            opacity: 0.08, //底环白色
+                                        }
+                                    },
+                                    splitLine: {
+                                        show: false,
+
+                                    },
+                                    axisTick: {
+                                        show: false
+                                    },
+                                    axisLabel: {
+                                        show: false,
+                                    },
+                                    title: {
+                                        show: false, //圆环中间不显示标题
+                                    },
+                                    detail: {
+                                        show: false, //圆环中间不显示值
+                                    },
+                                    data: [{
+                                        value: 60,
+                                        name: '工业用地',
+
+                                    }]
+                                }, {
+                                    name: '商业用地',
+                                    type: 'gauge',
+                                    startAngle: 90,
+                                    endAngle: -270,
+                                    radius: '85%', //圆环大小
+
+                                    pointer: {
+                                        show: false
+                                    },
+                                    progress: {
+                                        show: true,
+                                        overlap: false,
+                                        roundCap: true,
+                                        clip: false,
+
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            width: 12,
+                                            color: [
+                                                [1, '#fff']
+                                            ],
+                                            opacity: 0.08, //底环白色
+                                        }
+                                    },
+                                    splitLine: {
+                                        show: false,
+
+                                    },
+                                    axisTick: {
+                                        show: false
+                                    },
+                                    axisLabel: {
+                                        show: false,
+                                    },
+                                    title: {
+                                        show: false, //圆环中间不显示标题
+                                    },
+                                    detail: {
+                                        show: false, //圆环中间不显示值
+                                    },
+                                    data: [{
+                                        value: '50',
+                                        name: '商业用地',
+                                    }]
+                                }, {
+                                    name: '其他',
+                                    type: 'gauge',
+                                    startAngle: 90,
+                                    endAngle: -270,
+                                    radius: '70%', //圆环大小
+
+                                    pointer: {
+                                        show: false
+                                    },
+                                    progress: {
+                                        show: true,
+                                        overlap: false,
+                                        roundCap: true,
+                                        clip: false,
+
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            width: 12,
+                                            color: [
+                                                [1, '#fff']
+                                            ],
+                                            opacity: 0.08, //底环白色
+                                        }
+                                    },
+                                    splitLine: {
+                                        show: false,
+
+                                    },
+                                    axisTick: {
+                                        show: false
+                                    },
+                                    axisLabel: {
+                                        show: false,
+                                    },
+                                    title: {
+                                        show: false, //圆环中间不显示标题
+                                    },
+                                    detail: {
+                                        show: false, //圆环中间不显示值
+                                    },
+                                    data: [{
+                                        value: '40',
+                                        name: '其他',
+                                    }]
+                                }],
+                                graphic: [{ //环形图中间添加文字
+                                    type: 'text', //通过不同top值可以设置上下显示
+                                    left: 'center',
+                                    top: '40%',
+                                    style: {
+                                        text: 150,
+                                        textAlign: 'center',
+                                        fill: '#fff', //文字的颜色
+                                        fontSize: 32,
+                                        fontFamily: "din"
+                                    }
+                                }, {
+                                    type: "text",
+                                    left: 'center',
+                                    top: "56%",
+                                    style: {
+                                        text: "总数(亩)",
+                                        textAlign: "center",
+                                        fill: "rgba(255,255,255,0.72)",
+                                        fontSize: 14,
+                                    }
+                                }],
+                            };
+                            Echart2.setOption(chart2);
+                        </script>
+                    </div>
+
+
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="flex-middle-box">
+                            <h2 class="art-title has-link-title">
+                                产值统计
+                                <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="sidebar-card-main">
+                        <div id="chart5" style="height:200px"></div>
+                        <script>
+                            // 初始化图表标签
+                            var Echart5 = echarts.init(document.getElementById('chart5'), 'dark');
+                            var chart5 = {
+                                title: {
+                                    text: 'Stacked Area Chart',
+                                    show: false //标题不显示
+                                },
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {
+                                        type: 'cross', //鼠标hover后指示线类型
+                                        label: {
+                                            backgroundColor: '#6a7985' //指示线显示数字颜色
+                                        }
+                                    }
+                                },
+                                legend: {
+                                    data: ['资产', '产值', '税收']
+                                },
+                                toolbox: {
+                                    
+                                    feature: {
+                                        magicType: {
+                                            show: true,
+                                            type: ['line', 'bar', 'stack'],
+                                            
+                                        }
+                                    }
+                                },
+                                grid: {
+                                    left: '-10px',
+                                    right: '16px',
+                                    bottom: '0',
+                                    containLabel: true
+                                },
+                                xAxis: [{
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月'],
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: "rgba(255, 255, 255, 0)", //x轴颜色和尺寸
+                                            width: 0
+                                        }
+                                    }
+                                }],
+                                yAxis: [{
+                                    show: false, //不显示
+                                    type: 'value'
+                                }],
+                                series: [{
+                                        name: '资产',
+                                        type: 'line',
+                                        stack: 'Total',
+                                        areaStyle: {
+                                            opacity: 0.2
+                                        },
+                                        lineStyle: {
+                                            //type: 'dashed',
+                                            width: 2
+                                        },
+                                        emphasis: {
+                                            focus: 'series'
+                                        },
+                                        data: [120, 132, 101, 134, 90, 230, 210]
+                                    },
+                                    {
+                                        name: '产值',
+                                        type: 'line',
+                                        stack: 'Total',
+                                        areaStyle: {
+                                            opacity: 0.2
+                                        },
+                                        lineStyle: {
+                                            //type: 'dashed',
+                                            width: 2
+                                        },
+                                        emphasis: {
+                                            focus: 'series'
+                                        },
+                                        data: [220, 182, 191, 234, 290, 330, 310]
+                                    },
+                                    {
+                                        name: '税收',
+                                        type: 'line',
+                                        stack: 'Total',
+                                        areaStyle: {
+                                            opacity: 0.2
+                                        },
+                                        lineStyle: {
+                                            //type: 'dashed',
+                                            width: 2
+                                        },
+                                        emphasis: {
+                                            focus: 'series'
+                                        },
+                                        data: [150, 232, 201, 154, 190, 330, 410]
+                                    }
+            
+                                ]
+                            };
+                            Echart5.setOption(chart5);
+                        </script>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <nav class="mapTools tabs tabs-lg inline tabs-round">
+                <a href="javascript:;" class="active"><i class="ran-icon21"></i>总览</a>
+                <a href="javascript:;"><i class="ran-icon32"></i>规划</a>
+                <a href="javascript:;"><i class="ran-icon781"></i>产业</a>
+                <a href="javascript:;"><i class="ran-icon10"></i>招商</a>
+                <a href="javascript:;"><i class="ran-icon5"></i>安全</a>
+                <a href="javascript:;"><i class="ran-icon42"></i>环保</a>
+                <a href="javascript:;"><i class="ran-icon8"></i>项目</a>
+            </nav>
+        </footer>
+        <div class="sidebar-left-hidden" id="sidebar-left-hidden"></div>
+        <div class="sidebar-right-hidden" id="sidebar-right-hidden"></div>
+        <script>
+            // 隐藏地图两侧信息sidebar demo
+            var sidebarLeftHidden = document.getElementById('sidebar-left-hidden');
+            var sidebarLeft = document.getElementById("sidebar-left");
+            sidebarLeftHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarLeft.classList.toggle('hidden');
+            }
+
+            var sidebarRightHidden = document.getElementById('sidebar-right-hidden');
+            var sidebarRight = document.getElementById("sidebar-right");
+            sidebarRightHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarRight.classList.toggle('hidden');
+            }
+        </script>
+        <div class="mapbox" id="ds-mapbox"></div>
+    </main>
+
+</body>
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+
+
+<script>
+    //mapbox
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmVteHUiLCJhIjoiY2tiMDQ3OTAyMDR4czJycXR0ZGR0MGptdiJ9.jfqMkHN2eqmZgR9k9WBJWg';
+    var map = new mapboxgl.Map({
+        container: 'ds-mapbox', // container ID
+        style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
+        //style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
+        //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
+        center: [114.464618, 22.79215], // starting position [lng, lat]
+        zoom: 13 // starting zoom  
+    });
+
+
+
+
+
+    window.onload = function () {
+        //数字动态加载
+        numberShow();
+        //tab按扭
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+        listShow()
+        //滚动效果
+
+        pileScroll(".pile", true);
+        accordion() //折叠面板
+        cardStack() //堆叠卡片
+    }
+
+    //右上角全屏开启和关闭
+    var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+</html>

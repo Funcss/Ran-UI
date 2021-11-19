@@ -1,0 +1,27 @@
+.drawer {
+    top: 0;
+    max-height: calc(100vh - 2.4rem);
+   
+}
+.drawer-pile{
+    border-radius: 0.8rem;
+}
+.hmb-device_contrast{
+    &::before{
+        content: "线下 " counter(leftNum);
+    }
+    &::after{
+        content: "线上 " counter(rightNum);
+    }
+}
+.details-contrast{
+    &::before{
+        content: "线下 " counter(leftNum);
+    }
+    &::after{
+        content: "线上 " counter(rightNum);
+    }
+}
+.footer .tabs-round{
+    pointer-events: auto;
+}

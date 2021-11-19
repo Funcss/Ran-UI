@@ -162,6 +162,13 @@ a.avatar {
     border-radius: 100%;
     font-size: 1.2rem;
 }
+.tag-box {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 0.4rem;
+}
 
 .tag {
     display: inline-grid;
@@ -174,6 +181,7 @@ a.avatar {
     border-radius: 4rem;
     color: var(--light);
     -webkit-font-smoothing: antialiased;
+    backdrop-filter: blur(8px);
 }
 
 .tag-delate {
@@ -238,6 +246,7 @@ a.avatar {
 }
 
 .dark {
+    
     .tag-default {
         color: var(--text);
         background: var(--base-air);

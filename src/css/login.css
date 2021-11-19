@@ -1,0 +1,40 @@
+.login{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.login-form{
+    padding: 32px;
+    place-self: center;
+    width: 100%;
+    max-width: 480px;
+}
+
+.login-form{
+    h1{
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+    form{
+        display: grid;
+        gap: 32px;
+        margin-bottom: 16px;
+    }
+    .form-item{
+        margin-bottom: 0;
+    }
+    
+}
+.login-form-other{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.login-banner{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

@@ -102,6 +102,11 @@ screen and (min-resolution: 2dppx) {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+.flex-middle-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .bold {
     font-weight: bold;
