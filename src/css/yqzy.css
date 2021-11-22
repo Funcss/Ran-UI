@@ -157,7 +157,7 @@
 }
 
 .mapTools {
-    @extend .sidebar-card;
+    @extend .card;
     grid-template-rows: auto;
     grid-auto-flow: column;
     gap: 0.8rem;
@@ -312,36 +312,38 @@
     pointer-events: auto;
     width: var(--card-width);
     top: 8rem;
-    display: grid;
-    grid-gap: 1.6rem;
-    gap: 1.6rem;
+    display: flex;
+    flex-direction: column;
     max-height: calc(100vh - 12.4rem);
-    grid-template-rows: minmax(auto, 1fr);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .card {
     min-height: 0;
     display: flex;
     flex-direction: column;
+    flex: none;
+    &.auto-height{
+        flex: auto;
+        .card-main{
+            max-height: none;
+            min-height: 20rem;
+        }
+    }
 }
 
-.sidebar-card {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    min-height: 0;
-
-}
 
 .sidebar-main-header {
     padding: 1.2rem 1.6rem 0rem;
 }
 
-.sidebar-card-header {
+.card-header {
     padding: 1.2rem 1.6rem 0rem;
-
+    flex: none;
 }
 
-.sidebar-card—title {
+.card—title {
     margin: 0;
     padding: 0;
 }
@@ -353,27 +355,28 @@
     align-items: center;
 }
 
-.sidebar-card-footer {
+.card-footer {
     @extend .details-footer;
     justify-content: space-between;
     padding: 1rem 2.4rem;
 }
 
-.sidebar-card-title {
+.card-title {
     margin: 0;
     font-family: 'ysbt';
     font-size: 2.4rem;
     font-weight: normal;
 }
 
-.sidebar-card-main {
+.card-main {
+    flex: auto;
     display: grid;
     gap: 1.6rem;
     position: relative;
-    padding: 1rem 1.6rem 0rem;
+    padding: 1.2rem 1.6rem;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 40rem;
+    max-height: 40vh;
 }
 
 .overflow-visible {
