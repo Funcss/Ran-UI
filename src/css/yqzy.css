@@ -628,6 +628,9 @@
     }
 
     &.active {
+        position: sticky;
+        top:0;
+        z-index: 1;
         background-color: var(--base-thin);
         backdrop-filter: blur(8px);
     }
