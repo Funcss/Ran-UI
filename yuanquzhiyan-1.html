@@ -28,7 +28,7 @@
                         class="city">惠阳市</span><time>2021/07/01 11:30 星期四</time></div>
             </div>
             <div class="header-center">
-                <img src="dest/images/ds/logo.svg" class="logo" alt="惠州淡水项目管控中心">
+                <img src="dest/images/yqzy/logo.svg" class="logo" alt="惠州淡水项目管控中心">
             </div>
 
             <div class="header-end">
@@ -92,8 +92,9 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="art-title">
+                        <h2 class="art-title has-link-title" onclick="dialogShow(document.getElementById('dialogStack1'))">
                             园区简介
+                            <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
                         </h2>
                     </div>
                     <div class="card-main overflow-visible">
@@ -626,6 +627,217 @@
         </footer>
         <div class="sidebar-left-hidden" id="sidebar-left-hidden"></div>
         <div class="sidebar-right-hidden" id="sidebar-right-hidden"></div>
+
+         <!-- 街道数据 堆叠弹出层 -->
+    <div class="backdrop dialog-max" id="dialogStack1">
+        <div class="dialog" id="dialogStack-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    {对应商圈名称}
+                </h3>
+                <nav class="tabs">
+                    <a href="javascript:;" id="toggleContent1" class="active">园区详情</a>
+                    <a href="javascript:;" id="toggleContent2">数据报表</a>
+                    <a href="javascript:;" id="toggleContent3">企业列表</a>
+                    <!-- <a href="javascript:;">设备列表</a> -->
+
+                </nav>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="tabs-content" id="tabs-content1" style="display: none;">
+                <div class="dialog_body">
+                    <div class="table-slicky">
+                        <table class="table">
+                            <thead class="table-slicky_row">
+                                <tr>
+                                    <th>#</th>
+                                    <th>企业名称</th>
+                                    <th>组织机构代码</th>
+                                    <th>法人</th>
+                                    <th>工商注册号</th>
+                                    <th>纳税人识别号</th>
+                                    <th>企业类型</th>
+                                    <th>风险</th>
+                                    <th class="table-slicky_col right">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>四川麦当劳餐厅食品有限公司泸州天益广场餐厅</td>
+                                    <td>682397497</td>
+                                    <td>付振振</td>
+                                    <td>510500500000338</td>
+                                    <td>91510500682397497R</td>
+                                    <td>台、港、澳投资企业分公司</td>
+                                    <td>4</td>
+                                    <td class="table-slicky_col right"><button class="btn btn-md btn-primary btn-text"
+                                            onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                class="ran-icon64"></i></button></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dialog_footer">
+                    <div class="dialog_start"></div>
+                    <div class="dialog_end">
+                        <div class="pagination">
+                            <button class="btn btn-md"><i class="ran-icon69"></i></button>
+                            <div class="btn-group">
+                                <button class="btn btn-md btn-primary">1</button>
+                                <button class="btn btn-md">2</button>
+                                <button class="btn btn-md">…</button>
+                                <button class="btn btn-md">8</button>
+                                <button class="btn btn-md">9</button>
+                            </div>
+                            <button class="btn btn-md"><i class="ran-icon70"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs-content" id="tabs-content2">
+                <div class="dialog_body">
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="21345">21345
+                                </span><small>㎡</small>
+                            </div>
+                            <div class="statistic-title">商圈面积</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="1265">1265</span>
+                            </div>
+                            <div class="statistic-title">入驻企业</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="348">348
+                                </span>
+                            </div>
+                            <div class="statistic-title">电商企业</div>
+                        </li>
+
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="758730">758730</span><small>人次</small>
+                            </div>
+                            <div class="statistic-title">今日客流量</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="755009">755009</span><small>人次</small>
+                            </div>
+                            <div class="statistic-title">线下客流量</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="3721">3721</span><small>人次</small>
+                            </div>
+                            <div class="statistic-title">线上客流量</div>
+                        </li>
+                    </ul>
+                    <div class="dialog-grid-chart">
+                        <div id="dialog-pie1">
+
+                        </div>
+                        <div id="dialog-pie2">
+
+                        </div>
+                        <div id="dialog-pie3">
+
+                        </div>
+                    </div>
+                    <div class="dialog-chart-box" id="dialog-bar1"></div>
+                </div>
+                <div class="dialog_footer"></div>
+            </div>
+            <script>
+                var tabBtn1 = document.getElementById("toggleContent1");
+                var tabBtn2 = document.getElementById("toggleContent2");
+                tabBtn1.addEventListener("click", showTab1);
+
+                function showTab1() {
+                    document.getElementById('tabs-content2').style.display = 'none';
+                    document.getElementById('tabs-content1').style.display = 'flex';
+                }
+                tabBtn2.addEventListener("click", showTab2);
+
+                function showTab2() {
+                    document.getElementById('tabs-content1').style.display = 'none';
+                    document.getElementById('tabs-content2').style.display = 'flex';
+                }
+            </script>
+        </div>
+
+        <div class="dialog" id="dialogStack-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <button class="btn btn-md btn-primary btn-icon" onclick="dialogStackPrev()"><i
+                            class="ran-icon40"></i></button>
+                    四川麦当劳餐厅食品有限公司泸州天益广场餐厅
+                </h3>
+                <button class="btn btn-md btn-icon dialog-close"
+                    onclick="dialogHide(document.getElementById('dialogStack1'))"><i class="ran-icon35"></i></button>
+            </div>
+            <div class="dialog_body">
+                <dl class="dialog-device-info">
+                    <dt>负责人：</dt>
+                    <dd>付振振</dd>
+                    <dt>工商注册号：</dt>
+                    <dd>510500500000338</dd>
+                    <dt>组织机构代码：</dt>
+                    <dd>682397497</dd>
+                    <dt>企业类型：</dt>
+                    <dd>台、港、澳投资企业分公司</dd>
+                    <dt>行业：</dt>
+                    <dd>餐饮业</dd>
+                    <dt>参保人数：</dt>
+                    <dd>21</dd>
+                    <dt>风险：</dt>
+                    <dd>4</dd>
+                    <dt>登记机关：</dt>
+                    <dd>泸州市市场监督管理局</dd>
+                </dl>
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                            </span></div>
+                        <div class="statistic-title">历史流量</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="2630">2630</span></div>
+                        <div class="statistic-title">近30日流量</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="33">33</span>
+                        </div>
+                        <div class="statistic-title">今日流量</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="12343">12343</span><small>元</small>
+                        </div>
+                        <div class="statistic-title">24h营业额</div>
+                    </li>
+                </ul>
+                <div class="dialog-chart-box" id="chart4"></div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-lg btn-primary btn-outlined"><i class="ran-icon76"></i>定位商家</button>
+                </div>
+                <div class="dialog_end">
+                </div>
+            </div>
+        </div>
+    </div>
+
         <script>
             // 隐藏地图两侧信息sidebar demo
             var sidebarLeftHidden = document.getElementById('sidebar-left-hidden');
