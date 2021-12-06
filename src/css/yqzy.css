@@ -500,12 +500,18 @@
     flex-direction: column;
     flex: none;
     border-radius: 0.8rem;
+    transition: all 0.3s;
     &.auto-height{
         flex: auto;
         .card-main{
             max-height: none;
             min-height: 20rem;
         }
+    }
+    &:hover{
+        backdrop-filter: blur(1.6rem);
+        background: rgba(0,27,39,.08);
+        box-shadow: 0 0 1px 0 rgb(0 0 0 / 12%), 0 2px 16px 0 rgb(0 0 0 / 8%);
     }
 }
 
@@ -549,7 +555,7 @@
     display: grid;
     gap: 1.6rem;
     position: relative;
-    padding: 1.2rem 1.6rem;
+    padding: 1.4rem 1.6rem;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 40vh;
@@ -981,6 +987,7 @@
     flex: auto;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .dialog_footer, .dialog_header{
@@ -992,19 +999,21 @@
     flex: auto;
     flex-direction: column;
     align-content: flex-start;
+    overflow: auto;
+    min-height: 0;
 }
 .dialog-max {
-    z-index: 2;
+    z-index: 3;
     .dialog {
         width: 72%;
-        min-height: 72vh;
+        height: 80vh;
         display: flex;
         flex-direction: column;
 
     }
     .statistic{
         max-width: 100%;
-        width: 72%;
+        width: 80%;
         margin: 0 auto;
         margin-bottom: 3.2rem;
     }
@@ -1044,4 +1053,43 @@
     gap: 2.4rem;
     height: 16rem;
     overflow:hidden;
+}
+
+.dialog_small-title{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 1.6rem 0;
+    font-size: 1.4rem;
+    &::before{
+        content: "";
+        display: block;
+        width: 3px;
+        height: 1em;
+        background-color: var(--main-color);
+        margin-right: 0.8rem;
+    }
+}
+
+.normal-table{
+    border-collapse:collapse;
+    table-layout : fixed;
+    width: 100%;
+    margin-bottom: 1.6rem;
+    td,th{
+        word-wrap:break-word;
+        padding: 1rem 1.2rem;
+        border: 1px solid var(--base-thinner);
+        text-align: left;
+    }
+    th{
+        background: rgba(255,255,255,0.02);
+        &:hover{
+            background: rgba(255,255,255,0.04);
+            &+td{
+                background: rgba(255,255,255,0.04);
+            }
+        }
+    }
+    
 }
