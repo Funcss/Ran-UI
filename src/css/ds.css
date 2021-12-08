@@ -920,6 +920,29 @@
         background: var(--base-thinner);
 
     }
+    .toggle-tools{
+        position: relative;
+    }
+    .tools-box{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s;
+    }
+  
+    &:hover{
+        .demolition-tag{
+            opacity: 0;
+            pointer-events: none;
+        }
+        .tools-box{
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
 }
 
 .managerName {
