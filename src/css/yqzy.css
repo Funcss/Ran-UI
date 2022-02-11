@@ -1006,6 +1006,7 @@
     z-index: 3;
     .dialog {
         width: 72%;
+        max-width: 2000px;
         height: 80vh;
         display: flex;
         flex-direction: column;
