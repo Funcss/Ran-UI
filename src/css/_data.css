@@ -162,6 +162,7 @@ a.avatar {
     border-radius: 100%;
     font-size: 1.2rem;
 }
+
 .tag-box {
     display: grid;
     grid-auto-flow: column;
@@ -246,7 +247,7 @@ a.avatar {
 }
 
 .dark {
-    
+
     .tag-default {
         color: var(--text);
         background: var(--base-air);
@@ -255,7 +256,8 @@ a.avatar {
     .tag-primary {
         color: var(--ui-primary);
         background: color-mod(var(--ui-primary) a(16%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(var(--ui-primary));
         }
     }
@@ -263,7 +265,8 @@ a.avatar {
     .tag-success {
         color: var(--ui-success);
         background: color-mod(var(--ui-success) a(16%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(var(--ui-success));
         }
     }
@@ -271,7 +274,8 @@ a.avatar {
     .tag-warning {
         color: var(--ui-warning);
         background: color-mod(var(--ui-warning) a(16%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(var(--ui-warning));
         }
     }
@@ -279,7 +283,8 @@ a.avatar {
     .tag-danger {
         color: var(--ui-danger);
         background: color-mod(var(--ui-danger) a(16%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(var(--ui-danger));
         }
     }
@@ -287,7 +292,8 @@ a.avatar {
     .tag-dark {
         background: color-mod(#fff a(16%));
         color: var(--reverse);
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(#fff a(88%));
         }
     }
@@ -295,7 +301,8 @@ a.avatar {
     .tag-gray {
         color: var(--base-light);
         background: color-mod(#fff a(8%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(#fff a(48%));
         }
     }
@@ -303,7 +310,8 @@ a.avatar {
     .tag-base {
         color: var(--base);
         background: color-mod(var(--base) a(16%));
-        &.tag-dot{
+
+        &.tag-dot {
             background: color-mod(#fff a(24%));
         }
     }
@@ -410,8 +418,8 @@ a.avatar {
 }
 
 /*指北针*/
-.compass{
-    --size:4.8rem;
+.compass {
+    --size: 4.8rem;
     height: var(--size);
     width: var(--size);
     border-radius: var(--size);
@@ -420,10 +428,11 @@ a.avatar {
     transition: background 0.2s;
     background-position: center;
     background-size: cover;
-    background-color:color-mod(var(--base) a(64%));
-    backdrop-filter:blur(16px);
+    background-color: color-mod(var(--base) a(64%));
+    backdrop-filter: blur(16px);
     @extend .paper-z2;
-    &:hover{
+
+    &:hover {
         background-image: url('data:image/svg+xml,<svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4v5" stroke="#E30013" stroke-linecap="square"/><path d="M33.697 6.68L32.25 9.263M40.796 14l-2.48 1.477" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M43.395 24h-4.849" stroke="#fff" stroke-linecap="square"/><path d="M40.796 34l-2.48-1.477M33.697 41.32l-1.447-2.584" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M24 44v-5" stroke="#fff" stroke-linecap="square"/><path d="M14.304 41.32l1.447-2.584M7.205 34l2.48-1.477" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M4.606 24h4.849" stroke="#fff" stroke-linecap="square"/><path d="M7.205 14l2.48 1.477M14.303 6.68l1.448 2.584" stroke="#fff" stroke-opacity=".32" stroke-linecap="square"/><path d="M21.984 21.232v3.324h-3.18v.828h3.18v3.852a16.097 16.097 0 01-3.36 1.152l.204.852a20.847 20.847 0 003.156-1.14v2.016h.888V21.232h-.888zm5.88 10.776c.516 0 .876-.144 1.068-.432.192-.3.312-1.152.384-2.556l-.816-.264c-.036 1.224-.108 1.932-.204 2.148-.12.192-.312.288-.576.288h-1.5c-.3 0-.444-.18-.444-.516v-4.608c1.116-.384 2.292-.948 3.54-1.704l-.504-.708a13.413 13.413 0 01-3.036 1.596v-4.02H24.9v9.576c0 .792.372 1.2 1.128 1.2h1.836z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 12l3 6h-6l3-6z" fill="#E30013"/></svg>');
         background-position: center;
     }
@@ -773,9 +782,41 @@ a.avatar {
 
 /*table*/
 
-.table {
+.normal-table {
+    border-collapse: collapse;
+    table-layout: fixed;
     width: 100%;
 
+    thead {
+        background-color: var(--base-thinner);
+
+        th {
+            position: sticky;
+            top: 0;
+        }
+    }
+
+    td,
+    th {
+        word-wrap: break-word;
+        padding: 1rem 1.2rem;
+        border: 1px solid var(--base-thinner);
+        text-align: center;
+    }
+
+    tr:hover {
+        background: var(--base-thinner);
+    }
+}
+
+.table-line {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><line x1="0" y1="0" x2="100%" y2="100%" stroke="rgba(255,255,255,.08)" stroke-width="1"/></svg>');
+    background-repeat: no-repeat;
+    background-position:100% center;
+}
+
+.table {
+    width: 100%;
     border-spacing: 0;
 
     th,
@@ -859,7 +900,7 @@ a.avatar {
     td {
         position: sticky;
         top: 0;
-        backdrop-filter:  blur(10px);
+        backdrop-filter: blur(10px);
         border-radius: 0;
     }
 }
@@ -868,7 +909,7 @@ a.avatar {
     position: sticky;
 
     z-index: 0;
-    backdrop-filter:  blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: 0;
 
     &.right {
@@ -892,7 +933,8 @@ a.avatar {
 .media-matrix-sm {
     grid-template-columns: repeat(auto-fill, 10rem);
     grid-auto-rows: 10rem;
-    .add-media-item{
+
+    .add-media-item {
         font-size: 2.4rem;
     }
 }
@@ -900,14 +942,17 @@ a.avatar {
 .media-matrix-xs {
     grid-template-columns: repeat(auto-fill, 6rem);
     grid-auto-rows: 6rem;
-    .add-media-item{
+
+    .add-media-item {
         font-size: 1.6rem;
     }
+
     .media-item {
         padding: 0.5rem;
     }
 }
-.add-media-item{
+
+.add-media-item {
     position: relative;
     display: flex;
     align-items: center;
@@ -918,19 +963,23 @@ a.avatar {
     overflow: hidden;
     font-size: 3.2rem;
     color: var(--text-light);
-    &:hover{
+
+    &:hover {
         color: var(--text);
-        &::after{
+
+        &::after {
             transform: translateY(-4px);
         }
     }
-    &::after{
+
+    &::after {
         transition: all 0.2s;
         content: "\e917";
         font-family: "ranIcon";
     }
 }
-.add-media-input{
+
+.add-media-input {
     position: absolute;
     left: 0;
     top: 0;
@@ -938,6 +987,7 @@ a.avatar {
     bottom: 0;
     opacity: 0;
 }
+
 .media-item {
     position: relative;
     display: flex;
@@ -978,7 +1028,7 @@ a.avatar {
     color: var(--base-medium);
     opacity: 0;
     transition: all ease 0.2s;
-   
+
     &::before {
         content: "\e922";
         font-family: ranIcon;
@@ -1006,14 +1056,20 @@ a.avatar {
     grid-auto-flow: column;
     grid-template-columns: 100vw;
     grid-template-rows: 100vh;
-    scroll-snap-type: x mandatory;/*水平滚动吸附对齐效果*/
-    -webkit-overflow-scrolling: touch;/*手机端回弹效果*/
+    scroll-snap-type: x mandatory;
+    /*水平滚动吸附对齐效果*/
+    -webkit-overflow-scrolling: touch;
+    /*手机端回弹效果*/
     overflow-x: auto;
     overflow-y: hidden;
-    overscroll-behavior: contain;/*子元素滚动不冒泡，父元素不滚动*/
-    -ms-scroll-chaining: contain;/*同overscroll-behavior的ie兼容方法*/
-    overflow-anchor: auto;/*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
-    scroll-behavior: auto;/*容器平滑滚动到锚点，如回到顶部按钮页面平滑滚动*/
+    overscroll-behavior: contain;
+    /*子元素滚动不冒泡，父元素不滚动*/
+    -ms-scroll-chaining: contain;
+    /*同overscroll-behavior的ie兼容方法*/
+    overflow-anchor: auto;
+    /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
+    scroll-behavior: auto;
+    /*容器平滑滚动到锚点，如回到顶部按钮页面平滑滚动*/
 
     &.autosize {
         .media-view-item.active {
@@ -1033,7 +1089,8 @@ a.avatar {
     height: 100vh;
     width: 100vw;
     padding: 5.6rem;
-    scroll-snap-align: center;/*滑动吸附定位元素的位置*/
+    scroll-snap-align: center;
+    /*滑动吸附定位元素的位置*/
     overflow: auto;
 
     &>img {
@@ -1075,16 +1132,17 @@ a.avatar {
         }
     }
 }
+
 .statistic {
     @extend .list-reset;
     display: grid;
     grid-auto-flow: column;
     align-items: center;
     justify-content: stretch;
-    
+
     &>li {
         text-align: center;
-   
+
         border-right: 1px solid var(--base-thinner);
 
         &:last-child {
@@ -1135,8 +1193,8 @@ a.avatar {
     font-size: 1.2rem;
 }
 
-.statistic-sm{
-    .statistic-number{
+.statistic-sm {
+    .statistic-number {
         font-size: 2.4rem;
     }
 }
@@ -1147,11 +1205,12 @@ a.avatar {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: grid;
     justify-items: center;
     gap: 0.8rem;
     color: var(--text-light);
+
     &:before {
         content: "";
         height: 10rem;

@@ -15,7 +15,7 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script type="text/javascript" src="dest/js/echart-dark.js"></script>
     <title>数字大屏展示系统</title>
 </head>
@@ -25,7 +25,7 @@
         <header class="header">
             <div class="header-start">
                 <div class="headerWeather"><img src="dest/images/hmb/CloudRainThunder.svg" alt="雷阵雨"><span
-                        class="city">惠阳市</span><time>2021/07/01 11:30 星期四</time></div>
+                        class="city">德阳市</span><time>2021/07/01 11:30 星期四</time></div>
             </div>
             <div class="header-center">
                 <img src="dest/images/yqzy/logo.svg" class="logo" alt="惠州淡水项目管控中心">
@@ -53,18 +53,18 @@
                 <div class="card cantdrag">
                     <div class="sidebar-main-header">
                         <h2 class="card—title">
-                            德阳市产业工业园区
+                            德阳经济技术开发区
                         </h2>
                         <div class="subgroup">
                             <div class="start">
                                 <div class="tag-box">
-                                    <span class="tag tag-success">Success</span>
-                                    <span class="tag tag-warning">Warning</span>
+                                    <span class="tag tag-success">国家级</span>
+                                    <span class="tag tag-warning">装备制造</span>
                                 </div>
                             </div>
                             <div class="end">
                                 <div class="person-liable">
-                                    德阳市人民政府
+                                    德阳市直管
                                 </div>
                             </div>
                         </div>
@@ -125,42 +125,42 @@
                     <div class="card-header">
                         <h2 class="art-title has-link-title">
                             重点企业
-                            <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                            <a href="###" class="btn btn-md btn-icon link_more" onclick="dialogShow(document.getElementById('dialogStack3'))"><i class="ran-icon64"></i></a>
                         </h2>
                     </div>
                     <div class="card-main">
                         <ul class="list">
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-success">Success</span>
+                                <span class="tag tag-success">规上</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-success">Success</span>
+                                <span class="tag tag-success">规上</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-success">Success</span>
+                                <span class="tag tag-success">规上</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-success">Success</span>
+                                <span class="tag tag-success">规上</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-warning">Warning</span>
+                                <span class="tag tag-warning">本地</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-warning">Warning</span>
+                                <span class="tag tag-warning">本地</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-warning">Warning</span>
+                                <span class="tag tag-warning">本地</span>
                             </li>
                             <li>
                                 <div class="title">四川康弘医药贸易有限公司</div>
-                                <span class="tag tag-warning">Warning</span>
+                                <span class="tag tag-warning">本地</span>
                             </li>
                         </ul>
                     </div>
@@ -175,7 +175,9 @@
                         <div class="flex-middle-box">
                             <h2 class="art-title has-link-title">
                                 建设进度
-                                <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                                <a href="###" class="btn btn-md btn-icon link_more"
+                                    onclick="dialogShow(document.getElementById('dialog2'))"><i
+                                        class="ran-icon64"></i></a>
                             </h2>
                             <div class="select_value btn-text menu-select" placeholder="11月"
                                 onclick="menu(this,document.getElementById('menu1'))">全部
@@ -285,7 +287,7 @@
                         <div class="flex-middle-box">
                             <h2 class="art-title has-link-title">
                                 用地统计
-                                <a href="###" class="btn btn-md btn-icon link_more"><i class="ran-icon64"></i></a>
+                                <a href="###" class="btn btn-md btn-icon link_more" onclick="dialogShow(document.getElementById('dialog3'))"><i class="ran-icon64"></i></a>
                             </h2>
                             <div class="select_value btn-text menu-select" placeholder="11月"
                                 onclick="menu(this,document.getElementById('menu2'))">全部
@@ -617,13 +619,13 @@
         </div>
         <footer class="footer">
             <nav class="mapTools tabs tabs-lg inline tabs-round">
-                <a href="javascript:;" class="active"><i class="ran-icon21"></i>总览</a>
-                <a href="javascript:;"><i class="ran-icon32"></i>规划</a>
-                <a href="javascript:;"><i class="ran-icon781"></i>产业</a>
-                <a href="javascript:;"><i class="ran-icon10"></i>招商</a>
-                <a href="javascript:;"><i class="ran-icon5"></i>安全</a>
-                <a href="javascript:;"><i class="ran-icon42"></i>环保</a>
-                <a href="javascript:;"><i class="ran-icon8"></i>项目</a>
+                <a href="yuanquzhiyan-1.html" class="active"><i class="ran-icon21"></i>总览</a>
+                <a href="yuanquzhiyan-2.html"><i class="ran-icon32"></i>规划</a>
+                <a href="yuanquzhiyan-3.html"><i class="ran-icon781"></i>产业</a>
+                <a href="yuanquzhiyan-4.html"><i class="ran-icon10"></i>招商</a>
+                <a href="###"><i class="ran-icon5"></i>安全</a>
+                <a href="yuanquzhiyan-5.html"><i class="ran-icon42"></i>环保</a>
+                <a href="yuanquzhiyan-6.html"><i class="ran-icon8"></i>项目</a>
             </nav>
         </footer>
         <div class="sidebar-left-hidden" id="sidebar-left-hidden"></div>
@@ -647,62 +649,8 @@
                         onclick="dialogHide(document.getElementById('dialogStack1'))"><i
                             class="ran-icon35"></i></button>
                 </div>
-                <div class="tabs-content" id="tabs-content1" style="display: none;">
-                    <div class="dialog_body">
-                        <div class="table-slicky">
-                            <table class="table">
-                                <thead class="table-slicky_row">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>企业名称</th>
-                                        <th>组织机构代码</th>
-                                        <th>法人</th>
-                                        <th>工商注册号</th>
-                                        <th>纳税人识别号</th>
-                                        <th>企业类型</th>
-                                        <th>风险</th>
-                                        <th class="table-slicky_col right">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>四川麦当劳餐厅食品有限公司泸州天益广场餐厅</td>
-                                        <td>682397497</td>
-                                        <td>付振振</td>
-                                        <td>510500500000338</td>
-                                        <td>91510500682397497R</td>
-                                        <td>台、港、澳投资企业分公司</td>
-                                        <td>4</td>
-                                        <td class="table-slicky_col right"><button
-                                                class="btn btn-md btn-primary btn-text"
-                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
-                                                    class="ran-icon64"></i></button></td>
-                                    </tr>
 
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="dialog_footer">
-                        <div class="dialog_start"></div>
-                        <div class="dialog_end">
-                            <div class="pagination">
-                                <button class="btn btn-md"><i class="ran-icon69"></i></button>
-                                <div class="btn-group">
-                                    <button class="btn btn-md btn-primary">1</button>
-                                    <button class="btn btn-md">2</button>
-                                    <button class="btn btn-md">…</button>
-                                    <button class="btn btn-md">8</button>
-                                    <button class="btn btn-md">9</button>
-                                </div>
-                                <button class="btn btn-md"><i class="ran-icon70"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tabs-content" id="tabs-content2">
+                <div class="tabs-content" id="tabs-content1">
                     <div class="dialog_body">
                         <h4 class="dialog_small-title">2020年经济指标</h4>
                         <ul class="statistic">
@@ -781,7 +729,7 @@
                                 <th>重点发展领域</th>
                                 <td>冷链物流、跨境电商、加工贸易</td>
                             </tr>
-                 
+
                         </table>
                         <h4 class="dialog_small-title">人员编制</h4>
                         <table class="normal-table">
@@ -823,30 +771,245 @@
                     </div>
                     <div class="dialog_footer"></div>
                 </div>
-                <script>
-                    var tabBtn1 = document.getElementById("toggleContent1");
-                    var tabBtn2 = document.getElementById("toggleContent2");
-                    tabBtn1.addEventListener("click", showTab1);
+                <div class="tabs-content" id="tabs-content2" style="display: none;">
+                    <div class="dialog_body">
+                        <ul class="statistic">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="568">568 </span></div>
+                                <div class="statistic-title">投产面积(亩)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="96">96 </span></div>
+                                <div class="statistic-title">规上企业</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="12.8">12.8 </span>
+                                </div>
+                                <div class="statistic-title">增加值增速</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="2146628">2146628 </span>
+                                </div>
+                                <div class="statistic-title">营业收入（万）</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="100319">100319 </span>
+                                </div>
+                                <div class="statistic-title">利润总额（万）</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="177874">177874 </span>
+                                </div>
+                                <div class="statistic-title">利税总额（万）</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="77555">77555 </span>
+                                </div>
+                                <div class="statistic-title">税收（万）</div>
+                            </li>
+                        </ul>
+                        <div class="dialog-chart-grid">
+                            <div class="chart-grid-item">
+                                <div id="dialog-chart1"></div>
+                            </div>
+                            <div class="chart-grid-item" id="dialog-chart2"></div>
+                            <div class="chart-grid-item" id="dialog-chart3"></div>
+                            <div class="chart-grid-item" id="dialog-chart4"></div>
+                        </div>
+                        <script>
 
-                    function showTab1() {
-                        document.getElementById('tabs-content2').style.display = 'none';
-                        document.getElementById('tabs-content1').style.display = 'flex';
-                    }
-                    tabBtn2.addEventListener("click", showTab2);
+                        </script>
+                    </div>
+                </div>
+                <div class="tabs-content" id="tabs-content3" style="display: none;">
+                    <div class="dialog_body">
+                        <div class="table-slicky">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>企业名称</th>
+                                        <th>组织机构代码</th>
+                                        <th>法人</th>
+                                        <th>工商注册号</th>
+                                        <th>纳税人识别号</th>
+                                        <th>企业类型</th>
+                                        <th>风险</th>
+                                        <th class="table-slicky_col right">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>四川麦当劳餐厅食品有限公司德阳天益广场餐厅</td>
+                                        <td>682397497</td>
+                                        <td>付振振</td>
+                                        <td>510500500000338</td>
+                                        <td>91510500682397497R</td>
+                                        <td>台、港、澳投资企业分公司</td>
+                                        <td>4</td>
+                                        <td class="table-slicky_col right"><button
+                                                class="btn btn-md btn-primary btn-text"
+                                                onclick="dialogStackNext(document.querySelector('#dialogStack-item2'))">查看<i
+                                                    class="ran-icon64"></i></button></td>
+                                    </tr>
 
-                    function showTab2() {
-                        document.getElementById('tabs-content1').style.display = 'none';
-                        document.getElementById('tabs-content2').style.display = 'flex';
-                    }
-                </script>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="dialog_footer">
+                        <div class="dialog_start"></div>
+                        <div class="dialog_end">
+                            <div class="pagination">
+                                <button class="btn btn-md"><i class="ran-icon69"></i></button>
+                                <div class="btn-group">
+                                    <button class="btn btn-md btn-primary">1</button>
+                                    <button class="btn btn-md">2</button>
+                                    <button class="btn btn-md">…</button>
+                                    <button class="btn btn-md">8</button>
+                                    <button class="btn btn-md">9</button>
+                                </div>
+                                <button class="btn btn-md"><i class="ran-icon70"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <script>
+                var tabBtn1 = document.getElementById("toggleContent1");
+                var tabBtn2 = document.getElementById("toggleContent2");
+                var tabBtn3 = document.getElementById("toggleContent3");
+                tabBtn1.addEventListener("click", showTab1);
+
+                function showTab1() {
+                    document.getElementById('tabs-content2').style.display = 'none';
+                    document.getElementById('tabs-content3').style.display = 'none';
+                    document.getElementById('tabs-content1').style.display = 'flex';
+
+                }
+                tabBtn2.addEventListener("click", showTab2);
+
+                function showTab2() {
+                    document.getElementById('tabs-content1').style.display = 'none';
+                    document.getElementById('tabs-content3').style.display = 'none';
+                    document.getElementById('tabs-content2').style.display = 'flex';
+                }
+                tabBtn3.addEventListener("click", showTab3);
+
+                function showTab3() {
+                    document.getElementById('tabs-content1').style.display = 'none';
+                    document.getElementById('tabs-content2').style.display = 'none';
+                    document.getElementById('tabs-content3').style.display = 'flex';
+                }
+            </script>
+
 
             <div class="dialog" id="dialogStack-item2">
                 <div class="dialog_header">
                     <h3 class="dialog_title">
                         <button class="btn btn-md btn-primary btn-icon" onclick="dialogStackPrev()"><i
                                 class="ran-icon40"></i></button>
-                        四川麦当劳餐厅食品有限公司泸州天益广场餐厅
+                        四川麦当劳餐厅食品有限公司德阳天益广场餐厅
                     </h3>
                     <button class="btn btn-md btn-icon dialog-close"
                         onclick="dialogHide(document.getElementById('dialogStack1'))"><i
@@ -869,33 +1032,128 @@
                         <dt>风险：</dt>
                         <dd>4</dd>
                         <dt>登记机关：</dt>
-                        <dd>泸州市市场监督管理局</dd>
+                        <dd>德阳市市场监督管理局</dd>
                     </dl>
                     <ul class="statistic">
                         <li>
-                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="1235">1235
                                 </span></div>
-                            <div class="statistic-title">历史流量</div>
+                            <div class="statistic-title">占地面积(㎡)</div>
                         </li>
                         <li>
                             <div class="statistic-number"><span class="numberShow" data-start="0"
                                     data-end="2630">2630</span></div>
-                            <div class="statistic-title">近30日流量</div>
+                            <div class="statistic-title">2020营收(万元)</div>
                         </li>
                         <li>
                             <div class="statistic-number"><span class="numberShow" data-start="0"
-                                    data-end="33">33</span>
+                                    data-end="330">330</span>
                             </div>
-                            <div class="statistic-title">今日流量</div>
+                            <div class="statistic-title">2020利税(万元)</div>
                         </li>
                         <li>
                             <div class="statistic-number"><span class="numberShow" data-start="0"
-                                    data-end="12343">12343</span><small>元</small>
+                                    data-end="123.43">123.43</span>
                             </div>
-                            <div class="statistic-title">24h营业额</div>
+                            <div class="statistic-title">2020税收(万元)</div>
                         </li>
                     </ul>
                     <div class="dialog-chart-box" id="chart4"></div>
+                    <script>
+                        var chart4 = echarts.init(document.getElementById('chart4'));
+                        var option1 = {
+                            title: {
+                                left: 'center',
+                                text: '累计纳税额度',
+                                textStyle: {
+                                    color: '#fff',
+                                    fontSize: '16'
+                                }
+                            },
+                            grid: {
+                                top: 40,
+                                left: 40,
+                                right: 40,
+                                bottom: 48,
+                                //containLabel: true
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    magicType: {
+                                        show: true,
+                                        type: ['line', 'bar'],
+                                    },
+                                },
+                                right: 24,
+                                iconStyle: {
+                                    borderColor: '#fff'
+                                }
+                            },
+                            dataZoom: { //数据范围选择器
+                                show: true,
+
+                            },
+                            tooltip: { //hover提示框
+                                trigger: 'axis',
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            xAxis: [{
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: ['2021/08/01', '2021/08/07', '2021/08/09', '2021/08/14', '2021/08/18',
+                                        '2021/08/20',
+                                        '2021/08/24'
+                                    ],
+                                    axisLabel: {
+                                        textStyle: {
+                                            color: "#ffffff", //坐标文字颜色
+                                        }
+                                    },
+                                },
+
+                            ],
+                            yAxis: {
+                                splitLine: {
+                                    show: true,
+                                    lineStyle: {
+                                        color: 'rgba(255,255,255,.08)',
+                                    }
+                                },
+                                axisLabel: {
+                                    textStyle: {
+                                        color: "#ffffff", //坐标文字颜色
+                                    }
+                                },
+                            },
+                            series: [{
+                                name: '累计交地面积',
+                                type: 'line',
+                                stack: '总量',
+                                areaStyle: {},
+                                emphasis: {
+                                    focus: 'series'
+                                },
+                                markLine: {
+
+                                    lineStyle: {
+                                        color: "rgba(181, 0, 0, 1)",
+
+                                    },
+                                    data: [{
+                                        type: 'average',
+                                        name: '红线面积',
+                                        yAxis: 600,
+                                    }, ]
+                                },
+
+                                data: [120, 132, 151, 194, 290, 330, 540]
+                            }]
+                        };
+                        chart4.setOption(option1, true);
+                    </script>
                 </div>
                 <div class="dialog_footer">
                     <div class="dialog_start"></div>
@@ -907,7 +1165,814 @@
                 </div>
             </div>
         </div>
+        <!-- 流量统计弹出层 -->
+        <div class="backdrop dialog-max" id="dialog2">
+            <div class="dialog">
+                <div class="dialog_header">
+                    <h3 class="dialog_title">
+                        建设进度
+                    </h3>
 
+                    <button class="btn btn-md btn-icon dialog-close"
+                        onclick="dialogHide(document.getElementById('dialog2'))"><i class="ran-icon35"></i></button>
+                </div>
+                <div class="dialog_body">
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="83834">83834
+
+                            </div>
+                            <div class="statistic-title">今年累计完工</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="12345">12345</span>
+                            </div>
+                            <div class="statistic-title">近30天完工</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="3490">3490
+                                </span>
+                            </div>
+                            <div class="statistic-title">近7天进度</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="234">234
+                                </span>
+                            </div>
+                            <div class="statistic-title">项目总数</div>
+                        </li>
+                
+                
+
+                    </ul>
+                    <div class="dialog-chart-box" id="dialog-play-chart1"></div>
+                    <div class="dialog-chart-box" id="dialog-play-chart2"></div>
+                </div>
+                <div class="dialog_footer"></div>
+            </div>
+            <script>
+                //弹出层 - 盒子详情页 近一年播放走势图
+                var playChart4 = echarts.init(document.getElementById('dialog-play-chart1'));
+
+                var playchart4 = {
+                    title: {
+                        left: 'center',
+                        text: '进度统计',
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: '16'
+                        }
+                    },
+                    grid: {
+                        top: 16,
+                        left: 24,
+                        right: 24,
+                        bottom: 40,
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            magicType: {
+                                show: true,
+                                type: ['line', 'bar'],
+                            },
+                        },
+                        right: 24,
+                        iconStyle: {
+                            borderColor: '#fff'
+                        }
+                    },
+                    dataZoom: { //数据范围选择器
+                        show: true,
+                        start: 70,
+                        end: 100,
+                    },
+                    tooltip: { //hover提示框
+                        trigger: 'axis',
+                        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['施工中', '已完成'],
+                        left: 24,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    xAxis: [{
+                        show: false,
+                        data: (function () {
+                            var now = new Date();
+                            var res = [];
+                            var len = 365; //365天
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
+                                now = new Date(now - 30000);
+                            }
+                            return res;
+                        })(),
+
+                    }],
+
+                    yAxis: [{
+                        show: false,
+                        min: 0,
+                    }],
+                    series: [{
+                        name: '施工中',
+                        type: 'bar',
+                        barWidth: 'auto',
+                        barMaxWidth: 24,
+                        color: "#4fbb93",
+                        stack: '消息数量',
+                        areaStyle: {
+                            normal: {}
+                        },
+                        data: (function () {
+                            var res = [];
+                            var len = 365;
+                            while (len--) {
+                                res.push(Math.round(Math.random() * 1500));
+                            }
+                            return res;
+                        })()
+                    }, {
+                        name: '已完成',
+                        type: 'bar',
+                        barWidth: 'auto',
+                        color: "#4f7dda",
+                        stack: '消息数量',
+                        areaStyle: {
+                            normal: {}
+                        },
+                        data: (function () {
+                            var res = [];
+                            var len = 365;
+                            while (len--) {
+                                res.push(Math.round(Math.random() * 300));
+                            }
+                            return res;
+                        })()
+                    }]
+                };
+                playChart4.setOption(playchart4);
+
+               
+
+
+                //播放统计弹出层一周播放时间分布
+
+                var hours = ['0点', '1点', '2点', '3点', '4点', '5点', '6点',
+                    '7点', '8点', '9点', '10点', '11点',
+                    '12点', '13点', '14点', '15点', '16点', '17点',
+                    '18点', '19点', '20点', '21点', '22点', '23点'
+                ];
+                var days = ['周一', '周二', '周三',
+                    '周四', '周五', '周六', '周日'
+                ];
+
+                var data = [
+                    [0, 0, 5],
+                    [0, 1, 1],
+                    [0, 2, 0],
+                    [0, 3, 0],
+                    [0, 4, 0],
+                    [0, 5, 0],
+                    [0, 6, 0],
+                    [0, 7, 0],
+                    [0, 8, 0],
+                    [0, 9, 0],
+                    [0, 10, 0],
+                    [0, 11, 2],
+                    [0, 12, 4],
+                    [0, 13, 1],
+                    [0, 14, 1],
+                    [0, 15, 3],
+                    [0, 16, 4],
+                    [0, 17, 6],
+                    [0, 18, 4],
+                    [0, 19, 4],
+                    [0, 20, 3],
+                    [0, 21, 3],
+                    [0, 22, 2],
+                    [0, 23, 5],
+                    [1, 0, 7],
+                    [1, 1, 0],
+                    [1, 2, 0],
+                    [1, 3, 0],
+                    [1, 4, 0],
+                    [1, 5, 0],
+                    [1, 6, 0],
+                    [1, 7, 0],
+                    [1, 8, 0],
+                    [1, 9, 0],
+                    [1, 10, 5],
+                    [1, 11, 2],
+                    [1, 12, 2],
+                    [1, 13, 6],
+                    [1, 14, 9],
+                    [1, 15, 11],
+                    [1, 16, 6],
+                    [1, 17, 7],
+                    [1, 18, 8],
+                    [1, 19, 12],
+                    [1, 20, 5],
+                    [1, 21, 5],
+                    [1, 22, 7],
+                    [1, 23, 2],
+                    [2, 0, 1],
+                    [2, 1, 1],
+                    [2, 2, 0],
+                    [2, 3, 0],
+                    [2, 4, 0],
+                    [2, 5, 0],
+                    [2, 6, 0],
+                    [2, 7, 0],
+                    [2, 8, 0],
+                    [2, 9, 0],
+                    [2, 10, 3],
+                    [2, 11, 2],
+                    [2, 12, 1],
+                    [2, 13, 9],
+                    [2, 14, 8],
+                    [2, 15, 10],
+                    [2, 16, 6],
+                    [2, 17, 5],
+                    [2, 18, 5],
+                    [2, 19, 5],
+                    [2, 20, 7],
+                    [2, 21, 4],
+                    [2, 22, 2],
+                    [2, 23, 4],
+                    [3, 0, 7],
+                    [3, 1, 3],
+                    [3, 2, 0],
+                    [3, 3, 0],
+                    [3, 4, 0],
+                    [3, 5, 0],
+                    [3, 6, 0],
+                    [3, 7, 0],
+                    [3, 8, 1],
+                    [3, 9, 0],
+                    [3, 10, 5],
+                    [3, 11, 4],
+                    [3, 12, 7],
+                    [3, 13, 14],
+                    [3, 14, 13],
+                    [3, 15, 12],
+                    [3, 16, 9],
+                    [3, 17, 5],
+                    [3, 18, 5],
+                    [3, 19, 10],
+                    [3, 20, 6],
+                    [3, 21, 4],
+                    [3, 22, 4],
+                    [3, 23, 1],
+                    [4, 0, 1],
+                    [4, 1, 3],
+                    [4, 2, 0],
+                    [4, 3, 0],
+                    [4, 4, 0],
+                    [4, 5, 1],
+                    [4, 6, 0],
+                    [4, 7, 0],
+                    [4, 8, 0],
+                    [4, 9, 2],
+                    [4, 10, 4],
+                    [4, 11, 4],
+                    [4, 12, 2],
+                    [4, 13, 4],
+                    [4, 14, 4],
+                    [4, 15, 14],
+                    [4, 16, 12],
+                    [4, 17, 1],
+                    [4, 18, 8],
+                    [4, 19, 5],
+                    [4, 20, 3],
+                    [4, 21, 7],
+                    [4, 22, 3],
+                    [4, 23, 0],
+                    [5, 0, 2],
+                    [5, 1, 1],
+                    [5, 2, 0],
+                    [5, 3, 3],
+                    [5, 4, 0],
+                    [5, 5, 0],
+                    [5, 6, 0],
+                    [5, 7, 0],
+                    [5, 8, 2],
+                    [5, 9, 0],
+                    [5, 10, 4],
+                    [5, 11, 1],
+                    [5, 12, 5],
+                    [5, 13, 10],
+                    [5, 14, 5],
+                    [5, 15, 7],
+                    [5, 16, 11],
+                    [5, 17, 6],
+                    [5, 18, 0],
+                    [5, 19, 5],
+                    [5, 20, 3],
+                    [5, 21, 4],
+                    [5, 22, 2],
+                    [5, 23, 0],
+                    [6, 0, 1],
+                    [6, 1, 0],
+                    [6, 2, 0],
+                    [6, 3, 0],
+                    [6, 4, 0],
+                    [6, 5, 0],
+                    [6, 6, 0],
+                    [6, 7, 0],
+                    [6, 8, 0],
+                    [6, 9, 0],
+                    [6, 10, 1],
+                    [6, 11, 0],
+                    [6, 12, 2],
+                    [6, 13, 1],
+                    [6, 14, 3],
+                    [6, 15, 4],
+                    [6, 16, 0],
+                    [6, 17, 0],
+                    [6, 18, 0],
+                    [6, 19, 0],
+                    [6, 20, 1],
+                    [6, 21, 2],
+                    [6, 22, 2],
+                    [6, 23, 6]
+                ];
+                data = data.map(function (item) {
+                    return [item[1], item[0], item[2]];
+                });
+
+                option = {
+
+                    title: {
+                        left: 'center',
+                        text: '一周能源消耗时间分布',
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: '16'
+                        }
+                    },
+                    tooltip: {
+                        position: 'top',
+                        formatter: function (params) {
+                            return params.value[2] + ' 次播放 于 ' + hours[params.value[0]] + ' of ' +
+                                days[params.value[1]];
+                        }
+                    },
+                    grid: {
+                        top: 32,
+                        left: 24,
+                        right: 24,
+                        bottom: 8,
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: hours,
+                        boundaryGap: false,
+                        splitLine: {
+                            show: true,
+                            lineStyle: {
+                                color: 'rgba(255,255,255,.08)',
+
+                            }
+                        },
+                        axisLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false //隐藏坐标刻度
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: "#ffffff", //坐标文字颜色
+                            }
+                        },
+
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: days,
+                        axisLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false //隐藏坐标刻度
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: "#ffffff", //坐标文字颜色
+                            }
+                        },
+                    },
+                    series: [{
+                        name: '播放',
+                        type: 'scatter',
+                        symbolSize: function (val) {
+                            return val[2] * 2;
+                        },
+                        data: data,
+                        animationDelay: function (idx) {
+                            return idx * 5;
+                        }
+                    }]
+                };
+
+
+                var dialogPlayChart2 = echarts.init(document.getElementById('dialog-play-chart2'), 'walden');
+
+                dialogPlayChart2.setOption(option);
+            </script>
+        </div>
+        <div class="backdrop dialog-max" id="dialog3">
+            <div class="dialog">
+                <div class="dialog_header">
+                    <h3 class="dialog_title">
+                        业态分布
+                    </h3>
+                    <nav class="tabs">
+                        <a href="javascript:;" id="toggleContent4" class="active">数据报表</a>
+                        <a href="javascript:;" id="toggleContent5">交差图表</a>
+                    </nav>
+                    <button class="btn btn-md btn-icon dialog-close"
+                        onclick="dialogHide(document.getElementById('dialog3'))"><i class="ran-icon35"></i></button>
+                </div>
+                <div class="tabs-content" id="tabs-content4">
+                    <div class="dialog_body">
+                        <ul class="statistic">
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="1234">1234
+                                </div>
+                                <div class="statistic-title">商家总数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="85">85</span>
+                                </div>
+                                <div class="statistic-title">服装类</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="125">125</span>
+                                </div>
+                                <div class="statistic-title">餐饮类</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="65">65</span>
+                                </div>
+                                <div class="statistic-title">饰品类</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="53">53</span>
+                                </div>
+                                <div class="statistic-title">咖啡厅、酒吧</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="18">18</span>
+                                </div>
+                                <div class="statistic-title">综合商超</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="73">73</span>
+                                </div>
+                                <div class="statistic-title">电子科技</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="31">31</span>
+                                </div>
+                                <div class="statistic-title">文化类</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="73">73</span>
+                                </div>
+                                <div class="statistic-title">其他</div>
+                            </li>
+    
+                        </ul>
+                        <div class="dialog-chart-box" id="dialog-propaganda-chart1"></div>
+    <script>
+        //宣传分类弹出层 - 图1
+
+var propagandaChart1 = echarts.init(document.getElementById('dialog-propaganda-chart1'));
+var propagandaChartOption1 = {
+    grid: {
+        top: 32,
+        left: 64,
+        right: 32,
+        bottom: 40,
+
+    },
+    legend: {
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    tooltip: { //hover提示框
+        trigger: 'axis',
+        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    xAxis: {
+        type: 'category',
+        axisLabel: {
+            textStyle: {
+                color: "#ffffff", //坐标文字颜色
+            }
+        },
+
+    },
+    yAxis: {
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: 'rgba(255,255,255,.08)',
+            }
+        },
+        axisLabel: {
+            textStyle: {
+                color: "#ffffff", //坐标文字颜色
+            }
+        },
+    },
+    dataset: {
+        dimensions: ['product','24h销售额(万元)','商家数量'],
+        source: [{
+            product: '服装类',
+            '24h销售额(万元)': 43.728,
+            '商家数量': 85,
+        },
+        {
+            product: '餐饮类',
+            '24h销售额(万元)': 83.128,
+            '商家数量': 125,
+            
+        },
+        {
+            product: '饰品类',
+            '24h销售额(万元)': 26.403,
+            '商家数量': 65,
+
+        },
+        {
+            product: '咖啡厅、酒吧',
+            '24h销售额(万元)': 52.442,
+            '商家数量': 53,
+
+        },
+        {
+            product: '综合商超',
+            '24h销售额(万元)': 83.728,
+            '商家数量': 18,
+
+        },
+        {
+            product: '电子科技',
+            '24h销售额(万元)': 73.128,
+            '商家数量': 73,
+
+        },
+        {
+            product: '文化类',
+            '24h销售额(万元)': 25.323,
+            '商家数量': 31,
+
+        },
+        {
+            product: '其他',
+            '24h销售额(万元)': 67.854,
+            '商家数量': 73,
+
+        }
+        ]
+    },
+    series: [{
+        type: 'bar',
+        barMaxWidth: 24,
+    },
+    {
+        type: 'bar',
+        barMaxWidth: 24,
+    },
+ 
+    ]
+}
+propagandaChart1.setOption(propagandaChartOption1);
+
+    </script>
+                    </div>
+    
+                    <div class="dialog_footer"></div>
+                </div>
+                <div class="tabs-content" id="tabs-content5" style="display: none;">
+                    <div class="dialog_body">
+                        <table class="normal-table">
+                            <thead>
+                                <tr>
+                                    <th class="table-line"></th>
+                                    <th>批发业</th>
+                                    <th>服务业</th>
+                                    <th>运输业</th>
+                                    <th>零售业</th>
+                                    <th>餐饮业</th>
+                                    <th>房地产业</th>
+                                    <th>娱乐业</th>
+                                    <th>制造业</th>
+                                    <th>农林业</th>
+                                    <th>其他</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>西南商贸城</th>
+                                    <td>12</td>
+                                    <td></td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>9</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th>华升宝龙</th>
+                                    <td>6</td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>6</td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td></td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <th>万象汇</th>
+                                    <td>1</td>
+                                    <td>3</td>
+                                    <td>6</td>
+                                    <td></td>
+                                    <td>7</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>8</td>
+                                    <td>21</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <th>万达广场</th>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td>11</td>
+                                    <td>3</td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td>8</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <th>富森美</th>
+                                    <td>3</td>
+                                    <td>6</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td></td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th>科维商城</th>
+                                    <td>12</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td>21</td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td></td>
+                                    <td>17</td>
+                                </tr>
+                                <tr>
+                                    <th>王氏商城</th>
+                                    <td>12</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <th>鹏达建材市场</th>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td></td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th>龙马大商城</th>
+                                    <td>4</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>35</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>2</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <th>步步高广场</th>
+                                    <td>2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td>12</td>
+                                    <td>5</td>
+                                    <td></td>
+                                    <td>6</td>
+                                    <td></td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <th>沱江商城</th>
+                                    <td>12</td>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>24</td>
+                                </tr>
+                                <tr>
+                                    <th>欢乐汇</th>
+                                    <td></td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>7</td>
+                                    <td>31</td>
+                                    <td></td>
+                                    <td>3</td>
+                                    <td>7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="dialog_footer"></div>
+                </div>
+                <script>
+                    var tabBtn1 = document.getElementById("toggleContent4");
+                    var tabBtn2 = document.getElementById("toggleContent5");
+                    tabBtn1.addEventListener("click", showTab1);
+    
+                    function showTab1() {
+                        document.getElementById('tabs-content5').style.display = 'none';
+                        document.getElementById('tabs-content4').style.display = 'flex';
+                    }
+                    tabBtn2.addEventListener("click", showTab2);
+    
+                    function showTab2() {
+                        document.getElementById('tabs-content4').style.display = 'none';
+                        document.getElementById('tabs-content5').style.display = 'flex';
+                    }
+                </script>
+            </div>
+        </div>
         <script>
             // 隐藏地图两侧信息sidebar demo
             var sidebarLeftHidden = document.getElementById('sidebar-left-hidden');
@@ -942,8 +2007,8 @@
         style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
         //style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
         //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
-        center: [114.464618, 22.79215], // starting position [lng, lat]
-        zoom: 13 // starting zoom  
+        center: [104.397795, 31.127449], // starting position [lng, lat]
+        zoom: 12.5 // starting zoom  
     });
 
 

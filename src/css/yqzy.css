@@ -7,6 +7,8 @@
     position: static;
 }
 
+
+
 @font-face {
     font-family: 'ysbt';
     src:
@@ -344,7 +346,6 @@
     border-radius: 1.6rem;
     color: color-mod(#fff a(80%));
     pointer-events: auto;
-
     &>li {
         width: 5.6rem;
         display: grid;
@@ -451,7 +452,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(var(--card-width) + 6.4rem);
-    background: url(../images/yqzy/grid.png) repeat 0 0/130px auto, linear-gradient(270deg, rgb(1 25 42 / 0.4%) 0%, rgb(1 25 42 / 98%) 80%);
+    background: url(../images/yqzy/grid.png) repeat 0 0/72px auto, linear-gradient(270deg, rgb(1 25 42 / 0.4%) 0%, rgb(1 25 42 / 98%) 80%);
     transition: all 0.3s;
     pointer-events: none;
 
@@ -471,7 +472,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(var(--card-width) + 6.4rem);
-    background: url(../images/yqzy/grid.png) repeat 0 0/130px auto, linear-gradient(90deg, rgb(1 25 42 / 0.4%) 0%, rgb(1 25 42 / 98%) 80%);
+    background: url(../images/yqzy/grid.png) repeat 0 0/72px auto, linear-gradient(90deg, rgb(1 25 42 / 0.4%) 0%, rgb(1 25 42 / 98%) 80%);
 
     transition: all 0.3s;
     pointer-events: none;
@@ -501,6 +502,7 @@
     flex: none;
     border-radius: 0.8rem;
     transition: all 0.3s;
+    margin-bottom: 0.8rem;
     &.auto-height{
         flex: auto;
         .card-main{
@@ -703,7 +705,7 @@
         color: #fff;
         opacity: 0;
         transition: 0.3s;
-
+        cursor: pointer;
         &::after {
             display: none;
         }
@@ -818,8 +820,6 @@
     }
 
     &.active {
-        position: sticky;
-        top:0;
         z-index: 1;
         background-color: var(--base-thin);
         backdrop-filter: blur(8px);
@@ -1041,6 +1041,7 @@
     padding: 1.6rem 0;
     margin-top: 1.6rem;
     min-height: 24.8rem;
+    max-height: 48rem;
     flex: auto;
 }
 
@@ -1092,4 +1093,42 @@
         }
     }
     
+}
+
+
+.dialog-chart-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+}
+.chart-grid-item{
+    background-color: var(--base-thinner);
+    border-radius: 0.8rem;
+    height: 32rem;
+    width: 100%;
+    &>div{
+        height: 320px;
+    }
+}
+
+.ds-project-link{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    &::after{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 3800px) {
+    html{font-size: 85%;}
+    .header {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .logo{
+        width: 100%;
+    }
 }
