@@ -260,6 +260,7 @@
     }
 
     a {
+        position: relative;
         display: grid;
         grid-auto-flow: column;
         align-items: center;
@@ -346,6 +347,26 @@
         background: var(--ui-primary);
     }
 }
+.tab-menu-btn{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    padding-right: 1.4rem !important;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="%23030317" fill-rule="evenodd" opacity=".8"/></svg>')!important;
+    background-position: 100% 50%!important;
+    background-repeat: no-repeat!important;
+    cursor: pointer;
+    color: #000;
+    color: var(--text-light);
+    &:hover{
+        color: var(--text);
+    }
+}
+
+.dark .tab-menu-btn{
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg width="8" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M4 5l4-5H0z" fill="%23fff" fill-rule="evenodd" opacity=".7"/></svg>')!important;
+}
+
 
 /***
 .tabs-indicator {

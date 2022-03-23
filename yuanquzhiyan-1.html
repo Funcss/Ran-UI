@@ -15,7 +15,7 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script type="text/javascript" src="dest/js/echart-dark.js"></script>
     <title>数字大屏展示系统</title>
 </head>
@@ -125,7 +125,9 @@
                     <div class="card-header">
                         <h2 class="art-title has-link-title">
                             重点企业
-                            <a href="###" class="btn btn-md btn-icon link_more" onclick="dialogShow(document.getElementById('dialogStack3'))"><i class="ran-icon64"></i></a>
+                            <a href="###" class="btn btn-md btn-icon link_more"
+                                onclick="dialogShow(document.getElementById('dialogStack3'))"><i
+                                    class="ran-icon64"></i></a>
                         </h2>
                     </div>
                     <div class="card-main">
@@ -287,7 +289,9 @@
                         <div class="flex-middle-box">
                             <h2 class="art-title has-link-title">
                                 用地统计
-                                <a href="###" class="btn btn-md btn-icon link_more" onclick="dialogShow(document.getElementById('dialog3'))"><i class="ran-icon64"></i></a>
+                                <a href="###" class="btn btn-md btn-icon link_more"
+                                    onclick="dialogShow(document.getElementById('dialog3'))"><i
+                                        class="ran-icon64"></i></a>
                             </h2>
                             <div class="select_value btn-text menu-select" placeholder="11月"
                                 onclick="menu(this,document.getElementById('menu2'))">全部
@@ -775,35 +779,42 @@
                     <div class="dialog_body">
                         <ul class="statistic">
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="568">568 </span></div>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="568">568
+                                    </span></div>
                                 <div class="statistic-title">投产面积(亩)</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="96">96 </span></div>
+                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="96">96
+                                    </span></div>
                                 <div class="statistic-title">规上企业</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="12.8">12.8 </span>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="12.8">12.8 </span>
                                 </div>
                                 <div class="statistic-title">增加值增速</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="2146628">2146628 </span>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="2146628">2146628 </span>
                                 </div>
                                 <div class="statistic-title">营业收入（万）</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="100319">100319 </span>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="100319">100319 </span>
                                 </div>
                                 <div class="statistic-title">利润总额（万）</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="177874">177874 </span>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="177874">177874 </span>
                                 </div>
                                 <div class="statistic-title">利税总额（万）</div>
                             </li>
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="77555">77555 </span>
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="77555">77555 </span>
                                 </div>
                                 <div class="statistic-title">税收（万）</div>
                             </li>
@@ -1202,8 +1213,8 @@
                             </div>
                             <div class="statistic-title">项目总数</div>
                         </li>
-                
-                
+
+
 
                     </ul>
                     <div class="dialog-chart-box" id="dialog-play-chart1"></div>
@@ -1319,7 +1330,7 @@
                 };
                 playChart4.setOption(playchart4);
 
-               
+
 
 
                 //播放统计弹出层一周播放时间分布
@@ -1606,7 +1617,8 @@
                     <div class="dialog_body">
                         <ul class="statistic">
                             <li>
-                                <div class="statistic-number"><span class="numberShow" data-start="0" data-end="1234">1234
+                                <div class="statistic-number"><span class="numberShow" data-start="0"
+                                        data-end="1234">1234
                                 </div>
                                 <div class="statistic-title">商家总数</div>
                             </li>
@@ -1658,121 +1670,120 @@
                                 </div>
                                 <div class="statistic-title">其他</div>
                             </li>
-    
+
                         </ul>
                         <div class="dialog-chart-box" id="dialog-propaganda-chart1"></div>
-    <script>
-        //宣传分类弹出层 - 图1
+                        <script>
+                            //宣传分类弹出层 - 图1
 
-var propagandaChart1 = echarts.init(document.getElementById('dialog-propaganda-chart1'));
-var propagandaChartOption1 = {
-    grid: {
-        top: 32,
-        left: 64,
-        right: 32,
-        bottom: 40,
+                            var propagandaChart1 = echarts.init(document.getElementById('dialog-propaganda-chart1'));
+                            var propagandaChartOption1 = {
+                                grid: {
+                                    top: 32,
+                                    left: 64,
+                                    right: 32,
+                                    bottom: 40,
 
-    },
-    legend: {
-        textStyle: {
-            color: '#fff'
-        }
-    },
-    tooltip: { //hover提示框
-        trigger: 'axis',
-        axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-        }
-    },
-    xAxis: {
-        type: 'category',
-        axisLabel: {
-            textStyle: {
-                color: "#ffffff", //坐标文字颜色
-            }
-        },
+                                },
+                                legend: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                tooltip: { //hover提示框
+                                    trigger: 'axis',
+                                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    axisLabel: {
+                                        textStyle: {
+                                            color: "#ffffff", //坐标文字颜色
+                                        }
+                                    },
 
-    },
-    yAxis: {
-        splitLine: {
-            show: true,
-            lineStyle: {
-                color: 'rgba(255,255,255,.08)',
-            }
-        },
-        axisLabel: {
-            textStyle: {
-                color: "#ffffff", //坐标文字颜色
-            }
-        },
-    },
-    dataset: {
-        dimensions: ['product','24h销售额(万元)','商家数量'],
-        source: [{
-            product: '服装类',
-            '24h销售额(万元)': 43.728,
-            '商家数量': 85,
-        },
-        {
-            product: '餐饮类',
-            '24h销售额(万元)': 83.128,
-            '商家数量': 125,
-            
-        },
-        {
-            product: '饰品类',
-            '24h销售额(万元)': 26.403,
-            '商家数量': 65,
+                                },
+                                yAxis: {
+                                    splitLine: {
+                                        show: true,
+                                        lineStyle: {
+                                            color: 'rgba(255,255,255,.08)',
+                                        }
+                                    },
+                                    axisLabel: {
+                                        textStyle: {
+                                            color: "#ffffff", //坐标文字颜色
+                                        }
+                                    },
+                                },
+                                dataset: {
+                                    dimensions: ['product', '24h销售额(万元)', '商家数量'],
+                                    source: [{
+                                            product: '服装类',
+                                            '24h销售额(万元)': 43.728,
+                                            '商家数量': 85,
+                                        },
+                                        {
+                                            product: '餐饮类',
+                                            '24h销售额(万元)': 83.128,
+                                            '商家数量': 125,
 
-        },
-        {
-            product: '咖啡厅、酒吧',
-            '24h销售额(万元)': 52.442,
-            '商家数量': 53,
+                                        },
+                                        {
+                                            product: '饰品类',
+                                            '24h销售额(万元)': 26.403,
+                                            '商家数量': 65,
 
-        },
-        {
-            product: '综合商超',
-            '24h销售额(万元)': 83.728,
-            '商家数量': 18,
+                                        },
+                                        {
+                                            product: '咖啡厅、酒吧',
+                                            '24h销售额(万元)': 52.442,
+                                            '商家数量': 53,
 
-        },
-        {
-            product: '电子科技',
-            '24h销售额(万元)': 73.128,
-            '商家数量': 73,
+                                        },
+                                        {
+                                            product: '综合商超',
+                                            '24h销售额(万元)': 83.728,
+                                            '商家数量': 18,
 
-        },
-        {
-            product: '文化类',
-            '24h销售额(万元)': 25.323,
-            '商家数量': 31,
+                                        },
+                                        {
+                                            product: '电子科技',
+                                            '24h销售额(万元)': 73.128,
+                                            '商家数量': 73,
 
-        },
-        {
-            product: '其他',
-            '24h销售额(万元)': 67.854,
-            '商家数量': 73,
+                                        },
+                                        {
+                                            product: '文化类',
+                                            '24h销售额(万元)': 25.323,
+                                            '商家数量': 31,
 
-        }
-        ]
-    },
-    series: [{
-        type: 'bar',
-        barMaxWidth: 24,
-    },
-    {
-        type: 'bar',
-        barMaxWidth: 24,
-    },
- 
-    ]
-}
-propagandaChart1.setOption(propagandaChartOption1);
+                                        },
+                                        {
+                                            product: '其他',
+                                            '24h销售额(万元)': 67.854,
+                                            '商家数量': 73,
 
-    </script>
+                                        }
+                                    ]
+                                },
+                                series: [{
+                                        type: 'bar',
+                                        barMaxWidth: 24,
+                                    },
+                                    {
+                                        type: 'bar',
+                                        barMaxWidth: 24,
+                                    },
+
+                                ]
+                            }
+                            propagandaChart1.setOption(propagandaChartOption1);
+                        </script>
                     </div>
-    
+
                     <div class="dialog_footer"></div>
                 </div>
                 <div class="tabs-content" id="tabs-content5" style="display: none;">
@@ -1959,13 +1970,13 @@ propagandaChart1.setOption(propagandaChartOption1);
                     var tabBtn1 = document.getElementById("toggleContent4");
                     var tabBtn2 = document.getElementById("toggleContent5");
                     tabBtn1.addEventListener("click", showTab1);
-    
+
                     function showTab1() {
                         document.getElementById('tabs-content5').style.display = 'none';
                         document.getElementById('tabs-content4').style.display = 'flex';
                     }
                     tabBtn2.addEventListener("click", showTab2);
-    
+
                     function showTab2() {
                         document.getElementById('tabs-content4').style.display = 'none';
                         document.getElementById('tabs-content5').style.display = 'flex';
@@ -1990,6 +2001,34 @@ propagandaChart1.setOption(propagandaChartOption1);
             }
         </script>
         <div class="mapbox" id="ds-mapbox"></div>
+        <!-- 地图上标记点demo 视频弹出层 -->
+        <div class="backdrop dialog-max" id="dialog-video">
+            <div class="dialog">
+                <div class="dialog_header">
+                    <h3 class="dialog_title">
+                        监控视频
+                    </h3>
+                    <!-- <nav class="tabs">
+                    <a href="javascript:;" class="active">上传</a>
+                    <a href="javascript:;" class="">历史</a>
+                </nav> -->
+                    <button class="sidebar-card-close btn btn-md btn-icon"
+                        onclick="dialogHide(document.getElementById('dialog-video'))"><i
+                            class="ran-icon35"></i></button>
+                </div>
+                <div class="dialog_body">
+                    <video src="dest/images/yqzy/1630310883007868.mp4" width="100%" height="100%" controls="controls">
+                        您的浏览器版本过低，请使用最新版Chrome浏览器打开。
+                    </video>
+                </div>
+                <div class="dialog_footer">
+                    <div class="dialog_start"></div>
+                    <div class="dialog_end">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 </body>
@@ -2011,7 +2050,28 @@ propagandaChart1.setOption(propagandaChartOption1);
         zoom: 12.5 // starting zoom  
     });
 
+    function rotateCamera(timestamp) {
+        // clamp the rotation between 0 -360 degrees
+        // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+        map.rotateTo((timestamp / 100) % 360, {
+            duration: 0
+        });
+        // Request the next frame of the animation.
+        requestAnimationFrame(rotateCamera);
+    }
 
+    const marker1 = new mapboxgl.Marker({
+            color: 'orange',
+            scale: '0.8'
+        })
+        .setLngLat([104.397795, 31.127449])
+        .addTo(map);
+
+    document.querySelector('.mapboxgl-marker').onclick = function () {
+        dialogShow(document.getElementById('dialog-video'))
+    }
+
+   
 
 
 
