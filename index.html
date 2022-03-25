@@ -925,6 +925,17 @@ onclick="menu(this,document.getElementById('menu'))"
             </div>
         </div>
         <div class="demo">
+            <div class="tag-box">
+                <span class="tag-dot mini tag-default"></span>
+                <span class="tag-dot mini tag-primary"></span>
+                <span class="tag-dot mini tag-success"></span>
+                <span class="tag-dot mini tag-warning"></span>
+                <span class="tag-dot mini tag-danger"></span>
+                <span class="tag-dot mini tag-dark"></span>
+                <span class="tag-dot mini tag-gray"></span>
+            </div>
+        </div>
+        <div class="demo">
             <span class="badge badge-dot"></span>
             <span class="badge badge-num">8</span>
         </div>
@@ -1020,6 +1031,24 @@ onclick="menu(this,document.getElementById('menu'))"
                 </li>
             </ul>
         </div>
+        <div class="demo">
+            <ul class="statistic statistic-sm statistic-between">
+                <li>
+                    <div class="statistic-number">172.49<small>%</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">3290.37<small>元</small></div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+                <li>
+                    <div class="statistic-number">8376.84<a href="javascript:;" class="link"><i
+                                class="ran-icon46"></i></a>
+                    </div>
+                    <div class="statistic-title">数据标题</div>
+                </li>
+            </ul>
+        </div>
         <h3>数字动态加载</h3>
         <div class="demo">
             <button class="btn btn-md btn-primary btn-outlined" style="margin-bottom: 32px;" onclick="numberShow()"><i
@@ -1088,7 +1117,7 @@ onclick="menu(this,document.getElementById('menu'))"
         <div class="demo" style="max-width: 400px;">
             <ul class="list">
                 <li>
-                    <div class="list-start">
+                    <div class="list-start top">
                         <i class="ran-icon34"></i>
                     </div>
                     <div class="list-info">
@@ -1097,7 +1126,7 @@ onclick="menu(this,document.getElementById('menu'))"
                     </div>
                 </li>
                 <li>
-                    <div class="list-start">
+                    <div class="list-start top">
                         <i class="ran-icon34"></i>
                     </div>
                     <div class="list-info">
@@ -1977,7 +2006,8 @@ bottomHide(el);//公用向下收起关闭函数
         </div>
         <div class="demo">
             <nav class="tabs line-tabs">
-                <a href="javascript:;" class="tab-menu-btn menu-select" onclick="menu(this,document.getElementById('menu7'))">请选择</a>
+                <a href="javascript:;" class="tab-menu-btn menu-select"
+                    onclick="menu(this,document.getElementById('menu7'))">请选择</a>
                 <a href="javascript:;" class="active"><i class="ran-icon33"></i>tab2</a>
                 <a href="javascript:;"><i class="ran-icon42"></i>tab3</a>
             </nav>
@@ -2040,6 +2070,10 @@ bottomHide(el);//公用向下收起关闭函数
             <br>
             <br>
             <div class="contrast contrast-mini" style="--bar-left:40;--bar-right:60">
+            </div>
+            <br>
+            <br>
+            <div class="contrast contrast-mini contrast-nohint" style="--bar-left:40;--bar-right:60">
             </div>
         </div>
         <h3>loading蒙层</h3>
@@ -2975,7 +3009,6 @@ new Sortable(document.querySelector('.drag-demo-right'), {
                 Echart2.setOption(chart2, true);
             </script>
         </div>
-
         <div class="demo">
             <div id="chart3" style="height:200px; width: 480px;"></div>
             <script>
@@ -3389,6 +3422,83 @@ new Sortable(document.querySelector('.drag-demo-right'), {
                 };
                 Echart5.setOption(chart5);
             </script>
+        </div>
+        <h3>大屏小组建widget</h3>
+        <div class="widget-demo">
+            <div class="widget-group">
+                <div class="widget mini">
+                    <div class="widget-header">
+                        <h3 class="widget-title link-title">投资概览<a href="###" class="link-btn"><i class="ran-icon64"></i></a></h3>
+                    </div>
+                    <div class="widget-body">
+                        <ul class="statistic statistic-sm statistic-between">
+                            <li>
+                                <div class="statistic-number">671.49</div>
+                                <div class="statistic-title">计划投资(万)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">418.3</div>
+                                <div class="statistic-title">已完成(万)</div>
+                            </li>
+                        </ul>
+                        <div class="contrast contrast-mini contrast-nohint" style="--bar-left:40;--bar-right:60">
+                        </div>
+                        <ul class="list dense">
+                            <li>
+                                <div class="list-start">
+                                    <span class="tag-dot mini tag-success"></span>
+                                </div>
+                                <div class="list-info">已完成投资</div>
+                                <div class="list-end">418.3</div>
+                            </li>
+                            <li>
+                                <div class="list-start">
+                                    <span class="tag-dot mini tag-primary"></span>
+                                </div>
+                                <div class="list-info">未完成投资</div>
+                                <div class="list-end">253.19</div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget mini">
+                    <div class="widget-header">
+                        <h3 class="widget-title link-title">投资概览<a href="###" class="link-btn"><i class="ran-icon64"></i></a></h3>
+                    </div>
+                    <div class="widget-body">
+                        <ul class="statistic statistic-sm statistic-between">
+                            <li>
+                                <div class="statistic-number">671.49</div>
+                                <div class="statistic-title">计划投资(万)</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">418.3</div>
+                                <div class="statistic-title">已完成(万)</div>
+                            </li>
+                        </ul>
+                        <div class="contrast contrast-mini contrast-nohint" style="--bar-left:40;--bar-right:60">
+                        </div>
+                        <ul class="list dense">
+                            <li>
+                                <div class="list-start">
+                                    <span class="tag-dot mini tag-success"></span>
+                                </div>
+                                <div class="list-info">已完成投资</div>
+                                <div class="list-end">418.3</div>
+                            </li>
+                            <li>
+                                <div class="list-start">
+                                    <span class="tag-dot mini tag-primary"></span>
+                                </div>
+                                <div class="list-info">未完成投资</div>
+                                <div class="list-end">253.19</div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <div id="demobox"></div>

@@ -13,6 +13,11 @@ h3{
     &::before{
         content: counter(h3)'、';
     }
+    &.widget-title{
+        &::before{
+            display: none;
+        }
+    }
 }
 
 .sortabling{
@@ -187,4 +192,11 @@ h3{
     .code-demo{
         max-width: 100%;
     }
+}
+
+
+.widget-demo{
+    padding: 5.6rem;
+    background: url(../images/widget-bg.png) repeat 0 0/72px auto;
+    background-color: #142435;
 }

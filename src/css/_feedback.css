@@ -130,6 +130,17 @@
         content: counter(rightNum);
         counter-reset: rightNum var(--bar-right);
     }
+
+    &.contrast-nohint{
+        margin-bottom: 0;
+        &::before {
+            display: none;
+        }
+    
+        &::after {
+            display: none;
+        }
+    }
 }
 
 .contrast-mini {
