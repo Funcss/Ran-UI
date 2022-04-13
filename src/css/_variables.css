@@ -62,7 +62,9 @@
 
 
 .dark{
-    
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }/*时间原生下拉图标切换颜色*/
     background-color:var(--dark);
     --text: #fff;
     --text-regular: color-mod(#fff a(80%));

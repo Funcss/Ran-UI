@@ -77,6 +77,9 @@ body {
         .body-light{
             display: grid;
         }
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     }
 }
 .body-light{
@@ -428,6 +431,7 @@ body {
 .case-sidebar-top {
     position: sticky;
     top: 0rem;
+    z-index: 1;
     padding: 1.6rem 1.6rem;
     background-image: linear-gradient(180deg, var(--reverse), hsla(0, 0%, 100%, .5));
     backdrop-filter: saturate(180%) blur(16px);
@@ -447,7 +451,7 @@ body {
     }
 
     .active .ran-icon139 {
-        color: var(--reverse);
+        color: #fff;
     }
 
 }
