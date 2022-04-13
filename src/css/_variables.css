@@ -26,11 +26,19 @@
     --light:#fff;
     --dark:#121212;
     --ui-secondary: #7276a9;
-    --ui-primary: #257BFF;
+    --ui-primary: #0c90be;
     --ui-danger: #EA0000;
     --ui-warning: #FF9400;
     --ui-success: #00B6A1;
     --ui-star: #f3b500;
+
+    /*污染指数*/
+    --good:#0ADE00;
+    --moderate:#DAE91A;
+    --lightly:#EF9800;
+    --moderately:#D13C1F;
+    --heavily:#A649BF;
+    --severly:#240000;
     /*size*/
     --sm: 2.4rem;
     --md: 3.2rem;

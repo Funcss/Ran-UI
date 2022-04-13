@@ -35,6 +35,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ran-icon140:before {
+  content: "\e98b";
+}
+.ran-icon139:before {
+  content: "\e98c";
+}
+.ran-icon138:before {
+  content: "\e985";
+}
+.ran-icon137:before {
+  content: "\e986";
+}
+.ran-icon136:before {
+  content: "\e987";
+}
+.ran-icon135:before {
+  content: "\e988";
+}
+.ran-icon134:before {
+  content: "\e989";
+}
+.ran-icon133:before {
+  content: "\e98a";
+}
+.ran-icon132:before {
+  content: "\e984";
+}
 .ran-icon129:before {
   content: "\e97a";
 }

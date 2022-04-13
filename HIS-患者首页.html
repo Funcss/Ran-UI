@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/his.css" media="screen" charset="utf-8">
+    <!-- 引入日历热力图cdn，下载到本地吧 -->
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+    <title>王霞露(女 38岁)</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-start">
+                <a href="###" class="header-back"><i class="ran-icon40"></i></a>
+                <h1 class="logo"><small>上海市第八人民医院</small>患者全息系统</h1>
+            </div>
+            <div class="header-end ">
+                <nav class="header-tab">
+
+                </nav>
+                <div class="header-btn">
+                    <button class="btn btn-md btn-primary btn-text" id="fullScreen">
+                        <i class="ran-icon95"></i>全屏</button>
+                    <button class="btn btn-md btn-primary btn-text" id="exitScreen" style="display:none">
+                        <i class="ran-icon94"></i>收起</button>
+                    <button class="btn btn-md btn-primary btn-text body-dark" onclick="document.body.classList.toggle('dark')"><i class="ran-icon87"></i>夜间</button>
+                    <button class="btn btn-md btn-primary btn-text body-light" onclick="document.body.classList.toggle('dark')"><i class="ran-icon88"></i>白天</button>
+                </div>
+            </div>
+        </header>
+        <section class="sidebar">
+            <nav class="tabs">
+                <a href="javascript:;" class="active">患者信息</a>
+                <a href="javascript:;">就诊列表</a>
+            </nav>
+            <div class="tab-content" id="tab-content1">
+                <div class="user-card">
+                    <div class="avatar avatar-lg">霞露</div>
+                    <div class="user-info">
+                        <div class="user-name">王霞露</div>
+                        <div class="tag-box"><span class="tag tag-default">女</span><span
+                                class="tag tag-default">54岁</span></div>
+                    </div>
+
+                </div>
+                <hr class="sidebar-line">
+                <dl class="info-list">
+                    <dt>生日</dt>
+                    <dd>1954.02.04</dd>
+                    <dt>身份证</dt>
+                    <dd>5110******1234</dd>
+                    <dt>手机号码</dt>
+                    <dd>15608093781</dd>
+                    <dt>联系人手机</dt>
+                    <dd>15608093781</dd>
+                    <dt>血型</dt>
+                    <dd>AB型</dd>
+                    <dt>过敏原</dt>
+                    <dd>-</dd>
+                </dl>
+            </div>
+            <div class="tab-content" id="tab-content2" style="display:none">
+                <form action="" class="form-group">
+                    <fieldset>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">时间范围</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="datetime-local" placeholder="开始时间" class="input input-md input-solid">
+                                <input type="datetime-local" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">就诊科室</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="请选择科室" class="menu-select input input-md input-solid"
+                                    onclick="menu(this,document.getElementById('menu-search'))">
+                                <div class="menu" id="menu-search">
+                                    <ul class="menu-list">
+                                        <li class="menu-item selected">全部</li>
+                                        <li class="menu-item">1</li>
+                                        <li class="menu-item">2</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <hr class="sidebar-line">
+                <div class="scroll-list">
+                    <div class="list-title">
+                        <div class="start">就诊列表 (35)</div>
+                        <div class="select_value btn-text menu-select btn-sm" id="select1" placeholder="请选择"
+                            onclick="menu(this,document.getElementById('menu1'))">全部
+                        </div>
+                        <div class="menu" id="menu1">
+                            <ul class="menu-list">
+                                <li class="menu-item selected ">全部</li>
+                                <li class="menu-item">门诊</li>
+                                <li class="menu-item">住院</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="list">
+                        <li class="list-link active">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon136"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon136"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <main class="main">
+            <div class="main-header">
+                <ul class="visits">
+                    <li>内科门诊：<span class="tag tag-primary">3</span></li>
+                    <li>内科一区：<span class="tag tag-primary">1</span></li>
+                    <li>急诊：<span class="tag tag-primary">1</span></li>
+                    <li>五官科：<span class="tag tag-primary">4</span></li>
+                </ul>
+                <button class="btn btn-md btn-primary"><i class="ran-icon138"></i>打印</button>
+            </div>
+            <div class="main-grid grid">
+                <section class="grid-item grid-span5 his-panel">
+                    <div class="his-panel-header">
+                        <h2 class="his-panel-title">历史统计</h2>
+                    </div>
+                    <div class="his-panel-main">
+                        <ul class="statistic">
+                            <li>
+                                <div class="statistic-number">27</div>
+                                <div class="statistic-title">住院天数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">2</div>
+                                <div class="statistic-title">住院次数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">18</div>
+                                <div class="statistic-title">门诊次数</div>
+                            </li>
+                            <li>
+                                <div class="statistic-number">4</div>
+                                <div class="statistic-title">手术次数</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="grid-item grid-span7 case">
+                    <div class="his-panel-header">
+                        <h2 class="his-panel-title">门诊日历</h2>
+                        <ul class="heatmap-legend">
+                            <li class="heatmap-legend1">
+                                住院
+                            </li>
+                            <li class="heatmap-legend2">
+                                门诊
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="his-panel-main">
+                        <div class="cal-heatmap-box">
+                            <div class="cal-heatmap-btn">
+                                <button class="btn btn-sm" id="pre-year">上一年</button>
+                                <button class="btn btn-sm" id="next-year">下一年</button>
+                                <button class="btn btn-sm" id="now-year">今年</button>
+                            </div>
+                            <div id="cal-heatmap"></div>
+
+                        </div>
+
+                        <script type="text/javascript">
+                        //文档： https://cal-heatmap.com/  
+                            var cal = new CalHeatMap();
+                            cal.init({
+                                domain: "year",
+                                subDomain: "day",
+                                cellRadius: 2,
+                                cellSize: 11,
+                                //rowLimit: 7,//每列7个方块
+                                range: 1,
+                                start: new Date(2021, 1, 0),
+                                previousSelector: "#pre-year",
+                                nextSelector: "#next-year",
+                                tooltip: true,
+                                displayLegend: false
+                                // label: {
+                                //     position: "left",
+                                // }
+                                //domainDynamicDimension:false
+                            });
+                            document.getElementById('now-year').onclick = function(){
+                                cal.jumpTo(new Date(2021, 1, 0), true);
+                            }
+                        </script>
+                    </div>
+                </section>
+                <section class="grid-item grid-span12 case">
+                    <div class="his-panel-header">
+                        <h2 class="his-panel-title">就诊记录<small>（25）</small></h2>
+                    </div>
+                    <div class="his-panel-main">
+                        <table class="table">
+                            <thead class="table-slicky_row">
+                                <tr>
+                                    <th>#</th>
+                                    <th>就诊科室</th>
+                                    <th>主治医生</th>
+                                    <th>就诊时间</th>
+                                    <th>类型</th>
+                                    <th>住院</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                    <td>table content</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+<script>
+    window.onload = function () {
+        tabs();
+       //水波纹
+       Waves.attach('.btn, .list-link, .select_value, .menu-item');
+       Waves.init();
+       //列表展开
+   }
+        //右上角全屏开启和关闭
+        var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+
+</html>

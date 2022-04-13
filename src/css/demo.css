@@ -13,7 +13,7 @@ h3{
     &::before{
         content: counter(h3)'、';
     }
-    &.widget-title{
+    &.widget-title,&.normal-title{
         &::before{
             display: none;
         }
@@ -136,6 +136,13 @@ h3{
     min-height: 120px;
     margin-bottom: 20px;
 }
+.widget-pile{
+    .pile-item{
+  
+        box-shadow:none;
+        min-height:0;
+    }
+}
 
 .code-demo{
     max-width: 56%;
@@ -197,6 +204,6 @@ h3{
 
 .widget-demo{
     padding: 5.6rem;
-    background: url(../images/widget-bg.png) repeat 0 0/72px auto;
+    background: url(../images/widget-bg.png) repeat 0 0/80px auto;
     background-color: #142435;
 }

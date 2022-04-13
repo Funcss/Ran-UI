@@ -1247,8 +1247,6 @@ function mediaMatrix(el) {
 }
 
 
-
-
 /*时间选择器*/
 
 
@@ -1648,8 +1646,8 @@ function accordion() {
         const h = accordionContent.querySelector('.accordion-content-info').getBoundingClientRect().height;
         if (accordionContent.matches('.show')) {
             accordionContent.style.height = h + 'px';
-            item.checked='checked';
-        } 
+            item.checked = 'checked';
+        }
         item.onclick = function () {
             if (accordionContent.matches('.show')) {
                 accordionContent.style.height = 0;
@@ -1728,10 +1726,42 @@ function compass() {
 
 
 //按钮手风琴
-function accordionBtn(){
+function accordionBtn() {
     var accordionBtns = document.querySelectorAll('.accordion-btn');
-    accordionBtns.forEach(function(item){
-       var textWidth = item.querySelector('.accordion-btn-text').clientWidth / 10 + 'rem';
-       item.style.setProperty('--textWidth', textWidth);
+    accordionBtns.forEach(function (item) {
+        var textWidth = item.querySelector('.accordion-btn-text').clientWidth / 10 + 'rem';
+        item.style.setProperty('--textWidth', textWidth);
     })
 }
+
+
+
+
+/*widget图片滚动*/
+function widgetRotation() {
+    var rotation = document.querySelectorAll('.widget-rotation-box');
+
+    
+
+    rotation.forEach(function (rotationItem) {
+        var rotationChild = rotationItem.querySelectorAll('.widget-rotation-item');
+
+        rotationChild.forEach(function (item) {
+            var h = rotationItem.clientHeight; 
+            var itemTopLine = item.offsetTop;//获取每个模块上边缘距离顶部的距离，为固定值
+            
+            // 滚动事件开始
+            rotationItem.addEventListener('scroll', function () {
+                var scrollY = this.scrollTop;//滚动条距离顶部的距离
+                var x = scrollY/itemTopLine;
+              
+             
+            })
+        })
+
+
+    })
+
+}
+
+widgetRotation()

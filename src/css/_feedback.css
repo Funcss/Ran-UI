@@ -41,9 +41,11 @@
 
 .progress {
     --bar-width:0;
+    --color:var(--ui-primary);
     position: relative;
     height: 0.4rem;
-    background: color-mod(var(--ui-primary) a(24%));
+    @extend .glass;
+    background: var(--base-thinner);
     border-radius: 0.4rem;
 
     &::after {
@@ -52,7 +54,7 @@
         height: 100%;
         width: calc(var(--bar-width, 0) * 1%);
         max-width: 100%;
-        background: var(--ui-primary);
+        background: var(--color);
         transform-origin: 0 0;
         border-radius: 0.4rem;
     }
@@ -63,9 +65,10 @@
         position: absolute;
         left: calc(var(--bar-width, 0) * 1%);
         top: 0;
-        background: color-mod(var(--ui-primary) a(24%));
+        @extend .glass;
+        background: var(--base-thin);
         font-size: 1.2rem;
-        color: var(--ui-primary);
+        color: var(--color);
         padding: 0.2rem 0.5rem;
         border-radius: 0.2rem;
         transform: translate(-50%, calc(-100% - 0.8rem));

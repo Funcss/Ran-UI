@@ -26,10 +26,10 @@
     ::-webkit-scrollbar-thumb {
         border-radius: 6px;
         padding: 0;
-        background-color: var(--base-regular);
+        background-color: var(--base-light);
 
         &:hover {
-            background-color: var(--base-medium);
+            background-color: var(--base-regular);
         }
     }
 }

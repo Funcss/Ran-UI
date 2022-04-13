@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/his.css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <title>王霞露(女 38岁)</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-start">
+                <a href="###" class="header-back"><i class="ran-icon40"></i></a>
+                <h1 class="logo"><small>上海市第八人民医院</small>患者全息系统</h1>
+            </div>
+            <div class="header-end ">
+                <nav class="header-tab">
+                    <!-- 注意页面方向排序是反过来的 -->
+                    <a href="###">文书 (7)</a>
+                    <a href="###">手麻 (27)</a>
+                    <a href="###">护理 (27)</a>
+                    <a href="###">检验 (34)</a>
+                    <a href="###">检查 (1)</a>
+                    <a href="###">医嘱 (2)</a>
+                    <a href="###">诊断 (22)</a>
+                    <a href="###" class="active">病案首页</a>
+                </nav>
+                <div class="header-btn">
+                    <button class="btn btn-md btn-primary btn-text" id="fullScreen">
+                        <i class="ran-icon95"></i>全屏</button>
+                    <button class="btn btn-md btn-primary btn-text" id="exitScreen" style="display:none">
+                        <i class="ran-icon94"></i>收起</button>
+                    <button class="btn btn-md btn-primary btn-text body-dark" onclick="document.body.classList.toggle('dark')"><i class="ran-icon87"></i>夜间</button>
+                    <button class="btn btn-md btn-primary btn-text body-light" onclick="document.body.classList.toggle('dark')"><i class="ran-icon88"></i>白天</button>
+                </div>
+            </div>
+        </header>
+        <section class="sidebar">
+            <nav class="tabs">
+                <a href="javascript:;" class="active">患者信息</a>
+                <a href="javascript:;">就诊列表</a>
+            </nav>
+            <div class="tab-content" id="tab-content1" style="display:none">
+                <div class="user-card">
+                    <div class="avatar avatar-lg">霞露</div>
+                    <div class="user-info">
+                        <div class="user-name">王霞露</div>
+                        <div class="tag-box"><span class="tag tag-default">女</span><span
+                                class="tag tag-default">54岁</span></div>
+                    </div>
+
+                </div>
+                <hr class="sidebar-line">
+                <dl class="info-list">
+                    <dt>生日</dt>
+                    <dd>1954.02.04</dd>
+                    <dt>身份证</dt>
+                    <dd>5110******1234</dd>
+                    <dt>手机号码</dt>
+                    <dd>15608093781</dd>
+                    <dt>联系人手机</dt>
+                    <dd>15608093781</dd>
+                    <dt>血型</dt>
+                    <dd>AB型</dd>
+                    <dt>过敏原</dt>
+                    <dd>-</dd>
+                </dl>
+            </div>
+            <div class="tab-content" id="tab-content2">
+                <form action="" class="form-group">
+                    <fieldset>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">时间范围</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="datetime-local" placeholder="开始时间" class="input input-md input-solid">
+                                <input type="datetime-local" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">就诊科室</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="请选择科室" class="menu-select input input-md input-solid"
+                                    onclick="menu(this,document.getElementById('menu-search'))">
+                                <div class="menu" id="menu-search">
+                                    <ul class="menu-list">
+                                        <li class="menu-item selected">全部</li>
+                                        <li class="menu-item">1</li>
+                                        <li class="menu-item">2</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <hr class="sidebar-line">
+                <div class="scroll-list">
+                    <div class="list-title">
+                        <div class="start">就诊列表 (35)</div>
+                        <div class="select_value btn-text menu-select btn-sm" id="select1" placeholder="请选择"
+                            onclick="menu(this,document.getElementById('menu1'))">全部
+                        </div>
+                        <div class="menu" id="menu1">
+                            <ul class="menu-list">
+                                <li class="menu-item selected ">全部</li>
+                                <li class="menu-item">门诊</li>
+                                <li class="menu-item">住院</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="list">
+                        <li class="list-link active">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type outpatient">
+                                    <i class="ran-icon134"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科门诊</div>
+                                <div class="list-info_hint">2021.04.22 14:34</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon136"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+                        <li class="list-link">
+                            <div class="list-start">
+                                <div class="treatment-type inpatient">
+                                    <i class="ran-icon136"></i>
+                                </div>
+                            </div>
+                            <div class="list-info">
+                                <div class="list-info_title">内科一区</div>
+                                <div class="list-info_hint">2021.04.22 - 2021.05.16</div>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <main class="main">
+            <div class="main-header">
+                <ol class="breadcrumbs">
+                    <li><a href="javascript:;">王霞路 (38岁)</a></li>
+                    <li>内科一区 (2021.04.22 - 2021.05.16)</li>
+                </ol>
+                <button class="btn btn-md btn-primary"><i class="ran-icon138"></i>打印</button>
+            </div>
+            <div class="main-grid grid">
+                <section class="grid-item grid-span12 case">
+
+                    <div class="case-body has-sidebar">
+                        <div class="case-sidebar">
+                            <div class="case-sidebar-scroll">
+                                <div class="case-sidebar-top">
+                                    <input type="search" placeholder="搜索" class="input input-md input-solid">
+                                </div>
+                            
+                                    <ul class="list case-sidebar-main">
+                                        <li class="list-link active">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">肾功五项</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+                                        <li class="list-link">
+                                            <div class="list-start top">
+                                                <i class="ran-icon139"></i>
+                                            </div>
+                                            <div class="list-info">
+                                                <div class="list-info_title">床边胸水彩超检查</div>
+                                                <div class="list-info_hint">2021.09.29 13:49:32</div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                        
+                            </div>
+                        </div>
+                        <div class="case-main">
+                            <div class="record">
+                                <section class="record-section">
+                                    <table class="table-lattice average">
+                                        <tbody>
+                                            <tr>
+                                                <th>审核时间</th>
+                                                <td>2021.05.14 20:37:54</td>
+                                                <th>报告状态</th>
+                                                <td>已打印</td>
+                                                <td rowspan="4" class="img-box">报告图片
+                                                    点击查看大图</td>
+                                            </tr>
+                                            <tr>
+                                                <th>报告号</th>
+                                                <td></td>
+                                                <th>报告时间</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>审核医生</th>
+                                                <td></td>
+                                                <th>申请科室</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>报告医生</th>
+                                                <td></td>
+                                                <th>检验项目</th>
+                                                <td>肾功五项</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <section class="record-section">
+                                    <h3>肾功五项</h3>
+                                    <div class="grid">
+                                        <div class="grid-item grid-span3">
+                                            <ul class="list">
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">ALT</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                    <!-- 最多开启5项，超过了就不能选状态 -->
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">AST</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">TBIL</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">DBIL</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">TBA</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">HCO3-</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">BUN</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">CR</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">UA</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">GLU</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">ALT/AST</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                                <li class="list-link">
+                                                    <div class="list-info">
+                                                        <div class="list-info_title">IBIL</div>
+                                                    </div>
+                                                    <div class="list-end">
+                                                        <input type="checkbox" class="switch mui">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="grid-item grid-span9 examination-box">
+                                            <table class="table-lattice average sm">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>指标项：</th>
+                                                        <th>ALT</th>
+                                                        <th>AST</th>
+                                                        <th>TBIL</th>
+                                                        <th>DBIL</th>
+                                                        <th>-</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>参考值：</th>
+                                                        <td>9-50</td>
+                                                        <td>15-40</td>
+                                                        <td>&lt;23</td>
+                                                        <td>&lt;4</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="examination-ecahrt" id="examination-chart">
+                                                123
+                                            </div>
+                                            <script>
+                                                var examination = echarts.init(document.getElementById(
+                                                    'examination-chart'));
+                                                examinationOption = {
+                                                    title: {
+                                                        text: '指标趋势'
+                                                    },
+                                                    tooltip: {
+                                                        trigger: 'axis'
+                                                    },
+                                                    legend: {
+                                                        data: ['ALT', 'AST', 'TBIL', 'DBIL',
+                                                            'TBA'
+                                                        ]
+                                                    },
+                                                    grid: {
+                                                        left: '3%',
+                                                        right: '4%',
+                                                        bottom: '3%',
+                                                        containLabel: true
+                                                    },
+                                                    toolbox: {
+                                                        feature: {
+                                                            saveAsImage: {}
+                                                        }
+                                                    },
+                                                    xAxis: {
+                                                        type: 'category',
+                                                        boundaryGap: false,
+                                                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                                                    },
+                                                    yAxis: {
+                                                        type: 'value'
+                                                    },
+                                                    series: [{
+                                                            name: 'ALT',
+                                                            type: 'line',
+                                                            stack: 'Total',
+                                                            data: [120, 132, 101, 134, 90, 230, 210]
+                                                        },
+                                                        {
+                                                            name: 'AST',
+                                                            type: 'line',
+                                                            stack: 'Total',
+                                                            data: [220, 182, 191, 234, 290, 330, 310]
+                                                        },
+                                                        {
+                                                            name: 'TBIL',
+                                                            type: 'line',
+                                                            stack: 'Total',
+                                                            data: [150, 232, 201, 154, 190, 330, 410]
+                                                        },
+                                                        {
+                                                            name: 'DBIL',
+                                                            type: 'line',
+                                                            stack: 'Total',
+                                                            data: [320, 332, 301, 334, 390, 330, 320]
+                                                        },
+                                                        {
+                                                            name: 'TBA',
+                                                            type: 'line',
+                                                            stack: 'Total',
+                                                            data: [820, 932, 901, 934, 1290, 1330, 1320]
+                                                        }
+                                                    ]
+                                                };
+                                                examination.setOption(examinationOption);
+                                            </script>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+
+<script>
+    window.onload = function () {
+        tabs();
+       //水波纹
+       Waves.attach('.btn, .list-link, .select_value, .menu-item');
+       Waves.init();
+       //列表展开
+   }
+        //右上角全屏开启和关闭
+        var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+</html>

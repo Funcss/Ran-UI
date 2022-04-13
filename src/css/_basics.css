@@ -88,8 +88,3 @@ dl,dd{
     margin: 0;
 }
 
-.flex-align-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

@@ -726,6 +726,7 @@ select {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    
 
     &.inline {
         width: auto;
@@ -738,15 +739,24 @@ select {
         border: none;
         box-shadow: none;
     }
+    &.select-sm{
+        @extend .input-sm;
+    }
+    &.select-md{
+        @extend .input-md;
+    }
+    &.select-lg{
+        @extend .input-lg;
+    }
 }
 
 .select-solid {
     background-color: var(--base-thin);
-    border-color: transparent;
+    border:1px solid var(--base-thin);
 
     &:hover {
         box-shadow: none;
-        border-color: transparent;
+        border-color: var(--base-air);
         background-color: var(--base-air);
     }
 }
