@@ -455,7 +455,10 @@ body {
     }
 
 }
-
+.his-panel{
+    background: url(../images/his/panel-bg.png) no-repeat left center/cover;
+    background-color: var(--paper);
+}
 .his-panel-header {
     display: flex;
     align-items: center;
