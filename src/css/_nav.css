@@ -146,6 +146,7 @@
 }
 
 .steps {
+    --size:4rem;
     @extend .list-reset;
     display: grid;
     grid-auto-flow: column;
@@ -160,15 +161,18 @@
             content: "";
             position: absolute;
             height: 2px;
-            width: calc(100% - 1.2rem);
+            width: calc(100% - var(--size) - 4px + 3.2rem);
             background-color: var(--base-light);
-            top: calc(2rem - 1px);
-            left: calc(2rem + 50% + 2px);
+            top: calc(var(--size)/2 - 1px);
+            left: calc(var(--size)/2 + 50% + 2px);
         }
 
         &:last-child::before {
             display: none;
         }
+    }
+    &.steps-mini{
+        --size:2.4rem;
     }
 }
 
@@ -220,8 +224,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 4rem;
-    width: 4rem;
+    height: var(--size);
+    width: var(--size);
     border-radius: 100%;
     background: var(--base-light);
     color: var(--light);

@@ -162,21 +162,21 @@ ghostClass: 'sortabling'
         </div>
         <div class="demo">
             <div class="grid-btn">
-                <a href="###"><i class="ran-icon56"></i>编辑</a>
-                <a href="###"><i class="ran-icon68"></i>分享</a>
-                <a href="###"><i class="ran-icon74"></i>关注</a>
-                <a href="###"><i class="ran-icon57"></i>删除</a>
+                <a href="javascript:;"><i class="ran-icon56"></i>编辑</a>
+                <a href="javascript:;"><i class="ran-icon68"></i>分享</a>
+                <a href="javascript:;"><i class="ran-icon74"></i>关注</a>
+                <a href="javascript:;"><i class="ran-icon57"></i>删除</a>
             </div>
         </div>
         <div class="demo">
             <div class="grid-inline">
-                <a href="###" class="accordion-btn"><i class="ran-icon56"></i><span
+                <a href="javascript:;" class="accordion-btn"><i class="ran-icon56"></i><span
                         class="accordion-btn-text">编辑</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon68"></i><span
+                <a href="javascript:;" class="accordion-btn"><i class="ran-icon68"></i><span
                         class="accordion-btn-text">分享</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon74"></i><span
+                <a href="javascript:;" class="accordion-btn"><i class="ran-icon74"></i><span
                         class="accordion-btn-text">关注</span></a>
-                <a href="###" class="accordion-btn"><i class="ran-icon57"></i><span
+                <a href="javascript:;" class="accordion-btn"><i class="ran-icon57"></i><span
                         class="accordion-btn-text">全部删除</span></a>
             </div>
         </div>
@@ -297,7 +297,7 @@ ghostClass: 'sortabling'
                 <div class="form-item">
                     <input type="date" id="date-input" placeholder="Placeholder" class="input input-sm">
                 </div>
-                <a href="###" onclick="document.getElementById('date-input').value =''">清空</a>
+                <a href="javascript:;" onclick="document.getElementById('date-input').value =''">清空</a>
                 <div class="form-item">
                     <input type="time" placeholder="&#xe906;" class="input input-md warning">
                     <p class="hint">说明文字</p>
@@ -307,7 +307,8 @@ ghostClass: 'sortabling'
                     <p class="hint">说明文字</p>
                 </div>
                 <div class="form-item">
-                    <input type="range" placeholder="Placeholder">
+                    <input type="range" min="0" max="100" value="50" style="--value:50"
+                        oninput="this.setAttribute('style','--value:' + this.value)">
                     <p class="hint">说明文字</p>
                 </div>
 
@@ -681,7 +682,7 @@ onclick="menu(this,document.getElementById('menu'))"
                         </ul>
                     </div>
 
-                    <a href="###" id="select-reset">重置</a>
+                    <a href="javascript:;" id="select-reset">重置</a>
 
                     <script>
                         var resetBtn = document.getElementById('select-reset');
@@ -898,7 +899,7 @@ onclick="menu(this,document.getElementById('menu'))"
                 <span class="tag tag-success">Success</span>
                 <span class="tag tag-warning">Warning</span>
                 <span class="tag tag-danger">Danger</span>
-                
+
             </div>
         </div>
         <div class="demo">
@@ -908,7 +909,7 @@ onclick="menu(this,document.getElementById('menu'))"
                 <span class="tag tag-success tag-delate">Success</span>
                 <span class="tag tag-warning tag-delate">Warning</span>
                 <span class="tag tag-danger tag-delate">Danger</span>
-            
+
             </div>
         </div>
         <div class="demo">
@@ -1963,6 +1964,34 @@ bottomHide(el);//公用向下收起关闭函数
                 </li>
             </ol>
         </div>
+        <div class="demo">
+            <ol class="steps steps-mini">
+                <li class="steps-active">
+                    <span class="steps-num">1</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li class="steps-focus">
+                    <span class="steps-num">2</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li>
+                    <span class="steps-num">3</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+                <li>
+                    <span class="steps-num">4</span>
+                    <div class="steps-info">
+                        Select campaign settings
+                    </div>
+                </li>
+            </ol>
+        </div>
         <h3>Tabs</h3>
         <pre class="code-demo language-html">
 <code>
@@ -2072,6 +2101,11 @@ bottomHide(el);//公用向下收起关闭函数
             <br>
             <br>
             <div class="contrast contrast-mini contrast-nohint" style="--bar-left:40;--bar-right:60">
+            </div>
+            <br>
+            <br>
+            <div class="contrast contrast-3color contrast-mini contrast-nohint"
+                style="--one-number:50%;--two-number:36%;--three-number:14%">
             </div>
         </div>
         <h3>loading蒙层</h3>
@@ -3421,587 +3455,7 @@ new Sortable(document.querySelector('.drag-demo-right'), {
                 Echart5.setOption(chart5);
             </script>
         </div>
-        <h3>大屏小组建widget</h3>
-        <div class="widget-demo">
-            <div class="widget-group">
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">投资概览<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-body">
-                        <ul class="statistic statistic-sm statistic-between">
-                            <li>
-                                <div class="statistic-number">671.49</div>
-                                <div class="statistic-title">计划投资(万)</div>
-                            </li>
-                            <li>
-                                <div class="statistic-number">418.3</div>
-                                <div class="statistic-title">已完成(万)</div>
-                            </li>
-                        </ul>
-                        <div class="contrast contrast-mini contrast-nohint" style="--bar-left:40;--bar-right:60">
-                        </div>
-                        <ul class="list dense">
-                            <li>
-                                <div class="list-start">
-                                    <span class="tag-dot mini tag-success"></span>
-                                </div>
-                                <div class="list-info">已完成投资</div>
-                                <div class="list-end">418.3</div>
-                            </li>
-                            <li>
-                                <div class="list-start">
-                                    <span class="tag-dot mini tag-primary"></span>
-                                </div>
-                                <div class="list-info">未完成投资</div>
-                                <div class="list-end">253.19</div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">资源消耗<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-body">
-                        <ul class="list-trend">
-                            <li class="list-trend-item">
-                                <i class="ran-icon26 natural-gas"></i>
-                                <div class="list-trend-info"><span class="number">7638.27</span><small>m³</small></div>
-                                <div class="list-trend-chart" id="natural-gas"></div>
-                            </li>
-                            <li class="list-trend-item">
-                                <i class="ran-icon26 tap-water"></i>
-                                <div class="list-trend-info"><span class="number">68947.48</span><small>t</small></div>
-                                <div class="list-trend-chart" id="tap-water"></div>
-                            </li>
-                            <li class="list-trend-item">
-                                <i class="ran-icon26 electric-power"></i>
-                                <div class="list-trend-info"><span class="number">4973.29</span><small>kwh</small></div>
-                                <div class="list-trend-chart" id="electric-power"></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget md">
-                    <div class="widget-header">
-                        <h3 class="normal-title">惠阳区产业工业园区</h3>
-                        <div class="widget-header-span">
-                            <span class="tag tag-success">Success</span>
-                            <span class="tag tag-warning">Warning</span>
-                        </div>
-                        <div class="widget-header-span">
-                            <div class="liable">
-                                广东省人民政府
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="widget-body">
-                        <div class="space-evenly">
-                            <ul class="statistic statistic-sm">
-                                <li>
-                                    <div class="statistic-number">8000</div>
-                                    <div class="statistic-title">辖区面积 (亩)</div>
-                                </li>
-                                <li>
-                                    <div class="statistic-number">6290</div>
-                                    <div class="statistic-title">规划用地 (亩)</div>
-                                </li>
-                                <li>
-                                    <div class="statistic-number">572
-                                    </div>
-                                    <div class="statistic-title">项目总数</div>
-                                </li>
-                                <li>
-                                    <div class="statistic-number">10242
-                                    </div>
-                                    <div class="statistic-title">入驻企业</div>
-                                </li>
-                            </ul>
-                            <div class="contrast contrast-mini" style="--bar-left:40;--bar-right:60">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="widget md half">
-                    <div class="half-start">
-                        <div class="widget-header">
-                            <h3 class="widget-title link-title">产业分布<a href="###" class="link-btn"><i
-                                        class="ran-icon64"></i></a></h3>
-                        </div>
-                        <div class="widget-body">
-                            <div id="Doughnut-chart">chart</div>
-                        </div>
-                    </div>
-                    <div class="half-end">
-                        <ul class="widget-half-legend">
-                            <li style="--color:#3a82f2">
-                                <span class="legend-title">新能源汽车</span>
-                                <span class="legend-info">8</span>
-                            </li>
-                            <li style="--color:#71da76">
-                                <span class="legend-title">医疗健康</span>
-                                <span class="legend-info">24</span>
-                            </li>
-                            <li style="--color:#f3a842">
-                                <span class="legend-title">芯片制造</span>
-                                <span class="legend-info">13</span>
-                            </li>
-                            <li style="--color:#5cc4db">
-                                <span class="legend-title">电子信息技术</span>
-                                <span class="legend-info">46</span>
-                            </li>
-                            <li style="--color:#dad248">
-                                <span class="legend-title">石油化工</span>
-                                <span class="legend-info">21</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget md half">
-                    <div class="half-start">
-                        <div class="widget-header">
-                            <h3 class="widget-title link-title">空气质量<a href="###" class="link-btn"><i
-                                        class="ran-icon64"></i></a></h3>
-                        </div>
-                        <div class="widget-body">
-                            <div id="gauge-chart">chart</div>
-                        </div>
-                    </div>
-                    <div class="half-end">
-                        <ul class="line-legend">
-                            <li class="good">
-                                <!-- good 优 绿色 -->
-                                <span class="line-legend-title">PM2.5</span>
-                                <span class="line-legend-info">27</span>
-                            </li>
-                            <li class="moderate">
-                                <!--moderate 良 黄色  -->
-                                <span class="line-legend-title">PM10</span>
-                                <span class="line-legend-info">100</span>
-                            </li>
-                            <li class="lightly">
-                                <!--lightly 轻度污染 橙色  -->
-                                <span class="line-legend-title">O₃</span>
-                                <span class="line-legend-info">157</span>
-                            </li>
-                            <li class="moderately">
-                                <!--moderately 中度污染 红色  -->
-                                <span class="line-legend-title">NO₂</span>
-                                <span class="line-legend-info">201</span>
-                            </li>
-                            <li class="heavily">
-                                <!--heavily 重度污染 紫色  -->
-                                <span class="line-legend-title">SO₂</span>
-                                <span class="line-legend-info">268</span>
-                            </li>
-                            <!--severly 严重污染 褐红色  -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget md">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">产值统计<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                        <ul class="widget-header-legend">
-                            <li style="--color:rgba(45,127,255,1)">投资</li>
-                            <li style="--color:rgba(0,234,86,1)">产值</li>
-                            <li style="--color:rgba(255,148,0,1)">税收</li>
-                        </ul>
-                    </div>
-                    <div class="widget-body">
-                        <div id="histogram-box">chart</div>
-                    </div>
-                </div>
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">重点企业<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-body">
-                        <ul class="list-progress">
-                            <li>
-                                <span class="title">倍增企业</span>
-                                <span class="value">42</span>
-                                <div class="progress" style="--bar-width:42;--color:#00cdd9">
-                                </div>
-                            </li>
-                            <li>
-                                <span class="title">规上企业</span>
-                                <span class="value">27</span>
-                                <div class="progress" style="--bar-width:17;--color:#DEBB00">
-                                </div>
-                            </li>
-                            <li>
-                                <span class="title">专精特新</span>
-                                <span class="value">31</span>
-                                <div class="progress" style="--bar-width:31;--color:#ff6259">
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">配套设施<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-scroll">
-                        <ul class="matching-list">
-                            <li class="school">
-                                <span class="title">学校</span>
-                                <span class="value">4</span>
-                            </li>
-                            <li class="metro">
-                                <span class="title">地铁站</span>
-                                <span class="value">4</span>
-                            </li>
-                            <li class="bus">
-                                <span class="title">公交站</span>
-                                <span class="value">7</span>
-                            </li>
-                            <li class="shop">
-                                <span class="title">商业</span>
-                                <span class="value">6</span>
-                            </li>
-                            <li class="hospital">
-                                <span class="title">医院</span>
-                                <span class="value">3</span>
-                            </li>
-                            <li class="park">
-                                <span class="title">公园</span>
-                                <span class="value">2</span>
-                            </li>
-                            <li class="station">
-                                <span class="title">加油站</span>
-                                <span class="value">1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget md">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">项目状态<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-
-                    </div>
-                    <div class="widget-body">
-                        <div id="bar-chart">chart</div>
-                    </div>
-                </div>
-                <div class="widget md half">
-                    <div class="half-start">
-                        <div class="widget-header">
-                            <h3 class="widget-title link-title">产品销量<a href="###" class="link-btn"><i
-                                        class="ran-icon64"></i></a></h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="widget-tag-box">
-                                <a href="###" class="tag tag-success">碗碟片</a>
-                                <a href="###" class="tag tag-success">汤锅</a>
-                                <a href="###" class="tag tag-success">咖啡壶</a>
-                                <a href="###" class="tag tag-success">保鲜盒</a>
-                                <a href="###" class="tag tag-success">盘</a>
-                                <a href="###" class="tag tag-success">酒杯</a>
-                                <a href="###" class="tag tag-success">茶具配件234</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="half-end">
-                        <ul class="list-progress">
-                            <li>
-                                <span class="title">国内</span>
-                                <span class="value">42</span>
-                                <div class="progress progress-gradient" style="--bar-width:42;">
-                                </div>
-                            </li>
-                            <li>
-                                <span class="title">日本</span>
-                                <span class="value">31</span>
-                                <div class="progress progress-gradient" style="--bar-width:31;">
-                                </div>
-                            </li>
-                            <li>
-                                <span class="title">欧盟</span>
-                                <span class="value">27</span>
-                                <div class="progress progress-gradient" style="--bar-width:27;">
-                                </div>
-                            </li>
-                            <li>
-                                <span class="title">美国</span>
-                                <span class="value">68</span>
-                                <div class="progress progress-gradient" style="--bar-width:68;">
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">雷达图<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-body">
-                        <div class="fillBox" id="Radar-chart"></div>
-                    </div>
-                </div>
-                <div class="widget sm">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">实时趋势<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                    </div>
-                    <div class="widget-body">
-
-                        <div class="fillBox" id="Dynamic-chart"></div>
-                    </div>
-                </div>
-                <div class="widget lg">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">项目筛选<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-
-                    </div>
-                    <div class="widget-body">
-                        <div id="Funnel-chart"></div>
-                    </div>
-                </div>
-                <div class="widget lg">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">产业布局<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-
-                    </div>
-                    <div class="widget-body">
-                        <div class="fillBox" id="treemap-chart"></div>
-                    </div>
-                </div>
-                <div class="widget lg">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">重点企业<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-
-                    </div>
-                    <div class="widget-scroll">
-                        <ul class="list">
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-primary">Primary</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-primary">Primary</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-primary">Primary</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-primary">Primary</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-primary">Primary</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-success">Success</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-success">Success</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-success">Success</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-                            <li class="list-link">
-                                <div class="list-start">
-                                    <i class="ran-icon34"></i>
-                                </div>
-                                <div class="list-info">
-                                    四川康弘医药贸易有限公司
-                                </div>
-                                <div class="list-end">
-                                    <span class="tag tag-warning tag-delate">Warning</span>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget md">
-                    <div class="widget-header">
-                        <h3 class="widget-title link-title">开工项目<a href="###" class="link-btn"><i
-                                    class="ran-icon64"></i></a></h3>
-                        <div class="hint">*2021年度开工与历史累计开工对比</div>
-                    </div>
-                    <div class="widget-body">
-                        <div class="grid-small-widget">
-                            <div class="grid-small-widget-item">
-                                <div class="grid-small-widget-start">
-                                    <div class="title">项目数 (宗)</div>
-                                    <div class="info">17/325</div>
-                                </div>
-                                <div class="grid-small-widget-end smallDoughnut-chart">
-                                    123
-                                </div>
-                            </div>
-                            <div class="grid-small-widget-item">
-                                <div class="grid-small-widget-start">
-                                    <div class="title">实际用地 (公顷)</div>
-                                    <div class="info">40/757</div>
-                                </div>
-                                <div class="grid-small-widget-end smallDoughnut-chart">123</div>
-                            </div>
-                            <div class="grid-small-widget-item">
-                                <div class="grid-small-widget-start">
-                                    <div class="title">预计总投资 (亿)</div>
-                                    <div class="info">70.45/611.16</div>
-                                </div>
-                                <div class="grid-small-widget-end smallDoughnut-chart">123</div>
-                            </div>
-                            <div class="grid-small-widget-item">
-                                <div class="grid-small-widget-start">
-                                    <div class="title">完成总投资 (亿)</div>
-                                    <div class="info">7.63/418.88</div>
-                                </div>
-                                <div class="grid-small-widget-end smallDoughnut-chart">123</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="widget md">
-                    <div class="widget-rotation">
-                        <ul class="widget-rotation-box">
-                            <li class="widget-rotation-item" style="background-image: url(dest/images/webp/img1.webp);">
-                            </li>
-                            <li class="widget-rotation-item" style="background-image: url(dest/images/webp/img2.webp);">
-                            </li>
-                            <li class="widget-rotation-item" style="background-image: url(dest/images/webp/img3.webp);">
-                            </li>
-                            <li class="widget-rotation-item" style="background-image: url(dest/images/webp/img5.webp);">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </section>
     <div id="demobox"></div>
 </body>

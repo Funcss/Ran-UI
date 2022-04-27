@@ -66,11 +66,7 @@ p {
     margin-bottom: 1.6rem;
 }
 
-[draggable="false"]{
-    cursor: -webkit-grab;
-    cursor: -o-grab;
-    cursor: grab;
-}
+
 [draggable="true"]{
     cursor: -webkit-grabbing;
     cursor: -o-grabbing;

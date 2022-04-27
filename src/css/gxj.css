@@ -2,32 +2,158 @@
 
 :root {
     --card-width: 48rem;
+    
 }
 
 :root body {
     position: static;
+    &.widget-group-hide {
+        .widget-group {
+            opacity: 0;
+            transform: scale(0.9);
+            visibility: hidden;
+        }
+
+    }
 }
 
-.login-logo{
+
+
+.sortable-ghost {
+    border: 1px solid #fff6b2;
+}
+
+.login-logo {
     position: absolute;
     left: 4rem;
     top: 0rem;
     color: #fff;
     font-size: 3.2rem;
     font-family: ysbt;
-    font-weight: 400; 
+    font-weight: 400;
     text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.2);
 }
-.ds-container {
+
+.container-app {
+    display: grid;
+    align-content: flex-end;
+    padding: 4rem 3.2rem;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url(../images/bg.png) no-repeat center center;
+    background-size: 110%;
+    overflow: hidden;
+    transition: background-size 0.6s;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 40%;
+        background-image: linear-gradient(0deg, rgba(0, 16, 25, .95), rgba(0, 16, 25, 0));
+    }
+
+    &.show {
+        background-size: 100%;
+
+        &>.app-dock {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &~.drawer{
+            display: none;
+        }
+    }
+}
+
+.app-dock {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4.8rem;
+    justify-content: center;
+    transition: all 0.6s cubic-bezier(0.32, 1.2, 0.8, 1);
+    transform: translateY(100%);
+    opacity: 0;
+    z-index: 1;
+
+}
+
+.app-dock-item {
+    display: grid;
+    font-size: 2rem;
+    font-weight: bold;
+    gap: 0.8rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        transform: translateY(-8px);
+
+        &::before {
+            background-size: 120%;
+        }
+    }
+
+    &::before {
+        content: '';
+        height: 22rem;
+        width: 34rem;
+        border-radius: 1.6rem;
+        box-shadow: 0 0 1px rgb(0 0 0 / 24%), 0 5px 8px rgb(0 0 0 / 12%), 0 8px 16px 2px rgb(0 0 0 / 10%), 0 12px 18px 2px rgb(0 0 0 / 5%);
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(255, 255, 255, .08);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        transition: background-size 0.6s;
+        background-position: center;
+    }
+
+    &.dock1::before {
+        background-image: url(../images/dock1.png);
+    }
+
+    &.dock2::before {
+        background-image: url(../images/dock2.png);
+    }
+
+    &.dock3::before {
+        background-image: url(../images/dock3.png);
+    }
+
+    &.dock4::before {
+        background-image: url(../images/dock4.png);
+    }
+}
+
+.container {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     z-index: 0;
+    transition: opacity 0.6s;
+
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+
+        .widget-group {
+            pointer-events: none;
+        }
+    }
+
 }
 
-.ds-mapbox {
+.mapbox {
     position: absolute !important;
     left: 0;
     right: 0;
@@ -72,7 +198,7 @@
     justify-content: end;
 }
 
-.ds-headerWeather {
+.headerWeather {
     display: grid;
     grid-auto-flow: column;
     align-items: center;
@@ -140,26 +266,34 @@
             font-family: ranIcon;
             font-size: 2rem;
         }
-
-        &:nth-of-type(1)::before {
+        &.mapTools-home::before {
+            content: "\e914";
+        }
+        &.mapTools-rule::before {
             content: "\e97d";
         }
 
-        &:nth-of-type(2)::before {
+        &.mapTools-layer::before {
             content: "\e94d";
         }
-
-        &:nth-of-type(3)::before {
-            content: "\e929";
+        &.mapTools-channel::before {
+            content: "\e907";
+        }
+        &.mapTools-flash::before {
+            content: "\e980";
         }
 
-        &:nth-of-type(4)::before {
+        &.mapTools-map::before {
             content: "\e91f";
+        }
+
+        &.mapTools-search::before {
+            content: "\e91e";
         }
     }
 }
 
-.widget-group{
+.widget-group {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -168,6 +302,8 @@
     overflow: auto;
     scroll-snap-type: y mandatory;
     overflow-anchor: auto;
+    transition: all 0.3s;
+
     /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     /*水平滚动吸附对齐方向效果*/
     &::-webkit-scrollbar {
@@ -176,7 +312,8 @@
         height: 0px;
         background-color: transparent;
     }
-    &>.widget{
+
+    &>.widget {
         scroll-snap-align: center;
         /*滑动吸附定位元素的位置*/
     }
@@ -189,7 +326,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(var(--card-width) + 5.6rem);
-    background: url(../images/widget-bg.png) repeat 0 0/80px auto,linear-gradient(270deg,rgba(1,25,42,.004),rgba(1,25,42,.98) 80%);
+    background: url(../images/widget-bg.png) repeat 0 0/80px auto, linear-gradient(270deg, rgba(1, 25, 42, .004), rgba(1, 25, 42, .98) 80%);
     transition: all 0.3s;
     pointer-events: none;
 
@@ -198,10 +335,12 @@
         visibility: hidden;
         pointer-events: none;
     }
-    &>*{
+
+    &>* {
         pointer-events: auto;
     }
-    .widget-group{
+
+    .widget-group {
         left: 0.8rem;
     }
 }
@@ -212,8 +351,8 @@
     right: 0;
     bottom: 0;
     z-index: 2;
-    width: calc(var(--card-width)  + 5.6rem);
-    background: url(../images/widget-bg.png) repeat 0 0/80px auto,linear-gradient(90deg,rgba(1,25,42,.004),rgba(1,25,42,.98) 80%);
+    width: calc(var(--card-width) + 5.6rem);
+    background: url(../images/widget-bg.png) repeat 0 0/80px auto, linear-gradient(90deg, rgba(1, 25, 42, .004), rgba(1, 25, 42, .98) 80%);
     transition: all 0.3s;
     pointer-events: none;
 
@@ -222,10 +361,12 @@
         visibility: hidden;
         pointer-events: none;
     }
-    &>*{
+
+    &>* {
         pointer-events: auto;
     }
-    .widget-group{
+
+    .widget-group {
         right: .8rem;
     }
 }
@@ -314,3 +455,10 @@
     }
 }
 
+.drawer-right {
+    right: 3.2rem;
+}
+
+.drawer-left {
+    left: 3.2rem;
+}

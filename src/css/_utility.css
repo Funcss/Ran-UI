@@ -102,6 +102,9 @@ screen and (min-resolution: 2dppx) {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+.tc{
+    text-align: center;
+}
 .flex-middle-box{
     display: flex;
     justify-content: space-between;

@@ -1,12 +1,3 @@
-//拖动drop:https://sortablejs.github.io/sortablejs/
-const widgetBox = document.querySelectorAll('.widget-group');
-
-widgetBox.forEach(function(item){
-    new Sortable(item, {
-        animation: 150,
-        ghostClass: 'sortabling'
-        });
-})
 
 
 /*资源消耗*/
@@ -261,13 +252,13 @@ electricListTrend = {
     }
 };
 
-if(naturalGas){
+if (naturalGas) {
     naturalGas.setOption(gasListTrend);
 }
-if(tapWater){
+if (tapWater) {
     tapWater.setOption(waterListTrend);
 }
-if(electricPower){
+if (electricPower) {
     electricPower.setOption(electricListTrend);
 }
 
@@ -379,7 +370,7 @@ histogramOption = {
         },]
 };
 
-if(histogram){
+if (histogram) {
     histogram.setOption(histogramOption);
 }
 
@@ -464,7 +455,7 @@ var doughnutOption = {
         ]
     }]
 }
-if(Doughnut){
+if (Doughnut) {
     Doughnut.setOption(doughnutOption);
 }
 
@@ -1021,7 +1012,7 @@ FunnelOption = {
     ]
 };
 
-if(Funnel){
+if (Funnel) {
     Funnel.setOption(FunnelOption);
 }
 
@@ -1029,7 +1020,8 @@ if(Funnel){
 
 /*产业产值，直方图，矩阵图*/
 
-
+var ROOT_PATH =
+    'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
 
 if (document.getElementById('treemap-chart')) {
     var treemap = echarts.init(document.getElementById('treemap-chart'), 'dark');
@@ -1138,7 +1130,74 @@ treemapOption = {
     ]
 };
 
-if(treemap){
+// $.get(ROOT_PATH + '/data/asset/data/disk.tree.json', function (diskData) {
+//     treemap.hideLoading();
+//     const formatUtil = echarts.format;
+//     function getLevelOption() {
+//       return [
+//         {
+//           itemStyle: {
+//             borderWidth: 0,
+//             gapWidth: 5
+//           }
+//         },
+//         {
+//           itemStyle: {
+//             gapWidth: 1
+//           }
+//         },
+//         {
+//           colorSaturation: [0.35, 0.5],
+//           itemStyle: {
+//             gapWidth: 1,
+//             borderColorSaturation: 0.6
+//           }
+//         }
+//       ];
+//     }
+//     treemap.setOption(
+//       (treemapOption = {
+//         title: {
+//           text: 'Disk Usage',
+//           left: 'center'
+//         },
+//         tooltip: {
+//           formatter: function (info) {
+//             var value = info.value;
+//             var treePathInfo = info.treePathInfo;
+//             var treePath = [];
+//             for (var i = 1; i < treePathInfo.length; i++) {
+//               treePath.push(treePathInfo[i].name);
+//             }
+//             return [
+//               '<div class="tooltip-title">' +
+//                 formatUtil.encodeHTML(treePath.join('/')) +
+//                 '</div>',
+//               'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
+//             ].join('');
+//           }
+//         },
+//         series: [
+//           {
+//             name: 'Disk Usage',
+//             type: 'treemap',
+//             visibleMin: 300,
+//             label: {
+//               show: true,
+//               formatter: '{b}'
+//             },
+//             itemStyle: {
+//               borderColor: '#fff'
+//             },
+//             levels: getLevelOption(),
+//             data: diskData
+//           }
+//         ]
+//       })
+//     );
+//   });
+
+if (treemap) {
     treemap.setOption(treemapOption);
 }
 
@@ -1212,3 +1271,731 @@ smallDoughnut.forEach(function (item) {
     });
 })
 
+
+
+/*嵌套环形图*/
+if (document.getElementById('Ring-chart')) {
+    var Ring = echarts.init(document.getElementById('Ring-chart'), 'dark');
+}
+var RingOption = {
+    //backgroundColor: '#000',
+    //color: ['#53f1f2', '#4ebefd', '#30ed9d'],
+    legend: {
+        show: true,
+        orient: 'vertical',
+        left: 'left',
+        top: 'middle',
+        data: ['2021年投资进度', '历史累积投资进度'],
+        itemWidth: 14,
+        itemGap: 16,
+        textStyle: {
+            color: '#fff',
+            fontSize: 14
+        }
+    },
+
+    series: [{
+        name: '历史累积投资进度',
+        type: 'gauge',
+        startAngle: 90,
+        endAngle: -270,
+        radius: '100%', //圆环大小
+        center: ['50%', '50%'],
+        pointer: {
+            show: false
+        },
+        progress: {
+            show: true,
+            overlap: false,
+            roundCap: true,
+            clip: false,
+
+        },
+        axisLine: {
+            lineStyle: {
+                width: 12,
+                color: [
+                    [1, '#fff']
+                ],
+                opacity: 0.08, //底环白色
+            }
+        },
+        splitLine: {
+            show: false,
+
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            show: false,
+        },
+        title: {
+            show: false, //圆环中间不显示标题
+        },
+        detail: {
+            show: false, //圆环中间不显示值
+        },
+        data: [{
+            value: 60,
+            name: '历史累积投资进度',
+
+        }]
+    }, {
+        name: '2021年投资进度',
+        type: 'gauge',
+        startAngle: 90,
+        endAngle: -270,
+        radius: '85%', //圆环大小
+        center: ['50%', '50%'],
+        pointer: {
+            show: false
+        },
+        progress: {
+            show: true,
+            overlap: false,
+            roundCap: true,
+            clip: false,
+
+        },
+        axisLine: {
+            lineStyle: {
+                width: 12,
+                color: [
+                    [1, '#fff']
+                ],
+                opacity: 0.08, //底环白色
+            }
+        },
+        splitLine: {
+            show: false,
+
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            show: false,
+        },
+        title: {
+            show: false, //圆环中间不显示标题
+        },
+        detail: {
+            show: false, //圆环中间不显示值
+        },
+        data: [{
+            value: '50',
+            name: '2021年投资进度',
+        }]
+    }],
+
+
+    graphic: [{ //环形图中间添加文字
+        type: 'text', //通过不同top值可以设置上下显示
+        left: 'center',
+        top: '38%',
+        style: {
+            text: 419.52,
+            textAlign: 'center',
+            fill: '#fff', //文字的颜色
+            fontSize: 32,
+            fontFamily: "din"
+        }
+    }, {
+        type: "text",
+        left: 'center',
+        top: "56%",
+        style: {
+            text: "累计投资(亿)",
+            textAlign: "center",
+            fill: "rgba(255,255,255,0.72)",
+            fontSize: 14,
+        }
+    }],
+};
+
+if (Ring) {
+    Ring.setOption(RingOption);
+}
+
+
+
+
+/*桑基图 sankey*/
+
+var sankey = document.getElementById('sankey-chart');
+var sankeyChart = echarts.init(sankey, 'dark');
+var sankeyOption;
+
+sankeyChart.showLoading();
+$.get(
+    'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/data/asset/data/energy.json',
+    function (data) {
+        sankeyChart.hideLoading();
+        sankeyChart.setOption(
+            (sankeyOption = {
+                title: {
+                    text: '投资桑基图',
+                    show: false,
+                },
+                tooltip: {
+                    trigger: 'item',
+                    triggerOn: 'mousemove'
+                },
+                label:{
+                    color:"#fff"
+                  },
+
+                series: [
+                    {
+                        type: 'sankey',
+                        data: data.nodes,
+                        links: data.links,
+                        emphasis: {
+                            focus: 'adjacency'
+                        },
+                        lineStyle: {
+                            color: 'gradient',
+                            curveness: 0.5
+                        }
+                    
+                    }
+
+                ]
+            })
+        );
+    }
+);
+
+sankeyOption && sankeyChart.setOption(sankeyOption);
+
+
+/*产业矩阵*/
+
+
+var canyeChartDom = document.getElementById('canye-chart');
+var canyeChart = echarts.init(canyeChartDom, 'dark');
+var canyeOption;
+
+canyeChart.showLoading();
+$.get('https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/data/asset/data/disk.tree.json', function (diskData) {
+    canyeChart.hideLoading();
+  const formatUtil = echarts.format;
+  function getLevelOption() {
+    return [
+      {
+        itemStyle: {
+          borderWidth: 0,
+          gapWidth: 5
+        }
+      },
+      {
+        itemStyle: {
+          gapWidth: 1
+        }
+      },
+      {
+        colorSaturation: [0.35, 0.5],
+        itemStyle: {
+          gapWidth: 1,
+          borderColorSaturation: 0.6
+        }
+      }
+    ];
+  }
+  canyeChart.setOption(
+    (canyeOption = {
+      title: {
+        text: 'Disk Usage',
+        show: false
+      },
+     
+      tooltip: {
+        formatter: function (info) {
+          var value = info.value;
+          var treePathInfo = info.treePathInfo;
+          var treePath = [];
+          for (var i = 1; i < treePathInfo.length; i++) {
+            treePath.push(treePathInfo[i].name);
+          }
+          return [
+            '<div class="tooltip-title">' +
+              formatUtil.encodeHTML(treePath.join('/')) +
+              '</div>',
+            'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
+          ].join('');
+        }
+      },
+      series: [
+        {
+          name: 'Disk Usage',
+          type: 'treemap',
+          visibleMin: 300,
+          label: {
+            show: true,
+            formatter: '{b}'
+          },
+          itemStyle: {
+            borderColor: '#fff'
+          },
+          levels: getLevelOption(),
+          data: diskData
+        }
+      ]
+    })
+  );
+});
+
+canyeOption && canyeChart.setOption(canyeOption);
+
+
+/*投资产值对比*/
+
+if (document.getElementById('touZiCanZhi-chart')) {
+    var touZiCanZhi = echarts.init(document.getElementById('touZiCanZhi-chart'), 'dark');
+}
+var touZiCanZhiOption = {
+    title: {
+        text: '投资产值（万元）',
+        show: true,
+        textStyle:{
+            fontSize:14,
+            align:'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient:'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left:'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '-20px',
+        top: '40px',
+        containLabel: true
+    },
+    xAxis: {
+        show: false,
+    },
+    yAxis: {
+        type: 'category',
+        data: ['产值', '工业投资', '进出口总值']
+    },
+    series: [
+        {
+            name: '2021',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: "50%",/*柱子之间间距*/
+            
+            data: [18203, 23489, 29034]
+        },
+        {
+            name: '2020',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: "50%",/*柱子之间间距*/
+           
+            data: [19325, 23438, 31000]
+        }
+    ]
+};
+
+if (touZiCanZhi) {
+    touZiCanZhi.setOption(touZiCanZhiOption);
+}
+
+
+/*出口国家-基础柱状图*/
+if (document.getElementById('chuKou-chart')) {
+    var chuKou = echarts.init(document.getElementById('chuKou-chart'), 'dark');
+}
+var chuKouOption = {
+    title: {
+        text: '出口规模（万元）',
+        show: true,
+        textStyle:{
+            fontSize:14,
+            align:'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient:'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left:'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        data: ['美国', '欧洲', '日本', '俄罗斯', '韩国', '泰国', '其他']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: 'bar',
+          barWidth: 16/*柱子宽度*/,
+        }
+      ]
+};
+
+if (chuKou) {
+    chuKou.setOption(chuKouOption);
+}
+
+
+/*研发投入*/
+if (document.getElementById('RD-chart')) {
+    var RD = echarts.init(document.getElementById('RD-chart'), 'dark');
+}
+var RDoption = {
+    title: {
+        text: '企业研发投入',
+        show: true,
+        textStyle:{
+            fontSize:14,
+            align:'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient:'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left:'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '48px',
+        containLabel: true
+    },
+    yAxis: {
+        //show: false,
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    xAxis: {
+        type: 'category',
+        data: ['其他相关费用', '无形资产摊销', '折旧费用', '新产品设计费', '人工费用', '直接投入费用',]
+    },
+    series: [
+        {
+            name: '2021',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: '50%',
+           
+            data: [18203, 23489, 29034, 104970, 131744, 630230]
+        },
+        {
+            name: '2020',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: '50%',
+           
+            data: [19325, 23438, 31000, 121594, 134141, 681807]
+        }
+    ]
+};
+
+if (RD) {
+    RD.setOption(RDoption);
+}
+
+/*能耗统计*/
+if (document.getElementById('power-chart')) {
+    var power = echarts.init(document.getElementById('power-chart'), 'dark');
+}
+var powerOption = {
+    title: {
+        text: '资源消耗',
+        show: true,
+        textStyle:{
+            fontSize:14,
+            align:'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross', //鼠标hover后指示线类型
+            label: {
+                backgroundColor: '#6a7985' //指示线显示数字颜色
+            }
+        }
+    },
+    legend: {
+        data: ['用水', '用电', '天然气'],
+        orient:'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left:'right'
+    },
+    toolbox: {
+        feature: {
+            magicType: {
+                show: false,
+                type: ['line', 'bar', 'stack']
+            }
+        }
+    },
+    grid: {
+        left: '0',
+        right: '0',
+        bottom: '0',
+        top:'48px',
+        containLabel: true
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap: false,
+        data: ['2021/9', '2021/10', '2021/11', '2021/12', '2022/1', '2022/2', '2022/3'],
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0)", //x轴颜色和尺寸
+                width: 0
+            }
+        }
+    }],
+    yAxis: [{
+        //show: false, //不显示
+        type: 'value'
+    }],
+    series: [{
+            name: '用水',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {
+                opacity: 0.2
+            },
+            lineStyle: {
+                //type: 'dashed',
+                width: 2
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name: '用电',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {
+                opacity: 0.2
+            },
+            lineStyle: {
+                //type: 'dashed',
+                width: 2
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name: '天然气',
+            type: 'line',
+            stack: 'Total',
+            areaStyle: {
+                opacity: 0.2
+            },
+            lineStyle: {
+                //type: 'dashed',
+                width: 2
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [150, 232, 201, 154, 190, 330, 410]
+        }
+
+    ]
+};
+
+if (power) {
+    power.setOption(powerOption);
+}
+
+
+/*项目企业产业分布*/
+
+
+var treeChartDom = document.getElementById('tree-chart');
+var treeChart = echarts.init(treeChartDom ,'dark');
+var treeOption;
+
+treeChart.showLoading();
+$.get('https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/data/asset/data/flare.json', function (data) {
+    treeChart.hideLoading();
+    treeChart.setOption(
+    (treeOption = {
+        title: {
+            text: '园区产业&企业分布',
+            show: true,
+            textStyle:{
+                fontSize:14,
+                align:'left',
+            }
+        },
+      tooltip: {
+        trigger: 'item',
+        triggerOn: 'mousemove'
+      },
+      label:{
+        color:"#fff"
+      },
+      series: [
+        {
+          type: 'tree',
+          data: [data],
+          left: '2%',
+          right: '2%',
+          top: '8%',
+          bottom: '20%',
+          symbol: 'emptyCircle',
+          orient: 'vertical',
+          expandAndCollapse: true,
+          label: {
+            position: 'top',
+            rotate: -90,
+            verticalAlign: 'middle',
+            align: 'right',
+            fontSize: 9
+          },
+          leaves: {
+            label: {
+              position: 'bottom',
+              rotate: -90,
+              verticalAlign: 'middle',
+              align: 'left'
+            }
+          },
+          animationDurationUpdate: 750
+        }
+      ]
+    })
+  );
+});
+
+treeOption && treeChart.setOption(treeOption);
+
+
+
+ //部分弹出层demo
+ var doughnutOption1 = {
+
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} {d}%' //hover显示百分比,{b}我标题，{c}为数据，{d}为百分比
+    },
+    legend: {
+        // show: false
+        orient: 'vertical',
+        left: 'left',
+        top: 'middle',
+        itemWidth: 14,
+        itemGap: 16,
+        textStyle: {
+            color: '#fff',
+            fontSize: 14
+        }
+    },
+
+    graphic: [
+
+        { //环形图中间添加文字
+            type: 'text', //通过不同top值可以设置上下显示
+            left: 'center',
+            top: '38%',
+            style: {
+                text: '567',
+                textAlign: 'center',
+                fill: '#fff', //文字的颜色
+                // width: 108,
+                // height: 30,
+                fontSize: 32,
+                fontFamily: "din"
+            }
+        }, {
+            type: "text",
+            left: 'center',
+            top: "56%",
+            style: {
+                text: "关联企业",
+                textAlign: "center",
+                fill: "rgba(255,255,255,0.72)",
+                fontSize: 14,
+            }
+        }
+    ],
+    series: [{
+        type: 'pie',
+        radius: ['75%', '95%'], //设置环形中心
+        avoidLabelOverlap: false,
+        itemStyle: {
+            borderColor: 'rgba(0,0,0,0.4)',
+            borderWidth: 1
+        },
+        label: {
+            show: false,
+
+        },
+
+        data: [{
+                value: 8,
+                name: '新能源汽车'
+            },
+            {
+                value: 24,
+                name: '医疗健康'
+            },
+            {
+                value: 13,
+                name: '芯片制造'
+            },
+            {
+                value: 46,
+                name: '电子信息技术'
+            },
+            {
+                value: 21,
+                name: '石油化工'
+            },
+        ]
+    }]
+}
+echarts.init(document.getElementById('Doughnut1-chart'), 'dark').setOption(doughnutOption1);

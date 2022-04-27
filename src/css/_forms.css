@@ -107,6 +107,24 @@ input[type=radio] {
     }
 }
 
+input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    background: url('data:image/svg+xml;charset=utf-8,<svg width="12" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M6.025 12.746c.817 0 1.585-.156 2.306-.469a6.11 6.11 0 0 0 1.907-1.295 6.11 6.11 0 0 0 1.295-1.907c.313-.72.469-1.49.469-2.305 0-.817-.156-1.585-.469-2.306a6.11 6.11 0 0 0-1.295-1.907 6.1 6.1 0 0 0-1.91-1.295A5.754 5.754 0 0 0 6.02.793c-.817 0-1.585.156-2.306.469A6.134 6.134 0 0 0 .518 4.464a5.733 5.733 0 0 0-.47 2.306c0 .816.157 1.584.47 2.305a6.11 6.11 0 0 0 1.294 1.907 6.11 6.11 0 0 0 1.908 1.295c.72.313 1.489.47 2.305.47ZM3.963 9.324a.458.458 0 0 1-.34-.143.48.48 0 0 1-.14-.349c0-.133.046-.246.14-.34L5.34 6.775 3.623 5.06a.463.463 0 0 1-.14-.34.46.46 0 0 1 .14-.343.468.468 0 0 1 .34-.138.44.44 0 0 1 .34.14l1.722 1.718 1.74-1.723a.447.447 0 0 1 .335-.146c.132 0 .246.046.34.14.093.094.14.207.14.34a.496.496 0 0 1-.14.346L6.716 6.775l1.717 1.711a.496.496 0 0 1 0 .695.486.486 0 0 1-.691-.003L6.024 7.46 4.32 9.178a.486.486 0 0 1-.357.146Z" fill="#0c90be" fill-rule="nonzero"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right center;
+    transition: all 0.2s; 
+
+}
+input:focus,input.focus{
+    &::-webkit-search-cancel-button{
+        opacity: 1 !important;
+        pointer-events: auto!important;
+    }
+}
+
 input[type=checkbox] {
     &.switch {
         --size: 4rem;
@@ -270,95 +288,53 @@ input[type=checkbox] {
 
 
 input[type=range] {
+    position: relative;
     display: block;
     width: 100%;
     border: none;
     outline: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    --size: .4rem;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calc(var(--value) * 1%);
+        max-width: 100%;
+        height: var(--size);
+        pointer-events: none;
+        border-radius: var(--size);
+        background: var(--ui-primary);
+    }
 
     &::-webkit-slider-runnable-track {
-        height: .4rem;
+        height: var(--size);
         border: none;
         outline: none;
+        background: var(--base-thin);
+        border-radius: var(--size);
     }
 
     &::-webkit-slider-thumb {
+        position: relative;
         -webkit-appearance: none;
         background: #fff;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .2), 0 1px 2px rgba(0, 0, 0, .2), 0 2px 6px rgba(0, 0, 0, .3);
         border: none;
         height: 1.8rem;
         width: 1.8rem;
         border-radius: 100%;
-        transform: translateY(-0.6rem);
+        transform: translateY(calc(-50% + var(--size)/2));
         cursor: ew-resize;
+
+       
     }
 }
 
-.range {
-    position: relative;
-    height: 0.4rem;
-    background: var(--base-air);
-    border-radius: 0.4rem;
 
-    &::before {
-        content: "";
-        display: block;
-        height: 100%;
-        width: calc(var(--range, 0) * 1%);
-        max-width: 100%;
-        background: var(--ui-primary);
-        border-radius: 0.4rem;
-    }
 
-    &>span {
-        position: absolute;
-        left: calc(var(--range, 0) * 1%);
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-        height: 1.8rem;
-        width: 1.8rem;
-        border-radius: 100%;
-        background: #fff;
-        box-shadow: 0 0 1px rgba(0, 0, 0, .2), 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .08), 0 1px 3px 0 rgba(0, 0, 0, .12), 0 2px 8px rgba(0, 0, 0, .16);
-        cursor: ew-resize;
-
-        &::before {
-            content: counter(range)'%';
-            counter-reset: range var(--range);
-            position: absolute;
-            left: 50%;
-            top: 0;
-            background: color-mod(var(--ui-primary) a(24%));
-            font-size: 1.2rem;
-            color: var(--ui-primary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.2rem;
-            transform: translate(-50%, calc(-100% - 0.8rem));
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            border: 0.5rem solid transparent;
-            border-top-color: color-mod(var(--ui-primary) a(24%));
-            transform: translate(-50%, calc(-100% + 0.2rem));
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        &:hover {
-
-            &::before,
-            &::after {
-                opacity: 1;
-            }
-        }
-    }
-}
 
 .form-item {
     margin-bottom: 1.6rem;
@@ -411,7 +387,7 @@ input[type=range] {
         box-shadow: 0 0.2rem 0.6rem -0.1rem var(--base-thin);
     }
 
-    &:focus {
+    &:focus,&.focus {
         border-color: var(--ui-primary);
         box-shadow: 0 0.1rem 0.3rem color-mod(var(--ui-primary) a(24%));
     }
@@ -448,14 +424,19 @@ input[type=range] {
         background: var(--base-air);
     }
 
-    &:focus {
+    &:focus,&.focus {
         box-shadow: none;
         background: transparent;
         border-color: var(--ui-primary);
         box-shadow: 0 0.1rem 0.3rem color-mod(var(--ui-primary) a(24%));
     }
 }
-
+.stretch-input{
+    width: 60%;
+    &:focus,&.focus{
+        width: 100%;
+    }
+}
 
 textarea {
     @extend .input;
@@ -726,7 +707,7 @@ select {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    
+
 
     &.inline {
         width: auto;
@@ -739,20 +720,23 @@ select {
         border: none;
         box-shadow: none;
     }
-    &.select-sm{
+
+    &.select-sm {
         @extend .input-sm;
     }
-    &.select-md{
+
+    &.select-md {
         @extend .input-md;
     }
-    &.select-lg{
+
+    &.select-lg {
         @extend .input-lg;
     }
 }
 
 .select-solid {
     background-color: var(--base-thin);
-    border:1px solid var(--base-thin);
+    border: 1px solid var(--base-thin);
 
     &:hover {
         box-shadow: none;
@@ -760,7 +744,8 @@ select {
         background-color: var(--base-air);
     }
 }
-.selectText{
+
+.selectText {
     @extend .ellipsis;
 }
 
@@ -781,10 +766,10 @@ select {
     opacity: 0;
     visibility: hidden;
     transform-origin: center top;
-    z-index: 1;
+    z-index: 10000000;
 }
 
-.menu-top{
+.menu-top {
     flex: none;
     position: sticky;
     top: 0;
@@ -851,7 +836,7 @@ select {
     margin: 0;
     height: var(--size);
     overflow: auto;
-    padding:calc(var(--size)*2);
+    padding: calc(var(--size)*2);
     font-size: 1.6rem;
     -webkit-overflow-scrolling: touch;
     /*手机端回弹效果*/
@@ -862,7 +847,8 @@ select {
     overflow-anchor: auto;
     /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     transform-style: preserve-3d;
-    &:after{
+
+    &:after {
         content: "";
         display: block;
         visibility: hidden;
@@ -872,12 +858,12 @@ select {
     &:hover {
         box-shadow: none;
 
-       .rollerSelect-item {
+        .rollerSelect-item {
             will-change: transform, opacity;
         }
     }
 
-    .rollerSelect-item{
+    .rollerSelect-item {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -906,17 +892,20 @@ select {
     -ms-scroll-chaining: contain;
     /*同overscroll-behavior的ie兼容方法*/
     overflow-anchor: auto;
+
     /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     /*高度为直径*/
     .rollerSelect-box {
         position: relative;
         min-height: 100%;
     }
-    &:hover{
-        .rollerSelect-list{
+
+    &:hover {
+        .rollerSelect-list {
             will-change: transform;
         }
-        .rollerSelect-item{
+
+        .rollerSelect-item {
             will-change: opacity;
         }
     }
@@ -945,9 +934,11 @@ select {
             pointer-events: none;
             opacity: 0;
             transition: linear opacity 0.1s;
-            &:hover{
+
+            &:hover {
                 background-color: var(--base-thinner);
             }
+
             &:nth-child(12n+1) {
                 transform: rotateX(0deg) translateZ(6.4rem);
                 /*6.4为半径*/
@@ -996,27 +987,33 @@ select {
             &:nth-child(12n+12) {
                 transform: rotateX(-330deg) translateZ(6.4rem);
             }
-            &.show1{
+
+            &.show1 {
                 pointer-events: auto;
-                opacity: 0.2;  
+                opacity: 0.2;
             }
-            &.show2{
+
+            &.show2 {
                 pointer-events: auto;
-                opacity: 0.6;  
+                opacity: 0.6;
             }
-            &.show3{
+
+            &.show3 {
                 pointer-events: auto;
-                opacity: 1;  
+                opacity: 1;
             }
-            &.show4{
+
+            &.show4 {
                 pointer-events: auto;
-                opacity: 0.6;  
+                opacity: 0.6;
             }
-            &.show5{
+
+            &.show5 {
                 pointer-events: auto;
-                opacity: 0.2;  
+                opacity: 0.2;
             }
-            &.selected{
+
+            &.selected {
                 background: var(--ui-primary);
                 color: #fff;
             }

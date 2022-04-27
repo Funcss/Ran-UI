@@ -62,8 +62,11 @@ body {
 
         }
 
-        .header-tab>a.active:before {
-            background: var(--paper);
+        .header-tab>a.active{
+            z-index: 1;
+            &::before {
+                background: var(--paper);
+            }
         }
 
         .scroll-list .list-title,

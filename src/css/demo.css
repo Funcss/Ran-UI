@@ -13,7 +13,7 @@ h3{
     &::before{
         content: counter(h3)'、';
     }
-    &.widget-title,&.normal-title{
+    &.widget-title,&.normal-title,&.sub-top-title{
         &::before{
             display: none;
         }
@@ -206,4 +206,9 @@ h3{
     padding: 5.6rem;
     background: url(../images/widget-bg.png) repeat 0 0/80px auto;
     background-color: #142435;
+}
+.widget{
+    .grid>div {
+        min-height: auto;
+    }
 }
