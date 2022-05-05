@@ -300,7 +300,6 @@
     box-sizing: content-box;
     padding: 10rem 2rem;
     overflow: auto;
-    scroll-snap-type: y mandatory;
     overflow-anchor: auto;
     transition: all 0.3s;
 
@@ -313,10 +312,7 @@
         background-color: transparent;
     }
 
-    &>.widget {
-        scroll-snap-align: center;
-        /*滑动吸附定位元素的位置*/
-    }
+ 
 }
 
 .sidebar-left {

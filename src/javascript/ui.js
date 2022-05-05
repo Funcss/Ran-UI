@@ -293,6 +293,9 @@ function drawerLeftClose() {
 }
 
 
+
+
+
 /*遮罩loading*/
 
 function backdropLoadingShow(id) {
@@ -499,6 +502,27 @@ function dialogShow(el) {
 }
 
 
+
+// function dialogShow(el) {
+//     const mask = el.closest('.backdrop');//获取祖先mask
+//     anime({
+//         targets: mask,
+//         duration: 220,
+//         easing: 'cubicBezier(0.4, 0, 0.2, 1)',
+//         opacity: 1,
+//         begin: function () {
+//             mask.style.visibility = 'visible';
+//             document.documentElement.style.overflow = 'hidden';
+//             el.classList.add('dialogShow')
+//         }
+//     })
+
+// }
+
+
+
+
+
 function dialogHide(el) {
     anime({
         targets: el,
@@ -516,9 +540,8 @@ function dialogHide(el) {
             document.documentElement.removeAttribute('style');
         }
     });
-
-
 }
+
 
 //堆叠弹出层new
 function dialogStackNext(showEl) {
@@ -1741,21 +1764,21 @@ function accordionBtn() {
 function widgetRotation() {
     var rotation = document.querySelectorAll('.widget-rotation-box');
 
-    
+
 
     rotation.forEach(function (rotationItem) {
         var rotationChild = rotationItem.querySelectorAll('.widget-rotation-item');
 
         rotationChild.forEach(function (item) {
-            var h = rotationItem.clientHeight; 
+            var h = rotationItem.clientHeight;
             var itemTopLine = item.offsetTop;//获取每个模块上边缘距离顶部的距离，为固定值
-            
+
             // 滚动事件开始
             rotationItem.addEventListener('scroll', function () {
                 var scrollY = this.scrollTop;//滚动条距离顶部的距离
-                var x = scrollY/itemTopLine;
-              
-             
+                var x = scrollY / itemTopLine;
+
+
             })
         })
 
