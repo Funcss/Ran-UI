@@ -413,7 +413,7 @@ body {
 
     &.has-sidebar {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-auto-flow: column;
     }
 
     .case-sidebar {
