@@ -59,15 +59,15 @@ body {
                     background-color: rgba(238, 250, 255, .2)
                 }
             }
-
-        }
-
-        .header-tab>a.active{
-            z-index: 1;
-            &::before {
-                background: var(--paper);
+            &.active{
+                &::before {
+                    background: var(--paper);
+                }
             }
+
         }
+
+        
 
         .scroll-list .list-title,
         .case-sidebar-top,
@@ -211,6 +211,7 @@ body {
         }
 
         &.active {
+            z-index: 1;
             &::before {
                 background: var(--paper);
             }
