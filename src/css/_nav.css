@@ -39,7 +39,7 @@
     li {
         position: relative;
         padding: 0.8rem 0 0.8rem 1.6rem;
-        
+      
         &::before{
             content: "";
             width: 0;
@@ -52,14 +52,66 @@
             transform: translateX(-50%);
 
         }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 1.2rem;
+            left: 1.6rem;
+            transform: translateX(-50%);
+            display: inline-block;
+            height: 0.8rem;
+            width: 0.8rem;
+            border-radius: 100%;
+            border: 1px solid var(--ui-primary);
+            color:var(--ui-primary) ;
+        }
         &:last-child {
             padding-bottom: 0;
         }
+        &.light-dot{
+            &::after{
+                background-color: var(--ui-primary);
+                    border-color: var(--ui-primary);
+                    box-shadow: 0 0 0 0.6rem color-mod(var(--ui-primary) a(32%));
+            }
+            &::before{
+                border-left: 1px dotted var(--base-lighter);
+            }
+            &.primary{
+                &::after{
+                    background-color: var(--ui-primary);
+                    border-color: var(--ui-primary);
+                    box-shadow: 0 0 0 0.6rem color-mod(var(--ui-primary) a(32%));
+                }
+            }
+            &.danger{
+                &::after{
+                    background-color: var(--ui-danger);
+                    border-color: var(--ui-danger);
+                    box-shadow: 0 0 0 0.6rem color-mod(var(--ui-danger) a(32%));
+                }
+            }
+            &.warning{
+                &::after{
+                    background-color: var(--ui-warning);
+                    border-color: var(--ui-warning);
+                    box-shadow: 0 0 0 0.6rem color-mod(var(--ui-warning) a(32%));
+                }
+            }
+            &.success{
+                &::after{
+                    background-color: var(--ui-success);
+                    border-color: var(--ui-success);
+                    box-shadow: 0 0 0 0.6rem color-mod(var(--ui-success) a(32%));
+                }
+            }
+        }
     }
     .steps-active{
-        time:before{
+        &::after{
             content: "\e903";
             font-family:'ranIcon' !important;
+            top: 0.8rem;
             height: auto;
             width: auto;
             border: none;
@@ -80,18 +132,7 @@
         padding: 0;
         padding-left: 1.4rem;
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            transform: translateX(-50%);
-            display: inline-block;
-            height: 0.8rem;
-            width: 0.8rem;
-            border-radius: 100%;
-            border: 1px solid var(--ui-primary);
-            color:var(--ui-primary) ;
-        }
+        
     }
 
     .timeline-primary {
@@ -99,7 +140,7 @@
             border-color: var(--ui-primary); 
         }
        
-        time::before {
+        &::after {
             border-color: var(--ui-primary);
             color: var(--ui-primary);
         }
@@ -110,7 +151,7 @@
         &::before{
             border-color: var(--ui-danger);
         }
-        time::before {
+        &::after {
             border-color: var(--ui-danger);
             color: var(--ui-danger);
         }
@@ -121,7 +162,7 @@
         &::before{
             border-color: var(--ui-warning);
         }
-        time::before {
+        &::after {
             border-color: var(--ui-warning);
             color: var(--ui-warning);
         }
@@ -132,7 +173,7 @@
         &::before{
             border-color: var(--ui-success);
         }
-        time::before {
+        &::after {
             border-color: var(--ui-success);
             color: var(--ui-success);
         }
@@ -140,10 +181,15 @@
 }
 
 .timeline_info {
+    display: flex;
+    justify-content: space-between;
     padding: 0;
     padding-left: 1.4rem;
     margin: 0;
 }
+
+
+
 
 .steps {
     --size:4rem;
@@ -302,6 +348,10 @@
             top: 0.4rem;
             bottom: 0.4rem;
         }
+    }
+    &.tabs-sm {
+        height: 2.4rem;
+        font-size: 1.2rem;
     }
     &:hover{
         &::before{

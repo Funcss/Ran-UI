@@ -231,6 +231,7 @@ var(--ui-success);
 
 .grid-btn{
     @extend .grid-block;
+    width: 100%;
     &>a{
         display: grid;
         grid-auto-flow: column;

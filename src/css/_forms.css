@@ -431,6 +431,15 @@ input[type=range] {
         box-shadow: 0 0.1rem 0.3rem color-mod(var(--ui-primary) a(24%));
     }
 }
+
+.input-search{
+    border-radius: var(--md);
+    width: 4rem;
+    &:focus{
+        width: var(--width);
+    }
+}
+
 .stretch-input{
     width: 60%;
     &:focus,&.focus{

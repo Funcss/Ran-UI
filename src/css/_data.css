@@ -168,6 +168,36 @@ a.avatar {
     }
 }
 
+.tag-dot-text{
+    display: inline-flex;
+    background: transparent;
+    &::before{
+        content: "";
+        height: 0.8rem;
+        width: 0.8rem;
+        border-radius: 100%;
+        align-self: center;
+        margin-right: 0.4rem;
+        background-color: var(--color);
+    }
+}
+.tag-text{
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0.4rem;
+    &:only-child{
+        margin: 0;
+    }
+    &:first-child{
+        margin-left: 0;
+    }
+    &:last-child{
+        margin-right: 0;
+    }
+}
 .tag-box {
     @extend .select-tags;
 }
@@ -406,6 +436,7 @@ a.tag {
     dd,
     dt {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         margin: 0;
         padding: 0.8rem;
@@ -1123,8 +1154,9 @@ a.tag {
     justify-content: stretch;
 
     &>li {
-        text-align: center;
-
+        display: grid;
+        justify-items: center;
+        gap: 0.4rem;
         border-right: 1px solid var(--base-thinner);
 
         &:last-child {
@@ -1146,8 +1178,6 @@ a.tag {
     @extend .number;
     font-size: 3.2rem;
     line-height: 1;
-    margin-bottom: 0.4rem;
-
     .link {
         position: absolute;
         top: 50%;

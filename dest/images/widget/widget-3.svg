@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="26px" viewBox="0 0 29 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>􀝓</title>
+    <defs>
+        <linearGradient x1="30.3438187%" y1="30.5931273%" x2="100%" y2="86.3754325%" id="linearGradient-1">
+            <stop stop-color="#43C3C4" offset="0%"></stop>
+            <stop stop-color="#1C8889" stop-opacity="0.339866798" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="SFPro-Regular, SF Pro" font-size="24" font-weight="normal">
+        <g id="总览" transform="translate(-402.000000, -170.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="编组-43" transform="translate(33.000000, 106.000000)">
+                <g id="编组-2备份-3" transform="translate(359.000000, 62.000000)">
+                    <text id="􀝓">
+                        <tspan x="7.68359375" y="23">􀝓</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -25,3 +25,11 @@
 .footer .tabs-round{
     pointer-events: auto;
 }
+
+.accordion-summary{
+    padding: 1.2rem 0.8rem;
+}
+.accordion-summary-title{
+    font-weight: bold;
+    font-size: 1.6rem;
+}

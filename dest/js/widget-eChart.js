@@ -1,4 +1,5 @@
 
+//***考虑封装通用配置，https://www.shuzhiduo.com/A/gGdXmmv7z4/ 
 
 /*资源消耗*/
 var gasData = [
@@ -116,6 +117,8 @@ if (document.getElementById('tap-water')) {
 if (document.getElementById('electric-power')) {
     var electricPower = echarts.init(document.getElementById('electric-power'), 'dark');
 }
+
+
 
 
 
@@ -263,6 +266,72 @@ if (electricPower) {
 }
 
 
+/*默认走势图样式*/
+
+if (document.getElementById('event-trend')) {
+    var eventTrend = echarts.init(document.getElementById('event-trend'), 'dark');
+}
+
+trendChart1 = {
+    xAxis: {
+        show: true,
+        data: electricDataList//这里复用的上面的数据
+    },
+    yAxis: {
+        show: true,
+    },
+    grid: {
+        left:'30',
+        right: '0',
+        bottom: '20',
+        top: '8',
+        containLabel: false
+    },
+    series: {
+        type: 'bar',//bar和line都可以
+        showSymbol: false,
+        data: electricValueList,
+        barWidth: 8/*柱子宽度*/,
+        barGap: "100%",/*柱子之间间距*/
+        lineStyle: {
+            width: 1, //设置线条粗细，为line样式
+            color: '#00D2DE'
+        },
+        areaStyle: {//line样式
+            color: {
+                //线性渐变
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                    offset: 0,
+                    color: 'rgba(0, 216, 222, 0.48)', // 0% 处的颜色
+                }, {
+                    offset: 1,
+                    color: 'rgba(0, 216, 222, 0)', // 100% 处的颜色
+                }],
+                global: false, // 缺省为 false
+            },
+        },
+        itemStyle: {//bar样式
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                    offset: 1,
+                    color: "rgba(0,216,222,1)" // 0% 处的颜色
+                }, {
+                    offset: 0,
+                    color: "rgba(0,216,222,0.24)" // 100% 处的颜色
+                }], false)
+            }
+        },
+    }
+};
+
+if (eventTrend) {
+    eventTrend.setOption(trendChart1);
+}
 
 
 /*产值统计*/

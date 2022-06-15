@@ -488,6 +488,11 @@
     }
 
 }
+.widget-scroll-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .matching-list {
     &>li {
@@ -1410,3 +1415,130 @@
     }
 }
 
+.widget-chart-list1{
+    .list-info_title{
+        font-size: 1.6rem;
+    }
+    .list-start.top{
+        transform: translateY(1px);
+    }
+    .widget-trend-chart{
+        width: 16rem;
+        height: 3.2rem;
+        align-self: stretch;
+        align-self: center;
+    }
+    .list-end-info{
+        text-align: right;
+        margin-left: 1.6rem;
+    }
+    .number{
+        font-size: 1.6rem;
+    }
+}
+
+.widget-chart-list2{
+    .list-info_title{
+        font-size: 1.6rem;
+    }
+    .list-start.top{
+        transform: translateY(1px);
+    }
+    .progress{
+        width: 100%;
+        margin-top: 0.8rem;
+        height: 0.6rem;
+        &::before{
+            display: none;
+        }
+        &::after{
+            background-image: linear-gradient(270deg, #11CCD1 0%, rgba(0,138,146,0.32) 100%);
+        }
+    }
+}
+.widget-today-event{
+    &::before{
+        content: "今日结办 "counter(leftNum);
+    }
+    &::after{
+        content: "今日待办 "counter(rightNum);
+    }
+}
+.widget-table1{
+    text-align: center;
+    table-layout : fixed;
+    width: 100%;
+    border-spacing: 0;
+    font-family: din;
+    th{
+        font-size: 1.2rem;
+        color: var(--text-light);
+    }
+    td,th{
+        padding: 0.4rem;
+    }
+    tbody tr:hover{
+        background: var(--base-thinner);
+    }
+    th:last-child,td:last-child{
+        text-align: right;
+    }
+    th:first-child,td:first-child{
+        text-align: left;
+    }
+}
+.widget-table2{
+    text-align: center;
+    table-layout : fixed;
+    width: 100%;
+    border-spacing: 0;
+    font-family: din;
+    th{
+        font-size: 1.2rem;
+        color: var(--text-light);
+        background-color: var(--base-thinner);
+    }
+    td,th{
+        padding: 0.8rem;
+    }
+    tbody tr:hover{
+        background: var(--base-thinner);
+    }
+    tbody td{
+        border-bottom: 1px solid var(--base-thinner);
+    }
+    
+    th:first-child,td:first-child{
+        text-align: left;
+    }
+}
+.widget-hr{
+    background-color: var(--base-thinner);
+    height: 1px;
+    width: 100%;
+    border: none;
+    margin: 0.4rem 0;
+}
+
+.widget-camera-entry{
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.6rem;
+    border-radius: 0.8rem;
+    background: url(../images/widget/widget-camera-entry.png) no-repeat;
+    background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 12%), 0 0.2rem 0.4rem rgb(0 0 0 / 12%);
+}
+.widget-camera-entry-title{
+    display: flex;
+    align-items: center;
+    &::before{
+        content: '\e965';
+        font-family: ranIcon;
+        margin-right: 0.8rem;
+        font-size: 2rem;
+    }
+}
