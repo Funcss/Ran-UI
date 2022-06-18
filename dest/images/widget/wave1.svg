@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="107px" viewBox="0 0 800 107" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>wave1</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.6112154%" id="linearGradient-1">
+            <stop stop-color="#006BD6" stop-opacity="0.484674627" offset="0%"></stop>
+            <stop stop-color="#0B72C1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.482813517">
+        <g id="wave1" fill="url(#linearGradient-1)">
+            <path d="M800,107.000093 L0,107.000093 L0,29.333463 C48.1666667,29.333463 64.8333333,9.33032291e-05 131.5,9.33032291e-05 C198.350333,-0.0604190474 214.833333,29.333463 266.666667,29.333463 C314.833333,29.333463 331.5,9.33032291e-05 398.166667,9.33032291e-05 C465.017,-0.0604190474 481.5,29.333463 533.333333,29.333463 C581.5,29.333463 598.166667,9.33032291e-05 664.833333,9.33032291e-05 C731.683667,-0.0604190474 748.166667,29.333463 800,29.333463 L800,107.000093 Z" id="形状结合"></path>
+        </g>
+    </g>
+</svg>
