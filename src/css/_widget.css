@@ -636,6 +636,7 @@
     }
 }
 
+
 .grid-small-widget-start {
     display: grid;
     align-content: center;
@@ -647,7 +648,9 @@
     align-content: center;
     justify-content: end;
 }
-
+.smallDoughnut-chart{
+    width: 5.1rem;
+}
 .widget-rotation-box {
     position: absolute;
     left: 0;
