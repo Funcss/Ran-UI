@@ -1150,7 +1150,7 @@ a.tag {
     @extend .list-reset;
     display: grid;
     grid-auto-flow: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: stretch;
 
     &>li {
@@ -1162,7 +1162,9 @@ a.tag {
         &:last-child {
             border-right: none;
         }
-
+        img{
+            height: 2.4rem;
+        }
         small,
         sup,
         sub {

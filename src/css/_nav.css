@@ -65,10 +65,10 @@
             border: 1px solid var(--ui-primary);
             color:var(--ui-primary) ;
         }
-        &:last-child {
-            padding-bottom: 0;
-        }
+       
         &.light-dot{
+            padding-right: 0.8rem;
+            border-radius: 0.8rem;
             &::after{
                 background-color: var(--ui-primary);
                     border-color: var(--ui-primary);

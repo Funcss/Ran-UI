@@ -103,19 +103,18 @@
 
 .progress-gradient {
     &::after {
-        background-image: linear-gradient(90deg, var(--ui-success), var(--ui-danger));
+        background-image: linear-gradient(135deg, #5CCC69 0%, #45C7DA 25%, #E4C748 50%, #FF5757 75%, #DD3CC0 100%);
         width: 100%;
         clip-path: inset(0 calc(100% - var(--bar-width) * 1%) 0 0);
     }
 }
 
 .contrast {
-    --left-color: #00B6A1;
-    --right-color: #257BFF;
+   
     position: relative;
     height: 3.2rem;
     background-color: var(--base-thinner);
-    background-image: linear-gradient(108deg, var(--left-color) 0%, var(--left-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) 100%);
+    background-image: linear-gradient(108deg, var(--ui-mint) 0%, color-mod(var(--ui-mint) l(48%)) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--ui-star) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px),color-mod(var(--ui-star) l(40%)) 100%);
     @extend .number;
     font-size: 1.6rem;
     padding: 0 1rem;
@@ -169,7 +168,7 @@
         left: 0;
         top: calc(var(--size) + 0.4rem);
         content: "左侧 "counter(leftNum);
-        color: var(--left-color);
+        color: var(--ui-mint);
     }
 
     &::after {
@@ -177,7 +176,7 @@
         right: 0;
         top: calc(var(--size) + 0.4rem);
         content: "右侧 "counter(rightNum);
-        color: var(--right-color);
+        color: var(--ui-star);
     }
 }
 .contrast-varied{
