@@ -34,7 +34,63 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.ran-icon177:before {
+  content: "\e960";
+}
+.ran-icon176:before {
+  content: "\e99f";
+}
+.ran-icon175:before {
+  content: "\e9a0";
+}
+.ran-icon174:before {
+  content: "\e9a1";
+}
+.ran-icon173:before {
+  content: "\e9a2";
+}
+.ran-icon172:before {
+  content: "\e9a3";
+}
+.ran-icon171:before {
+  content: "\e9a4";
+}
+.ran-icon170:before {
+  content: "\e9a5";
+}
+.ran-icon169:before {
+  content: "\e9a6";
+}
+.ran-icon168:before {
+  content: "\e9a7";
+}
+.ran-icon167:before {
+  content: "\e9a8";
+}
+.ran-icon166:before {
+  content: "\e9a9";
+}
+.ran-icon165:before {
+  content: "\e9aa";
+}
+.ran-icon164:before {
+  content: "\e9ab";
+}
+.ran-icon163:before {
+  content: "\e9ac";
+}
+.ran-icon162:before {
+  content: "\e9ad";
+}
+.ran-icon161:before {
+  content: "\e9ae";
+}
+.ran-icon160:before {
+  content: "\e9af";
+}
+.ran-icon159:before {
+  content: "\e9b0";
+}
 .ran-icon158:before {
   content: "\e98d";
 }
@@ -412,9 +468,6 @@
 }
 .ran-icon96:before {
   content: "\e95f";
-}
-.ran-icon97:before {
-  content: "\e960";
 }
 .ran-icon98:before {
   content: "\e961";

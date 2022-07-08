@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/_widget.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/yanglao.css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="dest/js/echart-dark.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- jquery主要用于部分echart demo引入json，生产环境可去掉 -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <title>数字大屏展示系统</title>
+</head>
+
+<body class="dark">
+
+    <main class="container" id="container">
+        <header class="header">
+            <div class="header-start">
+
+            </div>
+            <div class="header-center">
+                <img src="dest/images/zsj/logo1.svg" class="logo" alt="惠州淡水项目管控中心">
+            </div>
+
+            <div class="header-end">
+
+            </div>
+        </header>
+        <div class="sidebar-left" id="sidebar-left">
+            <div class="widget max">
+                <div class="widget-header">
+                    <h3 class="normal-title">雅居乐花园（一期）</h3>
+                    <button class="btn btn-md btn-icon widget-close"><i class="ran-icon35"></i></button>
+                    <div class="widget-header-span">
+                        <span class="tag tag-success">淡水街道</span>
+                        <span class="tag tag-warning">未移交</span>
+                    </div>
+                </div>
+                <div class="widget-scroll">
+                
+                    <div class="widget-card">
+                        <div class="widget-card-header">
+                            <h3 class="widget-title">基本信息</h3>
+                        </div>
+                        <div class="widget-card-body">
+                            <dl class="widget-intro-list">
+                                <dt>乡镇街道：</dt>
+                                <dd>淡水街道</dd>
+                                <dt>项目名称：                                </dt>
+                                <dd>雅居乐花园（一期）</dd>
+                                <dt>项目地址：</dt>
+                                <dd>新桥村</dd>
+                                <dt>配建面积：</dt>
+                                <dd>1398.91㎡</dd>
+                                <dt>位置：</dt>
+                                <dd>一期二组团14栋；四组团19栋</dd>
+                                <dt>签约时间：</dt>
+                                <dd>2018.07.24，2020.10.13</dd>
+                                <dt>移交时间：</dt>
+                                <dd>2022.01.25</dd>
+                                <dt>用途：</dt>
+                                <dd>新雅社区党群服务中心307.6平方米，老年人日间照料中心1091.3平方米）</dd>
+                                <dt>建设单位：</dt>
+                                <dd>惠州市惠阳雅居乐房地产开发有限公司</dd>
+                                <dt>备注：</dt>
+                                <dd>"第一次签订协议时间：2018.07.24；补充协议签订时间：2020.10.13"</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="widget-card ">
+                        <div class="widget-card-header">
+                            <h3 class="widget-title">配建公共设施</h3>
+                        </div>
+                        <div class="widget-card-body">
+                            <table class="widget-table2">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 24%;">配建设施</th>
+                                        <th>类型</th>
+                                        <th>面积</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>配建设施①</td>
+                                        <td>社区用房</td>
+                                        <td>307.6㎡</td>
+                                    </tr>
+                                    <tr>
+                                        <td>配建设施②</td>
+                                        <td>老年人日间照料中心</td>
+                                        <td>1091.31㎡</td>
+                                    </tr>
+                                    <tr>
+                                        <td>配建设施③</td>
+                                        <td>无</td>
+                                        <td>0</td>
+                                    </tr>
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <script>
+                        function tab2() {
+                            var tab = document.getElementById('widget-tabs5');
+                            var tabBtns = tab.querySelectorAll('a');
+                            var tabContainer = document.getElementById('widget-tabs-container5');
+                            var tabContent = tabContainer.querySelectorAll('.tab-content');
+                            tabBtns.forEach(function (item, index) {
+                                item.addEventListener('click', function () {
+
+                                    tabContent.forEach(
+                                        function (tabContentItem) {
+                                            tabContentItem.classList.remove('show');
+                                        }
+                                    )
+                                    tabContent[index].classList.add('show');
+
+                                })
+
+                            })
+                        }
+                        tab2()
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-right" id="sidebar-right">
+            <div class="widget max">
+                <div class="widget-header">
+                    <h3 class="widget-title">图例</h3>
+                </div>
+                <div class="widget-scroll">
+                    <ul class="list mapLayer-list">
+
+                        <li class="list-link list-father list-father-show waves-effect">
+                            <strong class="list-info">
+                                现有养老设施
+                            </strong>
+                            <input type="checkbox" data-layer="kzxxxgh" class="switch mui layer-checkbox">
+                        </li>
+                        <li class="list-child">
+                            <ul class="list">
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区淡水街道敬老院
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区新圩镇敬老院
+                                    </div>
+                                    <div class="list-end hint">新圩镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区沙田镇敬老院
+                                    </div>
+                                    <div class="list-end hint">沙田镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区永湖镇敬老院
+                                    </div>
+                                    <div class="list-end hint">永湖镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区良井镇敬老院
+                                    </div>
+                                    <div class="list-end hint">良井镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区平潭镇敬老院
+                                    </div>
+                                    <div class="list-end hint">平潭镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区秋长街道敬老院
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区镇隆镇敬老院
+                                    </div>
+                                    <div class="list-end hint">镇隆镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区社会综合福利院
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区长者安养中心
+                                    </div>
+                                    <div class="list-end hint">永湖镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区龙丰桃园养老公寓
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳区居家养老（日间照料）服务中心
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="list-link list-father list-father-show waves-effect">
+                            <strong class="list-info">
+                                养老类居住区公共配套设施
+                            </strong>
+                            <input type="checkbox" data-layer="kzxxxgh" class="switch mui layer-checkbox">
+                        </li>
+                        <li class="list-child">
+                            <ul class="list">
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        雅居乐花园（一期）
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        新力帝泊湾花园
+                                    </div>
+                                    <div class="list-end hint">镇隆镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        枫璟丽园（一期）
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        南站新城（北区四期）
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        育德华府
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        万悦花园
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        （恒大）百万花城花园
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        南站新城（北区一期）
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        文瀚花园
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        万荟花园
+                                    </div>
+                                    <div class="list-end hint">三和街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        融创臻园（二期）
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        文澜公馆
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        新力臻园
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        澜林花园
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        信步雅苑
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        悦步公馆（二期）
+                                    </div>
+                                    <div class="list-end hint">秋长街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        河谷花园（三期）
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惠阳振业城（K组团）
+                                    </div>
+                                    <div class="list-end hint">三和街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        惟邦园
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        玖悦澜庭
+                                    </div>
+                                    <div class="list-end hint">三和街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        翰雅御府
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        牧云溪谷花园（北区二期）
+                                    </div>
+                                    <div class="list-end hint">新圩镇</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        鸿江深悦园
+                                    </div>
+                                    <div class="list-end hint">淡水街道</div>
+                                </li>
+                                <li class="list-link">
+                                    <div class="list-info">
+                                        高景花园
+                                    </div>
+                                    <div class="list-end hint">三和街道</div>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p class="hint">*惠阳区60周岁以上长者人口密度及养老设施分布（2020年）</p>
+        </footer>
+        <div class="sidebar-left-hidden" id="sidebar-left-hidden"></div>
+        <div class="sidebar-right-hidden" id="sidebar-right-hidden"></div>
+        <script>
+            // 隐藏地图两侧信息sidebar demo
+            var sidebarLeftHidden = document.getElementById('sidebar-left-hidden');
+            var sidebarLeft = document.getElementById("sidebar-left");
+            sidebarLeftHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarLeft.classList.toggle('hidden');
+            }
+
+            var sidebarRightHidden = document.getElementById('sidebar-right-hidden');
+            var sidebarRight = document.getElementById("sidebar-right");
+            sidebarRightHidden.onclick = function () {
+                this.classList.toggle('active');
+                sidebarRight.classList.toggle('hidden');
+            }
+        </script>
+        <div class="mapbox" id="mapbox"></div>
+    </main>
+
+    <!-- 侧边栏弹出层 -->
+
+
+
+</body>
+
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+
+
+<script>
+
+
+    //mapbox
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmVteHUiLCJhIjoiY2tiMDQ3OTAyMDR4czJycXR0ZGR0MGptdiJ9.jfqMkHN2eqmZgR9k9WBJWg';
+    var map = new mapboxgl.Map({
+        container: 'mapbox', // container ID
+        style: 'mapbox://styles/remxu/ckknobn5y5x8a17mq8qdngl4f', // 卫星地图样式
+        //style: 'mapbox://styles/remxu/ckntzk68y0hxc17nu9yk79t0f', //矢量地图夜间样式
+        //style: 'mapbox://styles/remxu/ckb06pkt00d0x1lq87kghc4h5', //矢量地图白天样式
+        center: [114.464618, 22.79215], // starting position [lng, lat]
+        zoom: 13 // starting zoom
+    });
+
+    window.onload = function () {
+        //数字动态加载
+        numberShow();
+        //tab按扭
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+        listShow()
+        //滚动效果
+
+        pileScroll(".pile", true);
+        accordion() //折叠面板
+
+
+    }
+
+</script>
+<script src="dest/js/widget-eChart.js"></script>
+
+</html>

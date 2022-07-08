@@ -103,18 +103,19 @@
 
 .progress-gradient {
     &::after {
-        background-image: linear-gradient(135deg, #5CCC69 0%, #45C7DA 25%, #E4C748 50%, #FF5757 75%, #DD3CC0 100%);
+        background-image: linear-gradient(90deg, var(--ui-success), var(--ui-danger));
         width: 100%;
         clip-path: inset(0 calc(100% - var(--bar-width) * 1%) 0 0);
     }
 }
 
 .contrast {
-   
+    --left-color: #00B6A1;
+    --right-color: #257BFF;
     position: relative;
     height: 3.2rem;
     background-color: var(--base-thinner);
-    background-image: linear-gradient(108deg, var(--ui-mint) 0%, color-mod(var(--ui-mint) l(48%)) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--ui-star) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px),color-mod(var(--ui-star) l(40%)) 100%);
+    background-image: linear-gradient(108deg, var(--left-color) 0%, var(--left-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100%), transparent calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) calc(var(--bar-left) / (var(--bar-left) + var(--bar-right)) * 100% + 2px), var(--right-color) 100%);
     @extend .number;
     font-size: 1.6rem;
     padding: 0 1rem;
@@ -144,15 +145,6 @@
         }
     }
 }
-.contrast-3color{
-    --one-color:#E2EA00;
-    --two-color:#28E8FF;
-    --three-color:#147AFF;
-    background-image: linear-gradient(108deg, var(--one-color) 0%, var(--one-color) calc(var(--one-number) - 1px),transparent calc(var(--one-number) - 1px),transparent calc(var(--one-number) + 1px), var(--two-color) calc(var(--one-number) + 1px), var(--two-color) calc(var(--one-number) + var(--two-number)),transparent calc(var(--one-number) + var(--two-number)),transparent calc(var(--one-number) + 2px + var(--two-number)), var(--three-color) calc(var(--one-number) + 2px + var(--two-number)), var(--three-color) 100%);  
-}
-
-
-
 
 .contrast-mini {
     --size: 0.8rem;
@@ -168,7 +160,7 @@
         left: 0;
         top: calc(var(--size) + 0.4rem);
         content: "左侧 "counter(leftNum);
-        color: var(--ui-mint);
+        color: var(--left-color);
     }
 
     &::after {
@@ -176,31 +168,7 @@
         right: 0;
         top: calc(var(--size) + 0.4rem);
         content: "右侧 "counter(rightNum);
-        color: var(--ui-star);
-    }
-}
-.contrast-varied{
-    &::before{
-        display: none;
-    }
-    &::after{
-        display: none;
-    }
-    overflow: hidden;
-    display: flex;
-    flex: auto;
-    align-items: stretch;
-    margin-bottom: 0;
-}
-.contrast-varied-item{
-    background-color: var(--color);
-    width: calc(var(--data)/var(--sum) * 100%);
-    margin: 0 1px;
-    &:first-child{
-        margin-left: 0;
-    }
-    &:last-child{
-        margin-right: 0;
+        color: var(--right-color);
     }
 }
 
@@ -236,7 +204,6 @@ dot {
     top: 0;
     right: 0;
     bottom: 0;
-    padding: 2.4rem 0;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -500,32 +467,21 @@ dot {
 .dialog_header,
 .dialog_footer {
     position: sticky;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-items: center;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    
-    &>:first-child{
-        justify-self: start;
-    }
-    &>:last-child{
-        justify-self: end;
-    }
+    background-color: var(--paper);
+
 }
 
 .dialog_header {
-    background-image: linear-gradient(180deg,var(--paper),color-mod(#404040 a(40%)));
-    backdrop-filter: blur(16px);
-    top: -2.4rem;
+    top: 0;
     padding: 2rem 2.4rem;
     border-radius: var(--radius-regular) var(--radius-regular) 0 0;
 }
 
 .dialog_footer {
-    background-image: linear-gradient(0deg,var(--paper),color-mod(#404040 a(40%)));
-    backdrop-filter: saturate(180%) blur(16px);
-    bottom: -2.4rem;
+    bottom: 0;
     padding: 2rem 2.4rem;
     border-radius: 0 0 var(--radius-regular) var(--radius-regular);
 }
@@ -548,19 +504,6 @@ dot {
     font-size: 1.8rem;
 }
 
-.art-title {
-    font-family: ysbt;
-    font-size: 2rem;
-    font-weight: 400;
-    margin: 0;
-}
-
-.dialog_close{
-    color: var(--text-lighter);
-    &:hover{
-        color: var(--text);
-    }
-}
 
 
 .dialogNextShow {
