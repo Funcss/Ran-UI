@@ -4,13 +4,16 @@
     align-items: center;
 
     li {
-        display: flex;
-        align-items: center;
+        display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4rem;
 
         &::after {
             content: "/";
             display: inline;
-            margin: 0 0.8rem;
+            margin: 0 0.8rem 0 0.4rem;
             color: var(--text-light);
             line-height: 1;
         }

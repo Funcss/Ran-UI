@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="../dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../dest/css/ywtg.css" media="screen" charset="utf-8">
+
+    <title>一网统管-账号管理-角色管理</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-start">
+                <a href="###" class="header-back"><i class="ran-icon40"></i></a>
+                <h1 class="logo"><small>惠州市惠阳区</small>一网统管后台</h1>
+            </div>
+            <div class="header-end">
+                <nav class="header-tab">
+                    <!-- 注意页面方向排序是反过来的 -->
+                    <a href="###">事件数据</a>
+                    <a href="###" class="active">网格管理</a>
+                    <a href="###">场所数据</a>
+                    <a href="###">楼栋房屋</a>
+                    <a href="###">人口数据</a>
+                </nav>
+                <div class="header-btn">
+                    <button class="btn btn-md btn-primary btn-text" id="fullScreen">
+                        <i class="ran-icon95"></i>全屏</button>
+                    <button class="btn btn-md btn-primary btn-text" id="exitScreen" style="display:none">
+                        <i class="ran-icon94"></i>收起</button>
+                    <button class="btn btn-md btn-primary btn-text body-dark"
+                        onclick="document.body.classList.toggle('dark')"><i class="ran-icon87"></i>夜间</button>
+                    <button class="btn btn-md btn-primary btn-text body-light"
+                        onclick="document.body.classList.toggle('dark')"><i class="ran-icon88"></i>白天</button>
+                </div>
+            </div>
+        </header>
+        <section class="sidebar">
+            <nav class="sidebar-first">
+                <div class="sidebar-first-list">
+                    <a href="###">
+                        <i class="ran-icon62"></i>
+                        <span>账号管理</span>
+                    </a>
+                    <a href="###" class="active">
+                        <i class="ran-icon15"></i>
+                        <span>数据管理</span>
+                    </a>
+                    <a href="###">
+                        <i class="ran-icon123"></i>
+                        <span>事件管理</span>
+                    </a>
+                    <a href="###">
+                        <i class="ran-icon11"></i>
+                        <span>镇街管理</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-first-list">
+                    <a href="###">
+                        <i class="ran-icon101"></i>
+                        <span>设置</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-second">
+                <ul class="list sidebar-second-list">
+                    <li class="list-title">基础数据</li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            多规合一
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            地图管理
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list sidebar-second-list">
+
+                    <li class="list-title">镇街数据</li>
+                    <li class="list-link active">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            淡水街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            三和街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            秋长街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            新圩镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            镇隆镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            平潭镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            良井镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            沙田镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            永湖镇
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+        <main class="main">
+            <div class="main-header">
+                <ol class="breadcrumbs">
+                    <li>淡水街道</li>
+                    <li>网格管理（13）</li>
+                </ol>
+                <button class="btn btn-md btn-primary"><i class="ran-icon55"></i>添加</button>
+            </div>
+            <div class="main-grid grid">
+                <section class="grid-item grid-span12 case">
+
+                    <div class="case-body has-sidebar">
+                        <div class="case-sidebar">
+                            <div class="case-sidebar-scroll">
+                                <form action="" class="form-group case-sidebar-main">
+                                    <fieldset>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">搜索</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="search" placeholder="网格名称"
+                                                    class="input input-md input-solid">
+                                            </div>
+                                        </div>
+                                     
+                                    
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">网格绘制</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                    <label for="radio1" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                        全部
+                                                    </label>
+                                                    <label for="radio2" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                        是
+                                                    </label>
+                                                    <label for="radio3" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                                        否
+                                                    </label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <div class="case-sidebar-bottom">
+                                    <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                    <button class="btn btn-md btn-outlined btn-primary">清空</button>
+                                    <button class="btn btn-md btn-primary"><i class="ran-icon137"></i>筛选</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-main">
+                            <!-- <div class="case-header">
+                                <nav class="tabs line-tabs">
+                                    <a href="javascript:;" class="active">工作日志 (435)</a>
+                                    <a href="javascript:;">任务日志 (318)</a>
+                                    <a href="javascript:;">登录日志 (132)</a>
+                                </nav>
+                            </div> -->
+                            <section class="case-main-section">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>网格名称</th>
+                                            <th>常住人口</th>
+                                            <th>辖区面积</th>
+                                            <th>管理住户</th>
+                                            <th>电话</th>
+                                            <th>网格绘制</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="###">洋纳-网格2</a></td>
+                                            <td>598</td>
+                                            <td>2.2k㎡</td>
+                                            <td>39</td>
+                                            <td>15028397878</td>
+                                            <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绘制</span>
+                                            </td>
+                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><a href="###">洋纳-网格3</a></td>
+                                            <td>598</td>
+                                            <td>2.2k㎡</td>
+                                            <td>39</td>
+                                            <td>15028397878</td>
+                                            <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绘制</span>
+                                            </td>
+                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                        </tr>
+                                      
+
+                                    </tbody>
+                                </table>
+                                <div class="case-main-section-footer">
+                                    <div class="start">
+                                        <button class="btn btn-md btn-text waves-effect"><i class="ran-icon27"></i>导出Excel</button>
+                                    </div>
+                                    <div class="end">
+                                        <div class="pagination">
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon69"></i></button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-md btn-primary waves-effect">1</button>
+                                                <button class="btn btn-md waves-effect">2</button>
+                                                <button class="btn btn-md waves-effect">…</button>
+                                                <button class="btn btn-md waves-effect">8</button>
+                                                <button class="btn btn-md waves-effect">9</button>
+                                            </div>
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon70"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+        </main>
+        <div class="wing-panel" style="width: 72rem;">
+            <div class="wing-panel-close">
+                <button class="btn btn-md btn-text waves-effect" onclick="document.querySelector('.wing-panel').classList.remove('show')"><i class="ran-icon81"></i></button>
+            </div>
+            <div class="wing-panel-header">
+                <div class="start">
+                    <button class="btn btn-md btn-primary btn-text back-btn"><i class="ran-icon40"></i>返回</button>
+                    <!-- 点击其他家庭成员、居住地址房屋详情才出现返回按钮 -->
+                    <h3 class="wing-panel-title">场所详情</h3>
+                </div>
+            </div>
+            <div class="wing-panel-main">
+                <div class="wing-panel-row">
+                    <dl class="data-list" style="--col:2">
+                        <dt>网格名称：</dt>
+                        <dd>
+                            洋纳-网格3
+                        </dd>
+                        <dt>常住人口：</dt>
+                        <dd>598</dd>
+                        <dt>辖区面积：</dt>
+                        <dd>2.2k㎡</dd>
+                        <dt>管理住户：</dt>
+                        <dd>39</dd>
+                        <dt>电话：</dt>
+                        <dd>13580809876</dd>
+                        <dt>创建者：</dt>
+                        <dd>南四书记-刘勇波</dd>
+                        <dt>创建时间：</dt>
+                        <dd>2022-07-25 16:25:45</dd>
+                        <dt>网格绘制：</dt>
+                        <dd><span class="tag-text text-success"><i class="ran-icon3"></i>已绘制</dd>
+                        <dt>办公室地址：</dt>
+                        <dd class="colspan"><a href="###">惠州市惠阳区淡水街道星河丹堤c12-2202</a></dd>
+                        <!-- 如果居住地址绑定了房屋，点击进入房屋详情页面 -->
+                        <dt>简介：</dt>
+                        <dd class="colspan">本村小组位于洋纳村委会东部，白云六路横跨本辖区，西邻老屋村小组，北接惠澳大道，面积约2.2平方公里，共93户，常住人口347人。</dd>
+                    </dl>
+                    <ul class="media-matrix media-matrix-sm">
+
+                        <li class="media-item">
+                            <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="wing-panel-row">
+                    <nav class="tabs line-tabs">
+                        <a href="javascript:;" class="active">网格员(2)</a>
+                        <a href="javascript:;">事件记录(0)</a>
+                    </nav>
+                 
+                   
+                    <table class="table record-table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>电话</th>
+                                <th>职务</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="###">王力波</a></td>
+                                <td>13556288881</td>
+                                <td>党委书记、居委会主任</td>
+                                <td><a href="###">查看</a></td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                    
+                    <table class="table record-table">
+                        <thead>
+                            <tr>
+                                <th>事件标题</th>
+                                <th>时间</th>
+                                <th>上报人</th>
+                                <th>类型</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="###">消防警报</a></td>
+                                <td>2022.5.29 13:27:54</td>
+                                <td>王大锤</td>
+                                <td>消防安全</td>
+                                <td><span class="tag tag-success">已结办</span></td>
+                                <td><a href="###">查看</a></td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+<script src="../dest/js/scripts.min.js"></script>
+<script src="../src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="../dest/js/start.js"></script>
+<script>
+    window.onload = function () {
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+    }
+
+    //右上角全屏开启和关闭
+    var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+
+</html>

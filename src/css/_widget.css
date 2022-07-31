@@ -1242,7 +1242,11 @@
         background-image: url(../images/files/video.svg)
     }
 }
-
+.recordList {
+    padding-left: 2.4rem;
+    margin: 0;
+    list-style: none;
+}
 .recordList-item {
     position: relative;
     padding-bottom: 1.6rem;
@@ -1276,11 +1280,7 @@
     margin-bottom: 0.2rem;
 }
 
-.recordList {
-    padding-left: 2.4rem;
-    margin: 0;
-    list-style: none;
-}
+
 
 .record-hint {
     display: flex;

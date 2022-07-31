@@ -117,10 +117,12 @@ screen and (min-resolution: 2dppx) {
 
 .empty {
     @extend .center;
-    display: grid;
-    justify-items: center;
-    gap: 1.6rem;
-
+    display: none;
+    &:only-child{
+        display: grid;
+        justify-items: center;
+        gap: 1.6rem;
+    }
     &::before {
         content: "";
         height: 10rem;

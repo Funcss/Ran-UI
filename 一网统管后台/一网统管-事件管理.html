@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="../dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../dest/css/ywtg.css" media="screen" charset="utf-8">
+
+    <title>一网统管-账号管理-角色管理</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-start">
+                <a href="###" class="header-back"><i class="ran-icon40"></i></a>
+                <h1 class="logo"><small>惠州市惠阳区</small>一网统管后台</h1>
+            </div>
+            <div class="header-end">
+                <nav class="header-tab">
+                    <!-- 注意页面方向排序是反过来的 -->
+                    <a href="###" class="active">事件数据</a>
+                    <a href="###">网格管理</a>
+                    <a href="###">场所数据</a>
+                    <a href="###">楼栋房屋</a>
+                    <a href="###">人口数据</a>
+                </nav>
+                <div class="header-btn">
+                    <button class="btn btn-md btn-primary btn-text" id="fullScreen">
+                        <i class="ran-icon95"></i>全屏</button>
+                    <button class="btn btn-md btn-primary btn-text" id="exitScreen" style="display:none">
+                        <i class="ran-icon94"></i>收起</button>
+                    <button class="btn btn-md btn-primary btn-text body-dark"
+                        onclick="document.body.classList.toggle('dark')"><i class="ran-icon87"></i>夜间</button>
+                    <button class="btn btn-md btn-primary btn-text body-light"
+                        onclick="document.body.classList.toggle('dark')"><i class="ran-icon88"></i>白天</button>
+                </div>
+            </div>
+        </header>
+        <section class="sidebar">
+            <nav class="sidebar-first">
+                <div class="sidebar-first-list">
+                    <a href="###">
+                        <i class="ran-icon62"></i>
+                        <span>账号管理</span>
+                    </a>
+                    <a href="###" class="active">
+                        <i class="ran-icon15"></i>
+                        <span>数据管理</span>
+                    </a>
+                    <a href="###">
+                        <i class="ran-icon123"></i>
+                        <span>事件管理</span>
+                    </a>
+                    <a href="###">
+                        <i class="ran-icon11"></i>
+                        <span>镇街管理</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-first-list">
+                    <a href="###">
+                        <i class="ran-icon101"></i>
+                        <span>设置</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-second">
+                <ul class="list sidebar-second-list">
+                    <li class="list-title">基础数据</li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            多规合一
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            地图管理
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list sidebar-second-list">
+
+                    <li class="list-title">镇街数据</li>
+                    <li class="list-link active">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            淡水街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            三和街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            秋长街道
+                        </div>
+
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            新圩镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            镇隆镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            平潭镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            良井镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            沙田镇
+                        </div>
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            永湖镇
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+        <main class="main">
+            <div class="main-header">
+                <ol class="breadcrumbs">
+                    <li>淡水街道</li>
+                    <li>事件管理（13）</li>
+                </ol>
+            </div>
+            <div class="main-grid grid">
+                <section class="grid-item grid-span12 case">
+
+                    <div class="case-body has-sidebar">
+                        <div class="case-sidebar">
+                            <div class="case-sidebar-scroll">
+                                <form action="" class="form-group case-sidebar-main">
+                                    <fieldset>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">搜索</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="search" placeholder="事件名称"
+                                                    class="input input-md input-solid">
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">类型</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="select_value select-solid menu-select"
+                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
+                                                </div>
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item">
+                                                            全部（12839）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            消防安全（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            市容市貌（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            两违管控（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            违规倾倒（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            砂石堆场（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            企业生产（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            其他（123）
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">状态</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="select_value select-solid menu-select"
+                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
+                                                </div>
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item">
+                                                            全部（12839）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            待审核（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            处理中（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            已完成（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            已归档（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            重新打开（123）
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">来源类型</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="select_value select-solid menu-select"
+                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
+                                                </div>
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item">
+                                                            全部（12839）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            AI识别（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            人工上报（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            粤平安（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            城管系统（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            12345热线（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            其他（123）
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">网格社区</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item selected waves-effect">全部</li>
+                                                        <li class="menu-item waves-effect">1</li>
+                                                        <li class="menu-item waves-effect">2</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">上报时间范围</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="date" placeholder="开始时间" class="input input-md input-solid">
+                                                <input type="date" placeholder="截止时间" class="input input-md input-solid">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <div class="case-sidebar-bottom">
+                                    <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                    <button class="btn btn-md btn-outlined btn-primary">清空</button>
+                                    <button class="btn btn-md btn-primary"><i class="ran-icon137"></i>筛选</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-main">
+                            <!-- <div class="case-header">
+                                <nav class="tabs line-tabs">
+                                    <a href="javascript:;" class="active">工作日志 (435)</a>
+                                    <a href="javascript:;">任务日志 (318)</a>
+                                    <a href="javascript:;">登录日志 (132)</a>
+                                </nav>
+                            </div> -->
+                            <section class="case-main-section">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>事件标题</th>
+                                            <th>类型</th>
+                                            <th>来源</th>
+                                            <th>状态</th>
+                                            <th>所属辖区</th>
+                                            <th>上报时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="###">消防事故</a></td>
+                                            <td>消防安全</td>
+                                            <td>人工上报</td>
+                                            <td><span class="tag tag-primary">处理中</span></td>
+                                            <td>洋纳-网格3</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><a href="###">非法倾倒建筑垃圾</a></td>
+                                            <td>消防安全</td>
+                                            <td>人工上报</td>
+                                            <td><span class="tag tag-warning">待审核</span></td>
+                                            <td>洋纳-网格3</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                        </tr>
+                                      
+
+                                    </tbody>
+                                </table>
+                                <div class="case-main-section-footer">
+                                    <div class="start">
+                                        <button class="btn btn-md btn-text waves-effect"><i class="ran-icon27"></i>导出Excel</button>
+                                    </div>
+                                    <div class="end">
+                                        <div class="pagination">
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon69"></i></button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-md btn-primary waves-effect">1</button>
+                                                <button class="btn btn-md waves-effect">2</button>
+                                                <button class="btn btn-md waves-effect">…</button>
+                                                <button class="btn btn-md waves-effect">8</button>
+                                                <button class="btn btn-md waves-effect">9</button>
+                                            </div>
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon70"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+        </main>
+        <div class="wing-panel" style="width: 72rem;">
+            <div class="wing-panel-close">
+                <button class="btn btn-md btn-text waves-effect" onclick="document.querySelector('.wing-panel').classList.remove('show')"><i class="ran-icon81"></i></button>
+            </div>
+            <div class="wing-panel-header">
+                <div class="start">
+                    <button class="btn btn-md btn-primary btn-text back-btn"><i class="ran-icon40"></i>返回</button>
+                    <!-- 点击其他家庭成员、居住地址房屋详情才出现返回按钮 -->
+                    <h3 class="wing-panel-title">事件详情</h3>
+                </div>
+            </div>
+            <div class="wing-panel-main">
+                <div class="wing-panel-row">
+                    <dl class="data-list" style="--col:2">
+                        <dt>事件标题：</dt>
+                        <dd>
+                            非法倾倒建筑垃圾
+                        </dd>
+                        <dt>状态：</dt>
+                        <dd><span class="tag tag-warning">待审核</span></dd>
+                        <dt>类型：</dt>
+                        <dd>非法倾倒</dd>
+                        <dt>来源：</dt>
+                        <dd>人工上报</dd>
+                        <dt>上报人：</dt>
+                        <dd>王大锤(15608065267)</dd>
+                        <dt>上报时间：</dt>
+                        <dd>2022-07-25 16:25:45</dd>
+                        <dt>所属辖区：</dt>
+                        <dd>洋纳-网格3</dd>
+                        <dt>地图绑定：</dt>
+                        <dd><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</dd>
+                        <dt>地址：</dt>
+                        <dd class="colspan">惠州市惠阳区淡水街道星河丹堤c12-2202</dd>
+                        <dt>关联楼栋：</dt>
+                        <dd class="colspan"><a href="###">惠州市惠阳区淡水街道星河丹堤c12-2202</a></dd>
+                        <!-- 地址则对应楼栋房屋、场所 -->
+                        <dt>关联人员：</dt>
+                        <dd class="colspan">-</dd>
+                        <dt>事件描述：</dt>
+                        <dd class="colspan">村民举报有人夜间在洋纳小区南侧田野非法倾倒建筑垃圾。</dd>
+                    </dl>
+                    <ul class="media-matrix media-matrix-sm">
+
+                        <li class="media-item">
+                            <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="wing-panel-row">
+                    <ul class="recordList">
+                        <li class="recordList-item">
+                            <div class="record-name">处理中</div>
+                            <div class="record-hint">
+                                <time class="record-time"><span class="tag-text">王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
+
+                            </div>
+                            <div class="rateList-info">
+                                <p>正在对该进行检查核实取证。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="recordList-item">
+                            <div class="record-name">待审核</div>
+                            <div class="record-hint">
+                                <time class="record-time"><span class="tag-text">王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
+                            </div>
+                        </li>
+                        <li class="recordList-item">
+                            <div class="record-name">已上报</div>
+                            <div class="record-hint">
+                                <time class="record-time"><span class="tag-text">王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
+                            </div>
+                            <div class="rateList-info">
+                                <p>村民举报有人夜间在洋纳小区南侧田野非法倾倒建筑垃圾。
+                                </p>
+                                <ul class="media-matrix media-matrix-xs">
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                                    </li>
+                                    <li class="media-item">
+                                        <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+<script src="../dest/js/scripts.min.js"></script>
+<script src="../src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="../dest/js/start.js"></script>
+<script>
+    window.onload = function () {
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+    }
+
+    //右上角全屏开启和关闭
+    var exitScreenBtn = document.getElementById('exitScreen');
+    var fullScreenBtn = document.getElementById('fullScreen');
+    fullScreenBtn.onclick = function () {
+        this.style.display = "none";
+        exitScreenBtn.style.display = 'inline-grid';
+        fullScreen();
+    }
+    exitScreenBtn.onclick = function () {
+        this.style.display = "none";
+        fullScreenBtn.style.display = 'inline-grid';
+        exitScreen();
+    }
+</script>
+
+
+</html>

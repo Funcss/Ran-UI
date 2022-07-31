@@ -349,3 +349,15 @@
         will-change: transform, opacity;
     }
 }
+
+.sortable-ghost{
+    opacity: 0;
+}
+.legend-tag{
+    display: inline-flex;
+    margin: auto;
+    vertical-align: middle;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+}

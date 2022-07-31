@@ -6,6 +6,29 @@
     opacity: 0.48;
 }
 
+input[type=color] {
+    -webkit-appearance: none;
+    display: block;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    overflow-y: hidden;
+    border-radius: 100%;
+    border: none;
+    background: transparent;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+    background: #fff;
+    border: none;
+    padding: 0px;
+}
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 100%;
+}
+
 .input,
 textarea {
     font-family: var(--font-family);
