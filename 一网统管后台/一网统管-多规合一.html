@@ -174,7 +174,7 @@
                 <ol class="breadcrumbs">
                     <li>多规合一</li>
                 </ol>
-                <button class="btn btn-md btn-primary"><i class="ran-icon55"></i>添加</button>
+
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
@@ -197,7 +197,7 @@
                                                     <div class="menu" id="menu7">
                                                         <ul class="menu-list">
                                                             <li class="menu-item">新建文件夹</li>
-                                                            <li class="menu-item">上传图层shp</li>
+                                                            <li class="menu-item"  onclick="dialogShow(document.querySelector('#dialog2'));">上传图层shp</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -579,7 +579,7 @@
             </div>
 
         </main>
-        <div class="wing-panel show" style="width: 72rem;">
+        <div class="wing-panel" style="width: 72rem;">
             <div class="wing-panel-close">
                 <button class="btn btn-md btn-text" onclick="document.querySelector('.wing-panel').classList.remove('show')"><i class="ran-icon81"></i></button>
             </div>
@@ -723,6 +723,78 @@
                             </div>
                         </div>
                        <!-- 描边宽度先给一个默认值2px，后续看是否需要放出来让用户自定义 -->
+
+
+                    </fieldset>
+                </form>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-md btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog'))">取消</button>
+                    <button class="btn btn-md btn-primary"
+                        onclick="dialogHide(document.getElementById('dialog'))">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop" id="dialog2">
+        <div class="dialog" style="max-width: 64rem;">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    上传图层shp
+                </h3>
+
+                <button class="btn btn-md btn-icon"
+                        onclick="dialogHide(document.getElementById('dialog2'))"><i class="ran-icon81"></i></button>
+            </div>
+            <div class="dialog_body">
+                <form action="" class="form-group">
+                    <fieldset>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">图层名称</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="图例名称" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">备注描述</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <textarea name="" class="input-solid"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">坐标系</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                    <label for="radio1" class="radio-label">
+                                        <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                        WGS-84
+                                    </label>
+                                    <label for="radio1" class="radio-label">
+                                        <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                        CGCS2000
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">填充色</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <button class="btn btn-md btn-primary btn-outlined"><i class="ran-icon24"></i>上传</button>
+                            </div>
+                        </div>
+                       
 
 
                     </fieldset>

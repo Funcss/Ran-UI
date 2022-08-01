@@ -114,8 +114,8 @@
         <main class="main">
             <div class="main-header">
                 <div class="main-header-start">
-                    <button class="btn btn-md btn-primary btn-text back-btn waves-effect"><i
-                            class="ran-icon40"></i>返回</button>
+                    <a href="一网统管后台.html" class="btn btn-md btn-primary btn-text back-btn waves-effect"><i
+                            class="ran-icon40"></i>返回</a>
                     <ol class="breadcrumbs">
                         <li>账号详情</li>
                     </ol>
@@ -207,7 +207,10 @@
                                             </div>
                                         </div>
 
-
+                                        <div class="form-item">
+                                            <a class="btn btn-md btn-primary btn-text" onclick="dialogShow(document.querySelector('#dialog'));"><i class="ran-icon98"></i>修改密码</a>
+                                            <!-- 仅超级管理员才出现此按钮 -->
+                                        </div>
                                     </fieldset>
                                 </form>
                                 <div class="case-sidebar-bottom">
@@ -268,6 +271,54 @@
                 </section>
             </div>
         </main>
+    </div>
+    <div class="backdrop" id="dialog">
+        <div class="dialog" style="width: 32rem;">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    修改密码
+                </h3>
+
+                <button class="btn btn-md btn-icon" onclick="dialogHide(document.getElementById('dialog'))"><i
+                        class="ran-icon81"></i></button>
+            </div>
+            <div class="dialog_body">
+                <form action="" class="form-group">
+                    <fieldset>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">两步验证</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="2FA key" class="input input-md input-solid">
+                                <!-- 超级管理员我们给他一个两步验证，他就可以盲改其他用户密码，其他用户密码忘了可以找他改 -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">新密码</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="新密码" class="input input-md input-solid">
+                            </div>
+                            
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-md btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog'))">取消</button>
+                    <button class="btn btn-md btn-primary"
+                        onclick="dialogHide(document.getElementById('dialog'))">完成</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
