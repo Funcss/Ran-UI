@@ -1222,3 +1222,7 @@ a.tag {
     }
 }
 
+video {
+    -webkit-appearance: none;
+    max-width: 100%;
+}

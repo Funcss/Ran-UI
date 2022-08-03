@@ -26,10 +26,8 @@
             <div class="header-end">
                 <nav class="header-tab">
                     <!-- 注意页面方向排序是反过来的 -->
-                    <a href="###">网格数据</a>
-                    <a href="###">场所数据</a>
-                    <a href="###">楼栋房屋</a>
-                    <a href="###" class="active">人口数据</a>
+                    <a href="###">天网监控</a>
+                    <a href="###" class="active">自建鹰眼</a>
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -82,6 +80,14 @@
                             多规合一
                         </div>
                     </li>
+                    <li class="list-link active">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            监控管理
+                        </div>
+                    </li>
                     <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
@@ -94,7 +100,7 @@
                 <ul class="list sidebar-second-list">
 
                     <li class="list-title">镇街数据</li>
-                    <li class="list-link active">
+                    <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
@@ -176,8 +182,7 @@
         <main class="main">
             <div class="main-header">
                 <ol class="breadcrumbs">
-                    <li>淡水街道</li>
-                    <li>人口数据（137）</li>
+                    <li>自建鹰眼（137）</li>
                 </ol>
 
             </div>
@@ -194,87 +199,26 @@
                                                 <h3 class="form-item_label">搜索</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                <input type="search" placeholder="姓名/证件号/电话"
+                                                <input type="search" placeholder="监控名称"
                                                     class="input input-md input-solid">
                                             </div>
                                         </div>
                                         <div class="form-item">
                                             <div class="form-item-header">
-                                                <h3 class="form-item_label">人口类型</h3>
+                                                <h3 class="form-item_label">镇街</h3>
                                             </div>
                                             <div class="form-item_box">
                                                 <div class="select_value select-solid menu-select"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
+                                                    onclick="menu(this,document.getElementById('menu1'))">全部
                                                 </div>
-                                                <!-- 超级管理员账号不能更改 -->
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item">
-                                                            全部（12839）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            常住人口（123）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            流动人口（123）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            户籍人口（123）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            留守人员（123）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            港澳台人员（123）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            境外人员（123）
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">性别</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
-                                                    <label for="radio1" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1"
-                                                            id="radio1">
-                                                        全部
-                                                    </label>
-                                                    <label for="radio1" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1"
-                                                            id="radio1">
-                                                        男性
-                                                    </label>
-                                                    <label for="radio2" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1"
-                                                            id="radio2">
-                                                        女性
-                                                    </label>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">民族</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <div class="select_value select-solid menu-select"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
-                                                </div>
-                                                <!-- 超级管理员账号不能更改 -->
-                                                <div class="menu" id="menu-search">
+                                                <div class="menu" id="menu1">
                                                     <ul class="menu-list">
                                                         <li class="menu-item">
                                                             全部（12839）
                                                         </li>
                                                         <li class="menu-item">
-                                                            汉族
+                                                            淡水街道
                                                         </li>
 
                                                     </ul>
@@ -283,17 +227,31 @@
                                         </div>
                                         <div class="form-item">
                                             <div class="form-item-header">
-                                                <h3 class="form-item_label">出生时间范围</h3>
+                                                <h3 class="form-item_label">类型</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                <input type="date" placeholder="开始时间"
-                                                    class="input input-md input-solid">
-                                                <input type="date" class="input input-md input-solid">
+                                                <div class="select_value select-solid menu-select"
+                                                    onclick="menu(this,document.getElementById('menu2'))">全部
+                                                </div>
+                                                <!-- 超级管理员账号不能更改 -->
+                                                <div class="menu" id="menu2">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item">
+                                                            全部（12839）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            低空鹰眼（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            高空鹰眼（123）
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            热成像鹰眼（123）
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-
-
-
                                     </fieldset>
                                 </form>
                                 <div class="case-sidebar-bottom">
@@ -316,72 +274,62 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>姓名</th>
-                                            <th>性别</th>
-                                            <th>年龄</th>
-                                            <th>出生日期</th>
-                                            <th>民族</th>
+                                            <th>监控</th>
                                             <th>类型</th>
-                                            <th>证件</th>
-                                            <th>证件号</th>
-
-                                            <th>户籍</th>
-                                            <th>住址</th>
+                                            <th>镇街</th>
+                                            <th>备注</th>
+                                            <th>地图绑定</th>
+                                            <th>地址</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td><a href="###">王大锤</a></td>
-                                            <td>男</td>
-                                            <td>40</td>
-                                            <td>1972/08/08</td>
-                                            <td>汉族</td>
-                                            <td>常住人口</td>
-                                            <td>身份证</td>
-                                            <td>30028838992874783993X</td>
-                                            <td>广东惠州</td>
+                                            <td><a href="###">壹中心高空鹰眼</a></td>
+                                            <td>高空鹰眼</td>
+                                            <td>淡水街道</td>
+                                            <td>50倍高空鹰眼</td>
                                             <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                            <td>淡水街道壹中心楼顶</td>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td><a href="###">王大锤</a></td>
-                                            <td>男</td>
-                                            <td>40</td>
-                                            <td>1972/08/08</td>
-                                            <td>汉族</td>
-                                            <td>常住人口</td>
-                                            <td>身份证</td>
-                                            <td>30028838992874783993X</td>
-                                            <td>广东惠州</td>
-                                            <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                            <td><a href="###">壹中心高空鹰眼</a></td>
+                                            <td>高空鹰眼</td>
+                                            <td>淡水街道</td>
+                                            <td>50倍高空鹰眼</td>
+                                            <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                            <td>淡水街道壹中心楼顶</td>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td><a href="###">王大锤</a></td>
-                                            <td>男</td>
-                                            <td>40</td>
-                                            <td>1972/08/08</td>
-                                            <td>汉族</td>
-                                            <td>常住人口</td>
-                                            <td>身份证</td>
-                                            <td>30028838992874783993X</td>
-                                            <td>广东惠州</td>
+                                            <td><a href="###">壹中心高空鹰眼</a></td>
+                                            <td>高空鹰眼</td>
+                                            <td>淡水街道</td>
+                                            <td>50倍高空鹰眼</td>
                                             <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                            <td>淡水街道壹中心楼顶</td>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                                 <div class="case-main-section-footer">
                                     <div class="start">
-                                        <button class="btn btn-md btn-text waves-effect"><i class="ran-icon27"></i>导出Excel</button>
+                                        <button class="btn btn-md btn-text waves-effect"><i
+                                                class="ran-icon27"></i>导出Excel</button>
                                     </div>
                                     <div class="end">
                                         <div class="pagination">
@@ -402,130 +350,138 @@
                     </div>
                 </section>
             </div>
-            
+
         </main>
         <div class="wing-panel" style="width: 72rem;">
             <div class="wing-panel-close">
-                <button class="btn btn-md btn-text waves-effect" onclick="document.querySelector('.wing-panel').classList.remove('show')"><i class="ran-icon81"></i></button>
+                <button class="btn btn-md btn-text waves-effect"
+                    onclick="document.querySelector('.wing-panel').classList.remove('show')"><i
+                        class="ran-icon81"></i></button>
             </div>
             <div class="wing-panel-header">
                 <div class="start">
-                    <button class="btn btn-md btn-primary btn-text back-btn"><i class="ran-icon40"></i>返回</button>
-                    <!-- 点击其他家庭成员、居住地址房屋详情才出现返回按钮 -->
-                    <h3 class="wing-panel-title">人员详情</h3>
+                    <h3 class="wing-panel-title">监控详情</h3>
+                </div>
+                <div class="end">
+                    <button class="btn btn-md btn-primary waves-effect" onclick="dialogShow(document.getElementById('dialog'))"><i class="ran-icon56"></i>编辑</button>
                 </div>
             </div>
             <div class="wing-panel-main">
                 <div class="wing-panel-row">
                     <dl class="data-list" style="--col:2">
-                        <dt>姓名：</dt>
+                        <dt>监控：</dt>
                         <dd>
-                            王大锤
+                            壹中心高空鹰眼
                         </dd>
-                        <dt>性别：</dt>
-                        <dd>男性</dd>
-                        <dt>年龄：</dt>
-                        <dd>40</dd>
-                        <dt>出生日期：</dt>
-                        <dd>1972/08/08</dd>
-                        <dt>联系电话：</dt>
+                        <dt>类型：</dt>
+                        <dd>高空鹰眼</dd>
+                        <dt>镇街：</dt>
+                        <dd>淡水街道</dd>
+                        <dt>坐标绑定：</dt>
+                        <dd><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span></dd>
+                        <dt>管理员：</dt>
+                        <dd>王大锤</dd>
+                        <dt>电话：</dt>
                         <dd>16392884990</dd>
-                        <dt>民族：</dt>
-                        <dd>汉族</dd>
-                        <dt>人口类型：</dt>
-                        <dd>常住人口</dd>
-                        <dt>证件类型：</dt>
-                        <dd>身份证</dd>
-                        <dt>证件号：</dt>
-                        <dd>30028838992874783993X</dd>
-                        <dt>户籍：</dt>
-                        <dd>广东惠州</dd>
-                        <dt>居住地址：</dt>
-                        <dd class="colspan"><a href="###">惠州市惠阳区淡水街道星河丹堤c12-2202</a></dd>
-                        <!-- 如果居住地址绑定了房屋，点击进入房屋详情页面 -->
-
+                        <dt>流媒体：</dt>
+                        <dd class="colspan"><a
+                                href="###">rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov</a></dd>
+                        <dt>备注：</dt>
+                        <dd class="colspan">海康50倍高空鹰眼</dd>
+                        <dt>地址：</dt>
+                        <dd class="colspan">惠州市惠阳区淡水街道星河丹堤c12-2202</dd>
                     </dl>
-                    <ul class="media-matrix media-matrix-sm">
-
-                        <li class="media-item">
-                            <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
-                        </li>
-                        <li class="media-item">
-                            <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
-                        </li>
-                        <li class="media-item">
-                            <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
-                        </li>
-                    </ul>
                 </div>
                 <div class="wing-panel-row">
-                    <nav class="tabs line-tabs">
-                        <a href="javascript:;" class="active">家庭成员(3)</a>
-                        <a href="javascript:;">关联事件(2)</a>
-                    </nav>
-                    <table class="table record-table">
-                        <thead>
-                            <tr>
-                                <th>姓名</th>
-                                <th>性别</th>
-                                <th>年龄</th>
-                                <th>关系</th>
-                                <th>类型</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="###">王小锤</a></td>
-                                <td>男</td>
-                                <td>15</td>
-                                <td>子女</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="###">李梅梅</a></td>
-                                <td>女</td>
-                                <td>35</td>
-                                <td>夫妻</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="###">王嘉丽</a></td>
-                                <td>女</td>
-                                <td>18</td>
-                                <td>子女</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table record-table">
-                        <thead>
-                            <tr>
-                                <th>事件标题</th>
-                                <th>时间</th>
-                                <th>类型</th>
-                                <th>状态</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="###">自建房消防检查</a></td>
-                                <td>2022/05/15/17:32</td>
-                                <td>消防安全</td>
-                                <td><span class="tag tag-success">已完成</span></td>
-                                <td><a href="###">查看</a></td>
-                            </tr>
-                         
-                        </tbody>
-                    </table>
+                    <div class="video" style="max-width: 100%">
+                        <video
+                            src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                            controls="controls">
+                        </video>
+                    </div>
                 </div>
 
             </div>
-            
+
+        </div>
+    </div>
+    <div class="backdrop" id="dialog">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    设置
+                </h3>
+
+                <button class="btn btn-md btn-icon" onclick="dialogHide(document.getElementById('dialog'))"><i
+                        class="ran-icon81"></i></button>
+            </div>
+            <div class="dialog_body">
+                <form action="" class="form-group">
+                    <fieldset>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">监控名称</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="监控名称" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">管理员</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="管理员" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">联系电话</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="tel" placeholder="联系电话" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">备注</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <textarea name="" class="input-solid"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">地址</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <textarea name="" class="input-solid"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">坐标拾取</h3>
+                            </div>
+                            <div class="form-item_box">
+                                [116.465785,39.914492]
+                                <button class="btn btn-md btn-primary btn-outlined"><i class="ran-icon110"></i>重新拾取</button>
+                                <!-- 点击弹出层为地图弹出层用于拾取地址坐标，可以用高德 -->
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_end">
+                    <button class="btn btn-md btn-primary btn-text" id="dialog_demo"
+                        onclick="dialogHide(document.getElementById('dialog'))">取消</button>
+                    <button class="btn btn-md btn-primary"
+                        onclick="dialogHide(document.getElementById('dialog'))">完成</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

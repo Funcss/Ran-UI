@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../dest/css/fonts.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="../dest/css/ywtg.css" media="screen" charset="utf-8">
 
-    <title>一网统管-账号详情</title>
+    <title>一网统管</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <div class="header-end">
                 <nav class="header-tab">
                     <!-- 注意页面方向排序是反过来的 -->
-
+          
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -78,7 +78,7 @@
                         <div class="list-info">
                             账号列表
                         </div>
-
+                        
                     </li>
                     <li class="list-link">
                         <div class="list-start">
@@ -87,14 +87,14 @@
                         <div class="list-info">
                             角色权限
                         </div>
-
+                       
                     </li>
                     <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            组织架构
+                            单位字典
                         </div>
 
                     </li>
@@ -105,7 +105,7 @@
                         <div class="list-info">
                             操作日志
                         </div>
-
+                        
                     </li>
                 </ul>
             </div>
@@ -113,14 +113,11 @@
         </section>
         <main class="main">
             <div class="main-header">
-                <div class="main-header-start">
-                    <a href="一网统管后台.html" class="btn btn-md btn-primary btn-text back-btn waves-effect"><i
-                            class="ran-icon40"></i>返回</a>
-                    <ol class="breadcrumbs">
-                        <li>账号详情</li>
-                    </ol>
-                </div>
-
+                <ol class="breadcrumbs">
+                    
+                    <li>账号列表（137）</li>
+                </ol>
+                <button class="btn btn-md btn-primary" onclick="dialogShow(document.querySelector('#dialog'));"><i class="ran-icon55"></i>添加</button>
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
@@ -128,57 +125,22 @@
                     <div class="case-body has-sidebar">
                         <div class="case-sidebar">
                             <div class="case-sidebar-scroll">
-                                <div class="case-sidebar-user-card">
-                                    <div class="avatar avatar-max">沈局</div>
-                                    <span class="avatar-name">admin</span>
-                                </div>
-
                                 <form action="" class="form-group case-sidebar-main">
                                     <fieldset>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">关键字搜索</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="search" placeholder="搜索账号、使用者" class="input input-md input-solid">
+                                            </div>
+                                        </div>
                                         <div class="form-item">
                                             <div class="form-item-header">
                                                 <h3 class="form-item_label">角色类型</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                <div class="select_value select-solid menu-select"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">管理员
-                                                </div>
-                                                <!-- 超级管理员账号不能更改 -->
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item waves-effect">1</li>
-                                                        <li class="menu-item waves-effect">2</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">使用人</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="text" placeholder="使用者姓名" value="沈局"
-                                                    class="input input-md input-solid">
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">联系电话</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="tel" placeholder="联系电话" value="15629839900"
-                                                    class="input input-md input-solid">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">组织</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="text" placeholder="请选择" value="政数局"
-                                                    class="menu-select input input-md input-solid"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">
+                                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
                                                 <div class="menu" id="menu-search">
                                                     <ul class="menu-list">
                                                         <li class="menu-item selected waves-effect">全部</li>
@@ -190,11 +152,17 @@
                                         </div>
                                         <div class="form-item">
                                             <div class="form-item-header">
-                                                <h3 class="form-item_label">启用状态</h3>
+                                                <h3 class="form-item_label">组织</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                <input type="checkbox" class="switch mui">
-                                                <!-- 自己不能关闭自己的，超管不能关闭 -->
+                                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item selected waves-effect">全部</li>
+                                                        <li class="menu-item waves-effect">1</li>
+                                                        <li class="menu-item waves-effect">2</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-item">
@@ -202,66 +170,48 @@
                                                 <h3 class="form-item_label">创建时间</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                系统 创建于
-                                                <time>2022/06/23 12:56</time>
+                                                <input type="date" placeholder="开始时间" class="input input-md input-solid">
+                                                <input type="date" class="input input-md input-solid">
                                             </div>
                                         </div>
-
-                                        <div class="form-item">
-                                            <a class="btn btn-md btn-primary btn-text" onclick="dialogShow(document.querySelector('#dialog'));"><i class="ran-icon98"></i>修改密码</a>
-                                            <!-- 仅超级管理员才出现此按钮 -->
-                                        </div>
+                                  
                                     </fieldset>
                                 </form>
                                 <div class="case-sidebar-bottom">
-                                    <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
-                                    <button class="btn btn-md btn-outlined btn-primary">还原</button>
-                                    <button class="btn btn-md btn-primary waves-effect">修改</button>
+                                    <button class="btn btn-md btn-outlined btn-primary">清空</button>
+                                            <button class="btn btn-md btn-primary"><i class="ran-icon137"></i>筛选</button>
                                 </div>
                             </div>
                         </div>
                         <div class="case-main">
-                            <!-- <div class="case-header">
-                                <nav class="tabs line-tabs">
-                                    <a href="javascript:;" class="active">工作日志 (435)</a>
-                                    <a href="javascript:;">任务日志 (318)</a>
-                                    <a href="javascript:;">登录日志 (132)</a>
-                                </nav>
-                            </div> -->
                             <section class="case-main-section">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>登录时间</th>
-                                            <th>登录IP</th>
-                                            <th>来源地址</th>
-                                            <th>登录端</th>
+                                            <th>账号</th>
+                                            <th>角色</th>
+                                            <th>使用人</th>
+                                            <th>单位</th>
+                                            <th>创建时间</th>
+                                            <th>上次登录</th>
+                                            <th>启用状态</th>
+                                            <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>2022/06/23 12:56:24</td>
-                                            <td>168.197.19.20</td>
-                                            <td>中国惠州惠阳区</td>
-                                            <td>大屏端</td>
+                                            <td>admin</td>
+                                            <td>超级管理员</td>
+                                            <td>沈局</td>
+                                            <td>政数局</td>
+                                            <td>2022/06/23 12:56</td>
+                                            <td>2022/07/16 15:16</td>
+                                            <td><input type="checkbox" class="switch mui"></td>
+                                            <td><a href="账号管理-账号详情.html">详情</a></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>2022/06/23 12:56:24</td>
-                                            <td>168.197.19.20</td>
-                                            <td>中国惠州惠阳区</td>
-                                            <td>管理端</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>2022/06/23 12:56:24</td>
-                                            <td>168.197.19.20</td>
-                                            <td>中国惠州惠阳区</td>
-                                            <td>移动端</td>
-                                        </tr>
-
+                                        
                                     </tbody>
                                 </table>
                             </section>
@@ -276,7 +226,7 @@
         <div class="dialog" style="width: 32rem;">
             <div class="dialog_header">
                 <h3 class="dialog_title">
-                    修改密码
+                    添加账号
                 </h3>
 
                 <button class="btn btn-md btn-icon" onclick="dialogHide(document.getElementById('dialog'))"><i
@@ -287,21 +237,50 @@
                     <fieldset>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">两步验证</h3>
+                                <h3 class="form-item_label">账号名</h3>
                             </div>
                             <div class="form-item_box">
-                                <input type="text" placeholder="2FA key" class="input input-md input-solid">
-                                <!-- 超级管理员我们给他一个两步验证，他就可以盲改其他用户密码，其他用户密码忘了可以找他改 -->
+                                <input type="text" placeholder="建议使用手机号" class="input input-md input-solid">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">新密码</h3>
+                                <h3 class="form-item_label">角色</h3>
                             </div>
                             <div class="form-item_box">
-                                <input type="text" placeholder="新密码" class="input input-md input-solid">
+                                <div class="select_value select-solid menu-select waves-effect" onclick="menu(this,document.getElementById('menu-search'))">全部
+                                </div>
+                                <div class="menu" id="menu-search">
+                                    <ul class="menu-list">
+                                        <li class="menu-item waves-effect">
+                                           1
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">使用人</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="使用人姓名" class="input input-md input-solid">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item-header">
+                                <h3 class="form-item_label">单位</h3>
+                            </div>
+                            <div class="form-item_box">
+                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
+                                <div class="menu" id="menu-search">
+                                    <ul class="menu-list">
+                                        <li class="menu-item selected waves-effect">全部</li>
+                                        <li class="menu-item waves-effect">1</li>
+                                        <li class="menu-item waves-effect">2</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
 

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../dest/css/fonts.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="../dest/css/ywtg.css" media="screen" charset="utf-8">
 
-    <title>一网统管</title>
+    <title>一网统管-账号管理-角色管理</title>
 </head>
 
 <body>
@@ -25,8 +25,7 @@
             </div>
             <div class="header-end">
                 <nav class="header-tab">
-                    <!-- 注意页面方向排序是反过来的 -->
-                   
+
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -43,7 +42,7 @@
         <section class="sidebar">
             <nav class="sidebar-first">
                 <div class="sidebar-first-list">
-                    <a href="###" class="active">
+                    <a href="###">
                         <i class="ran-icon62"></i>
                         <span>账号管理</span>
                     </a>
@@ -51,7 +50,7 @@
                         <i class="ran-icon15"></i>
                         <span>数据管理</span>
                     </a>
-                    <a href="###">
+                    <a href="###" class="active">
                         <i class="ran-icon123"></i>
                         <span>事件管理</span>
                     </a>
@@ -70,100 +69,161 @@
             </nav>
             <div class="sidebar-second">
                 <ul class="list sidebar-second-list">
-                    <li class="list-title">账号管理</li>
+                    <li class="list-title">事件管理</li>
                     <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            账号列表
+                            事件列表
                         </div>
-                        
                     </li>
                     <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            角色权限
+                            事件状态管理
                         </div>
-                       
+                    </li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            事件类型管理
+                        </div>
                     </li>
                     <li class="list-link active">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            组织架构
+                            事件等级管理
                         </div>
-
+                    </li>
+                </ul>
+                <ul class="list sidebar-second-list">
+                    <li class="list-title">创建事件</li>
+                    <li class="list-link">
+                        <div class="list-start">
+                            <i class="ran-icon167"></i>
+                        </div>
+                        <div class="list-info">
+                            创建事件
+                        </div>
                     </li>
                     <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            操作日志
+                            我创建的事件
                         </div>
-                        
                     </li>
                 </ul>
+
             </div>
 
         </section>
         <main class="main">
             <div class="main-header">
                 <ol class="breadcrumbs">
-                    
-                    <li>组织架构（137）</li>
+                    <li>事件类型管理</li>
                 </ol>
-                <button class="btn btn-md btn-primary"><i class="ran-icon55"></i>添加</button>
+                <button class="btn btn-md btn-primary"><i class="ran-icon55"></i>新建</button>
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
-
                     <div class="case-body">
-                       
                         <div class="case-main">
+                            <!-- <div class="case-header">
+                                <nav class="tabs line-tabs">
+                                    <a href="javascript:;" class="active">工作日志 (435)</a>
+                                    <a href="javascript:;">任务日志 (318)</a>
+                                    <a href="javascript:;">登录日志 (132)</a>
+                                </nav>
+                            </div> -->
                             <section class="case-main-section">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>单位名称</th>
-                                            <th>地址</th>
-                                            <th>联系电话</th>
+                                            <th>等级</th>
+                                            <th>描述</th>
+                                            <th>创建人</th>
+                                            <th>创建时间</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>惠阳区政数局</td>
-                                            <td>惠阳区淡水惠南大道好益康一路A座7楼</td>
-                                            <td>0752-12334567</td>
-                                            <td><a href="###" onclick="dialogShow(document.querySelector('#dialog'));">详情</a></td>
+                                            <td>A-特别重大事件</td>
+                                            <td>-</td>
+                                            <td>王大锤</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###"
+                                                    onclick="dialogShow(document.querySelector('#dialog'));">编辑</a></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>惠阳区工信局</td>
-                                            <td>惠阳区淡水惠南大道好益康一路A座7楼</td>
-                                            <td>0752-12334567</td>
-                                            <td><a href="###" onclick="dialogShow(document.querySelector('#dialog'));">详情</a></td>
+                                            <td>B-重大事件</td>
+                                            <td>-</td>
+                                            <td>王大锤</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###"
+                                                    onclick="dialogShow(document.querySelector('#dialog'));">编辑</a></td>
                                         </tr>
-                                        
+                                        <tr>
+                                            <td>3</td>
+                                            <td>C-较大事件</td>
+                                            <td>-</td>
+                                            <td>王大锤</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###"
+                                                    onclick="dialogShow(document.querySelector('#dialog'));">编辑</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>D-一般事件</td>
+                                            <td>-</td>
+                                            <td>王大锤</td>
+                                            <td>2022/07/12 16:23:34</td>
+                                            <td><a href="###"
+                                                    onclick="dialogShow(document.querySelector('#dialog'));">编辑</a></td>
+                                        </tr>
+                                      
+                                        <!-- 暂时不开放删除，默认还有个其他类型。-->
                                     </tbody>
                                 </table>
+                                <div class="case-main-section-footer">
+                                    <div class="start">
+                                        <p class="hint">*请注意，事件等级设置后，因为关联了数据原则上不能删除，请谨慎操作。</p>
+                                    </div>
+                                    <div class="end">
+                                        <div class="pagination">
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon69"></i></button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-md btn-primary waves-effect">1</button>
+                                                <button class="btn btn-md waves-effect">2</button>
+                                                <button class="btn btn-md waves-effect">…</button>
+                                                <button class="btn btn-md waves-effect">8</button>
+                                                <button class="btn btn-md waves-effect">9</button>
+                                            </div>
+                                            <button class="btn btn-md waves-effect"><i class="ran-icon70"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                         </div>
                     </div>
-
                 </section>
             </div>
         </main>
     </div>
     <div class="backdrop" id="dialog">
-        <div class="dialog" style="width: 32rem;">
+        <div class="dialog">
             <div class="dialog_header">
                 <h3 class="dialog_title">
                     设置
@@ -177,26 +237,18 @@
                     <fieldset>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">单位名称</h3>
+                                <h3 class="form-item_label">等级</h3>
                             </div>
                             <div class="form-item_box">
-                                <input type="text" placeholder="图例名称" class="input input-md input-solid">
+                                <input type="text" placeholder="等级名称" class="input input-md input-solid">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">地址</h3>
+                                <h3 class="form-item_label">描述</h3>
                             </div>
                             <div class="form-item_box">
                                 <textarea name="" class="input-solid"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <div class="form-item-header">
-                                <h3 class="form-item_label">联系电话</h3>
-                            </div>
-                            <div class="form-item_box">
-                                <input type="tel" placeholder="联系电话" class="input input-md input-solid">
                             </div>
                         </div>
 

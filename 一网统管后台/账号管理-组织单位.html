@@ -26,7 +26,7 @@
             <div class="header-end">
                 <nav class="header-tab">
                     <!-- 注意页面方向排序是反过来的 -->
-          
+                   
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -71,7 +71,7 @@
             <div class="sidebar-second">
                 <ul class="list sidebar-second-list">
                     <li class="list-title">账号管理</li>
-                    <li class="list-link active">
+                    <li class="list-link">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
@@ -89,12 +89,12 @@
                         </div>
                        
                     </li>
-                    <li class="list-link">
+                    <li class="list-link active">
                         <div class="list-start">
                             <i class="ran-icon167"></i>
                         </div>
                         <div class="list-info">
-                            单位字典
+                            组织架构
                         </div>
 
                     </li>
@@ -115,101 +115,41 @@
             <div class="main-header">
                 <ol class="breadcrumbs">
                     
-                    <li>账号列表（137）</li>
+                    <li>组织单位（137）</li>
                 </ol>
-                <button class="btn btn-md btn-primary" onclick="dialogShow(document.querySelector('#dialog'));"><i class="ran-icon55"></i>添加</button>
+                <button class="btn btn-md btn-primary"><i class="ran-icon55"></i>添加</button>
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
 
-                    <div class="case-body has-sidebar">
-                        <div class="case-sidebar">
-                            <div class="case-sidebar-scroll">
-                                <form action="" class="form-group case-sidebar-main">
-                                    <fieldset>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">关键字搜索</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="search" placeholder="搜索账号、使用者" class="input input-md input-solid">
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">角色类型</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item selected waves-effect">全部</li>
-                                                        <li class="menu-item waves-effect">1</li>
-                                                        <li class="menu-item waves-effect">2</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">组织</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item selected waves-effect">全部</li>
-                                                        <li class="menu-item waves-effect">1</li>
-                                                        <li class="menu-item waves-effect">2</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">创建时间</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="date" placeholder="开始时间" class="input input-md input-solid">
-                                                <input type="date" class="input input-md input-solid">
-                                            </div>
-                                        </div>
-                                  
-                                    </fieldset>
-                                </form>
-                                <div class="case-sidebar-bottom">
-                                    <button class="btn btn-md btn-outlined btn-primary">清空</button>
-                                            <button class="btn btn-md btn-primary"><i class="ran-icon137"></i>筛选</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="case-body">
+                       
                         <div class="case-main">
                             <section class="case-main-section">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>账号</th>
-                                            <th>角色</th>
-                                            <th>使用人</th>
-                                            <th>单位</th>
-                                            <th>创建时间</th>
-                                            <th>上次登录</th>
-                                            <th>启用状态</th>
+                                            <th>单位名称</th>
+                                            <th>地址</th>
+                                            <th>联系电话</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>admin</td>
-                                            <td>超级管理员</td>
-                                            <td>沈局</td>
-                                            <td>政数局</td>
-                                            <td>2022/06/23 12:56</td>
-                                            <td>2022/07/16 15:16</td>
-                                            <td><input type="checkbox" class="switch mui"></td>
-                                            <td><a href="一网统管后台-账号管理.html">详情</a></td>
+                                            <td>惠阳区政数局</td>
+                                            <td>惠阳区淡水惠南大道好益康一路A座7楼</td>
+                                            <td>0752-12334567</td>
+                                            <td><a href="###" onclick="dialogShow(document.querySelector('#dialog'));">详情</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>惠阳区工信局</td>
+                                            <td>惠阳区淡水惠南大道好益康一路A座7楼</td>
+                                            <td>0752-12334567</td>
+                                            <td><a href="###" onclick="dialogShow(document.querySelector('#dialog'));">详情</a></td>
                                         </tr>
                                         
                                     </tbody>
@@ -226,7 +166,7 @@
         <div class="dialog" style="width: 32rem;">
             <div class="dialog_header">
                 <h3 class="dialog_title">
-                    添加账号
+                    设置
                 </h3>
 
                 <button class="btn btn-md btn-icon" onclick="dialogHide(document.getElementById('dialog'))"><i
@@ -237,49 +177,26 @@
                     <fieldset>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">账号名</h3>
+                                <h3 class="form-item_label">单位名称</h3>
                             </div>
                             <div class="form-item_box">
-                                <input type="text" placeholder="建议使用手机号" class="input input-md input-solid">
+                                <input type="text" placeholder="图例名称" class="input input-md input-solid">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">角色</h3>
+                                <h3 class="form-item_label">地址</h3>
                             </div>
                             <div class="form-item_box">
-                                <div class="select_value select-solid menu-select waves-effect" onclick="menu(this,document.getElementById('menu-search'))">全部
-                                </div>
-                                <div class="menu" id="menu-search">
-                                    <ul class="menu-list">
-                                        <li class="menu-item waves-effect">
-                                           1
-                                        </li>
-                                    </ul>
-                                </div>
+                                <textarea name="" class="input-solid"></textarea>
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-item-header">
-                                <h3 class="form-item_label">使用人</h3>
+                                <h3 class="form-item_label">联系电话</h3>
                             </div>
                             <div class="form-item_box">
-                                <input type="text" placeholder="使用人姓名" class="input input-md input-solid">
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <div class="form-item-header">
-                                <h3 class="form-item_label">单位</h3>
-                            </div>
-                            <div class="form-item_box">
-                                <input type="text" placeholder="请选择" class="menu-select input input-md input-solid" onclick="menu(this,document.getElementById('menu-search'))">
-                                <div class="menu" id="menu-search">
-                                    <ul class="menu-list">
-                                        <li class="menu-item selected waves-effect">全部</li>
-                                        <li class="menu-item waves-effect">1</li>
-                                        <li class="menu-item waves-effect">2</li>
-                                    </ul>
-                                </div>
+                                <input type="tel" placeholder="联系电话" class="input input-md input-solid">
                             </div>
                         </div>
 

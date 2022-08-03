@@ -226,7 +226,7 @@ body {
     grid-template-columns:4.8rem 1fr;
     background-color: var(--paper);
     box-shadow: 0 0 1px 0 rgb(0 0 0 / 16%), 0 2px 4px 0 rgb(0 0 0 / 4%);
-
+    min-height: 0;
     .tabs {
         margin: 0.8rem 2.4rem;
     }
@@ -293,6 +293,7 @@ body {
 
 .sidebar-second{
     padding: 1.2rem 1.6rem;
+    overflow: auto;
 }
 .sidebar-second-list{
     margin-bottom: 1.6rem;
@@ -417,7 +418,7 @@ body {
     top: 4.8rem;
     overflow: auto;
 
-    max-height: calc(100vh - 13.6rem);
+    max-height: calc(100vh - 12.8rem);
 }
 
 .case-sidebar-top {
@@ -468,14 +469,17 @@ body {
     &:last-child{
         border-bottom: none;
     }
+    .form-item-inline{
+        max-width: 30rem;
+    }
 }
 
 .case-row-title{
+    font-size: 1.4rem;
     margin: 0;
 }
 .case-row-form{
     padding: 1.6rem 0;
-    max-width: 30rem;
 }
 .case-set-header{
     display: flex;
@@ -566,13 +570,21 @@ fieldset {
     padding: 1.6rem 2.4rem;
 
 }
-
+.form-item-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    a{
+        font-size: 1.2rem;
+    }
+}
 .form-item_label {
     font-size: 1.2rem;
     font-weight: normal;
     color: var(--text-light);
     margin: 0;
-    margin-bottom: 0.8rem;
+
 }
 
 .form-item_box {
@@ -862,4 +874,131 @@ fieldset {
     grid-auto-flow: column;
     gap: 0.8rem;
     align-items: center;
+}
+
+.file-list {
+    position: relative;
+    display: grid;
+    gap: 0.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &>li {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 0.4rem;
+        background: var(--base-thinner);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.2s;
+
+        &:hover {
+            background: var(--base-thin);
+        }
+    }
+
+
+}
+
+.file-item {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.8rem;
+    align-items: center;
+    color: var(--text);
+    justify-content: flex-start;
+
+    &::after {
+        display: none;
+    }
+
+    &::before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 1.6rem;
+        background: url(../images/files/file9.svg) no-repeat center;
+        background-size: contain;
+        flex: none;
+    }
+
+    &[href$='.html']:before,
+    &[href$='.css']:before,
+    &[href$='.xml']:before {
+        background-image: url(../images/files/code.svg)
+    }
+
+    &[href$='.rar']:before,
+    &[href$='.zip']:before,
+    &[href$='.jar']:before,
+    &[href$='.ios']:before,
+    &[href$='.gzip']:before {
+        background-image: url(../images/files/rar.svg)
+    }
+
+    &[href$='.xls']:before,
+    &[href$='.xlsx']:before,
+    &[href$='.xlt']:before,
+    &[href$='.xlsm']:before {
+        background-image: url(../images/files/excel.svg)
+    }
+
+    &[href$='.ppt']:before,
+    &[href$='.pps']:before,
+    &[href$='.pptx']:before {
+        background-image: url(../images/files/ppt.svg)
+    }
+
+    &[href$='.doc']:before,
+    &[href$='.docx']:before,
+    &[href$='.dot']:before,
+    &[href$='.dotx']:before,
+    &[href$='.docm']:before,
+    &[href$='.dotm']:before {
+        background-image: url(../images/files/word.svg)
+    }
+
+    &[href$='.psd']:before {
+        background-image: url(../images/files/img.svg)
+    }
+
+    &[href$='.sketch']:before {
+        background-image: url(../images/files/img.svg)
+    }
+
+    &[href$='.indd']:before {
+        background-image: url(../images/files/img.svg)
+    }
+
+    &[href$='.pdf']:before {
+        background-image: url(../images/files/pdf.svg)
+    }
+
+    &[href$='.mp4']:before,
+    &[href$='.mov']:before,
+    &[href$='.avi']:before,
+    &[href$='.mkv']:before,
+    &[href$='.swf']:before {
+        background-image: url(../images/files/video.svg)
+    }
+}
+
+.dialog_body.has-sidebar{
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: auto 1fr;
+    align-items: flex-start;
+}
+.dialog-sidebar{
+    border-right: 1px solid var(--base-thinner);
+    padding-right: 2.4rem;
+    overflow: auto;
+}
+.dialog-main-bottom{
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

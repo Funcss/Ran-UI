@@ -456,10 +456,16 @@ dot {
 
 
 .dialog {
+    /*内滚动条样式开始*/
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-height: calc(100vh - 4.8rem);
+    /*内滚动条样式结束*/
     grid-column: 1;
     grid-row: 1;
     @extend .paper,
     .paper-z4;
+    min-width: 40rem;
     max-width: 80%;
     margin: auto 2.4rem;
     transform: translateZ(0.8rem);
