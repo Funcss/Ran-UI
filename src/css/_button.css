@@ -45,6 +45,10 @@
         opacity: .48;
         cursor: not-allowed;
     }
+    &.scaling{
+        animation:btn-shadow 2s ease-out infinite;
+    }
+    
 }
 a.btn{
     &::after{
@@ -94,11 +98,23 @@ a.btn{
     padding: 0 1.6rem;
 }
 
+
+@keyframes btn-shadow {
+    0% {
+        box-shadow: 0 0 0 0 var(--color);
+    }
+    100% {
+        box-shadow: 0 0 0 1.6rem transparent;
+    }
+}
+
 @property --gradX {
     syntax: '<percentage>';
     initial-value: 1%;
     inherits: true;
   }
+
+
 
 
 @define-mixin btn $name,
@@ -154,6 +170,7 @@ $colorBtn {
                 background: radial-gradient(color-mod($colorBtn a(8%)) 0, color-mod($colorBtn a(24%)) 60%, rgba(255, 255, 255, 0) 70%);
             }
         }
+      
     }
 }
 

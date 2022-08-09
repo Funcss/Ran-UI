@@ -53,13 +53,6 @@
             transform: translateX(0);
         }
     }
-
-    &.drawer {
-        width: 45.6rem;
-        height: calc(100vh - 4.8rem);
-    }
-
-
     &.sm {
         height: var(--size);
     }
@@ -115,6 +108,7 @@
 }
 
 
+
 .widget-close {
     color: var(--base-light);
     transition: all 0.2s;
@@ -130,21 +124,29 @@
 
 .widget-screen {
     position: absolute;
-    left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
     grid-row: span 2;
     display: grid;
     grid-template-rows: auto 1fr;
     transition: all 0.3s;
-
+    @extend .widget;
+    max-height: calc(100vh - 12.4rem);
     &.hide {
         opacity: 0;
         transform: scale(0.9);
         pointer-events: none;
     }
 }
+.drawer .widget-screen{
+    width: 45.6rem;
+}
+.drawer-left .widget-screen{
+    left: 0;
+ }
+ .drawer-right .widget-screen{
+    right: 0;
+ }
 
 .widget-header {
     display: grid;
@@ -472,7 +474,7 @@
     overflow: auto;
     border-radius: 0.8rem;
     padding: 0.8rem 2rem 1.6rem;
-
+    align-content: flex-start;
     &>* {
         min-width: 0;
     }
@@ -860,7 +862,7 @@
 .tab-content {
     position: relative;
     display: none;
-
+    min-height: 32rem;
     &.show {
         display: block;
     }
@@ -975,6 +977,8 @@
 
 
 .widget-form {
+    display: grid;
+    gap: 2.4rem;
     fieldset {
         position: relative;
         display: grid;
@@ -1242,11 +1246,24 @@
         background-image: url(../images/files/video.svg)
     }
 }
-.recordList {
+.recordList,.taskList {
     padding-left: 2.4rem;
     margin: 0;
     list-style: none;
 }
+.taskList-item{
+    position: relative;
+    padding-bottom: 1.6rem;
+    &::before {
+        content: "\e903";
+        font-family: 'ranIcon';
+        position: absolute;
+        left: -2.4rem;
+        top: 0;
+        color: var(--ui-primary);
+    }
+}
+
 .recordList-item {
     position: relative;
     padding-bottom: 1.6rem;
@@ -1786,5 +1803,24 @@
 @keyframes wave-r{
     100% {
         background-position: -800px 0;
+    }
+}
+
+.user-card{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.6rem;
+    align-items: flex-start;
+}
+.user-info{
+    display: grid;
+    gap: 0.8rem;
+    dt{
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+    dd{
+        font-size: 1.2rem;
+        color: var(--text-regular);
     }
 }

@@ -1,0 +1,129 @@
+:root .dark {
+    --paper: #292d38;
+}
+.art-title {
+    font-family: ysbt;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+}
+.max-dialog {
+    .dialog {
+        width: 80%;
+    }
+}
+
+.dialog_body {
+    display: grid;
+    gap: 2.4rem;
+    align-content: flex-start;
+
+    .statistic {
+        padding: 1.6rem 0;
+    }
+
+    .tab-content {
+        grid-area: 1 / 1 / 2 / 2;
+        display: grid;
+        align-content: flex-start;
+        gap: 2.4rem;
+        transition: all 0.3s;
+        display: none;
+
+        &.show {
+            display: grid;
+        }
+    }
+}
+.dialog-chart {
+    display: grid;
+    gap: 1.6rem;
+    min-height: 28rem;
+    padding:1.6rem 2.4rem;
+    border-radius: 0.8rem;
+    background-color: var(--base-thinner);
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 12%), 0 0.2rem 0.4rem rgb(0 0 0 / 12%);
+}
+
+.table-slicky_row {
+    background-image: linear-gradient(180deg, var(--paper), color-mod(#292d38 a(0.4)));
+}
+.backdrop {
+    overflow: hidden;
+    z-index: 2;
+
+    .dialog {
+        display: flex;
+        flex-direction: column;
+        max-height: 100%;
+        min-height: 0;
+    }
+
+    .dialog_body {
+        overflow: auto;
+    }
+
+    .dialog_header,
+    .dialog_footer {
+        background: var(--paper);
+    }
+
+}
+
+
+.dialog_title {
+    display: flex;
+    align-items: center;
+
+    .back-btn {
+        display: flex;
+        border-right: 1px solid var(--base-thin);
+        padding-right: 1rem;
+        font-size: 1.6rem;
+        margin-right: 1.2rem;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.dialog-sub-title {
+    padding-left: 0.8rem;
+    border-left: 3px solid var(--ui-primary);
+    line-height: 1em;
+    margin: 0;
+}
+
+.normal-table {
+    th {
+        background-color: var(--base-thinner);
+    }
+}
+
+.project-steps {
+    width: 64%;
+    margin: 1.6rem auto;
+}
+
+.dialog-filter-box{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.4rem;
+    align-items: flex-start;
+}
+.filter-sidebar{
+    position: sticky;
+    top: 0;
+    background: var(--base-thinner);
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 12%), 0 0.2rem 0.4rem rgb(0 0 0 / 12%);
+    .form-group{
+        padding: 0.5rem;
+    }
+ 
+}
+.video-list{
+    display: grid;
+    align-content: space-between;
+}

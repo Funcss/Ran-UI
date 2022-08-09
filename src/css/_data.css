@@ -59,6 +59,10 @@ a.avatar {
     height: var(--xlg);
     width: var(--xlg);
 }
+.avatar-max{
+    height: 6.4rem;
+    width: 6.4rem;
+}
 
 .avatar-group {
     display: flex;
@@ -436,8 +440,8 @@ a.tag {
     li,
     dd,
     dt {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
         margin: 0;
         padding: 0.8rem;
@@ -914,6 +918,7 @@ a.tag {
 .table-slicky_row {
    position: sticky;
    top: 0;
+   z-index: 1;
    background-image: linear-gradient(180deg,var(--reverse),color-mod(var(--reverse) a(0%)));
     -webkit-backdrop-filter: saturate(180%) blur(16px);
     backdrop-filter: saturate(180%) blur(16px);
@@ -1225,4 +1230,5 @@ a.tag {
 video {
     -webkit-appearance: none;
     max-width: 100%;
+    width: 100%;
 }

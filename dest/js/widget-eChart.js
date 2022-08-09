@@ -281,7 +281,7 @@ trendChart1 = {
         show: true,
     },
     grid: {
-        left:'30',
+        left: '30',
         right: '0',
         bottom: '20',
         top: '8',
@@ -1511,9 +1511,9 @@ $.get(
                     trigger: 'item',
                     triggerOn: 'mousemove'
                 },
-                label:{
-                    color:"#fff"
-                  },
+                label: {
+                    color: "#fff"
+                },
 
                 series: [
                     {
@@ -1527,7 +1527,7 @@ $.get(
                             color: 'gradient',
                             curveness: 0.5
                         }
-                    
+
                     }
 
                 ]
@@ -1549,70 +1549,70 @@ var canyeOption;
 canyeChart.showLoading();
 $.get('https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/data/asset/data/disk.tree.json', function (diskData) {
     canyeChart.hideLoading();
-  const formatUtil = echarts.format;
-  function getLevelOption() {
-    return [
-      {
-        itemStyle: {
-          borderWidth: 0,
-          gapWidth: 5
-        }
-      },
-      {
-        itemStyle: {
-          gapWidth: 1
-        }
-      },
-      {
-        colorSaturation: [0.35, 0.5],
-        itemStyle: {
-          gapWidth: 1,
-          borderColorSaturation: 0.6
-        }
-      }
-    ];
-  }
-  canyeChart.setOption(
-    (canyeOption = {
-      title: {
-        text: 'Disk Usage',
-        show: false
-      },
-     
-      tooltip: {
-        formatter: function (info) {
-          var value = info.value;
-          var treePathInfo = info.treePathInfo;
-          var treePath = [];
-          for (var i = 1; i < treePathInfo.length; i++) {
-            treePath.push(treePathInfo[i].name);
-          }
-          return [
-            '<div class="tooltip-title">' +
-              formatUtil.encodeHTML(treePath.join('/')) +
-              '</div>',
-            'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
-          ].join('');
-        }
-      },
-      series: [
-        {
-          name: 'Disk Usage',
-          type: 'treemap',
-          visibleMin: 300,
-          label: {
-            show: true,
-            formatter: '{b}'
-          },
-          itemStyle: {
-            borderColor: '#fff'
-          },
-          levels: getLevelOption(),
-          data: diskData
-        }
-      ]
-    })
-  );
+    const formatUtil = echarts.format;
+    function getLevelOption() {
+        return [
+            {
+                itemStyle: {
+                    borderWidth: 0,
+                    gapWidth: 5
+                }
+            },
+            {
+                itemStyle: {
+                    gapWidth: 1
+                }
+            },
+            {
+                colorSaturation: [0.35, 0.5],
+                itemStyle: {
+                    gapWidth: 1,
+                    borderColorSaturation: 0.6
+                }
+            }
+        ];
+    }
+    canyeChart.setOption(
+        (canyeOption = {
+            title: {
+                text: 'Disk Usage',
+                show: false
+            },
+
+            tooltip: {
+                formatter: function (info) {
+                    var value = info.value;
+                    var treePathInfo = info.treePathInfo;
+                    var treePath = [];
+                    for (var i = 1; i < treePathInfo.length; i++) {
+                        treePath.push(treePathInfo[i].name);
+                    }
+                    return [
+                        '<div class="tooltip-title">' +
+                        formatUtil.encodeHTML(treePath.join('/')) +
+                        '</div>',
+                        'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
+                    ].join('');
+                }
+            },
+            series: [
+                {
+                    name: 'Disk Usage',
+                    type: 'treemap',
+                    visibleMin: 300,
+                    label: {
+                        show: true,
+                        formatter: '{b}'
+                    },
+                    itemStyle: {
+                        borderColor: '#fff'
+                    },
+                    levels: getLevelOption(),
+                    data: diskData
+                }
+            ]
+        })
+    );
 });
 
 canyeOption && canyeChart.setOption(canyeOption);
@@ -1627,9 +1627,9 @@ var touZiCanZhiOption = {
     title: {
         text: '投资产值（万元）',
         show: true,
-        textStyle:{
-            fontSize:14,
-            align:'left',
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
         }
     },
     tooltip: {
@@ -1640,10 +1640,10 @@ var touZiCanZhiOption = {
     },
     legend: {
         show: true,
-        orient:'horizontal',
+        orient: 'horizontal',
         itemWidth: 10,
         itemHeight: 10,
-        left:'right'
+        left: 'right'
     },
     grid: {
         left: '0%',
@@ -1665,7 +1665,7 @@ var touZiCanZhiOption = {
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: "50%",/*柱子之间间距*/
-            
+
             data: [18203, 23489, 29034]
         },
         {
@@ -1673,7 +1673,7 @@ var touZiCanZhiOption = {
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: "50%",/*柱子之间间距*/
-           
+
             data: [19325, 23438, 31000]
         }
     ]
@@ -1692,9 +1692,9 @@ var chuKouOption = {
     title: {
         text: '出口规模（万元）',
         show: true,
-        textStyle:{
-            fontSize:14,
-            align:'left',
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
         }
     },
     tooltip: {
@@ -1705,10 +1705,10 @@ var chuKouOption = {
     },
     legend: {
         show: true,
-        orient:'horizontal',
+        orient: 'horizontal',
         itemWidth: 10,
         itemHeight: 10,
-        left:'right'
+        left: 'right'
     },
     grid: {
         left: '0%',
@@ -1720,17 +1720,17 @@ var chuKouOption = {
     xAxis: {
         type: 'category',
         data: ['美国', '欧洲', '日本', '俄罗斯', '韩国', '泰国', '其他']
-      },
-      yAxis: {
+    },
+    yAxis: {
         type: 'value'
-      },
-      series: [
+    },
+    series: [
         {
-          data: [120, 200, 150, 80, 70, 110, 130],
-          type: 'bar',
-          barWidth: 16/*柱子宽度*/,
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'bar',
+            barWidth: 16/*柱子宽度*/,
         }
-      ]
+    ]
 };
 
 if (chuKou) {
@@ -1746,9 +1746,9 @@ var RDoption = {
     title: {
         text: '企业研发投入',
         show: true,
-        textStyle:{
-            fontSize:14,
-            align:'left',
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
         }
     },
     tooltip: {
@@ -1759,10 +1759,10 @@ var RDoption = {
     },
     legend: {
         show: true,
-        orient:'horizontal',
+        orient: 'horizontal',
         itemWidth: 10,
         itemHeight: 10,
-        left:'right'
+        left: 'right'
     },
     grid: {
         left: '0%',
@@ -1786,7 +1786,7 @@ var RDoption = {
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: '50%',
-           
+
             data: [18203, 23489, 29034, 104970, 131744, 630230]
         },
         {
@@ -1794,7 +1794,7 @@ var RDoption = {
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: '50%',
-           
+
             data: [19325, 23438, 31000, 121594, 134141, 681807]
         }
     ]
@@ -1812,9 +1812,9 @@ var powerOption = {
     title: {
         text: '资源消耗',
         show: true,
-        textStyle:{
-            fontSize:14,
-            align:'left',
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
         }
     },
     tooltip: {
@@ -1828,10 +1828,10 @@ var powerOption = {
     },
     legend: {
         data: ['用水', '用电', '天然气'],
-        orient:'horizontal',
+        orient: 'horizontal',
         itemWidth: 10,
         itemHeight: 10,
-        left:'right'
+        left: 'right'
     },
     toolbox: {
         feature: {
@@ -1845,7 +1845,7 @@ var powerOption = {
         left: '0',
         right: '0',
         bottom: '0',
-        top:'48px',
+        top: '48px',
         containLabel: true
     },
     xAxis: [{
@@ -1864,53 +1864,53 @@ var powerOption = {
         type: 'value'
     }],
     series: [{
-            name: '用水',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {
-                opacity: 0.2
-            },
-            lineStyle: {
-                //type: 'dashed',
-                width: 2
-            },
-            emphasis: {
-                focus: 'series'
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
+        name: '用水',
+        type: 'line',
+        stack: 'Total',
+        areaStyle: {
+            opacity: 0.2
         },
-        {
-            name: '用电',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {
-                opacity: 0.2
-            },
-            lineStyle: {
-                //type: 'dashed',
-                width: 2
-            },
-            emphasis: {
-                focus: 'series'
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
+        lineStyle: {
+            //type: 'dashed',
+            width: 2
         },
-        {
-            name: '天然气',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {
-                opacity: 0.2
-            },
-            lineStyle: {
-                //type: 'dashed',
-                width: 2
-            },
-            emphasis: {
-                focus: 'series'
-            },
-            data: [150, 232, 201, 154, 190, 330, 410]
-        }
+        emphasis: {
+            focus: 'series'
+        },
+        data: [120, 132, 101, 134, 90, 230, 210]
+    },
+    {
+        name: '用电',
+        type: 'line',
+        stack: 'Total',
+        areaStyle: {
+            opacity: 0.2
+        },
+        lineStyle: {
+            //type: 'dashed',
+            width: 2
+        },
+        emphasis: {
+            focus: 'series'
+        },
+        data: [220, 182, 191, 234, 290, 330, 310]
+    },
+    {
+        name: '天然气',
+        type: 'line',
+        stack: 'Total',
+        areaStyle: {
+            opacity: 0.2
+        },
+        lineStyle: {
+            //type: 'dashed',
+            width: 2
+        },
+        emphasis: {
+            focus: 'series'
+        },
+        data: [150, 232, 201, 154, 190, 330, 410]
+    }
 
     ]
 };
@@ -1924,68 +1924,68 @@ if (power) {
 
 
 var treeChartDom = document.getElementById('tree-chart');
-var treeChart = echarts.init(treeChartDom ,'dark');
+var treeChart = echarts.init(treeChartDom, 'dark');
 var treeOption;
 
 treeChart.showLoading();
 $.get('https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/data/asset/data/flare.json', function (data) {
     treeChart.hideLoading();
     treeChart.setOption(
-    (treeOption = {
-        title: {
-            text: '园区产业&企业分布',
-            show: true,
-            textStyle:{
-                fontSize:14,
-                align:'left',
-            }
-        },
-      tooltip: {
-        trigger: 'item',
-        triggerOn: 'mousemove'
-      },
-      label:{
-        color:"#fff"
-      },
-      series: [
-        {
-          type: 'tree',
-          data: [data],
-          left: '2%',
-          right: '2%',
-          top: '8%',
-          bottom: '20%',
-          symbol: 'emptyCircle',
-          orient: 'vertical',
-          expandAndCollapse: true,
-          label: {
-            position: 'top',
-            rotate: -90,
-            verticalAlign: 'middle',
-            align: 'right',
-            fontSize: 9
-          },
-          leaves: {
+        (treeOption = {
+            title: {
+                text: '园区产业&企业分布',
+                show: true,
+                textStyle: {
+                    fontSize: 14,
+                    align: 'left',
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                triggerOn: 'mousemove'
+            },
             label: {
-              position: 'bottom',
-              rotate: -90,
-              verticalAlign: 'middle',
-              align: 'left'
-            }
-          },
-          animationDurationUpdate: 750
-        }
-      ]
-    })
-  );
+                color: "#fff"
+            },
+            series: [
+                {
+                    type: 'tree',
+                    data: [data],
+                    left: '2%',
+                    right: '2%',
+                    top: '8%',
+                    bottom: '20%',
+                    symbol: 'emptyCircle',
+                    orient: 'vertical',
+                    expandAndCollapse: true,
+                    label: {
+                        position: 'top',
+                        rotate: -90,
+                        verticalAlign: 'middle',
+                        align: 'right',
+                        fontSize: 9
+                    },
+                    leaves: {
+                        label: {
+                            position: 'bottom',
+                            rotate: -90,
+                            verticalAlign: 'middle',
+                            align: 'left'
+                        }
+                    },
+                    animationDurationUpdate: 750
+                }
+            ]
+        })
+    );
 });
 
 treeOption && treeChart.setOption(treeOption);
 
 
 
- //部分弹出层demo
- var doughnutOption1 = {
+//部分弹出层demo
+var doughnutOption1 = {
 
     tooltip: {
         trigger: 'item',
@@ -2045,26 +2045,890 @@ treeOption && treeChart.setOption(treeOption);
         },
 
         data: [{
-                value: 8,
-                name: '新能源汽车'
-            },
-            {
-                value: 24,
-                name: '医疗健康'
-            },
-            {
-                value: 13,
-                name: '芯片制造'
-            },
-            {
-                value: 46,
-                name: '电子信息技术'
-            },
-            {
-                value: 21,
-                name: '石油化工'
-            },
+            value: 8,
+            name: '新能源汽车'
+        },
+        {
+            value: 24,
+            name: '医疗健康'
+        },
+        {
+            value: 13,
+            name: '芯片制造'
+        },
+        {
+            value: 46,
+            name: '电子信息技术'
+        },
+        {
+            value: 21,
+            name: '石油化工'
+        },
         ]
     }]
 }
 echarts.init(document.getElementById('Doughnut1-chart'), 'dark').setOption(doughnutOption1);
+
+
+
+/*dialog*/
+
+//一网统管-全区概览
+/*人口对比*/
+if (document.getElementById('dialog2-chart1')) {
+    var dialog2Chart1 = echarts.init(document.getElementById('dialog2-chart1'), 'dark');
+}
+
+
+dialog2Chart1Option = {
+    title: {
+        text: '人口统计',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '常住人口', '外来人口'],
+            ['淡水街道', 433433, 85448],
+            ['三和街道', 833413, 73343],
+            ['秋长街道', 863454, 65322],
+            ['镇隆镇', 723444, 53339],
+            ['平潭镇', 663234, 42532],
+            ['新圩镇', 824344, 63439],
+            ['永湖镇', 245744, 33639],
+            ['沙田镇', 664243, 45452],
+            ['良井镇', 822444, 63339],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '常住人口',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: "50%",/*柱子之间间距*/
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(45,127,255,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(45,127,255,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        },
+        {
+            name: '外来人口',
+            type: 'bar',
+            barWidth: 12,
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(0,234,86,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(0,234,86,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+        }]
+};
+
+if (dialog2Chart1) {
+    dialog2Chart1.setOption(dialog2Chart1Option);
+}
+
+/*事件对比*/
+if (document.getElementById('dialog2-chart2')) {
+    var dialog2Chart2 = echarts.init(document.getElementById('dialog2-chart2'), 'dark');
+}
+
+
+dialog2Chart2Option = {
+    title: {
+        text: '待办事件',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '待办事件'],
+            ['淡水街道', 512343],
+            ['三和街道', 343541],
+            ['秋长街道', 355318],
+            ['镇隆镇', 134532],
+            ['平潭镇', 154336],
+            ['良井镇', 154348],
+            ['永湖镇', 234554],
+            ['沙田镇', 233559],
+            ['新圩镇', 286659],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+        //网格样式
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0)",
+                width: 1,
+                type: 'solid'
+            }
+        },
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '状态',
+            type: 'bar',
+            barWidth: 20/*柱子宽度*/,
+            barGap: "100%",/*柱子之间间距*/
+            label: {
+                show: false,//是否显示顶部数字
+                position: 'top',
+                textBorderWidth: 0,
+                color: '#fff'
+            },
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(0,216,222,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(0,216,222,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        }]
+};
+
+if (dialog2Chart2) {
+    dialog2Chart2.setOption(dialog2Chart2Option);
+}
+
+/*网格对比*/
+if (document.getElementById('dialog2-chart3')) {
+    var dialog2Chart3 = echarts.init(document.getElementById('dialog2-chart3'), 'dark');
+}
+
+
+dialog2Chart3Option = {
+    title: {
+        text: '网格统计',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '网格数', '网格员'],
+            ['淡水街道', 324, 245],
+            ['三和街道', 235, 343],
+            ['秋长街道', 154, 322],
+            ['镇隆镇', 223, 539],
+            ['平潭镇', 234, 532],
+            ['新圩镇', 344, 639],
+            ['永湖镇', 244, 339],
+            ['沙田镇', 243, 452],
+            ['良井镇', 274, 339],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '网格数',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: "50%",/*柱子之间间距*/
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(40,201,255,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(40,201,255,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        },
+        {
+            name: '网格员',
+            type: 'bar',
+            barWidth: 12,
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(193,72,255,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(193,72,255,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+        }]
+};
+
+if (dialog2Chart3) {
+    dialog2Chart3.setOption(dialog2Chart3Option);
+}
+
+/*监控对比*/
+if (document.getElementById('dialog2-chart4')) {
+    var dialog2Chart4 = echarts.init(document.getElementById('dialog2-chart4'), 'dark');
+}
+
+
+dialog2Chart4Option = {
+    title: {
+        text: '鹰眼统计',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '高空鹰眼', '低空鹰眼'],
+            ['淡水街道', 14, 45],
+            ['三和街道', 15, 43],
+            ['秋长街道', 10, 22],
+            ['镇隆镇', 13, 39],
+            ['平潭镇', 14, 32],
+            ['新圩镇', 9, 39],
+            ['永湖镇', 14, 39],
+            ['沙田镇', 13, 52],
+            ['良井镇', 10, 39],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '高空鹰眼',
+            type: 'bar',
+            barWidth: 12/*柱子宽度*/,
+            barGap: "50%",/*柱子之间间距*/
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(65,231,116,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(65,231,116,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        },
+        {
+            name: '低空鹰眼',
+            type: 'bar',
+            barWidth: 12,
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(215,218,25,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(215,218,25,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+        }]
+};
+
+if (dialog2Chart4) {
+    dialog2Chart4.setOption(dialog2Chart4Option);
+}
+
+//一网统管-镇街概览
+/*人口类型对比*/
+if (document.getElementById('dialogStack4-chart1')) {
+    var dialogStack4Chart1 = echarts.init(document.getElementById('dialogStack4-chart1'), 'dark');
+}
+
+
+dialogStack4Chart1Option = {
+    title: {
+        text: '人口统计',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '人口对比'],
+            ['常住人口', 51234],
+            ['外来人口', 14354],
+            ['流动人口', 12354],
+            ['重点人口', 4324],
+            ['港澳台人口', 2345],
+            ['外籍人员', 234],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+        //网格样式
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0)",
+                width: 1,
+                type: 'solid'
+            }
+        },
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '人口',
+            type: 'bar',
+            barWidth: 20/*柱子宽度*/,
+            barGap: "100%",/*柱子之间间距*/
+            label: {
+                show: false,//是否显示顶部数字
+                position: 'top',
+                textBorderWidth: 0,
+                color: '#fff'
+            },
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(0,216,222,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(0,216,222,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        }]
+};
+
+if (dialogStack4Chart1) {
+    dialogStack4Chart1.setOption(dialogStack4Chart1Option);
+}
+
+/*场所类型对比*/
+if (document.getElementById('dialogStack4-chart2')) {
+    var dialogStack4Chart2 = echarts.init(document.getElementById('dialogStack4-chart2'), 'dark');
+}
+
+
+dialogStack4Chart2Option = {
+    title: {
+        text: '场所统计',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    dataset: {
+        source: [
+            ['product', '场所对比'],
+            ['三小场所', 5234],
+            ['出租屋(公寓)', 1354],
+            ['酒店', 2354],
+            ['娱乐场所', 324],
+            ['工贸企业', 2345],
+            ['废气塔企业', 234],
+        ]
+    },
+    xAxis: {
+        type: 'category',
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //x轴颜色和尺寸
+                width: 1
+            }
+        }
+
+    },
+    yAxis: {
+        //网格样式
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0)",
+                width: 1,
+                type: 'solid'
+            }
+        },
+
+        axisLine: {
+            lineStyle: {
+                color: "rgba(255, 255, 255, 0.08)", //y轴颜色和尺寸
+                width: 1
+            }
+        }
+    },
+
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {
+            name: '场所',
+            type: 'bar',
+            barWidth: 20/*柱子宽度*/,
+            barGap: "100%",/*柱子之间间距*/
+            label: {
+                show: false,//是否显示顶部数字
+                position: 'top',
+                textBorderWidth: 0,
+                color: '#fff'
+            },
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                        offset: 1,
+                        color: "rgba(0,216,222,1)" // 0% 处的颜色
+                    }, {
+                        offset: 0,
+                        color: "rgba(0,216,222,0.24)" // 100% 处的颜色
+                    }], false)
+                }
+            },
+
+        }]
+};
+
+if (dialogStack4Chart2) {
+    dialogStack4Chart2.setOption(dialogStack4Chart2Option);
+}
+
+//事件类型对比
+if (document.getElementById('dialogStack4-chart3')) {
+    var dialogStack4Chart3 = echarts.init(document.getElementById('dialogStack4-chart3'), 'dark');
+}
+
+var dialogStack4Chart3Option = {
+
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} {d}%' //hover显示百分比,{b}我标题，{c}为数据，{d}为百分比
+    },
+    legend: [{ //设置左右两侧图例
+        orient: 'left',
+        top: "center",
+        left: 'left',
+        itemWidth: 14,
+        itemGap: 16,
+        data: ['消防安全', '市容市貌', '两违建筑', '文明城市'],
+        itemStyle: {
+            borderWidth: 0,
+        },
+        textStyle: {
+            color: "#fff",
+            fontSize: 14,
+        }
+    }, {
+        orient: 'right',
+        top: "center",
+        left: 'right',
+        itemWidth: 14,
+        itemGap: 16,
+        data: ['非法倾倒', '重点人员', '安全生产', '其他'],
+        itemStyle: {
+            borderWidth: 0,
+        },
+        textStyle: {
+            color: "#fff",
+            fontSize: 14,
+        }
+    }],
+
+    graphic: [
+
+        { //环形图中间添加文字
+            type: 'text', //通过不同top值可以设置上下显示
+            left: 'center',
+            top: '38%',
+            style: {
+                text: '567',
+                textAlign: 'center',
+                fill: '#fff', //文字的颜色
+                // width: 108,
+                // height: 30,
+                fontSize: 32,
+                fontFamily: "din"
+            }
+        }, {
+            type: "text",
+            left: 'center',
+            top: "56%",
+            style: {
+                text: "全部事件",
+                textAlign: "center",
+                fill: "rgba(255,255,255,0.72)",
+                fontSize: 14,
+            }
+        }
+    ],
+    series: [{
+        type: 'pie',
+        radius: ['70%', '90%'], //设置环形中心
+        avoidLabelOverlap: false,
+        itemStyle: {
+            borderColor: 'rgba(0,0,0,0.4)',
+            borderWidth: 1
+        },
+        label: {
+            show: false,
+
+        },
+
+        data: [{
+            value: 8,
+            name: '消防安全'
+        },
+        {
+            value: 24,
+            name: '市容市貌'
+        },
+        {
+            value: 13,
+            name: '两违建筑'
+        },
+        {
+            value: 7,
+            name: '文明城市'
+        },
+        {
+            value: 46,
+            name: '非法倾倒'
+        },
+        {
+            value: 21,
+            name: '重点人员'
+        },
+        {
+            value: 18,
+            name: '安全生产'
+        },
+        {
+            value: 38,
+            name: '其他'
+        },
+        ]
+    }]
+}
+if (dialogStack4Chart3) {
+    dialogStack4Chart3.setOption(dialogStack4Chart3Option);
+}
+
+//事件实时趋势
+/*实时趋势*/
+if (document.getElementById('dialogStack4-chart4')) {
+    var dialogStack4Chart4 = echarts.init(document.getElementById('dialogStack4-chart4'), 'dark');
+}
+var dialogStack4Chart4Option;
+dialogStack4Chart4Option = {
+    title: {
+        text: '24h事件走势',
+        show: true,
+        textStyle: {
+            fontSize: 14,
+            align: 'left',
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: true,
+        orient: 'horizontal',
+        itemWidth: 10,
+        itemHeight: 10,
+        left: 'right'
+    },
+    grid: {
+        left: '0%',
+        right: '0%',
+        bottom: '0',
+        top: '40px',
+        containLabel: true
+    },
+    xAxis: {
+        show: true,
+        data: electricDataList//这里复用的上面的数据
+    },
+    yAxis: {
+        show: true,
+    },
+    series: {
+        type: 'line',//bar和line都可以
+        showSymbol: false,
+        data: electricValueList,
+        barWidth: 12/*柱子宽度*/,
+        barGap: "100%",/*柱子之间间距*/
+        lineStyle: {
+            width: 1, //设置线条粗细，为line样式
+            color: '#00D2DE'
+        },
+        areaStyle: {//line样式
+            color: {
+                //线性渐变
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                    offset: 0,
+                    color: 'rgba(0, 216, 222, 0.64)', // 0% 处的颜色
+                }, {
+                    offset: 1,
+                    color: 'rgba(0, 216, 222, 0)', // 100% 处的颜色
+                }],
+                global: false, // 缺省为 false
+            },
+        },
+   
+    }
+};
+
+if (dialogStack4Chart4) {
+    dialogStack4Chart4.setOption(dialogStack4Chart4Option);
+}

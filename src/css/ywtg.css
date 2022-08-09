@@ -480,6 +480,11 @@ body {
 }
 .case-row-form{
     padding: 1.6rem 0;
+    display: grid;
+    gap: 2.4rem;   
+}
+.form-item{
+    margin-bottom: 1.6rem;
 }
 .case-set-header{
     display: flex;

@@ -375,7 +375,7 @@
     grid-gap: 1.6rem;
     gap: 1.6rem;
     max-height: calc(100vh - 12.4rem);
-    grid-template-rows: minmax(auto, 1fr);
+   
 }
 
 .sidebar-left-hidden {

@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EvanRan">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/_widget-dialog.css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="dest/js/echart-dark.js"></script>
+
+    <!-- jquery主要用于部分echart demo引入json，生产环境可去掉 -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <title>数字大屏展示系统</title>
+</head>
+
+<body class="dark" style="height: 100%;">
+    <br>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack1'))"><i
+            class="ran-icon110"></i>投资概览</button>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack2'))"><i
+            class="ran-icon110"></i>项目列表</button>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack3'))"><i
+            class="ran-icon110"></i>重点企业</button>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog1'))"><i
+            class="ran-icon110"></i>产业矩阵</button>
+    <br>
+    <br>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog2'))"><i
+            class="ran-icon110"></i>一网统管-全区概览</button>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack4'))"><i
+            class="ran-icon110"></i>一网统管-镇街定位</button>
+    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog3'))"><i
+            class="ran-icon110"></i>一网统管-视频弹出层</button>
+    <!-- 弹出层demo开始 -->
+    <div class="backdrop max-dialog" id="dialogStack1">
+        <div class="dialog" id="dialogStack1-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    投资概览
+                </h3>
+                <nav class="tabs center">
+                    <a href="javascript:;" class="active">投资概览</a>
+                    <a href="javascript:;">投资排名</a>
+                </nav>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack1'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <ul class="statistic">
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="7.49">7.49
+                            </span>
+                        </div>
+                        <div class="statistic-title">预计总投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="3.379">3.379
+                            </span></div>
+                        <div class="statistic-title">累积完成投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4.638">4.638
+                            </span>
+                        </div>
+                        <div class="statistic-title">未完成投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="68.58">68.58<small>%</small></span>
+                        </div>
+                        <div class="statistic-title">累计完成比例</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4.638">4.638
+                            </span>
+                        </div>
+                        <div class="statistic-title">本年预计总投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4.638">4.638
+                            </span>
+                        </div>
+                        <div class="statistic-title">本年完成投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4.638">4.638
+                            </span>
+                        </div>
+                        <div class="statistic-title">本年未完成投资 (亿)</div>
+                    </li>
+                    <li>
+                        <div class="statistic-number"><span class="numberShow" data-start="0"
+                                data-end="68.58">68.58<small>%</small></span>
+                        </div>
+                        <div class="statistic-title">本年完成比例</div>
+                    </li>
+                </ul>
+                <div class="grid">
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="Ring-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="Doughnut1-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span12">
+                        <h3 class="dialog-sub-title">投资图谱</h3>
+                        <div id="sankey-chart" style="height: 640px;"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="backdrop max-dialog" id="dialogStack2">
+        <div class="dialog" id="dialogStack2-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    项目一览
+                </h3>
+                <div class="dialog_header_center"></div>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack2'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <div class="table-slicky">
+                    <table class="table">
+                        <thead class="table-slicky_row">
+                            <tr>
+                                <th>#</th>
+                                <th>项目名称</th>
+                                <th>所属区县</th>
+                                <th>状态</th>
+                                <th>类别</th>
+                                <th>是否规上</th>
+                                <th>总投资(万)</th>
+                                <th>预计年产值(万)</th>
+                                <th>摘牌面积(亩)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text"
+                                        onclick="dialogStackNext(document.querySelector('#dialogStack2-item2'))">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog" id="dialogStack2-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <a href="javascript:;" class="back-btn" onclick="dialogStackPrev()"><i class="ran-icon40"></i></a>
+                    惠州伯恩高新科技园
+                </h3>
+                <nav class="tabs center" id="dialog-tab1">
+                    <a href="javascript:;" class="active">项目定位</a>
+                    <a href="javascript:;">项目进度</a>
+                </nav>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack2'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body" id="dialog-tabs-container1">
+                <div class="tab-content show">
+                    <h3 class="dialog-sub-title">基本信息</h3>
+                    <table class="normal-table">
+                        <tbody>
+                            <tr>
+                                <th>项目名称</th>
+                                <td>惠州伯恩高新科技园</td>
+                                <th>项目级别</th>
+                                <td></td>
+                                <th>批复机构</th>
+                                <td>惠州市惠阳区市场监督管理局</td>
+                            </tr>
+                            <tr>
+                                <th>批准文件</th>
+                                <td></td>
+                                <th>认定类型</th>
+                                <td>
+                                    <div class="tag-box">
+                                        <span class="tag tag-warning">高新技术产业园</span><span
+                                            class="tag tag-success">专精特新</span>
+                                    </div>
+                                </td>
+                                <th>统一社会信用代码</th>
+                                <td>91441300675241187B</td>
+                            </tr>
+                            <tr>
+                                <th>所属区县</th>
+                                <td>惠州市惠阳区秋长白石村</td>
+                                <th>企业法人</th>
+                                <td>杨建文</td>
+                                <th>行业类别</th>
+                                <td>非金属矿物制品业</td>
+                            </tr>
+                            <tr>
+                                <th>登记机关</th>
+                                <td>惠州市惠阳区市场监督管理局</td>
+                                <th>地址</th>
+                                <td>惠州市惠阳区秋长白石村</td>
+                                <th>联系人</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>备注描述</th>
+                                <td colspan="5">
+                                    生产加工销售水晶玻璃、玻璃片、显示屏镜片、塑胶片（含包装材料）、屏蔽电磁波玻璃、微电子用玻璃基板、透红外线无铅玻璃、高档（电子）玻璃、TFT-LCD、PDP、OLED、FED（含SED等）平板显示屏、显示屏材料制造、触控系统（触控屏幕、触控组件等）制造、电子专用材料开发与制造（光纤预制棒开发制造除外）等产品；产品50％内销，50％外销；公路货物运输；国内货运代理；生产、销售：口罩。（以上项目不涉及外商投资准入特别管理措施）(依法须经批准的项目，经相关部门批准后方可开展经营活动)〓
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="dialog-sub-title">数据报表</h3>
+                    <div class="grid">
+
+                        <div class="dialog-chart grid-item grid-span12">
+
+                            <div id="tree-chart" style="height: 640px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <ol class="steps steps-mini project-steps">
+                        <li class="steps-active">
+                            <span class="steps-num">1</span>
+                            <div class="steps-info">
+                                遴选
+                            </div>
+                        </li>
+                        <li class="steps-active">
+                            <span class="steps-num">2</span>
+                            <div class="steps-info">
+                                签约
+                            </div>
+                        </li>
+                        <li class="steps-active">
+                            <span class="steps-num">3</span>
+                            <div class="steps-info">
+                                指标
+                            </div>
+                        </li>
+                        <li class="steps-focus">
+                            <span class="steps-num">4</span>
+                            <div class="steps-info">
+                                供地
+                            </div>
+                        </li>
+                        <li>
+                            <span class="steps-num">5</span>
+                            <div class="steps-info">
+                                开工
+                            </div>
+                        </li>
+                        <li>
+                            <span class="steps-num">6</span>
+                            <div class="steps-info">
+                                竣工
+                            </div>
+                        </li>
+                        <li>
+                            <span class="steps-num">7</span>
+                            <div class="steps-info">
+                                投产
+                            </div>
+                        </li>
+                    </ol>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>阶段</th>
+                                <th>时间</th>
+                                <th>附件类型</th>
+                                <th>附件</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tag-text text-success"><i class="ran-icon4"></i>通过遴选</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-success"><i class="ran-icon4"></i>已签约</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-success"><i class="ran-icon4"></i>获得指标</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-success"><i class="ran-icon4"></i>待供地</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-warning"><i class="ran-icon7"></i>已供地未开工</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-warning"><i class="ran-icon7"></i>已开工未竣工</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-warning"><i class="ran-icon7"></i>已开工未竣工</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-warning"><i class="ran-icon7"></i>已竣工未投产</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag-text text-danger"><i class="ran-icon19"></i>已竣工未投产</span></td>
+                                <td>2021/08/26</td>
+                                <td>通过遴选的情况说明</td>
+                                <td><a href="通过遴选的情况说明.pdf" class="file-item">通过遴选的情况说明.xls</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined"><i class="ran-icon33"></i>定位</button>
+                    &nbsp;
+                    <button class="btn btn-md btn-primary btn-outlined"><i class="ran-icon56"></i>编辑</button>
+                </div>
+                <div class="dialog_end">
+                </div>
+            </div>
+        </div>
+        <script>
+            function dialogTab1() {
+                var tab = document.getElementById('dialog-tab1');
+                var tabBtns = tab.querySelectorAll('a');
+                var tabContainer = document.getElementById('dialog-tabs-container1');
+                var tabContent = tabContainer.querySelectorAll('.tab-content');
+                tabBtns.forEach(function (item, index) {
+                    item.addEventListener('click', function () {
+
+                        tabContent.forEach(
+                            function (tabContentItem) {
+                                tabContentItem.classList.remove('show');
+                            }
+                        )
+                        tabContent[index].classList.add('show');
+
+                    })
+
+                })
+            }
+
+            dialogTab1()
+        </script>
+    </div>
+    <div class="backdrop max-dialog" id="dialogStack3">
+        <div class="dialog" id="dialogStack3-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    重点企业
+                </h3>
+                <div class="dialog_header_center"></div>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack3'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <div class="table-slicky">
+                    <table class="table">
+                        <thead class="table-slicky_row">
+                            <tr>
+                                <th>#</th>
+                                <th>企业名称</th>
+                                <th>企业法人</th>
+                                <th>入驻方式</th>
+                                <th>所属行业</th>
+                                <th>是否规上</th>
+                                <th>是否倍增</th>
+                                <th>总投资(万)</th>
+                                <th>预计年产值(万)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text"
+                                        onclick="dialogStackNext(document.querySelector('#dialogStack3-item2'))">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>惠州伯恩高新科技园</td>
+                                <td>惠阳区</td>
+                                <td>已开工</td>
+                                <td>制造类生产项目</td>
+                                <td>是</td>
+                                <td>728399</td>
+                                <td>7389</td>
+                                <td>66.2</td>
+                                <td>
+                                    <button class="btn btn-md btn-primary btn-text">定位<i
+                                            class="ran-icon64"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog" id="dialogStack3-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <a href="javascript:;" class="back-btn" onclick="dialogStackPrev()"><i class="ran-icon40"></i></a>
+                    惠州伯恩高新电子科技有限公司
+                </h3>
+                <div class="dialog_header_center"></div>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack3'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <h3 class="dialog-sub-title">基本信息</h3>
+                <table class="normal-table">
+                    <tbody>
+                        <tr>
+                            <th>企业名称</th>
+                            <td>惠州伯恩高新电子科技有限公司</td>
+                            <th>项目级别</th>
+                            <td></td>
+                            <th>批复机构</th>
+                            <td>惠州市惠阳区市场监督管理局</td>
+                        </tr>
+                        <tr>
+                            <th>批准文件</th>
+                            <td></td>
+                            <th>认定类型</th>
+                            <td>
+                                <div class="tag-box">
+                                    <span class="tag tag-warning">高新技术产业园</span><span
+                                        class="tag tag-success">专精特新</span>
+                                </div>
+                            </td>
+                            <th>统一社会信用代码</th>
+                            <td>91441300675241187B</td>
+                        </tr>
+                        <tr>
+                            <th>所属区县</th>
+                            <td>惠州市惠阳区秋长白石村</td>
+                            <th>企业法人</th>
+                            <td>杨建文</td>
+                            <th>行业类别</th>
+                            <td>非金属矿物制品业</td>
+                        </tr>
+                        <tr>
+                            <th>登记机关</th>
+                            <td>惠州市惠阳区市场监督管理局</td>
+                            <th>地址</th>
+                            <td>惠州市惠阳区秋长白石村</td>
+                            <th>联系人</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>备注描述</th>
+                            <td colspan="5">
+                                生产加工销售水晶玻璃、玻璃片、显示屏镜片、塑胶片（含包装材料）、屏蔽电磁波玻璃、微电子用玻璃基板、透红外线无铅玻璃、高档（电子）玻璃、TFT-LCD、PDP、OLED、FED（含SED等）平板显示屏、显示屏材料制造、触控系统（触控屏幕、触控组件等）制造、电子专用材料开发与制造（光纤预制棒开发制造除外）等产品；产品50％内销，50％外销；公路货物运输；国内货运代理；生产、销售：口罩。（以上项目不涉及外商投资准入特别管理措施）(依法须经批准的项目，经相关部门批准后方可开展经营活动)〓
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="dialog-sub-title">数据报表</h3>
+                <div class="grid">
+                    <div class="dialog-chart grid-item grid-span6">
+
+                        <div id="touZiCanZhi-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="chuKou-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="RD-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="power-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>定位
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop max-dialog" id="dialogStack4">
+        <div class="dialog" id="dialogStack4-item1">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    淡水街道概览
+                </h3>
+                <nav class="tabs center" id="dialog-tab2">
+                    <a href="javascript:;" class="active">概览</a>
+                    <a href="javascript:;">人口</a>
+                    <a href="javascript:;">楼栋</a>
+                    <a href="javascript:;">场所</a>
+                    <a href="javascript:;">网格</a>
+                    <a href="javascript:;">事件</a>
+                </nav>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack4'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body" id="tab-container2">
+                <div class="tab-content show">
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="839482">839482
+                                </span>
+                            </div>
+                            <div class="statistic-title">统管人口</div>
+                        </li>
+
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="2837">2837
+                                </span></div>
+                            <div class="statistic-title">统管楼栋</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="398">398
+                                </span>
+                            </div>
+                            <div class="statistic-title">统管场所</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="37992">37992</span>
+                            </div>
+                            <div class="statistic-title">统管监控</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="157">157
+                                </span></div>
+                            <div class="statistic-title">统管网格</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="672">672
+                                </span>
+                            </div>
+                            <div class="statistic-title">工作人员</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4638">4638
+                                </span>
+                            </div>
+                            <div class="statistic-title">完成事件</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="87.54">87.54
+                                </span><small>%</small>
+                            </div>
+                            <div class="statistic-title">完成率</div>
+                        </li>
+
+                    </ul>
+                    <div class="grid">
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialogStack4-chart1"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialogStack4-chart2"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialogStack4-chart3"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialogStack4-chart4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="dialog-filter-box">
+                        <div class="filter-sidebar">
+                            <form action="" class="form-group">
+                                <fieldset>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">搜索</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="search" placeholder="姓名/证件号/电话"
+                                                class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">人口类型</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+                                            <!-- 超级管理员账号不能更改 -->
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        常住人口（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        流动人口（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        户籍人口（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        留守人员（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        港澳台人员（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        境外人员（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">性别</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    全部
+                                                </label>
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    男性
+                                                </label>
+                                                <label for="radio2" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                    女性
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">民族</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+                                            <!-- 超级管理员账号不能更改 -->
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        汉族
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">出生时间范围</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="date" placeholder="开始时间" class="input input-md input-solid">
+                                            <input type="date" class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                    <div class="flex-middle-box">
+                                        <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                        <button class="btn btn-md btn-outlined btn-primary waves-effect">清空</button>
+                                        <button class="btn btn-md btn-primary waves-effect"><i
+                                                class="ran-icon137"></i>筛选</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="filter-main">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>姓名</th>
+                                        <th>性别</th>
+                                        <th>年龄</th>
+                                        <th>出生日期</th>
+                                        <th>民族</th>
+                                        <th>类型</th>
+                                        <th>证件</th>
+                                        <th>证件号</th>
+
+                                        <th>户籍</th>
+                                        <th>住址</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">王大锤</a></td>
+                                        <td>男</td>
+                                        <td>40</td>
+                                        <td>1972/08/08</td>
+                                        <td>汉族</td>
+                                        <td>常住人口</td>
+                                        <td>身份证</td>
+                                        <td>30028838992874783993X</td>
+                                        <td>广东惠州</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">定位</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="dialog-filter-box">
+                        <div class="filter-sidebar">
+                            <form action="" class="form-group ">
+                                <fieldset>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">搜索</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="search" placeholder="楼栋名称/楼栋长"
+                                                class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">类型</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        经营性自建房（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        自建房（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        单元房（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">辖区网格</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（128）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        1
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        2
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        3
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">建筑用途</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（128）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        住宅
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        办公
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        商业
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">安全隐患</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    全部
+                                                </label>
+                                                <label for="radio2" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                    是
+                                                </label>
+                                                <label for="radio3" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                                    否
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">地图绑定</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    全部
+                                                </label>
+                                                <label for="radio2" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                    是
+                                                </label>
+                                                <label for="radio3" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                                    否
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">楼层范围</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="number" min="1" placeholder="最小层数"
+                                                class="input input-md input-solid">
+                                            <input type="number" min="1" placeholder="最大层数"
+                                                class="input input-md input-solid">
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-middle-box">
+                                        <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                        <button class="btn btn-md btn-outlined btn-primary waves-effect">清空</button>
+                                        <button class="btn btn-md btn-primary waves-effect"><i
+                                                class="ran-icon137"></i>筛选</button>
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="filter-main">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>楼栋名称</th>
+                                        <th>类型</th>
+                                        <th>网格辖区</th>
+                                        <th>楼栋长</th>
+                                        <th>占地面积</th>
+                                        <th>楼层</th>
+                                        <th>户数</th>
+                                        <th>地图绑定</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">淡水坝尾街152-2号</a></td>
+                                        <td>经营性自建房</td>
+                                        <td>洋纳-网格3</td>
+                                        <td>邓倚林</td>
+                                        <td>54.04㎡</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">淡水坝尾街152-2号</a></td>
+                                        <td>自建房</td>
+                                        <td>洋纳-网格3</td>
+                                        <td>张世红</td>
+                                        <td>54.04㎡</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="###">淡水坝尾街152-2号</a></td>
+                                        <td>自建房</td>
+                                        <td>洋纳-网格3</td>
+                                        <td>邓倚林</td>
+                                        <td>54.04㎡</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="dialog-filter-box">
+                        <div class="filter-sidebar">
+                            <form action="" class="form-group ">
+                                <fieldset>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">搜索</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="search" placeholder="场所名称/经营者/电话"
+                                                class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">类型</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        三小场所（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        酒店（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        娱乐场所（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        企业（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        出租屋（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">辖区网格</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（128）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        1
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        2
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        3
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">地图绑定</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    全部
+                                                </label>
+                                                <label for="radio2" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                    是
+                                                </label>
+                                                <label for="radio3" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                                    否
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-middle-box">
+                                        <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                        <button class="btn btn-md btn-outlined btn-primary waves-effect">清空</button>
+                                        <button class="btn btn-md btn-primary waves-effect"><i
+                                                class="ran-icon137"></i>筛选</button>
+                                    </div>
+
+
+
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="filter-main">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>场所名称</th>
+                                        <th>类型</th>
+                                        <th>网格辖区</th>
+                                        <th>实际经营者</th>
+                                        <th>电话</th>
+                                        <th>地图绑定</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">惠州市兄弟吊车租赁有限公司</a></td>
+                                        <td>三小场所</td>
+                                        <td>洋纳-网格3</td>
+                                        <td>邓倚林</td>
+                                        <td>15028397878</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">丽枫酒店</a></td>
+                                        <td>酒店</td>
+                                        <td>洋纳-网格3</td>
+                                        <td>邓倚林</td>
+                                        <td>15028397878</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="dialog-filter-box">
+                        <div class="filter-sidebar">
+                            <form action="" class="form-group ">
+                                <fieldset>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">搜索</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="search" placeholder="网格名称" class="input input-md input-solid">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">网格绘制</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                <label for="radio1" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                    全部
+                                                </label>
+                                                <label for="radio2" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio2">
+                                                    是
+                                                </label>
+                                                <label for="radio3" class="radio-label">
+                                                    <input type="radio" class="radio" name="radio-demo1" id="radio3">
+                                                    否
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="filter-main">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>网格名称</th>
+                                        <th>常住人口</th>
+                                        <th>辖区面积</th>
+                                        <th>管理住户</th>
+                                        <th>电话</th>
+                                        <th>网格绘制</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">洋纳-网格2</a></td>
+                                        <td>598</td>
+                                        <td>2.2k㎡</td>
+                                        <td>39</td>
+                                        <td>15028397878</td>
+                                        <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绘制</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">洋纳-网格3</a></td>
+                                        <td>598</td>
+                                        <td>2.2k㎡</td>
+                                        <td>39</td>
+                                        <td>15028397878</td>
+                                        <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绘制</span>
+                                        </td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="dialog-filter-box">
+                        <div class="filter-sidebar">
+                            <form action="" class="form-group case-sidebar-main">
+                                <fieldset>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">搜索</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="search" placeholder="事件名称" class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">类型</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        消防安全（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        市容市貌（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        两违管控（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        违规倾倒（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        砂石堆场（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        企业生产（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        其他（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">状态</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        待审核（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        处理中（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        已完成（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        已归档（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        重新打开（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">来源类型</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <div class="select_value select-solid menu-select waves-effect"
+                                                onclick="menu(this,document.getElementById('menu-search'))">全部
+                                            </div>
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item waves-effect">
+                                                        全部（12839）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        AI识别（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        人工上报（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        粤平安（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        城管系统（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        12345热线（123）
+                                                    </li>
+                                                    <li class="menu-item waves-effect">
+                                                        其他（123）
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">网格社区</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="text" placeholder="请选择"
+                                                class="menu-select input input-md input-solid"
+                                                onclick="menu(this,document.getElementById('menu-search'))">
+                                            <div class="menu" id="menu-search">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item selected waves-effect">全部</li>
+                                                    <li class="menu-item waves-effect">1</li>
+                                                    <li class="menu-item waves-effect">2</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="form-item-header">
+                                            <h3 class="form-item_label">上报时间范围</h3>
+                                        </div>
+                                        <div class="form-item_box">
+                                            <input type="date" placeholder="开始时间" class="input input-md input-solid">
+                                            <input type="date" placeholder="截止时间" class="input input-md input-solid">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="filter-main">
+                            <table class="table">
+                                <thead class="table-slicky_row">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>事件标题</th>
+                                        <th>类型</th>
+                                        <th>来源</th>
+                                        <th>状态</th>
+                                        <th>所属辖区</th>
+                                        <th>上报时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="###">消防事故</a></td>
+                                        <td>消防安全</td>
+                                        <td>人工上报</td>
+                                        <td><span class="tag tag-primary">处理中</span></td>
+                                        <td>洋纳-网格3</td>
+                                        <td>2022/07/12 16:23:34</td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="###">非法倾倒建筑垃圾</a></td>
+                                        <td>消防安全</td>
+                                        <td>人工上报</td>
+                                        <td><span class="tag tag-warning">待审核</span></td>
+                                        <td>洋纳-网格3</td>
+                                        <td>2022/07/12 16:23:34</td>
+                                        <td><a href="###"
+                                                onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function dialogTab2() {
+                    var tab = document.getElementById('dialog-tab2');
+                    var tabBtns = tab.querySelectorAll('a');
+                    var tabContainer = document.getElementById('tab-container2');
+                    var tabContent = tabContainer.querySelectorAll('.tab-content');
+                    tabBtns.forEach(function (item, index) {
+                        item.addEventListener('click', function () {
+
+                            tabContent.forEach(
+                                function (tabContentItem) {
+                                    tabContentItem.classList.remove('show');
+                                }
+                            )
+                            tabContent[index].classList.add('show');
+
+                        })
+
+                    })
+                }
+
+                dialogTab2()
+            </script>
+            <div class="dialog_footer">
+                <div class="dialog_start">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_center">
+
+                </div>
+                <div class="dialog_end">
+                    <div class="pagination">
+                        <button class="btn btn-md waves-effect"><i class="ran-icon69"></i></button>
+                        <div class="btn-group">
+                            <button class="btn btn-md btn-primary waves-effect">1</button>
+                            <button class="btn btn-md waves-effect">2</button>
+                            <button class="btn btn-md waves-effect">…</button>
+                            <button class="btn btn-md waves-effect">8</button>
+                            <button class="btn btn-md waves-effect">9</button>
+                        </div>
+                        <button class="btn btn-md waves-effect"><i class="ran-icon70"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog" id="dialogStack4-item2">
+            <div class="dialog_header">
+                <h3 class="dialog_title">
+                    <a href="javascript:;" class="back-btn" onclick="dialogStackPrev()"><i class="ran-icon40"></i></a>
+                    惠州伯恩高新电子科技有限公司
+                </h3>
+                <div class="dialog_header_center"></div>
+                <a href="###" onclick="dialogHide(document.getElementById('dialogStack4'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <h3 class="dialog-sub-title">基本信息</h3>
+                <table class="normal-table">
+                    <tbody>
+                        <tr>
+                            <th>企业名称</th>
+                            <td>惠州伯恩高新电子科技有限公司</td>
+                            <th>项目级别</th>
+                            <td></td>
+                            <th>批复机构</th>
+                            <td>惠州市惠阳区市场监督管理局</td>
+                        </tr>
+                        <tr>
+                            <th>批准文件</th>
+                            <td></td>
+                            <th>认定类型</th>
+                            <td>
+                                <div class="tag-box">
+                                    <span class="tag tag-warning">高新技术产业园</span><span
+                                        class="tag tag-success">专精特新</span>
+                                </div>
+                            </td>
+                            <th>统一社会信用代码</th>
+                            <td>91441300675241187B</td>
+                        </tr>
+                        <tr>
+                            <th>所属区县</th>
+                            <td>惠州市惠阳区秋长白石村</td>
+                            <th>企业法人</th>
+                            <td>杨建文</td>
+                            <th>行业类别</th>
+                            <td>非金属矿物制品业</td>
+                        </tr>
+                        <tr>
+                            <th>登记机关</th>
+                            <td>惠州市惠阳区市场监督管理局</td>
+                            <th>地址</th>
+                            <td>惠州市惠阳区秋长白石村</td>
+                            <th>联系人</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>备注描述</th>
+                            <td colspan="5">
+                                生产加工销售水晶玻璃、玻璃片、显示屏镜片、塑胶片（含包装材料）、屏蔽电磁波玻璃、微电子用玻璃基板、透红外线无铅玻璃、高档（电子）玻璃、TFT-LCD、PDP、OLED、FED（含SED等）平板显示屏、显示屏材料制造、触控系统（触控屏幕、触控组件等）制造、电子专用材料开发与制造（光纤预制棒开发制造除外）等产品；产品50％内销，50％外销；公路货物运输；国内货运代理；生产、销售：口罩。（以上项目不涉及外商投资准入特别管理措施）(依法须经批准的项目，经相关部门批准后方可开展经营活动)〓
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="dialog-sub-title">数据报表</h3>
+                <div class="grid">
+                    <div class="dialog-chart grid-item grid-span6">
+
+                        <div id="touZiCanZhi-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="chuKou-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="RD-chart"></div>
+                    </div>
+                    <div class="dialog-chart grid-item grid-span6">
+                        <div id="power-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>定位
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop max-dialog" id="dialog1">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    产业矩阵
+                </h3>
+                <div class="dialog_header_center"></div>
+                <a href="###" onclick="dialogHide(document.getElementById('dialog1'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <div class="dialog-chart">
+                    <h3 class="dialog-sub-title">产业矩阵图</h3>
+                    <div id="canye-chart" style="height: 640px;"></div>
+                </div>
+
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop max-dialog" id="dialog2">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    全区概览
+                </h3>
+                <nav class="tabs center" id="dialog-tab3">
+                    <a href="javascript:;" class="active">概览</a>
+                    <a href="javascript:;">数据</a>
+                </nav>
+                <a href="###" onclick="dialogHide(document.getElementById('dialog2'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body"  id="tab-container3">
+                <div class="tab-content show">
+                    <ul class="statistic">
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="839482">839482
+                                </span>
+                            </div>
+                            <div class="statistic-title">统管人口</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="15723">15723
+                                </span></div>
+                            <div class="statistic-title">统管楼栋</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="672">672
+                                </span>
+                            </div>
+                            <div class="statistic-title">统管场所</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0"
+                                    data-end="3799">3799</span>
+                            </div>
+                            <div class="statistic-title">接入监控</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="4638">4638
+                                </span>
+                            </div>
+                            <div class="statistic-title">完成事件</div>
+                        </li>
+                        <li>
+                            <div class="statistic-number"><span class="numberShow" data-start="0" data-end="87.54">87.54
+                                </span><small>%</small>
+                            </div>
+                            <div class="statistic-title">完成率</div>
+                        </li>
+
+                    </ul>
+                    <div class="grid">
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialog2-chart1"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialog2-chart2"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialog2-chart3"></div>
+                        </div>
+                        <div class="dialog-chart grid-item grid-span6">
+                            <div id="dialog2-chart4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <table class="table">
+                        <thead class="table-slicky_row">
+                            <tr>
+                                <th>镇街</th>
+                                <th>网格数</th>
+                                <th>工作人员</th>
+                                <th>本月完成事件</th>
+                                <th>当前待办事件</th>
+                                <th>管理人口</th>
+                                <th>管理楼栋</th>
+                                <th>管理房屋</th>
+                                <th>管理场所</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>淡水街道</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>三和街道</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>秋长街道</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>镇隆镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>新圩镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>平潭镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>沙田镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>良井镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>永湖镇</td>
+                                <td>108</td>
+                                <td>87</td>
+                                <td>1728</td>
+                                <td>124</td>
+                                <td>362347</td>
+                                <td>3789</td>
+                                <td>9986</td>
+                                <td>2738</td>
+                                <td>
+                                    <a href="###">查看</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start"></div>
+                <div class="dialog_center">
+                    <button class="btn btn-md btn-primary btn-outlined waves-effect"><i class="ran-icon71"></i>源数据
+                    </button>
+                </div>
+                <div class="dialog_end">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            function dialogTab3() {
+                var tab = document.getElementById('dialog-tab3');
+                var tabBtns = tab.querySelectorAll('a');
+                var tabContainer = document.getElementById('tab-container3');
+                var tabContent = tabContainer.querySelectorAll('.tab-content');
+                tabBtns.forEach(function (item, index) {
+                    item.addEventListener('click', function () {
+
+                        tabContent.forEach(
+                            function (tabContentItem) {
+                                tabContentItem.classList.remove('show');
+                            }
+                        )
+                        tabContent[index].classList.add('show');
+
+                    })
+
+                })
+            }
+
+            dialogTab3()
+        </script>
+
+    </div>
+    <div class="backdrop max-dialog" id="dialog3">
+        <div class="dialog">
+            <div class="dialog_header">
+                <h3 class="dialog_title art-title">
+                    视频监控
+                </h3>
+                <span class="tag-dot-text hint" style="--color:#1BD817">运行中 IP 168.190.289.36:3004，淡水坝尾街152-2号监控</span>
+                <a href="###" onclick="dialogHide(document.getElementById('dialog3'))"
+                    class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
+            </div>
+            <div class="dialog_body">
+                <div class="grid">
+                    <div class="grid-span10 video-main video-box">
+                        <video
+                            src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                            controls="controls">
+                        </video>
+                    </div>
+                    <div class="grid-span2 video-list">
+                        <div class="video-box">
+                            <video
+                                src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                                controls="controls">
+                            </video>
+                        </div>
+                        <div class="video-box">
+                            <video
+                                src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                                controls="controls">
+                            </video>
+                        </div>
+                        <div class="video-box">
+                            <video
+                                src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                                controls="controls">
+                            </video>
+                        </div>
+                        <div class="video-box">
+                            <video
+                                src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                                controls="controls">
+                            </video>
+                        </div>
+                        <div class="video-box">
+                            <video
+                                src="http://images.apple.com/media/cn/iphone-7/2016/5937a0dc_edb0_4343_af1c_41ff71808fe5/tv-spots/balloons/iphone7-balloons-cn-20160929_1280x720h.mp4"
+                                controls="controls">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog_footer">
+                <div class="dialog_start">
+                    <div class="btn-group">
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon47"></i></a>
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon36"></i></a>
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon69"></i></a>
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon70"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon77"></i></a>
+                        <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon78"></i></a>
+                    </div>
+                </div>
+
+                <div class="dialog_end">
+                    <a href="javascript:;" class="btn btn-md waves-effect"><i class="ran-icon175"></i>监控管理</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+<script src="dest/js/scripts.min.js"></script>
+<script src="src/javascript/ui.js"></script>
+<!-- <script src="dest/js/ui.min.js"></script> -->
+<script src="dest/js/start.js"></script>
+
+
+<script>
+    window.onload = function () {
+        //数字动态加载
+        numberShow();
+        //tab按扭
+        tabs();
+        //水波纹
+        Waves.attach('.btn, .list-link, .select_value, .menu-item');
+        Waves.init();
+        //列表展开
+        listShow()
+        //滚动效果
+
+        pileScroll(".pile", true);
+        accordion() //折叠面板
+
+
+
+    }
+</script>
+<script src="dest/js/widget-eChart.js"></script>
+
+</html>

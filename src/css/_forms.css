@@ -351,26 +351,29 @@ input[type=range] {
         border-radius: 100%;
         transform: translateY(calc(-50% + var(--size)/2));
         cursor: ew-resize;
-
-       
     }
 }
 
 
 
-
-.form-item {
-    margin-bottom: 1.6rem;
-
-    &:last-child {
-        margin-bottom: 0;
+.form-group{
+    display: grid;
+    gap: 2.4rem;
+    fieldset{
+        border: none;
+        display: grid;
+        gap: 1.6rem;
     }
+}
+.form-item_box {
+    display: grid;
+    gap: 0.8rem;
 }
 
 .form-item_label {
-    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0;
     margin-bottom: 0.5rem;
-
     &.must {
         &::before {
             content: "*";
