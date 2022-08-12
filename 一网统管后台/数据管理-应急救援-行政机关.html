@@ -27,7 +27,10 @@
             <div class="header-end">
                 <nav class="header-tab">
                     <!-- 注意页面方向排序是反过来的 -->
-
+                    <a href="###">救援组织</a>
+                    <a href="###" class="active">行政机关</a>
+                    <a href="###">医疗机构</a>
+                    <a href="###">消防救援</a>
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -96,7 +99,7 @@
                             地图管理
                         </div>
                     </li>
-                    <li class="list-link">
+                    <li class="list-link active ">
                         <div class="list-start">
                             <i class="ran-icon164"></i>
                         </div>
@@ -186,7 +189,7 @@
                 </ul>
                 <ul class="list sidebar-second-list">
                     <li class="list-title">数据字典</li>
-                    <li class="list-link active">
+                    <li class="list-link ">
                         <div class="list-start">
                             <i class="ran-icon180"></i>
                         </div>
@@ -217,15 +220,93 @@
         <main class="main">
             <div class="main-header">
                 <ol class="breadcrumbs">
-                    <li>人口类型字典</li>
+                    <li>消防救援（137）</li>
                 </ol>
-                <button class="btn btn-md btn-primary waves-effect"><i class="ran-icon55"></i>新建</button>
+
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
 
-                    <div class="case-body">
+                    <div class="case-body has-sidebar">
+                        <div class="case-sidebar">
+                            <div class="case-sidebar-scroll">
+                                <form action="" class="form-group case-sidebar-main">
+                                    <fieldset>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">搜索</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <input type="search" placeholder="机构名/电话"
+                                                    class="input input-md input-solid">
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">等级</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="select_value select-solid menu-select"
+                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
+                                                </div>
+                                                <!-- 超级管理员账号不能更改 -->
+                                                <div class="menu" id="menu-search">
+                                                    <ul class="menu-list">
+                                                        <li class="menu-item">
+                                                            全部
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            三级
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            二级
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            一级
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="form-item-header">
+                                                <h3 class="form-item_label">地图绑定</h3>
+                                            </div>
+                                            <div class="form-item_box">
+                                                <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
+                                                    <label for="radio1" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio1">
+                                                        全部
+                                                    </label>
+                                                    <label for="radio1" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio1">
+                                                        已绑定
+                                                    </label>
+                                                    <label for="radio2" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio2">
+                                                        未绑定
+                                                    </label>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    
+
+
+
+                                    </fieldset>
+                                </form>
+                                <div class="case-sidebar-bottom">
+                                    <!-- 默认隐藏，当用户编辑了用户字段后出现，点击还原恢复原字段且隐藏此部分 -->
+                                    <button class="btn btn-md btn-outlined btn-primary">清空</button>
+                                    <button class="btn btn-md btn-primary"><i class="ran-icon137"></i>筛选</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="case-main">
                             <!-- <div class="case-header">
                                 <nav class="tabs line-tabs">
@@ -239,24 +320,27 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>类型</th>
-                                            <th>描述</th>
-                                            <th>创建人</th>
-                                            <th>创建时间</th>
-
+                                            <th>名称</th>
+                                            <th>电话</th>
+                                            <th>联系人</th>
+                                            <th>地址</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td><a href="###">常住人口</a></td>
+                                            <td><a href="###">
+                                                惠州市惠阳区应急管理局</a></td>
+                                            <td>123456789</td>
                                             <td>-</td>
-                                            <td>Admin</td>
-                                            <td>2022/07/21 13:34</td>
+                                            <td>惠州市惠阳区经济开发区三和街道铁门扇村人防路</td>
                                             <td><a href="###"
-                                                    onclick="dialogShow(document.querySelector('#dialog'));">编辑</a></td>
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
                                         </tr>
+                                    
+
                                     </tbody>
                                 </table>
                                 <div class="case-main-section-footer">
@@ -285,52 +369,88 @@
             </div>
 
         </main>
-
-    </div>
-    <div class="backdrop" id="dialog">
-        <div class="dialog">
-            <div class="dialog_header">
-                <h3 class="dialog_title">
-                    编辑
-                </h3>
-
-                <button class="btn btn-md btn-icon waves-effect"
-                    onclick="dialogHide(document.getElementById('dialog'))"><i class="ran-icon81"></i></button>
+        <div class="wing-panel" style="width: 72rem;">
+            <div class="wing-panel-close">
+                <button class="btn btn-md btn-text waves-effect"
+                    onclick="document.querySelector('.wing-panel').classList.remove('show')"><i
+                        class="ran-icon81"></i></button>
             </div>
-            <div class="dialog_body">
-                <form action="" class="form-group">
-                    <fieldset>
-                        <div class="form-item">
-                            <div class="form-item-header">
-                                <h3 class="form-item_label">类型</h3>
-                            </div>
-                            <div class="form-item_box">
-                                <input type="text" placeholder="图例名称" class="input input-md input-solid">
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <div class="form-item-header">
-                                <h3 class="form-item_label">描述</h3>
-                            </div>
-                            <div class="form-item_box">
-                                <textarea name="" class="input-solid"></textarea>
-                            </div>
-                        </div>
-
-
-                    </fieldset>
-                </form>
-
-            </div>
-            <div class="dialog_footer">
-                <div class="dialog_start"></div>
-                <div class="dialog_end">
-                    <button class="btn btn-md btn-primary btn-text waves-effect" id="dialog_demo"
-                        onclick="dialogHide(document.getElementById('dialog'))">取消</button>
-                    <button class="btn btn-md btn-primary waves-effect"
-                        onclick="dialogHide(document.getElementById('dialog'))">完成</button>
+            <div class="wing-panel-header">
+                <div class="start">
+                    <h3 class="wing-panel-title">机构详情</h3>
                 </div>
             </div>
+            <div class="wing-panel-main">
+                <div class="wing-panel-row">
+                    <dl class="data-list" style="--col:2">
+                        <dt>名称：</dt>
+                        <dd>
+                            惠州市惠阳区应急管理局
+                        </dd>
+                        <dt>联系电话：</dt>
+                        <dd>0752-3800120</dd>
+                        <dt>联系人：</dt>
+                        <dd>王建宇</dd>
+                        <dt>联系人电话：</dt>
+                        <dd>19123456789</dd>
+                        <dt>地址：</dt>
+                        <dd class="colspan"><a href="###">惠州市惠阳区经济开发区三和街道铁门扇村人防路</a></dd>
+                        <!-- 如果地址绑定了楼栋房屋，点击进入楼栋房屋详情页面 -->
+                        <dt>备注：</dt>
+                        <dd class="colspan"><a href="###">-</a></dd>
+                    </dl>
+                    <ul class="media-matrix media-matrix-sm">
+
+                        <li class="media-item">
+                            <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
+                        </li>
+                        <li class="media-item">
+                            <img src="dest/images/webp/img3.webp" loading="lazy" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="wing-panel-row">
+                    <nav class="tabs line-tabs">
+                        <a href="javascript:;" class="active">通信录(3)</a>
+                    </nav>
+                    <table class="table record-table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>手机</th>
+                                <th>职位</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="###">王小锤</a></td>
+                                <td>13512345678</td>
+                                <td>书记</td>
+                                <td>党员</td>
+                            </tr>
+                            <tr>
+                                <td><a href="###">王小锤</a></td>
+                                <td>13512345678</td>
+                                <td>副书记</td>
+                                <td>党员</td>
+                            </tr>
+                            <tr>
+                                <td><a href="###">王小锤</a></td>
+                                <td>13512345678</td>
+                                <td>股长</td>
+                                <td>党员</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                </div>
+
+            </div>
+
         </div>
     </div>
 </body>

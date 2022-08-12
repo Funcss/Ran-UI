@@ -11,6 +11,7 @@
     <meta name="author" content="EvanRan">
     <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/fonts.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/_widget.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="dest/css/_widget-dialog.css" media="screen" charset="utf-8">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script type="text/javascript" src="dest/js/echart-dark.js"></script>
@@ -20,24 +21,31 @@
     <title>数字大屏展示系统</title>
 </head>
 
-<body class="dark" style="height: 100%;">
+<body class="dark" style="height: 100%; background-image: url(dest/images/bg.png);">
     <br>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack1'))"><i
-            class="ran-icon110"></i>投资概览</button>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack2'))"><i
-            class="ran-icon110"></i>项目列表</button>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack3'))"><i
-            class="ran-icon110"></i>重点企业</button>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog1'))"><i
-            class="ran-icon110"></i>产业矩阵</button>
-    <br>
-    <br>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog2'))"><i
-            class="ran-icon110"></i>一网统管-全区概览</button>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialogStack4'))"><i
-            class="ran-icon110"></i>一网统管-镇街定位</button>
-    <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog3'))"><i
-            class="ran-icon110"></i>一网统管-视频弹出层</button>
+    <div style="text-align: right;">
+        <button class="btn btn-md btn-primary btn-outlined"
+            onclick="dialogShow(document.getElementById('dialogStack1'))"><i class="ran-icon110"></i>投资概览</button>
+        <button class="btn btn-md btn-primary btn-outlined"
+            onclick="dialogShow(document.getElementById('dialogStack2'))"><i class="ran-icon110"></i>项目列表</button>
+        <button class="btn btn-md btn-primary btn-outlined"
+            onclick="dialogShow(document.getElementById('dialogStack3'))"><i class="ran-icon110"></i>重点企业</button>
+        <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog1'))"><i
+                class="ran-icon110"></i>产业矩阵</button>
+        <br>
+        <br>
+        <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog2'))"><i
+                class="ran-icon110"></i>一网统管-全区概览</button>
+        <button class="btn btn-md btn-primary btn-outlined"
+            onclick="dialogShow(document.getElementById('dialogStack4'))"><i class="ran-icon110"></i>一网统管-镇街定位</button>
+        <button class="btn btn-md btn-primary btn-outlined" onclick="dialogShow(document.getElementById('dialog3'))"><i
+                class="ran-icon110"></i>一网统管-视频弹出层</button>
+        <br>
+        <br>
+        <button class="btn btn-md btn-primary btn-outlined"
+            onclick="document.querySelector('.widget-set').classList.add('show')"><i
+                class="ran-icon110"></i>小组件设置</button>
+    </div>
     <!-- 弹出层demo开始 -->
     <div class="backdrop max-dialog" id="dialogStack1">
         <div class="dialog" id="dialogStack1-item1">
@@ -2267,7 +2275,7 @@
                 <a href="###" onclick="dialogHide(document.getElementById('dialog2'))"
                     class="dialog_close btn btn-md btn-icon"><i class="ran-icon35"></i></a>
             </div>
-            <div class="dialog_body"  id="tab-container3">
+            <div class="dialog_body" id="tab-container3">
                 <div class="tab-content show">
                     <ul class="statistic">
                         <li>
@@ -2582,6 +2590,70 @@
 
     </div>
 
+    <!-- 小组件 -->
+    <div class="widget-set">
+        <nav class="widget-set-nav">
+            <a href="###" class="active">综治</a>
+            <a href="###">应急</a>
+            <a href="###">产业</a>
+        </nav>
+        <div class="widget-set-header">
+            <a href="javascript:;" class="btn btn-md btn-outlined btn-primary"
+                onclick="document.querySelector('.widget-set').classList.remove('show')">关闭</a>
+            <a href="javascript:;" class="btn btn-md btn-primary"
+            onclick="document.querySelector('.widget-set').classList.remove('show')">完成</a>
+        </div>
+        <div class="widget-set-main">
+            <ul class="widget-demo-list">
+                <li>
+                    <div class="widget sm">
+                        <div class="widget-header">
+                            <h3 class="widget-title link-title">雷达图<a href="javascript:;" class="link-btn"><i
+                                        class="ran-icon64"></i></a></h3>
+                        </div>
+                        <div class="widget-body">
+                            <div class="fillBox" id="Radar-chart"></div>
+                        </div>
+                    </div>
+                    <div class="end">
+                        <input type="checkbox" class="switch mui">
+                    </div>
+                </li>
+                <li>
+                    <div class="widget md">
+                        <div class="widget-header">
+                            <h3 class="widget-title link-title">项目状态<a href="javascript:;" class="link-btn"><i
+                                        class="ran-icon64"></i></a></h3>
+
+                        </div>
+                        <div class="widget-body">
+                            <div id="bar-chart">chart</div>
+                        </div>
+                    </div>
+                    <div class="end">
+                        <input type="checkbox" class="switch mui">
+                    </div>
+                </li>
+                <li>
+                    <div class="widget lg">
+                        <div class="widget-header">
+                            <h3 class="widget-title link-title">产业布局<a href="javascript:;" class="link-btn"
+                                    onclick="dialogShow(document.getElementById('dialog1'))"><i
+                                        class="ran-icon64"></i></a>
+                            </h3>
+
+                        </div>
+                        <div class="widget-body">
+                            <div class="fillBox" id="treemap-chart"></div>
+                        </div>
+                    </div>
+                    <div class="end">
+                        即将上线
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 <script src="dest/js/scripts.min.js"></script>

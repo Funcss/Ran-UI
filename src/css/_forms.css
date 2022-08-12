@@ -158,7 +158,7 @@ input[type=checkbox] {
         background: var(--paper);
         background-clip: content-box;
         transition: all ease 0.2s;
-
+        backdrop-filter: saturate(180%) blur(20px);
         &:after {
             content: "";
             position: absolute;
@@ -361,8 +361,12 @@ input[type=range] {
     gap: 2.4rem;
     fieldset{
         border: none;
-        display: grid;
-        gap: 1.6rem;
+    }
+}
+.form-item{
+    margin-bottom: 1.6rem;
+    &:last-child{
+        margin-bottom: 0;
     }
 }
 .form-item_box {

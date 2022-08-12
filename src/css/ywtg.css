@@ -66,13 +66,17 @@ body {
             }
 
         }
-
-        
-
+        .case-sidebar-bottom,.main-footer {
+            background-image: linear-gradient(0deg, var(--paper), color-mod(#222e3c a(0.4)));
+        }
+        .active .list-start i{color: #fff;} 
+        .wing-panel-header,.wing-panel-main,.wing-panel-close{
+            background-color: #27374c;
+        }
         .scroll-list .list-title,
         .case-sidebar-top,
         .main-header,.table-slicky_row {
-            background-image: linear-gradient(180deg, var(--paper), color-mod(#151e29 a(0.72)));
+            background-image: linear-gradient(180deg, var(--paper), color-mod(#222e3c a(0.4)));
         }
         .body-dark{
             display: none;
@@ -89,7 +93,10 @@ body {
     display: none;
 }
 .header-btn{
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.8rem;
+    align-items: center;
 }
 
 .container {
@@ -224,8 +231,6 @@ body {
     z-index: 2;
     display: grid;
     grid-template-columns:4.8rem 1fr;
-    background-color: var(--paper);
-    box-shadow: 0 0 1px 0 rgb(0 0 0 / 16%), 0 2px 4px 0 rgb(0 0 0 / 4%);
     min-height: 0;
     .tabs {
         margin: 0.8rem 2.4rem;
@@ -294,6 +299,8 @@ body {
 .sidebar-second{
     padding: 1.2rem 1.6rem;
     overflow: auto;
+    background-color: var(--paper);
+    box-shadow: 0 0 1px 0 rgb(0 0 0 / 16%), 0 2px 4px 0 rgb(0 0 0 / 4%);
 }
 .sidebar-second-list{
     margin-bottom: 1.6rem;
@@ -399,7 +406,7 @@ body {
 .case-body {
     min-height: 16rem;
     padding: 0;
-
+    display: grid;
     &.has-sidebar {
         display: grid;
         grid-template-columns: auto 1fr;

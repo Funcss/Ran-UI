@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'huiyang';
+  src:
+    url('fonts/huiyang.ttf?t3el7b') format('truetype'),
+    url('fonts/huiyang.woff?t3el7b') format('woff'),
+    url('fonts/huiyang.svg?t3el7b#huiyang') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="huiyang-"], [class*=" huiyang-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'huiyang' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.huiyang-danshui:before {
+  content: "\e900";
+}
+.huiyang-liangjin:before {
+  content: "\e901";
+}
+.huiyang-pingtan:before {
+  content: "\e902";
+}
+.huiyang-qiuchang:before {
+  content: "\e903";
+}
+.huiyang-sanhe:before {
+  content: "\e904";
+}
+.huiyang-shatian:before {
+  content: "\e905";
+}
+.huiyang-xinxu:before {
+  content: "\e906";
+}
+.huiyang-yonghu:before {
+  content: "\e907";
+}
+.huiyang-zhenglong:before {
+  content: "\e908";
+}

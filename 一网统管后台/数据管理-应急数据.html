@@ -27,11 +27,10 @@
             <div class="header-end">
                 <nav class="header-tab">
                     <!-- 注意页面方向排序是反过来的 -->
-               
-                    <a href="###">网格数据</a>
-                    <a href="###">场所数据</a>
-                    <a href="###" class="active">楼栋房屋</a>
-                    <a href="###">人口数据</a>
+                    <a href="###">救援组织</a>
+                    <a href="###">行政机关</a>
+                    <a href="###">医疗机构</a>
+                    <a href="###" class="active">消防救援</a>
                 </nav>
                 <div class="header-btn">
                     <button class="btn btn-md btn-primary btn-text" id="fullScreen">
@@ -100,7 +99,7 @@
                             地图管理
                         </div>
                     </li>
-                    <li class="list-link">
+                    <li class="list-link active ">
                         <div class="list-start">
                             <i class="ran-icon164"></i>
                         </div>
@@ -112,7 +111,7 @@
                 <ul class="list sidebar-second-list">
 
                     <li class="list-title">镇街数据</li>
-                    <li class="list-link active">
+                    <li class="list-link ">
                         <div class="list-start">
                             <i class="huiyang-danshui"></i>
                         </div>
@@ -221,10 +220,9 @@
         <main class="main">
             <div class="main-header">
                 <ol class="breadcrumbs">
-                    <li>淡水街道</li>
-                    <li>楼栋房屋（137）</li>
+                    <li>消防救援（137）</li>
                 </ol>
-        
+
             </div>
             <div class="main-grid grid">
                 <section class="grid-item grid-span12 case">
@@ -239,7 +237,7 @@
                                                 <h3 class="form-item_label">搜索</h3>
                                             </div>
                                             <div class="form-item_box">
-                                                <input type="search" placeholder="楼栋名称/楼栋长"
+                                                <input type="search" placeholder="机构名/电话"
                                                     class="input input-md input-solid">
                                             </div>
                                         </div>
@@ -251,98 +249,22 @@
                                                 <div class="select_value select-solid menu-select"
                                                     onclick="menu(this,document.getElementById('menu-search'))">全部
                                                 </div>
-                        
+                                                <!-- 超级管理员账号不能更改 -->
                                                 <div class="menu" id="menu-search">
                                                     <ul class="menu-list">
                                                         <li class="menu-item">
-                                                            全部（12839）
+                                                            全部
                                                         </li>
                                                         <li class="menu-item">
-                                                            经营性自建房（123）
+                                                            公安消防队伍
                                                         </li>
                                                         <li class="menu-item">
-                                                            自建房（123）
+                                                            专职消防队伍
                                                         </li>
                                                         <li class="menu-item">
-                                                            单元房（123）
+                                                            企事业单位专职消防队伍
                                                         </li>
                                                     </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">辖区网格</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <div class="select_value select-solid menu-select"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
-                                                </div>
-                        
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item">
-                                                            全部（128）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            1
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            2
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            3
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">建筑用途</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <div class="select_value select-solid menu-select"
-                                                    onclick="menu(this,document.getElementById('menu-search'))">全部
-                                                </div>
-                        
-                                                <div class="menu" id="menu-search">
-                                                    <ul class="menu-list">
-                                                        <li class="menu-item">
-                                                            全部（128）
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            住宅
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            办公
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            商业
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">安全隐患</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
-                                                    <label for="radio1" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio1">
-                                                        全部
-                                                    </label>
-                                                    <label for="radio2" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio2">
-                                                        是
-                                                    </label>
-                                                    <label for="radio3" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio3">
-                                                        否
-                                                    </label>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -353,32 +275,26 @@
                                             <div class="form-item_box">
                                                 <div class="radio-inline" style="grid-template-columns: repeat(3,1fr);">
                                                     <label for="radio1" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio1">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio1">
                                                         全部
                                                     </label>
-                                                    <label for="radio2" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio2">
-                                                        是
+                                                    <label for="radio1" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio1">
+                                                        已绑定
                                                     </label>
-                                                    <label for="radio3" class="radio-label">
-                                                        <input type="radio" class="radio" name="radio-demo1" id="radio3">
-                                                        否
+                                                    <label for="radio2" class="radio-label">
+                                                        <input type="radio" class="radio" name="radio-demo1"
+                                                            id="radio2">
+                                                        未绑定
                                                     </label>
 
                                                 </div>
                                             </div>
                                         </div>
-                                     
-                                        <div class="form-item">
-                                            <div class="form-item-header">
-                                                <h3 class="form-item_label">楼层范围</h3>
-                                            </div>
-                                            <div class="form-item_box">
-                                                <input type="number" min="1" placeholder="最小层数"
-                                                    class="input input-md input-solid">
-                                                <input type="number" min="1" placeholder="最大层数" class="input input-md input-solid">
-                                            </div>
-                                        </div>
+                                    
+                                    
 
 
 
@@ -404,13 +320,12 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>楼栋名称</th>
+                                            <th>名称</th>
                                             <th>类型</th>
-                                            <th>网格辖区</th>
-                                            <th>楼栋长</th>
-                                            <th>占地面积</th>
-                                            <th>楼层</th>
-                                            <th>户数</th>
+                                            <th>所属单位</th>
+                                            <th>电话</th>
+                                            <th>队伍</th>
+                                            <th>负责人</th>
                                             <th>地图绑定</th>
                                             <th>操作</th>
                                         </tr>
@@ -418,49 +333,59 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td><a href="###">淡水坝尾街152-2号</a></td>
-                                            <td>经营性自建房</td>
-                                            <td>洋纳-网格3</td>
-                                            <td>邓倚林</td>
-                                            <td>54.04㎡</td>
-                                            <td>4</td>
-                                            <td>3</td>
+                                            <td><a href="###">
+                                                    惠州市消防支队惠阳区大队一中队</a></td>
+                                            <td>政府专职消防队伍</td>
+                                            <td>惠州市惠阳区消防局</td>
+                                            <td>16283902223</td>
+                                            <td>18人</td>
+                                            <td>王建宇（19123456789）</td>
+   
                                             <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><a href="###">淡水坝尾街152-2号</a></td>
-                                            <td>自建房</td>
-                                            <td>洋纳-网格3</td>
-                                            <td>张世红</td>
-                                            <td>54.04㎡</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td><span class="tag-text text-warning"><i class="ran-icon26"></i>未绑定</span>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
-                                            <td><a href="###">淡水坝尾街152-2号</a></td>
-                                            <td>自建房</td>
-                                            <td>洋纳-网格3</td>
-                                            <td>邓倚林</td>
-                                            <td>54.04㎡</td>
-                                            <td>4</td>
-                                            <td>3</td>
+                                            <td>1</td>
+                                            <td><a href="###">
+                                                惠阳区公安消防大队三和执勤分队</a></td>
+                                            <td>政府专职消防队伍</td>
+                                            <td>惠州市惠阳区消防局</td>
+                                            <td>16283902223</td>
+                                            <td>18人</td>
+                                            <td>王建宇（19123456789）</td>
+
                                             <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
                                             </td>
-                                            <td><a href="###" onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a></td>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="###">
+                                                惠州市消防支队惠阳区大队一中队</a></td>
+                                            <td>政府专职消防队伍</td>
+                                            <td>惠州市惠阳区消防局</td>
+                                            <td>16283902223</td>
+                                            <td>18人</td>
+                                            <td>王建宇（19123456789）</td>
+                       
+                                            <td><span class="tag-text text-success"><i class="ran-icon3"></i>已绑定</span>
+                                            </td>
+                                            <td><a href="###"
+                                                    onclick="document.querySelector('.wing-panel').classList.add('show')">详情</a>
+                                            </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                                 <div class="case-main-section-footer">
                                     <div class="start">
-                                        <button class="btn btn-md btn-text waves-effect"><i class="ran-icon27"></i>导出Excel</button>
+                                        <button class="btn btn-md btn-text waves-effect"><i
+                                                class="ran-icon27"></i>导出Excel</button>
                                     </div>
                                     <div class="end">
                                         <div class="pagination">
@@ -481,47 +406,43 @@
                     </div>
                 </section>
             </div>
-            
+
         </main>
         <div class="wing-panel" style="width: 72rem;">
             <div class="wing-panel-close">
-                <button class="btn btn-md btn-text waves-effect" onclick="document.querySelector('.wing-panel').classList.remove('show')"><i class="ran-icon81"></i></button>
+                <button class="btn btn-md btn-text waves-effect"
+                    onclick="document.querySelector('.wing-panel').classList.remove('show')"><i
+                        class="ran-icon81"></i></button>
             </div>
             <div class="wing-panel-header">
                 <div class="start">
-                    <button class="btn btn-md btn-primary btn-text back-btn"><i class="ran-icon40"></i>返回</button>
-                    <!-- 点击其他家庭成员、居住地址房屋详情才出现返回按钮 -->
-                    <h3 class="wing-panel-title">152-2号详情</h3>
+                    <h3 class="wing-panel-title">机构详情</h3>
                 </div>
             </div>
             <div class="wing-panel-main">
-               
                 <div class="wing-panel-row">
                     <dl class="data-list" style="--col:2">
-                        <dt>户号：</dt>
+                        <dt>名称：</dt>
                         <dd>
-                           152-2号
+                            惠州市消防支队惠阳区大队一中队
                         </dd>
-                        <dt>楼栋：</dt>
-                        <dd>淡水坝尾街</dd>
-                        <dt>类型：</dt>
-                        <dd>自住</dd>
-                        <dt>常住人数：</dt>
-                        <dd>3</dd>
-                        <dt>户主：</dt>
-                        <dd>邓倚林（13539030001）</dd>
-                        <dt>证件类型：</dt>
-                        <dd>一类：两证齐全</dd>
-                        <dt>创建者：</dt>
-                        <dd>南四书记-刘勇波</dd>
-                        <dt>创建时间：</dt>
-                        <dd>2022-07-25 16:25:45</dd>
+                        <dt>类别：</dt>
+                        <dd>政府专职消防队伍</dd>
+                        <dt>专业方向：</dt>
+                        <dd>灭火救援</dd>
+                        <dt>队伍规模：</dt>
+                        <dd>18名</dd>
+                        <dt>联系电话：</dt>
+                        <dd>16392884990</dd>
+                        <dt>负责人：</dt>
+                        <dd>王建宇（19123456789）</dd>
+                        <dt>所属单位：</dt>
+                        <dd class="colspan">惠州市惠阳区消防局</dd>
                         <dt>地址：</dt>
-                        <dd class="colspan"><a href="###">惠州市惠阳区淡水街道星河丹堤c12-2202</a></dd>
-                        <dt>安全隐患：</dt>
-                        <dd class="colspan">-</dd>
+                        <dd class="colspan"><a href="###">惠州市惠阳区泗水路26号</a></dd>
+                        <!-- 如果地址绑定了楼栋房屋，点击进入楼栋房屋详情页面 -->
                         <dt>备注：</dt>
-                        <dd class="colspan">-</dd>
+                        <dd class="colspan"><a href="###">-</a></dd>
                     </dl>
                     <ul class="media-matrix media-matrix-sm">
 
@@ -538,105 +459,62 @@
                 </div>
                 <div class="wing-panel-row">
                     <nav class="tabs line-tabs">
-                        <a href="javascript:;" class="active">居民(7)</a>
-                        <a href="javascript:;">走访记录(2)</a>
-                        <a href="javascript:;">事件记录(0)</a>
+                        <a href="javascript:;" class="active">队伍成员(3)</a>
+                        <a href="javascript:;">装备物资(2)</a>
                     </nav>
-                 
                     <table class="table record-table">
                         <thead>
                             <tr>
                                 <th>姓名</th>
-                                <th>性别</th>
-                                <th>年龄</th>
-                                <th>住户</th>
-                                <th>类型</th>
-                                <th>操作</th>
+                                <th>手机</th>
+                                <th>职位</th>
+                                <th>备注</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><a href="###">王小锤</a></td>
-                                <td>男</td>
-                                <td>15</td>
-                                <td>101</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
+                                <td>13512345678</td>
+                                <td>班长</td>
+                                <td>党员</td>
                             </tr>
                             <tr>
-                                <td><a href="###">李梅梅</a></td>
-                                <td>女</td>
-                                <td>35</td>
-                                <td>102</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
+                                <td><a href="###">王小锤</a></td>
+                                <td>13512345678</td>
+                                <td>班长</td>
+                                <td>党员</td>
                             </tr>
                             <tr>
-                                <td><a href="###">王嘉丽</a></td>
-                                <td>女</td>
-                                <td>18</td>
-                                <td>201</td>
-                                <td>常住人口</td>
-                                <td><a href="###">查看</a></td>
+                                <td><a href="###">王小锤</a></td>
+                                <td>13512345678</td>
+                                <td>班长</td>
+                                <td>党员</td>
                             </tr>
                         </tbody>
                     </table>
-                    
-                    <ul class="recordList">
-                        <li class="recordList-item">
-                            <div class="record-name">消防检查</div>
-                            <div class="record-hint">
-                                <time class="record-time"><span class="tag-text">上报人：王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
-
-                            </div>
-                            <div class="rateList-info">
-                                <p>对该场所进行检查，已配置灭火器，应急灯，未配置烟感器、已提醒负责人继续落实好消防安全工作。
-                                </p>
-                                <ul class="media-matrix media-matrix-xs">
-                                    <li class="media-item">
-                                        <img src="dest/images/webp/img1.webp" loading="lazy" alt="">
-                                    </li>
-                                    <li class="media-item">
-                                        <img src="dest/images/webp/img2.webp" loading="lazy" alt="">
-                                    </li>
-                                    <li class="media-item">
-                                        <img src="dest/images/webp/img6.webp" loading="lazy" alt="">
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="recordList-item">
-                            <div class="record-name">疫情防控检查</div>
-                            <div class="record-hint">
-                                <time class="record-time"><span class="tag-text">上报人：王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
-                            </div>
-                        </li>
-                        <li class="recordList-item">
-                            <div class="record-name">人员统计</div>
-                            <div class="record-hint">
-                                <time class="record-time"><span class="tag-text">上报人：王若冰</span><span class="tag-text">2022.5.29 13:27:54</span></time>
-                            </div>
-                        </li>
-                    </ul>
                     <table class="table record-table">
                         <thead>
                             <tr>
-                                <th>事件标题</th>
-                                <th>时间</th>
-                                <th>上报人</th>
+                                <th>物资</th>
+                                <th>数量</th>
                                 <th>类型</th>
-                                <th>状态</th>
-                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="###">消防警报</a></td>
-                                <td>2022.5.29 13:27:54</td>
-                                <td>王大锤</td>
-                                <td>消防安全</td>
-                                <td><span class="tag tag-success">已结办</span></td>
-                                <td><a href="###">查看</a></td>
+                                <td>手提式干粉灭火器</td>
+                                <td>12</td>
+                                <td>消防</td>
+                            </tr>
+                            <tr>
+                                <td>消防栓</td>
+                                <td>8</td>
+                                <td>消防</td>
+                            </tr>
+                            <tr>
+                                <td>水罐消防车</td>
+                                <td>2</td>
+                                <td>消防</td>
                             </tr>
                         
                         </tbody>
@@ -644,7 +522,7 @@
                 </div>
 
             </div>
-            
+
         </div>
     </div>
 </body>

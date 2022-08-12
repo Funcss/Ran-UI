@@ -573,7 +573,7 @@ a.tag {
 .list-end {
     display: inline-flex;
     flex: none;
-    margin-left: 0.8rem;
+    margin-left: auto;
     align-items: center;
     &.top {
         align-self: flex-start;

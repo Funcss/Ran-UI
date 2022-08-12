@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'ranIcon';
   src:
-    url('fonts/ranIcon.ttf?4x6h3r') format('truetype'),
-    url('fonts/ranIcon.woff?4x6h3r') format('woff'),
-    url('fonts/ranIcon.svg?4x6h3r#ranIcon') format('svg');
+    url('fonts/ranIcon.ttf?bgbimq') format('truetype'),
+    url('fonts/ranIcon.woff?bgbimq') format('woff'),
+    url('fonts/ranIcon.svg?bgbimq#ranIcon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,6 +24,183 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ran-icon190:before {
+  content: "\e9bd";
+}
+.ran-icon178:before {
+  content: "\e9b1";
+}
+.ran-icon179:before {
+  content: "\e9b2";
+}
+.ran-icon180:before {
+  content: "\e9b3";
+}
+.ran-icon181:before {
+  content: "\e9b4";
+}
+.ran-icon182:before {
+  content: "\e9b5";
+}
+.ran-icon183:before {
+  content: "\e9b6";
+}
+.ran-icon184:before {
+  content: "\e9b7";
+}
+.ran-icon185:before {
+  content: "\e9b8";
+}
+.ran-icon186:before {
+  content: "\e9b9";
+}
+.ran-icon187:before {
+  content: "\e9ba";
+}
+.ran-icon188:before {
+  content: "\e9bb";
+}
+.ran-icon189:before {
+  content: "\e9bc";
+}
+.ran-icon177:before {
+  content: "\e960";
+}
+.ran-icon176:before {
+  content: "\e99f";
+}
+.ran-icon175:before {
+  content: "\e9a0";
+}
+.ran-icon174:before {
+  content: "\e9a1";
+}
+.ran-icon173:before {
+  content: "\e9a2";
+}
+.ran-icon172:before {
+  content: "\e9a3";
+}
+.ran-icon171:before {
+  content: "\e9a4";
+}
+.ran-icon170:before {
+  content: "\e9a5";
+}
+.ran-icon169:before {
+  content: "\e9a6";
+}
+.ran-icon168:before {
+  content: "\e9a7";
+}
+.ran-icon167:before {
+  content: "\e9a8";
+}
+.ran-icon166:before {
+  content: "\e9a9";
+}
+.ran-icon165:before {
+  content: "\e9aa";
+}
+.ran-icon164:before {
+  content: "\e9ab";
+}
+.ran-icon163:before {
+  content: "\e9ac";
+}
+.ran-icon162:before {
+  content: "\e9ad";
+}
+.ran-icon161:before {
+  content: "\e9ae";
+}
+.ran-icon160:before {
+  content: "\e9af";
+}
+.ran-icon159:before {
+  content: "\e9b0";
+}
+.ran-icon158:before {
+  content: "\e98d";
+}
+.ran-icon157:before {
+  content: "\e98e";
+}
+.ran-icon156:before {
+  content: "\e98f";
+}
+.ran-icon155:before {
+  content: "\e990";
+}
+.ran-icon154:before {
+  content: "\e991";
+}
+.ran-icon153:before {
+  content: "\e992";
+}
+.ran-icon152:before {
+  content: "\e993";
+}
+.ran-icon151:before {
+  content: "\e994";
+}
+.ran-icon150:before {
+  content: "\e995";
+}
+.ran-icon149:before {
+  content: "\e996";
+}
+.ran-icon148:before {
+  content: "\e997";
+}
+.ran-icon147:before {
+  content: "\e998";
+}
+.ran-icon146:before {
+  content: "\e999";
+}
+.ran-icon145:before {
+  content: "\e99a";
+}
+.ran-icon144:before {
+  content: "\e99b";
+}
+.ran-icon143:before {
+  content: "\e99c";
+}
+.ran-icon142:before {
+  content: "\e99d";
+}
+.ran-icon141:before {
+  content: "\e99e";
+}
+.ran-icon140:before {
+  content: "\e98b";
+}
+.ran-icon139:before {
+  content: "\e98c";
+}
+.ran-icon138:before {
+  content: "\e985";
+}
+.ran-icon137:before {
+  content: "\e986";
+}
+.ran-icon136:before {
+  content: "\e987";
+}
+.ran-icon135:before {
+  content: "\e988";
+}
+.ran-icon134:before {
+  content: "\e989";
+}
+.ran-icon133:before {
+  content: "\e98a";
+}
+.ran-icon132:before {
+  content: "\e984";
+}
 .ran-icon129:before {
   content: "\e97a";
 }
@@ -320,9 +497,6 @@
 }
 .ran-icon96:before {
   content: "\e95f";
-}
-.ran-icon97:before {
-  content: "\e960";
 }
 .ran-icon98:before {
   content: "\e961";
