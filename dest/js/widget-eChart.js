@@ -339,13 +339,19 @@ if (document.getElementById('histogram-box')) {
     var histogram = echarts.init(document.getElementById('histogram-box'), 'dark');
 }
 
+if (document.getElementById('histogram-box1')) {
+    var histogram1 = echarts.init(document.getElementById('histogram-box1'), 'dark');
+}
 
 histogramOption = {
     legend: {
         show: false
     },
     tooltip: {
-        showDelay: '200ms',
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
     },
     grid: {
         left: '0',
@@ -442,7 +448,9 @@ histogramOption = {
 if (histogram) {
     histogram.setOption(histogramOption);
 }
-
+if (histogram1) {
+    histogram1.setOption(histogramOption);
+}
 
 
 /*产业分布*/
@@ -1738,18 +1746,14 @@ if (chuKou) {
 }
 
 
-/*研发投入*/
+/*产业统计*/
 if (document.getElementById('RD-chart')) {
     var RD = echarts.init(document.getElementById('RD-chart'), 'dark');
 }
 var RDoption = {
     title: {
-        text: '企业研发投入',
-        show: true,
-        textStyle: {
-            fontSize: 14,
-            align: 'left',
-        }
+        text: '产业统计',
+        show: false,
     },
     tooltip: {
         trigger: 'axis',
@@ -1758,7 +1762,7 @@ var RDoption = {
         }
     },
     legend: {
-        show: true,
+        show: false,
         orient: 'horizontal',
         itemWidth: 10,
         itemHeight: 10,
@@ -1766,36 +1770,36 @@ var RDoption = {
     },
     grid: {
         left: '0%',
-        right: '0%',
+        right: '0',
         bottom: '0',
-        top: '48px',
+        top: '0',
         containLabel: true
     },
-    yAxis: {
+    xAxis: {
         //show: false,
         type: 'value',
         boundaryGap: [0, 0.01]
     },
-    xAxis: {
+    yAxis: {
         type: 'category',
-        data: ['其他相关费用', '无形资产摊销', '折旧费用', '新产品设计费', '人工费用', '直接投入费用',]
+        data: ['新一代信息技术', '高端装备制造', '智能家居', '生物医药', '新材料', '新能源',]
     },
     series: [
         {
-            name: '2021',
+            name: '年总产值',
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: '50%',
 
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
+            data: [182, 232, 290, 104, 131, 630]
         },
         {
-            name: '2020',
+            name: '年总税收',
             type: 'bar',
             barWidth: 12/*柱子宽度*/,
             barGap: '50%',
 
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [191, 234, 310, 121, 134, 681]
         }
     ]
 };
@@ -2925,10 +2929,85 @@ dialogStack4Chart4Option = {
                 global: false, // 缺省为 false
             },
         },
-   
+
     }
 };
 
 if (dialogStack4Chart4) {
     dialogStack4Chart4.setOption(dialogStack4Chart4Option);
 }
+
+
+/*三个一百环形图*/
+//环形图：
+
+
+
+if (document.querySelectorAll('.threeDoughnut-chart')) {
+    var threeDoughnut = document.querySelectorAll('.threeDoughnut-chart');
+}
+
+threeDoughnut.forEach(function (item) {
+    echarts.init(item, 'dark').setOption({
+        series: [{
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            radius: '100%', //圆环大小
+            pointer: {
+                show: false //不显示指针
+            },
+            itemStyle: {
+                color: '#00B0BA',
+
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: true,
+                clip: false,
+
+            },
+            axisLine: {
+                lineStyle: {
+                    width: 7,
+                    color: [
+                        [1, '#fff']
+                    ],
+                    opacity: 0.08, //底环白色
+                }
+            },
+            splitLine: {
+                show: false,
+
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+            },
+            data: [{
+                value: Math.ceil(Math.random() * 100),//0 到 100随机数
+                title: {
+                    show: false,
+                },
+                detail: {
+                    offsetCenter: ['0%', '2'],
+                    color: '#00B0BA',
+                    fontSize: 16,
+                    fontFamily: "din",
+                    formatter: '{value}%'
+                },
+                
+            },],
+
+
+        }]
+
+    })
+})
+
+
+
+

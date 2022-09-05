@@ -353,7 +353,13 @@ input[type=range] {
         cursor: ew-resize;
     }
 }
-
+.range-box{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.8rem;
+    align-items: center;
+    font-size: 1.2rem;
+}
 
 
 .form-group{

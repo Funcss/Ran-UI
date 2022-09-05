@@ -144,3 +144,9 @@ screen and (min-resolution: 2dppx) {
 .text-success{
     color: var(--ui-success);
 }
+.text-rise{
+    color: var(--rise);
+}
+.text-fall{
+    color: var(--fall);
+}

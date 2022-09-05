@@ -36,7 +36,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.ran-icon195:before {
+  content: "\e9be";
+}
+.ran-icon194:before {
+  content: "\e9bf";
+}
+.ran-icon193:before {
+  content: "\e9c0";
+}
+.ran-icon192:before {
+  content: "\e9c1";
+}
+.ran-icon191:before {
+  content: "\e9c2";
+}
 .ran-icon190:before {
   content: "\e9bd";
 }

@@ -48,6 +48,9 @@
     &.scaling{
         animation:btn-shadow 2s ease-out infinite;
     }
+    &.round{
+        border-radius: var(--xlg);
+    }
     
 }
 a.btn{

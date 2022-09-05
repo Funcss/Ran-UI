@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'ranIcon';
   src:
-    url('fonts/ranIcon.ttf?bgbimq') format('truetype'),
-    url('fonts/ranIcon.woff?bgbimq') format('woff'),
-    url('fonts/ranIcon.svg?bgbimq#ranIcon') format('svg');
+    url('fonts/ranIcon.ttf?o4stq8') format('truetype'),
+    url('fonts/ranIcon.woff?o4stq8') format('woff'),
+    url('fonts/ranIcon.svg?o4stq8#ranIcon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,6 +24,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ran-icon195:before {
+  content: "\e9be";
+}
+.ran-icon194:before {
+  content: "\e9bf";
+}
+.ran-icon193:before {
+  content: "\e9c0";
+}
+.ran-icon192:before {
+  content: "\e9c1";
+}
+.ran-icon191:before {
+  content: "\e9c2";
+}
 .ran-icon190:before {
   content: "\e9bd";
 }

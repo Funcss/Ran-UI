@@ -41,6 +41,10 @@
     --heavily:#A649BF;
     --severly:#240000;
 
+    /*涨跌*/
+    --rise: #FF3B30;
+    --fall: #00BA81;
+
     /*size*/
     --sm: 2.4rem;
     --md: 3.2rem;

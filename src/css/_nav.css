@@ -278,7 +278,7 @@
     border-radius: 100%;
     background: var(--base-light);
     color: var(--light);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
 
     &::after {
         content: "\e939";
