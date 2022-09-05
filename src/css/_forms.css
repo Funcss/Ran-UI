@@ -892,7 +892,9 @@ select {
     overflow-anchor: auto;
     /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     transform-style: preserve-3d;
-
+    &::-webkit-scrollbar-thumb {
+        background-color:transparent;
+    }
     &:after {
         content: "";
         display: block;
@@ -940,6 +942,9 @@ select {
 
     /*滚动锚定，滚动内容突然插入其他内容，滚动条位置不会乱跳*/
     /*高度为直径*/
+    &::-webkit-scrollbar-thumb {
+        background-color:transparent;
+    }
     .rollerSelect-box {
         position: relative;
         min-height: 100%;
